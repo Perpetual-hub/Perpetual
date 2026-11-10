@@ -7,7 +7,7 @@ import { getMapPoints } from "@/lib/data";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore renewable energy projects worldwide by technology, status, country, capacity, ownership and financing. Download any view as CSV.",
+    "Explore renewable energy projects worldwide by sector, status, country, capacity, ownership and financing. Download any view as CSV.",
 };
 
 export default function ProjectsPage() {

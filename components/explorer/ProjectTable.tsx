@@ -13,7 +13,7 @@ type Key = "name" | "technology" | "capacityMW" | "status" | "country" | "region
 
 const COLS: { key: Key; label: string; numeric?: boolean }[] = [
   { key: "name", label: "Project" },
-  { key: "technology", label: "Technology" },
+  { key: "technology", label: "Sector" },
   { key: "capacityMW", label: "Capacity (MW)", numeric: true },
   { key: "status", label: "Status" },
   { key: "country", label: "Country" },

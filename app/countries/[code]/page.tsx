@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/countries/[code]"
   if (!p) return {};
   return {
     title: `${p.summary.name}: renewable energy statistics`,
-    description: `${p.summary.projects} renewable projects and ${formatGW(p.summary.totalMW)} GW tracked in ${p.summary.name}, by technology and status, with deals and policy news.`,
+    description: `${p.summary.projects} renewable projects and ${formatGW(p.summary.totalMW)} GW tracked in ${p.summary.name}, by sector and status, with deals and policy news.`,
   };
 }
 

@@ -102,7 +102,7 @@ export function Header({
               onClick={() => setTechOpen((o) => !o)}
               className={`${linkCls} inline-flex items-center gap-1`}
             >
-              Technologies
+              Sectors
               <ChevronDown className={`size-3.5 transition-transform duration-200 ${techOpen ? "rotate-180" : ""}`} aria-hidden />
             </button>
             {techOpen && (
@@ -117,7 +117,7 @@ export function Header({
                       return (
                         <li key={t.id}>
                           <Link
-                            href={`/technologies/${t.id}`}
+                            href={`/sectors/${t.id}`}
                             onClick={() => setTechOpen(false)}
                             className="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-colors duration-150 hover:bg-surface-2"
                           >
@@ -199,14 +199,14 @@ export function Header({
                   <MobileLink key={n.href} {...n} onClick={() => setMobileOpen(false)} />
                 ))}
               </ul>
-              <p className="mt-8 mb-3 text-xs font-semibold text-muted">Technologies</p>
+              <p className="mt-8 mb-3 text-xs font-semibold text-muted">Sectors</p>
               <ul className="grid grid-cols-2 gap-2">
                 {TECHNOLOGIES.map((t) => {
                   const Icon = t.icon;
                   return (
                     <li key={t.id}>
                       <Link
-                        href={`/technologies/${t.id}`}
+                        href={`/sectors/${t.id}`}
                         onClick={() => setMobileOpen(false)}
                         className="flex items-center gap-2.5 rounded-lg border border-line px-3 py-3 text-sm font-medium"
                       >

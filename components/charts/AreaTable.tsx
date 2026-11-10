@@ -24,7 +24,7 @@ export function AreaTable({
           <thead>
             <tr className="border-b border-line text-left text-xs text-muted">
               <th scope="col" className="px-5 py-3 font-medium">{nameHeader}</th>
-              <th scope="col" className="w-[38%] px-5 py-3 font-medium">Capacity by technology</th>
+              <th scope="col" className="w-[38%] px-5 py-3 font-medium">Capacity by sector</th>
               <th scope="col" className="px-5 py-3 text-right font-medium">Projects</th>
               <th scope="col" className="px-5 py-3 text-right font-medium">Operating GW</th>
               <th scope="col" className="px-5 py-3 text-right font-medium">Pipeline GW</th>

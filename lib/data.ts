@@ -429,8 +429,8 @@ export function getSearchIndex(): SearchEntry[] {
     ...S.technology.options.map((t) => ({
       type: "technology" as const,
       title: techLabel(t),
-      subtitle: "Technology overview",
-      href: `/technologies/${t}`,
+      subtitle: "Sector overview",
+      href: `/sectors/${t}`,
       keywords: t,
       tech: t,
     })),

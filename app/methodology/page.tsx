@@ -56,7 +56,7 @@ export default function MethodologyPage() {
           <h2 id="what-we-track">What we track</h2>
           <p>
             Perpetual tracks renewable energy <strong>projects</strong>, the <strong>deals</strong> that fund or change hands over
-            them, and the <strong>news and policy</strong> that shapes them, across eight technologies:
+            them, and the <strong>news and policy</strong> that shapes them, across eight sectors:
           </p>
           <dl>
             {TECHNOLOGIES.map((t) => (
@@ -68,10 +68,10 @@ export default function MethodologyPage() {
           </dl>
           <h3>What counts as a project</h3>
           <p>
-            A project is a single power plant, storage facility or hydrogen plant at one site, with one main technology, built or
+            A project is a single power plant, storage facility or hydrogen plant at one site, in one main sector, built or
             proposed by an identifiable developer. Large schemes built in phases are one project unless the phases have separate
             owners or financing, in which case each phase is its own record. Hybrid sites (for example solar plus storage) are split
-            into one record per technology and linked through their deals.
+            into one record per sector and linked through their deals.
           </p>
           <h3>What counts as a deal</h3>
           <p>
@@ -111,9 +111,33 @@ export default function MethodologyPage() {
 
           <h2 id="sources">Sources</h2>
           <p>
-            Every record lists its sources: publisher, title, link and the date we retrieved it. We prefer primary sources
-            (regulators, grid operators, company filings and announcements, lenders) over secondary reporting. When a fact comes from
-            news coverage, we link to the original article and write our own short summary; we never copy article text.
+            Renewable energy news is spread across hundreds of places: trade press, newswires, regulators, grid operators, company
+            announcements and lenders. Perpetual brings it together so you can follow it in one place, then sends you to the original.
+          </p>
+          <h3>How we present other people&rsquo;s news</h3>
+          <ul>
+            <li>
+              <strong>Headline and our own short summary.</strong> We write a one-to-three sentence summary in our own words. We never
+              copy or republish article text, photos or charts.
+            </li>
+            <li>
+              <strong>Clear credit.</strong> Every item names its publisher and the date, and shows the publisher&rsquo;s name or logo
+              so you can see at a glance where it came from.
+            </li>
+            <li>
+              <strong>A direct link to the original.</strong> &ldquo;Read the original&rdquo; always goes to the publisher&rsquo;s own
+              page, where the full story lives. We don&rsquo;t frame, mirror or bypass paywalls.
+            </li>
+            <li>
+              <strong>Publishers can opt out.</strong> If you publish news and would prefer not to be listed, or want your logo shown
+              differently, <a href="/corrections">contact us</a> and we will act on it.
+            </li>
+          </ul>
+          <h3>How we choose sources for data</h3>
+          <p>
+            Every project and deal lists its sources: publisher, title, link and the date we retrieved it. We prefer primary sources
+            (regulators, grid operators, company filings and announcements, lenders) over secondary reporting. Where we use open
+            datasets, we follow their licence terms and credit them on the records they inform.
           </p>
 
           <h2 id="numbers">How numbers are handled</h2>
@@ -134,7 +158,7 @@ export default function MethodologyPage() {
 
           <h2 id="limitations">Limitations</h2>
           <ul>
-            <li>Coverage is uneven: some countries and technologies publish far more than others.</li>
+            <li>Coverage is uneven: some countries and sectors publish far more than others.</li>
             <li>Many announced projects are never built. Pipeline totals are not forecasts of what will be built.</li>
             <li>Projects are often delayed; estimated dates can slip by years.</li>
             <li>Sources sometimes conflict. We record the most authoritative one and note the disagreement.</li>
@@ -167,7 +191,8 @@ export default function MethodologyPage() {
           <h2 id="legal">Legal note</h2>
           <p>
             Perpetual is provided for information only and is <strong>not investment advice</strong>. Third-party content, including
-            linked articles and reports, belongs to its owners; we link to originals and summarise in our own words. Photos are used
+            linked articles and reports, belongs to its owners; we link to originals and summarise in our own words. Publisher names and
+            logos are trademarks of their owners and are used only to identify the source. Photos are used
             under their stated licences, credited where they appear. Map data © OpenStreetMap contributors, OpenMapTiles,
             OpenFreeMap.
           </p>

@@ -34,11 +34,11 @@ export default function AboutPage() {
           <h2 id="what">What you can do here</h2>
           <ul>
             <li>
-              <Link href="/projects">Explore projects</Link> on a map or in a table, filter by technology, status, country, capacity,
+              <Link href="/projects">Explore projects</Link> on a map or in a table, filter by sector, status, country, capacity,
               ownership or financing, and download any view as CSV.
             </li>
             <li>
-              See <Link href="/statistics">statistics</Link> by region, country and technology, including what is expected to come
+              See <Link href="/statistics">statistics</Link> by region, country and sector, including what is expected to come
               online in coming years.
             </li>
             <li>Follow the deals and policy changes that move the market.</li>

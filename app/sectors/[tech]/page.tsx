@@ -21,18 +21,18 @@ export function generateStaticParams() {
   return TECHNOLOGIES.map((t) => ({ tech: t.id }));
 }
 
-export async function generateMetadata({ params }: PageProps<"/technologies/[tech]">): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<"/sectors/[tech]">): Promise<Metadata> {
   const { tech } = await params;
   if (!isTechnology(tech)) return {};
   const t = TECH_BY_ID[tech];
   const s = getTechProfile(tech).stats;
   return {
-    title: `${t.label} projects, deals and statistics`,
+    title: `${t.label} sector: projects, deals and statistics`,
     description: `${s.projects} ${t.label.toLowerCase()} projects (${formatGW(s.totalMW)} GW) tracked worldwide: capacity by status and region, projects coming online, latest deals and policy news.`,
   };
 }
 
-export default function TechnologyPage({ params }: PageProps<"/technologies/[tech]">) {
+export default function TechnologyPage({ params }: PageProps<"/sectors/[tech]">) {
   // URL params sit behind Suspense so the shared App Shell can prefetch instantly.
   return (
     <Suspense fallback={<DetailSkeleton />}>
@@ -41,7 +41,7 @@ export default function TechnologyPage({ params }: PageProps<"/technologies/[tec
   );
 }
 
-async function TechnologyContent({ params }: { params: PageProps<"/technologies/[tech]">["params"] }) {
+async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech]">["params"] }) {
   const { tech } = await params;
   if (!isTechnology(tech)) notFound();
   const t = TECH_BY_ID[tech];
@@ -150,12 +150,12 @@ async function TechnologyContent({ params }: { params: PageProps<"/technologies/
         </section>
 
         <div className="grid gap-10 lg:grid-cols-2">
-          <ListCard title={`Latest ${t.label.toLowerCase()} deals`} empty="No deals tracked for this technology yet." href="/deals">
+          <ListCard title={`Latest ${t.label.toLowerCase()} deals`} empty="No deals tracked for this sector yet." href="/deals">
             {prof.deals.slice(0, 5).map((d) => (
               <ListRow key={d.id} href={`/deals/${d.slug}`} kicker={DEAL_TYPE_LABEL[d.type]} date={d.date} title={d.title} extra={dealValue(d)} />
             ))}
           </ListCard>
-          <ListCard title="Latest news & policy" empty="No news tracked for this technology yet." href="/news">
+          <ListCard title="Latest news & policy" empty="No news tracked for this sector yet." href="/news">
             {prof.news.slice(0, 5).map((n) => (
               <ListRow key={n.id} href={`/news/${n.slug}`} kicker={NEWS_CATEGORY_LABEL[n.category]} date={n.date} title={n.headline} />
             ))}

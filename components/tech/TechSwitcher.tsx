@@ -5,7 +5,7 @@ import type { Technology } from "@/lib/types";
 /** Sticky row of the eight technologies, so readers can jump between them. */
 export function TechSwitcher({ current }: { current: Technology }) {
   return (
-    <nav aria-label="Technologies" className="sticky top-16 z-30 border-b border-line bg-white/95 backdrop-blur-sm">
+    <nav aria-label="Sectors" className="sticky top-16 z-30 border-b border-line bg-white/95 backdrop-blur-sm">
       <ul className="container-page flex gap-1 overflow-x-auto py-2 [scrollbar-width:none]">
         {TECHNOLOGIES.map((t) => {
           const Icon = t.icon;
@@ -13,7 +13,7 @@ export function TechSwitcher({ current }: { current: Technology }) {
           return (
             <li key={t.id} className="shrink-0">
               <Link
-                href={`/technologies/${t.id}`}
+                href={`/sectors/${t.id}`}
                 aria-current={active ? "page" : undefined}
                 className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium transition-colors duration-150 ${
                   active ? "bg-surface-2 text-ink shadow-[inset_0_-2px_0_var(--accent)]" : "text-muted hover:bg-surface-2 hover:text-ink"

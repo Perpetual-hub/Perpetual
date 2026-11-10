@@ -13,7 +13,7 @@ export function TechGrid({ counts }: { counts: Record<Technology, { projects: nu
         return (
           <li key={t.id} className="bg-white">
             <Link
-              href={`/technologies/${t.id}`}
+              href={`/sectors/${t.id}`}
               className="group relative flex h-full flex-col p-5 transition-colors duration-200 hover:bg-surface-2 md:p-6"
               style={{ "--accent": t.hex } as React.CSSProperties}
             >

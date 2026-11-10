@@ -25,9 +25,9 @@ const GROUPS: { title: string; links: FooterLink[]; twoCol?: boolean }[] = [
     ],
   },
   {
-    title: "Technologies",
+    title: "Sectors",
     twoCol: true,
-    links: TECHNOLOGIES.map((t) => ({ href: `/technologies/${t.id}`, label: t.label })),
+    links: TECHNOLOGIES.map((t) => ({ href: `/sectors/${t.id}`, label: t.label })),
   },
   {
     title: "About Perpetual",

@@ -87,7 +87,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
 
   const controls = {
     tech: (
-      <CheckboxList legend="Technology" options={opts.tech} value={filters.tech ?? []} onChange={(v) => update({ tech: v })} />
+      <CheckboxList legend="Sector" options={opts.tech} value={filters.tech ?? []} onChange={(v) => update({ tech: v })} />
     ),
     status: (
       <CheckboxList legend="Status" options={opts.status} value={filters.status ?? []} onChange={(v) => update({ status: v })} />
@@ -188,7 +188,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
             Filters{active > 0 && <span className="tabular rounded-full bg-brand-navy px-1.5 text-[11px] text-white">{active}</span>}
           </button>
           <div className="hidden flex-wrap items-center gap-2 md:flex">
-            <FilterPopover label="Technology" active={!!filters.tech?.length} summary={summarise(filters.tech, (id) => TECH_BY_ID[id as Technology].label)}>
+            <FilterPopover label="Sector" active={!!filters.tech?.length} summary={summarise(filters.tech, (id) => TECH_BY_ID[id as Technology].label)}>
               {controls.tech}
             </FilterPopover>
             <FilterPopover label="Status" active={!!filters.status?.length} summary={summarise(filters.status, (id) => STATUS_LABEL[id as ProjectStatus])}>
@@ -285,7 +285,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
           <div className="flex-1 space-y-6 overflow-y-auto px-4 py-5">
             {(
               [
-                ["Technology", controls.tech],
+                ["Sector", controls.tech],
                 ["Status", controls.status],
                 ["Region", controls.region],
                 ["Country", controls.country],

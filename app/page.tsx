@@ -115,7 +115,7 @@ export default function Home() {
       <section className="border-b border-line" aria-labelledby="techs">
         <div className="container-page py-20 md:py-28">
           <Reveal>
-            <SectionHeading id="techs" eyebrow="Technologies" title="Eight technologies, one dataset" href="/projects" linkLabel="Explore all projects" />
+            <SectionHeading id="techs" eyebrow="Sectors" title="Eight sectors, one dataset" href="/projects" linkLabel="Explore all projects" />
           </Reveal>
           <Reveal>
             <TechGrid counts={getTechCounts()} />

@@ -10,7 +10,7 @@ const esc = (v: unknown) => {
 /** Builds a CSV of the current filtered view and triggers a download in the browser. */
 export function downloadProjectsCSV(points: MapPoint[], filename = "perpetual-projects.csv") {
   const header = [
-    "id", "name", "technology", "sub_type", "capacity_mw", "storage_mwh", "status", "country_code",
+    "id", "name", "sector", "sub_type", "capacity_mw", "storage_mwh", "status", "country_code",
     "country", "region", "admin1", "lat", "lng", "ownership", "developer", "cod", "cod_confidence",
     "financing_instruments", "profile_url", "sample_data",
   ];

@@ -60,7 +60,7 @@ export function HomeHero({ points, recentDealTechs, rail }: Props) {
           <div className="container-page border-b border-hero-line py-3">
             <div
               role="group"
-              aria-label="Filter by technology"
+              aria-label="Filter by sector"
               className="-mx-1 flex gap-1.5 overflow-x-auto px-1 py-0.5 [scrollbar-width:none] md:flex-wrap md:overflow-visible"
             >
               <Chip pressed={active.length === 0} onClick={() => setActive([])}>

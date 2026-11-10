@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/methodology", 0.5),
     page("/about", 0.4),
     page("/corrections", 0.3),
-    ...TECHNOLOGIES.map((t) => page(`/technologies/${t.id}`, 0.8)),
+    ...TECHNOLOGIES.map((t) => page(`/sectors/${t.id}`, 0.8)),
     ...getRegions().map((r) => page(`/regions/${r.key}`)),
     ...getCountries().map((c) => page(`/countries/${c.key}`)),
     ...getProjects().map((p) => ({ ...page(`/projects/${p.slug}`, 0.5), lastModified: new Date(p.lastUpdated) })),

@@ -17,7 +17,7 @@ npm run build
 
 | Path | What |
 |---|---|
-| `app/` | Routes: `/`, `/projects`, `/projects/[slug]`, `/technologies/[tech]`, `/statistics`, `/countries/[code]`, `/regions/[slug]`, `/methodology`, `/about`, `/corrections`; plus `sitemap.xml`, `robots.txt`, `search-index.json` and Open Graph images |
+| `app/` | Routes: `/`, `/projects`, `/projects/[slug]`, `/sectors/[tech]`, `/statistics`, `/countries/[code]`, `/regions/[slug]`, `/methodology`, `/about`, `/corrections`; plus `sitemap.xml`, `robots.txt`, `search-index.json` and Open Graph images |
 | `components/` | `map/` (MapLibre globe/map, drawer), `explorer/`, `charts/`, `cards/`, `layout/`, `search/` (⌘K palette), `brand/` (logo marks), `prose/`, `ui/` |
 | `data/` | Seed files (`projects.ts`, `deals.ts`, `news.ts`, `research.ts`, `meta.ts`) |
 | `lib/data.ts` | The **only** module that reads `/data`. Swap it for a DB/CMS later without touching pages |

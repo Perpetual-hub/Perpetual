@@ -67,8 +67,8 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
       <div className="container-page space-y-14 py-12">
         <div className="grid gap-10 lg:grid-cols-2">
-          <ChartCard title="Capacity by technology" note="Click a bar to explore">
-            <BarList rows={byTech} caption={`Capacity by technology in ${s.name}`} />
+          <ChartCard title="Capacity by sector" note="Click a bar to explore">
+            <BarList rows={byTech} caption={`Capacity by sector in ${s.name}`} />
           </ChartCard>
           <ChartCard title="Capacity by status" note="Click a bar to explore">
             <BarList rows={byStatus} caption={`Capacity by project status in ${s.name}`} />

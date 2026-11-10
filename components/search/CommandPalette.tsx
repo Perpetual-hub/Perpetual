@@ -9,7 +9,7 @@ import { TECH_BY_ID } from "@/lib/tech";
 
 const GROUP_LABEL: Record<SearchType, string> = {
   project: "Projects",
-  technology: "Technologies",
+  technology: "Sectors",
   country: "Countries",
   region: "Regions",
   deal: "Deals",
@@ -145,13 +145,13 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
         <div ref={listRef} id={`${id}-list`} role="listbox" aria-label="Results" className="max-h-[60vh] overflow-y-auto p-2">
           {flat.length === 0 && (
             <p className="px-3 py-10 text-center text-sm text-muted">
-              No results for &ldquo;{q}&rdquo;. Try a project, company, country or technology.
+              No results for &ldquo;{q}&rdquo;. Try a project, company, country or sector.
             </p>
           )}
           {groups.map((g) => (
             <div key={g.type} role="group" aria-labelledby={`${id}-g-${g.type}`} className="py-1">
               <div id={`${id}-g-${g.type}`} className="px-3 pt-2 pb-1 text-xs font-semibold text-muted">
-                {q.trim() ? GROUP_LABEL[g.type] : g.type === "page" ? "Pages" : "Jump to a technology"}
+                {q.trim() ? GROUP_LABEL[g.type] : g.type === "page" ? "Pages" : "Jump to a sector"}
               </div>
               {g.items.map((e, j) => {
                 const idx = g.start + j;

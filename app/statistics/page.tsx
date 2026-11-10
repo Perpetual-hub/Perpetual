@@ -10,7 +10,7 @@ import { TECHNOLOGIES } from "@/lib/tech";
 
 export const metadata: Metadata = {
   title: "Statistics",
-  description: "Renewable energy capacity by region, country and technology, with operating and pipeline totals.",
+  description: "Renewable energy capacity by region, country and sector, with operating and pipeline totals.",
 };
 
 export default function StatisticsPage() {
@@ -49,21 +49,21 @@ export default function StatisticsPage() {
 
       <div className="container-page space-y-16 py-12">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
-          <ChartCard title="Capacity by technology" note="Click a bar to explore">
+          <ChartCard title="Capacity by sector" note="Click a bar to explore">
             <BarList
-              caption="Total tracked capacity by technology"
+              caption="Total tracked capacity by sector"
               rows={TECHNOLOGIES.map((t) => ({
                 key: t.id,
                 label: t.label,
                 value: counts[t.id].totalMW,
                 color: t.hex,
                 count: counts[t.id].projects,
-                href: `/technologies/${t.id}`,
+                href: `/sectors/${t.id}`,
               }))}
             />
           </ChartCard>
           <section className="rounded-[var(--radius)] border border-line p-6">
-            <CapacityTimeline cells={getTimeline()} asOfYear={AS_OF_YEAR} title="Capacity coming online, by technology" />
+            <CapacityTimeline cells={getTimeline()} asOfYear={AS_OF_YEAR} title="Capacity coming online, by sector" />
           </section>
         </div>
 

@@ -108,7 +108,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
           <Section id="facts" title="Key facts">
             <FactGrid
               facts={[
-                ["Technology", <span key="t" className="inline-flex items-center gap-1.5"><span className="size-2 rounded-full" style={{ background: tech.hex }} aria-hidden />{tech.label}</span>],
+                ["Sector", <span key="t" className="inline-flex items-center gap-1.5"><span className="size-2 rounded-full" style={{ background: tech.hex }} aria-hidden />{tech.label}</span>],
                 ["Sub-type", p.subType && sentence(p.subType)],
                 ["Capacity", capacity],
                 ["Energy storage", p.storageMWh && `${p.storageMWh.toLocaleString("en")} MWh`],
