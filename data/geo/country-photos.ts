@@ -10,4 +10,2273 @@ export interface CountryPhoto {
   banner: boolean;
 }
 
-export const countryPhotos: Record<string, CountryPhoto> = {};
+export const countryPhotos: Record<string, CountryPhoto> = {
+ "AD": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Andorra_la_Vella_-_view2.jpg/3840px-Andorra_la_Vella_-_view2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5857,
+  "height": 2412,
+  "page": "https://commons.wikimedia.org/wiki/File:Andorra_la_Vella_-_view2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Tiia Monto",
+  "banner": false
+ },
+ "AE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/2008-03-20_Old_Town_Entrance.jpg/3840px-2008-03-20_Old_Town_Entrance.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6967,
+  "height": 1391,
+  "page": "https://commons.wikimedia.org/wiki/File:2008-03-20_Old_Town_Entrance.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Simisa",
+  "banner": false
+ },
+ "AF": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Band_Amir_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Band_Amir_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Afghanistan Matters https://www.flickr.com/photos/afgmatters/",
+  "banner": true
+ },
+ "AG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Antigua_banner_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Antigua_banner_beach.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Antigua_beach_view.jpg: Z_dead from London, UK derivative work: Jjtkk",
+  "banner": true
+ },
+ "AI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Blowing_Point_%28Anguilla%29_banner_Ferry_terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 299,
+  "page": "https://commons.wikimedia.org/wiki/File:Blowing_Point_(Anguilla)_banner_Ferry_terminal.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Panoramio user onj",
+  "banner": true
+ },
+ "AL": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Panorama_Albania_Tour_003.jpg/3840px-Panorama_Albania_Tour_003.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10130,
+  "height": 2728,
+  "page": "https://commons.wikimedia.org/wiki/File:Panorama_Albania_Tour_003.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Dirk.heldmaier",
+  "banner": false
+ },
+ "AM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Noravank_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2018,
+  "height": 288,
+  "page": "https://commons.wikimedia.org/wiki/File:Noravank_banner.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Noravank_panorama.jpg: Alexander Naumov derivative work: Inkey",
+  "banner": true
+ },
+ "AO": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Malange_%28Angola%29_banner_Kalandula_waterfalls_of_the_Lucala_River.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2272,
+  "height": 324,
+  "page": "https://commons.wikimedia.org/wiki/File:Malange_(Angola)_banner_Kalandula_waterfalls_of_the_Lucala_River.jpg",
+  "license": "CC0",
+  "artist": "Kalandula_waterfalls_of_the_Lucala-River_in_Malange,_Angola.JPG: Paulo César Santos derivative work: Jjtkk",
+  "banner": true
+ },
+ "AQ": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Adelie_penguin_on_an_iceberg_near_the_Antarctic_Peninsula.jpg/3840px-Adelie_penguin_on_an_iceberg_near_the_Antarctic_Peninsula.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4693,
+  "height": 2640,
+  "page": "https://commons.wikimedia.org/wiki/File:Adelie_penguin_on_an_iceberg_near_the_Antarctic_Peninsula.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "ravas51",
+  "banner": false
+ },
+ "AR": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Argentina_Banner_5.jpg/3840px-Argentina_Banner_5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5985,
+  "height": 855,
+  "page": "https://commons.wikimedia.org/wiki/File:Argentina_Banner_5.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Marina Balasini &amp; Juan Montiel from Argentina, Argentina",
+  "banner": true
+ },
+ "AS": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/American_Samoa-banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 301,
+  "page": "https://commons.wikimedia.org/wiki/File:American_Samoa-banner.jpg",
+  "license": "Public domain",
+  "artist": "Peter Craig, National Park Service",
+  "banner": true
+ },
+ "AT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/1_hallstatt_austria.jpg/3840px-1_hallstatt_austria.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7360,
+  "height": 4912,
+  "page": "https://commons.wikimedia.org/wiki/File:1_hallstatt_austria.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "chensiyuan",
+  "banner": false
+ },
+ "AU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Uluru-Kata_Tjuta_banner_Uluru_Sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Uluru-Kata_Tjuta_banner_Uluru_Sunset.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "tiimta",
+  "banner": true
+ },
+ "AW": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Panoramic_View_of_Palm_Beach_Aruba_from_Gilians_%282913033666%29.jpg/3840px-Panoramic_View_of_Palm_Beach_Aruba_from_Gilians_%282913033666%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10535,
+  "height": 1760,
+  "page": "https://commons.wikimedia.org/wiki/File:Panoramic_View_of_Palm_Beach_Aruba_from_Gilians_(2913033666).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Serge Melki from Indianapolis, USA",
+  "banner": false
+ },
+ "AX": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Aland_banner_Coastal_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3150,
+  "height": 450,
+  "page": "https://commons.wikimedia.org/wiki/File:Aland_banner_Coastal_panorama.jpg",
+  "license": "CC0",
+  "artist": "Wilson44691",
+  "banner": true
+ },
+ "AZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Azerbajiani_landscape_-_Another_version.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2430,
+  "height": 1370,
+  "page": "https://commons.wikimedia.org/wiki/File:Azerbajiani_landscape_-_Another_version.jpg",
+  "license": "CC BY 1.0",
+  "artist": "Original: Matthew Hadley (nickname diff_sky) derivative work: Ximonic (talk), Simo Räsänen",
+  "banner": false
+ },
+ "BA": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Trebinje_panorama%2C_Herzegovina.jpg/3840px-Trebinje_panorama%2C_Herzegovina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4724,
+  "height": 1147,
+  "page": "https://commons.wikimedia.org/wiki/File:Trebinje_panorama,_Herzegovina.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Goran Anđelić",
+  "banner": false
+ },
+ "BB": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Barbados_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Barbados_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Berit Watkin, derivative work (crop) by Globe-trotter",
+  "banner": true
+ },
+ "BD": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/%E0%A6%B8%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%9F%E0%A6%BF%E0%A6%A8-%E0%A6%89%E0%A6%87%E0%A6%95%E0%A6%BF%E0%A6%AD%E0%A7%8D%E0%A6%B0%E0%A6%AE%E0%A6%A3_%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A8%E0%A6%BE%E0%A6%B0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3072,
+  "height": 439,
+  "page": "https://commons.wikimedia.org/wiki/File:%E0%A6%B8%E0%A7%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A6%AE%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%9F%E0%A6%BF%E0%A6%A8-%E0%A6%89%E0%A6%87%E0%A6%95%E0%A6%BF%E0%A6%AD%E0%A7%8D%E0%A6%B0%E0%A6%AE%E0%A6%A3_%E0%A6%AC%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A8%E0%A6%BE%E0%A6%B0.jpg",
+  "license": "Public domain",
+  "artist": "Niaz morshed Shovon",
+  "banner": true
+ },
+ "BE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Bruges.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3648,
+  "height": 2048,
+  "page": "https://commons.wikimedia.org/wiki/File:Bruges.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Gf uip",
+  "banner": false
+ },
+ "BF": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Moschee_von_Bobo-Dioulasso.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3354,
+  "height": 2236,
+  "page": "https://commons.wikimedia.org/wiki/File:Moschee_von_Bobo-Dioulasso.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "qiv",
+  "banner": false
+ },
+ "BG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Beklemeto_Pass_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Beklemeto_Pass_banner.jpg",
+  "license": "Public domain",
+  "artist": "Pamporoff",
+  "banner": true
+ },
+ "BH": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Bahrain_Fort_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:Bahrain_Fort_8.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Peter from Riyadh, Saudi Arabia",
+  "banner": false
+ },
+ "BI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Playa_de_los_Cocos%2C_Bujumbura%2C_Burundi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3072,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Playa_de_los_Cocos,_Bujumbura,_Burundi.jpg",
+  "license": "Public domain",
+  "artist": "No machine-readable author provided. Tequendamia assumed (based on copyright claims).",
+  "banner": false
+ },
+ "BJ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Voodoo_Temple_%28Ouidah%2C_Benin%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2756,
+  "height": 1752,
+  "page": "https://commons.wikimedia.org/wiki/File:Voodoo_Temple_(Ouidah,_Benin).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Shubert Ciencia",
+  "banner": false
+ },
+ "BL": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Saint_Barth_-_Vue_panoramique_-_Octobre_2009.jpg/3840px-Saint_Barth_-_Vue_panoramique_-_Octobre_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 3872,
+  "height": 1904,
+  "page": "https://commons.wikimedia.org/wiki/File:Saint_Barth_-_Vue_panoramique_-_Octobre_2009.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Starus",
+  "banner": false
+ },
+ "BM": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/NCL_Cruise_from_NYC_to_Bermuda_%2820867088121%29.jpg/3840px-NCL_Cruise_from_NYC_to_Bermuda_%2820867088121%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7892,
+  "height": 2288,
+  "page": "https://commons.wikimedia.org/wiki/File:NCL_Cruise_from_NYC_to_Bermuda_(20867088121).jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Curtis &amp; Renee",
+  "banner": false
+ },
+ "BN": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Panorama_of_Brunei_Regatta.jpg/3840px-Panorama_of_Brunei_Regatta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10128,
+  "height": 3410,
+  "page": "https://commons.wikimedia.org/wiki/File:Panorama_of_Brunei_Regatta.jpg",
+  "license": "CC BY 2.0",
+  "artist": "kulimpapat",
+  "banner": false
+ },
+ "BO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Salar_de_Uyuni_D%C3%A9cembre_2007_-_Panorama_1.jpg/3840px-Salar_de_Uyuni_D%C3%A9cembre_2007_-_Panorama_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8827,
+  "height": 1235,
+  "page": "https://commons.wikimedia.org/wiki/File:Salar_de_Uyuni_D%C3%A9cembre_2007_-_Panorama_1.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Martin St-Amant (S23678)",
+  "banner": false
+ },
+ "BQ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/View_from_Mt_Scenery%2C_Saba.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2816,
+  "height": 2112,
+  "page": "https://commons.wikimedia.org/wiki/File:View_from_Mt_Scenery,_Saba.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Radioflux",
+  "banner": false
+ },
+ "BR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Botafogo_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 301,
+  "page": "https://commons.wikimedia.org/wiki/File:Botafogo_banner.jpg",
+  "license": "Public domain",
+  "artist": "Botafogo180o_M.jpg: Luis Rizo derivative work: Jjtkk",
+  "banner": true
+ },
+ "BS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Jaws_Beach.jpg/3840px-Jaws_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5651,
+  "height": 2705,
+  "page": "https://commons.wikimedia.org/wiki/File:Jaws_Beach.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Bryce Edwards from San Jose, CA, USA",
+  "banner": false
+ },
+ "BT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/The_Tiger%27s_Nest_%28_Paro_Taktsang_%29.jpg/3840px-The_Tiger%27s_Nest_%28_Paro_Taktsang_%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5184,
+  "height": 3456,
+  "page": "https://commons.wikimedia.org/wiki/File:The_Tiger%27s_Nest_(_Paro_Taktsang_).jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "VIkramjit Kakati",
+  "banner": false
+ },
+ "BV": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Bouvet_Island_west_coast.jpg/3840px-Bouvet_Island_west_coast.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 12941,
+  "height": 2086,
+  "page": "https://commons.wikimedia.org/wiki/File:Bouvet_Island_west_coast.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "François Guerraz",
+  "banner": false
+ },
+ "BW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Tsodilo_Hills_rock_paintings5.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3008,
+  "height": 2000,
+  "page": "https://commons.wikimedia.org/wiki/File:Tsodilo_Hills_rock_paintings5.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Joachim Huber",
+  "banner": false
+ },
+ "BY": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Strusta_Lake_-_Panorama_-_2.jpg/3840px-Strusta_Lake_-_Panorama_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4500,
+  "height": 2136,
+  "page": "https://commons.wikimedia.org/wiki/File:Strusta_Lake_-_Panorama_-_2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "zedlik",
+  "banner": false
+ },
+ "BZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/BZECAYE09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3072,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:BZECAYE09.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Josh Steinitz from San Francisco, CA, USA",
+  "banner": false
+ },
+ "CA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Herbert_Lake_beim_Icefields_Parkway.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3239,
+  "height": 2160,
+  "page": "https://commons.wikimedia.org/wiki/File:Herbert_Lake_beim_Icefields_Parkway.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Florian Fuchs",
+  "banner": false
+ },
+ "CC": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Keeling_banner_Palm_trees.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Keeling_banner_Palm_trees.jpg",
+  "license": "Public domain",
+  "artist": "The original uploader was DO'Neil at English Wikipedia.",
+  "banner": true
+ },
+ "CD": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Lomami_River_at_Katopa_Camp%2C_Democratic_Republic_of_the_Congo.JPG/3840px-Lomami_River_at_Katopa_Camp%2C_Democratic_Republic_of_the_Congo.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4800,
+  "height": 1216,
+  "page": "https://commons.wikimedia.org/wiki/File:Lomami_River_at_Katopa_Camp,_Democratic_Republic_of_the_Congo.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Christina Bergey",
+  "banner": false
+ },
+ "CF": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Central-African-Republic-Dzanga-Sangha-National-Park-Bayanga-elephants-banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Central-African-Republic-Dzanga-Sangha-National-Park-Bayanga-elephants-banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "David Holt London, https://www.flickr.com/photos/zongo/",
+  "banner": true
+ },
+ "CG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Sunrise_on_the_Congo_River_-_2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2816,
+  "height": 2112,
+  "page": "https://commons.wikimedia.org/wiki/File:Sunrise_on_the_Congo_River_-_2.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bsm15",
+  "banner": false
+ },
+ "CH": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Waldemmental_Juli2007.jpg/3840px-Waldemmental_Juli2007.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5078,
+  "height": 1250,
+  "page": "https://commons.wikimedia.org/wiki/File:Waldemmental_Juli2007.jpg",
+  "license": "CC BY-SA 2.0 de",
+  "artist": "Simon Koopmann",
+  "banner": false
+ },
+ "CI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/San_P%C3%A9dro_banner_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2048,
+  "height": 292,
+  "page": "https://commons.wikimedia.org/wiki/File:San_P%C3%A9dro_banner_Beach.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "San_Pédro-plage4.JPG: Axe derivative work: Jjtkk",
+  "banner": true
+ },
+ "CK": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Cook_Islands_Beach_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Cook_Islands_Beach_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Benedict Adam https://www.flickr.com/photos/backpackerben/",
+  "banner": true
+ },
+ "CL": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Lascar_summit_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Lascar_summit_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Alexandre Buisse (http://commons.wikimedia.org/wiki/User:Nattfodd)",
+  "banner": true
+ },
+ "CM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Kribi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2592,
+  "height": 1728,
+  "page": "https://commons.wikimedia.org/wiki/File:Kribi.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "ymea",
+  "banner": false
+ },
+ "CN": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Nine_Dragon_Wall_in_Beihai_Park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2990,
+  "height": 1308,
+  "page": "https://commons.wikimedia.org/wiki/File:Nine_Dragon_Wall_in_Beihai_Park.JPG",
+  "license": "CC BY 3.0",
+  "artist": "Gisling",
+  "banner": false
+ },
+ "CO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/El_Desierto_de_Tatacoah%2C_Colombia_-_Panorama.jpg/3840px-El_Desierto_de_Tatacoah%2C_Colombia_-_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 9984,
+  "height": 1941,
+  "page": "https://commons.wikimedia.org/wiki/File:El_Desierto_de_Tatacoah,_Colombia_-_Panorama.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Julien H",
+  "banner": false
+ },
+ "CP": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/WV_banner_Clipperton_Waves.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:WV_banner_Clipperton_Waves.jpg",
+  "license": "Public domain",
+  "artist": "Shannon Rankin, NOAA National Marine Fisheries Service, Southwest Fisheries Science Center (SWFSC)",
+  "banner": true
+ },
+ "CQ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Sark_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Sark_banner.jpg",
+  "license": "Public domain",
+  "artist": "Man vyi",
+  "banner": true
+ },
+ "CR": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Costa_Rica_WV_banner.jpg/3840px-Costa_Rica_WV_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4508,
+  "height": 645,
+  "page": "https://commons.wikimedia.org/wiki/File:Costa_Rica_WV_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Henry Zbyszynski from Capitola California, USA",
+  "banner": true
+ },
+ "CU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Santa_Clara_%28Cuba%29%29_banner_Monument_to_Che_Guevara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Santa_Clara_(Cuba))_banner_Monument_to_Che_Guevara.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Rastapopulous",
+  "banner": true
+ },
+ "CV": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Road_to_caldera_in_Fogo_%26_Pico_de_Fogo%2C_2010_12.jpg/3840px-Road_to_caldera_in_Fogo_%26_Pico_de_Fogo%2C_2010_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5510,
+  "height": 1362,
+  "page": "https://commons.wikimedia.org/wiki/File:Road_to_caldera_in_Fogo_%26_Pico_de_Fogo,_2010_12.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Ximonic, Simo Räsänen",
+  "banner": false
+ },
+ "CW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Cura%C3%A7ao-banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Cura%C3%A7ao-banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Mtmelendez",
+  "banner": true
+ },
+ "CX": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Christmas_Island_Immigration_Detention_Centre_%285424320766%29.jpg/3840px-Christmas_Island_Immigration_Detention_Centre_%285424320766%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4288,
+  "height": 2848,
+  "page": "https://commons.wikimedia.org/wiki/File:Christmas_Island_Immigration_Detention_Centre_(5424320766).jpg",
+  "license": "CC BY 2.0",
+  "artist": "DIAC images",
+  "banner": false
+ },
+ "CY": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Vouni.jpg/3840px-Vouni.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4320,
+  "height": 2160,
+  "page": "https://commons.wikimedia.org/wiki/File:Vouni.jpg",
+  "license": "Public domain",
+  "artist": "Kaktus999",
+  "banner": false
+ },
+ "CZ": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Czech_Republic_WV_banner.jpg/3840px-Czech_Republic_WV_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10784,
+  "height": 1542,
+  "page": "https://commons.wikimedia.org/wiki/File:Czech_Republic_WV_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "john mcsporran from Trossachs, Scotland",
+  "banner": true
+ },
+ "DG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Diego_Garcia_%28BIOT%29_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Diego_Garcia_(BIOT)_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Steve Swayne from Maleny, Australia",
+  "banner": true
+ },
+ "DJ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Lake_Assal_1-Djibouti.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2816,
+  "height": 2112,
+  "page": "https://commons.wikimedia.org/wiki/File:Lake_Assal_1-Djibouti.jpg",
+  "license": "Public domain",
+  "artist": "Fishercd",
+  "banner": false
+ },
+ "DK": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Aero_110802_Panorama_1.jpg/3840px-Aero_110802_Panorama_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 11405,
+  "height": 1462,
+  "page": "https://commons.wikimedia.org/wiki/File:Aero_110802_Panorama_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Aconcagua (talk)",
+  "banner": false
+ },
+ "DM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/View_from_Veranda.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:View_from_Veranda.jpg",
+  "license": "Public domain",
+  "artist": "Rita Nerwall",
+  "banner": false
+ },
+ "DO": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Isla_Saona_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Isla_Saona_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Tamas Iklodi w:en:User:It419",
+  "banner": true
+ },
+ "DZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/M%27zab_valley_%28Algeria%29_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:M%27zab_valley_(Algeria)_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "M'zab_Vallery_panoramic_in_Algeria.jpg: Daggett.fr derivative work: JamesA",
+  "banner": true
+ },
+ "EC": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/EcuadorAndean2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 1832,
+  "page": "https://commons.wikimedia.org/wiki/File:EcuadorAndean2.jpg",
+  "license": "Public domain",
+  "artist": "Phelipemancheno",
+  "banner": false
+ },
+ "EE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Karksi_panoraam.jpg/3840px-Karksi_panoraam.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6000,
+  "height": 1793,
+  "page": "https://commons.wikimedia.org/wiki/File:Karksi_panoraam.jpg",
+  "license": "CC BY-SA 3.0 ee",
+  "artist": "Andrus Uuetalu",
+  "banner": false
+ },
+ "EG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Camels_and_the_Pyramids_co-existing_for_centuries..JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:Camels_and_the_Pyramids_co-existing_for_centuries..JPG",
+  "license": "Public domain",
+  "artist": "Rudolph.A.Furtado",
+  "banner": false
+ },
+ "EH": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Hospital_de_navarra_tifariti_rasd.jpg/3840px-Hospital_de_navarra_tifariti_rasd.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 3888,
+  "height": 2592,
+  "page": "https://commons.wikimedia.org/wiki/File:Hospital_de_navarra_tifariti_rasd.jpg",
+  "license": "Public domain",
+  "artist": "Rkrdgh",
+  "banner": false
+ },
+ "ER": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Eritrean_Railway_-_2008-11-04-edit1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2400,
+  "height": 1800,
+  "page": "https://commons.wikimedia.org/wiki/File:Eritrean_Railway_-_2008-11-04-edit1.jpg",
+  "license": "Public domain",
+  "artist": "Original photograph taken by User:Voice of Clam, edited by jjron - adjusted levels, reduced highlights, sharpened.",
+  "banner": false
+ },
+ "ES": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Iglesia_de_Nuestra_Se%C3%B1ora_de_La_Blanca%2C_Cardej%C3%B3n%2C_Espa%C3%B1a%2C_2012-09-01%2C_DD_02.JPG/3840px-Iglesia_de_Nuestra_Se%C3%B1ora_de_La_Blanca%2C_Cardej%C3%B3n%2C_Espa%C3%B1a%2C_2012-09-01%2C_DD_02.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5518,
+  "height": 3593,
+  "page": "https://commons.wikimedia.org/wiki/File:Iglesia_de_Nuestra_Se%C3%B1ora_de_La_Blanca,_Cardej%C3%B3n,_Espa%C3%B1a,_2012-09-01,_DD_02.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Diego Delso",
+  "banner": false
+ },
+ "ET": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/View_of_Lalibela.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3641,
+  "height": 1080,
+  "page": "https://commons.wikimedia.org/wiki/File:View_of_Lalibela.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bernard Gagnon",
+  "banner": false
+ },
+ "FI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Finland_Wikivoyage_Banner.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Finland_Wikivoyage_Banner.png",
+  "license": "CC BY-SA 2.5",
+  "artist": "Joonas Lyytinen",
+  "banner": true
+ },
+ "FJ": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Fiji_banner_Shangri-La_Fijian_Resort.jpg/3840px-Fiji_banner_Shangri-La_Fijian_Resort.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 3951,
+  "height": 566,
+  "page": "https://commons.wikimedia.org/wiki/File:Fiji_banner_Shangri-La_Fijian_Resort.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Maksym Kozlenko",
+  "banner": true
+ },
+ "FK": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Stanley-Airport.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3316,
+  "height": 2239,
+  "page": "https://commons.wikimedia.org/wiki/File:Stanley-Airport.JPG",
+  "license": "Public domain",
+  "artist": "Apcbg",
+  "banner": false
+ },
+ "FM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Falalop_Island_%28Ulithi_atoll%2C_Federated_States_of_Micronesia%29_banner_Aerial_view_of_airfield.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Falalop_Island_(Ulithi_atoll,_Federated_States_of_Micronesia)_banner_Aerial_view_of_airfield.jpg",
+  "license": "CC0",
+  "artist": "User:Crescentmoon56",
+  "banner": true
+ },
+ "FO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Gjogv_kl%C3%B8ft_2.jpg/3840px-Gjogv_kl%C3%B8ft_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4000,
+  "height": 2806,
+  "page": "https://commons.wikimedia.org/wiki/File:Gjogv_kl%C3%B8ft_2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Lillestrøm SK",
+  "banner": false
+ },
+ "FR": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Sainte-Enimie-Gorges_du_Tarn-Frankreich.jpg/3840px-Sainte-Enimie-Gorges_du_Tarn-Frankreich.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8620,
+  "height": 4039,
+  "page": "https://commons.wikimedia.org/wiki/File:Sainte-Enimie-Gorges_du_Tarn-Frankreich.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Tobi 87",
+  "banner": false
+ },
+ "GA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Gabon_banner_Lop%C3%A9_National_Park.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Gabon_banner_Lop%C3%A9_National_Park.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Lopé_National_Park_river_panorama.jpg: FX derivative work: Jjtkk",
+  "banner": true
+ },
+ "GB": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Sycamore_Gap_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2303,
+  "height": 329,
+  "page": "https://commons.wikimedia.org/wiki/File:Sycamore_Gap_Banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Tomorrow Never Knows Stretched and cropped by Nicholasjf21 (talk)",
+  "banner": true
+ },
+ "GD": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Grenada_Panorama_1.jpg/3840px-Grenada_Panorama_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 9594,
+  "height": 1997,
+  "page": "https://commons.wikimedia.org/wiki/File:Grenada_Panorama_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Dirk.heldmaier",
+  "banner": false
+ },
+ "GE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Kazbeg_Panorama.jpg/3840px-Kazbeg_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 44250,
+  "height": 3744,
+  "page": "https://commons.wikimedia.org/wiki/File:Kazbeg_Panorama.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Philipp Weigell",
+  "banner": false
+ },
+ "GF": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/French_Guyana_banner_Bagne_Cayenne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:French_Guyana_banner_Bagne_Cayenne.jpg",
+  "license": "CC0",
+  "artist": "davric",
+  "banner": true
+ },
+ "GG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Guernsey_July_2010_Vale_Castle_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3634,
+  "height": 1541,
+  "page": "https://commons.wikimedia.org/wiki/File:Guernsey_July_2010_Vale_Castle_10.jpg",
+  "license": "Public domain",
+  "artist": "Man vyi",
+  "banner": false
+ },
+ "GH": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Ghana_Cape_Coast_01.jpg/3840px-Ghana_Cape_Coast_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5890,
+  "height": 1653,
+  "page": "https://commons.wikimedia.org/wiki/File:Ghana_Cape_Coast_01.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Erik Cleves Kristensen",
+  "banner": false
+ },
+ "GI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Gibraltar_Barbary_Macaques.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2592,
+  "height": 1944,
+  "page": "https://commons.wikimedia.org/wiki/File:Gibraltar_Barbary_Macaques.jpg",
+  "license": "Public domain",
+  "artist": "Entropy1963",
+  "banner": false
+ },
+ "GL": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Aappilattoq_%28Upernavik%29_pano_2007-08-09_filtered.jpg/3840px-Aappilattoq_%28Upernavik%29_pano_2007-08-09_filtered.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4126,
+  "height": 1426,
+  "page": "https://commons.wikimedia.org/wiki/File:Aappilattoq_(Upernavik)_pano_2007-08-09_filtered.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Kim Hansen",
+  "banner": false
+ },
+ "GM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Fishing_boat%2C_Gunjur_Gambia_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Fishing_boat,_Gunjur_Gambia_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Mishimito https://www.flickr.com/photos/mishimoto/",
+  "banner": true
+ },
+ "GN": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Fisher_women_on_River_Niger_in_Guinea%2C_Africa.jpg/3840px-Fisher_women_on_River_Niger_in_Guinea%2C_Africa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4272,
+  "height": 2828,
+  "page": "https://commons.wikimedia.org/wiki/File:Fisher_women_on_River_Niger_in_Guinea,_Africa.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Julien Harneis",
+  "banner": false
+ },
+ "GP": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Baie_des_Saintes_depuis_le_Fort_Napol%C3%A9on_des_Saintes.jpg/3840px-Baie_des_Saintes_depuis_le_Fort_Napol%C3%A9on_des_Saintes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6848,
+  "height": 3008,
+  "page": "https://commons.wikimedia.org/wiki/File:Baie_des_Saintes_depuis_le_Fort_Napol%C3%A9on_des_Saintes.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Patrice78500",
+  "banner": false
+ },
+ "GQ": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Dschungel_bei_Oyala.JPG/3840px-Dschungel_bei_Oyala.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4000,
+  "height": 3000,
+  "page": "https://commons.wikimedia.org/wiki/File:Dschungel_bei_Oyala.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Mehlauge",
+  "banner": false
+ },
+ "GR": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/20100923_Kompsatos_Bridge_Polyanthos_Rhodope_Thrace_Greece_Panorama.jpg/3840px-20100923_Kompsatos_Bridge_Polyanthos_Rhodope_Thrace_Greece_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10483,
+  "height": 2037,
+  "page": "https://commons.wikimedia.org/wiki/File:20100923_Kompsatos_Bridge_Polyanthos_Rhodope_Thrace_Greece_Panorama.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "User:Ggia",
+  "banner": false
+ },
+ "GS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Shag_rocks_Panorama.jpg/3840px-Shag_rocks_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8280,
+  "height": 2972,
+  "page": "https://commons.wikimedia.org/wiki/File:Shag_rocks_Panorama.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Brian Gratwicke",
+  "banner": false
+ },
+ "GT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/Volcanes_de_Guatemala-1.jpg/3840px-Volcanes_de_Guatemala-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4936,
+  "height": 1396,
+  "page": "https://commons.wikimedia.org/wiki/File:Volcanes_de_Guatemala-1.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Eduardo Robles Pacheco",
+  "banner": false
+ },
+ "GU": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Line3839_-_Flickr_-_NOAA_Photo_Library.jpg/3840px-Line3839_-_Flickr_-_NOAA_Photo_Library.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7060,
+  "height": 1938,
+  "page": "https://commons.wikimedia.org/wiki/File:Line3839_-_Flickr_-_NOAA_Photo_Library.jpg",
+  "license": "Public domain",
+  "artist": "David Burdick.",
+  "banner": false
+ },
+ "GW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Caravela_Island_%28Guinea-Bissau%29_banner_Thatched_houses.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Caravela_Island_(Guinea-Bissau)_banner_Thatched_houses.jpg",
+  "license": "Public domain",
+  "artist": "(WT-en) Pis bus at English Wikivoyage",
+  "banner": true
+ },
+ "GY": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Guyana_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Guyana_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bill Cameron",
+  "banner": true
+ },
+ "HK": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Hong_Kong_Night_Skyline_v2.jpg/3840px-Hong_Kong_Night_Skyline_v2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4500,
+  "height": 1800,
+  "page": "https://commons.wikimedia.org/wiki/File:Hong_Kong_Night_Skyline_v2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Base64",
+  "banner": false
+ },
+ "HM": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Heard_Island_Banner.jpg/3840px-Heard_Island_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6708,
+  "height": 959,
+  "page": "https://commons.wikimedia.org/wiki/File:Heard_Island_Banner.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Tristannew",
+  "banner": true
+ },
+ "HN": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/CPN_GREAT_PLAZA_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2543,
+  "height": 1547,
+  "page": "https://commons.wikimedia.org/wiki/File:CPN_GREAT_PLAZA_03.jpg",
+  "license": "Public domain",
+  "artist": "Talk2winik",
+  "banner": false
+ },
+ "HR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Zlatni_rat_de.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2592,
+  "height": 1944,
+  "page": "https://commons.wikimedia.org/wiki/File:Zlatni_rat_de.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Wolfgang Steinkläubl, mailto:w.steinklaeubl@inode.at",
+  "banner": false
+ },
+ "HT": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/CANAAN.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:CANAAN.JPG",
+  "license": "Public domain",
+  "artist": "Santiagockn",
+  "banner": false
+ },
+ "HU": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8f/Budaors_hegy1.jpg/3840px-Budaors_hegy1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 13039,
+  "height": 2607,
+  "page": "https://commons.wikimedia.org/wiki/File:Budaors_hegy1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "grin",
+  "banner": false
+ },
+ "ID": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sunset-IMG_4656.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2592,
+  "height": 1944,
+  "page": "https://commons.wikimedia.org/wiki/File:Sunset-IMG_4656.JPG",
+  "license": "Public domain",
+  "artist": "Dohduhdah",
+  "banner": false
+ },
+ "IE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Cruaighpadraigh_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Cruaighpadraigh_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Cruaighpadraigh.jpg: https://www.flickr.com/people/donnamarijne/ derivative work: Jjtkk",
+  "banner": true
+ },
+ "IL": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Panor%C3%A1mica_de_Jerusal%C3%A9n_desde_el_Monte_de_los_Olivos.jpg/3840px-Panor%C3%A1mica_de_Jerusal%C3%A9n_desde_el_Monte_de_los_Olivos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 14002,
+  "height": 1894,
+  "page": "https://commons.wikimedia.org/wiki/File:Panor%C3%A1mica_de_Jerusal%C3%A9n_desde_el_Monte_de_los_Olivos.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Bienchido",
+  "banner": false
+ },
+ "IM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Isle_of_man_banner_Peel_castle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Isle_of_man_banner_Peel_castle.jpg",
+  "license": "CC0",
+  "artist": "Finn Bjorklid",
+  "banner": true
+ },
+ "IN": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Panoramic_View_of_TajMahal.jpg/3840px-Panoramic_View_of_TajMahal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8866,
+  "height": 2067,
+  "page": "https://commons.wikimedia.org/wiki/File:Panoramic_View_of_TajMahal.jpg",
+  "license": "CC BY 2.5 in",
+  "artist": "Kumaravels",
+  "banner": false
+ },
+ "IO": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Diego_Garcia_%28BIOT%29_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Diego_Garcia_(BIOT)_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Steve Swayne from Maleny, Australia",
+  "banner": true
+ },
+ "IQ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/WV_banner_Baghdad_Belts_Mosque_in_Fallujah.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:WV_banner_Baghdad_Belts_Mosque_in_Fallujah.jpg",
+  "license": "Public domain",
+  "artist": "U.S. Navy photo by Journalist 1st Class Jeremy L. Wood",
+  "banner": true
+ },
+ "IS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/2005-05-29_J%C3%B6kuls%C3%A1rl%C3%B3n_01.jpg/3840px-2005-05-29_J%C3%B6kuls%C3%A1rl%C3%B3n_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8702,
+  "height": 1410,
+  "page": "https://commons.wikimedia.org/wiki/File:2005-05-29_J%C3%B6kuls%C3%A1rl%C3%B3n_01.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Hansueli Krapf",
+  "banner": false
+ },
+ "IT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Italy_banner_3_Florence.jpg/3840px-Italy_banner_3_Florence.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4288,
+  "height": 613,
+  "page": "https://commons.wikimedia.org/wiki/File:Italy_banner_3_Florence.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Francisco Antunes",
+  "banner": true
+ },
+ "JE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Victoria_Marine_Lake_Saint_Helier_Jersey_June_2012_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3546,
+  "height": 1379,
+  "page": "https://commons.wikimedia.org/wiki/File:Victoria_Marine_Lake_Saint_Helier_Jersey_June_2012_01.jpg",
+  "license": "Public domain",
+  "artist": "Man vyi",
+  "banner": false
+ },
+ "JM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Jamaica_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Jamaica_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Konstantin Papushin https://www.flickr.com/photos/papushin/",
+  "banner": true
+ },
+ "JO": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Petra_Deir_44.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3012,
+  "height": 1926,
+  "page": "https://commons.wikimedia.org/wiki/File:Petra_Deir_44.jpg",
+  "license": "Public domain",
+  "artist": "Teogomez Teo Gomez",
+  "banner": false
+ },
+ "JP": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Japanese_lanterns.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3456,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Japanese_lanterns.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "JurriaanH",
+  "banner": false
+ },
+ "KE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Lioness_Warns_Cub.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3250,
+  "height": 2167,
+  "page": "https://commons.wikimedia.org/wiki/File:Lioness_Warns_Cub.jpg",
+  "license": "Public domain",
+  "artist": "John Storr",
+  "banner": false
+ },
+ "KG": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Kyrgyzstan_banner_3a.jpg/3840px-Kyrgyzstan_banner_3a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5472,
+  "height": 782,
+  "page": "https://commons.wikimedia.org/wiki/File:Kyrgyzstan_banner_3a.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Bruno Rijsman",
+  "banner": true
+ },
+ "KH": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Angkor_panorama_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Angkor_panorama_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Chris https://www.flickr.com/photos/11581043@N00",
+  "banner": true
+ },
+ "KI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Kiribati_banner_South_Tarawa_from_the_air.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3000,
+  "height": 434,
+  "page": "https://commons.wikimedia.org/wiki/File:Kiribati_banner_South_Tarawa_from_the_air.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Photo taken by Government of Kiribati employee in the course of their work",
+  "banner": true
+ },
+ "KM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Palmiers-Grande_Comore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2816,
+  "height": 2112,
+  "page": "https://commons.wikimedia.org/wiki/File:Palmiers-Grande_Comore.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Woodlouse",
+  "banner": false
+ },
+ "KN": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/2005-12_St_Marys_church_cayon_st_kitts.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3080,
+  "height": 1108,
+  "page": "https://commons.wikimedia.org/wiki/File:2005-12_St_Marys_church_cayon_st_kitts.jpg",
+  "license": "CC BY-SA 2.5",
+  "artist": "No machine-readable author provided. Infilms assumed (based on copyright claims).",
+  "banner": false
+ },
+ "KP": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Revolutionary_Martyrs_Cemetery_35.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3454,
+  "height": 2559,
+  "page": "https://commons.wikimedia.org/wiki/File:Revolutionary_Martyrs_Cemetery_35.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Nicor",
+  "banner": false
+ },
+ "KR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Korea_Banner_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3710,
+  "height": 530,
+  "page": "https://commons.wikimedia.org/wiki/File:Korea_Banner_2.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "https://www.flickr.com/photos/traveloriented/",
+  "banner": true
+ },
+ "KW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Kuwait_sunset_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3630,
+  "height": 519,
+  "page": "https://commons.wikimedia.org/wiki/File:Kuwait_sunset_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Jack Versloot https://www.flickr.com/photos/jackversloot/",
+  "banner": true
+ },
+ "KY": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Cayman_Islands_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3177,
+  "height": 454,
+  "page": "https://commons.wikimedia.org/wiki/File:Cayman_Islands_Banner.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Diego Delso",
+  "banner": true
+ },
+ "KZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Kazakhstan_banner_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3000,
+  "height": 429,
+  "page": "https://commons.wikimedia.org/wiki/File:Kazakhstan_banner_2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Dmitry A. Mottl (original) This derivative work (cropped): SHB2000",
+  "banner": true
+ },
+ "LA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Laos_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Laos_banner.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Tango7174",
+  "banner": true
+ },
+ "LB": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Zahle%2CLebanon.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:Zahle,Lebanon.JPG",
+  "license": "Public domain",
+  "artist": "Nassif.seif",
+  "banner": false
+ },
+ "LC": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Anse_la_Reye_%28Saint_Lucia%29_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Anse_la_Reye_(Saint_Lucia)_banner.jpg",
+  "license": "CC0",
+  "artist": "Mjr74",
+  "banner": true
+ },
+ "LI": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Burg_Gutenberg_-_Balzes_%28Liechtenstein%29_Panorama.jpg/3840px-Burg_Gutenberg_-_Balzes_%28Liechtenstein%29_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8032,
+  "height": 3010,
+  "page": "https://commons.wikimedia.org/wiki/File:Burg_Gutenberg_-_Balzes_(Liechtenstein)_Panorama.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Guido Radig",
+  "banner": false
+ },
+ "LK": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Temple_in_Matale.JPG/3840px-Temple_in_Matale.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4032,
+  "height": 3024,
+  "page": "https://commons.wikimedia.org/wiki/File:Temple_in_Matale.JPG",
+  "license": "Public domain",
+  "artist": "Løken",
+  "banner": false
+ },
+ "LR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Bomi_lake_banner1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 299,
+  "page": "https://commons.wikimedia.org/wiki/File:Bomi_lake_banner1.jpg",
+  "license": "Public domain",
+  "artist": "Bomi_lake.jpg: Sahmeditor derivative work: Jjtkk",
+  "banner": true
+ },
+ "LS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/LesothoPanorama.JPG/3840px-LesothoPanorama.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7167,
+  "height": 1354,
+  "page": "https://commons.wikimedia.org/wiki/File:LesothoPanorama.JPG",
+  "license": "CC BY 2.5",
+  "artist": "",
+  "banner": false
+ },
+ "LT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Vilnius_-_Panorama_02.jpg/3840px-Vilnius_-_Panorama_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5355,
+  "height": 1594,
+  "page": "https://commons.wikimedia.org/wiki/File:Vilnius_-_Panorama_02.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Lestat (Jan Mehlich)",
+  "banner": false
+ },
+ "LU": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Panorama_of_Vianden%2C_Luxembourg_%283940122601%29.jpg/3840px-Panorama_of_Vianden%2C_Luxembourg_%283940122601%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6952,
+  "height": 2440,
+  "page": "https://commons.wikimedia.org/wiki/File:Panorama_of_Vianden,_Luxembourg_(3940122601).jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Michal Osmenda from Brussels, Belgium",
+  "banner": false
+ },
+ "LV": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Riga_and_Daugava_-_panorama.jpg/3840px-Riga_and_Daugava_-_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6026,
+  "height": 1600,
+  "page": "https://commons.wikimedia.org/wiki/File:Riga_and_Daugava_-_panorama.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Pudelek (Marcin Szala)",
+  "banner": false
+ },
+ "LY": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/A_mosque_in_Bomba-Libya.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3648,
+  "height": 2736,
+  "page": "https://commons.wikimedia.org/wiki/File:A_mosque_in_Bomba-Libya.JPG",
+  "license": "Public domain",
+  "artist": "Maher A. A. Abdussalam",
+  "banner": false
+ },
+ "MA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Vall%C3%A9e_des_Gorges_du_Dad%C3%A8s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3800,
+  "height": 2136,
+  "page": "https://commons.wikimedia.org/wiki/File:Vall%C3%A9e_des_Gorges_du_Dad%C3%A8s.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Christophe Guilloux",
+  "banner": false
+ },
+ "MC": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Pano-urlaub-2009-monaco1.jpg/3840px-Pano-urlaub-2009-monaco1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8098,
+  "height": 2240,
+  "page": "https://commons.wikimedia.org/wiki/File:Pano-urlaub-2009-monaco1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Martin Weber",
+  "banner": false
+ },
+ "MD": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Republic_of_Moldova_banner.jpg/3840px-Republic_of_Moldova_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5464,
+  "height": 756,
+  "page": "https://commons.wikimedia.org/wiki/File:Republic_of_Moldova_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "USAID Digital Development",
+  "banner": true
+ },
+ "ME": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Montenegro_Panorama_16.jpg/3840px-Montenegro_Panorama_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7354,
+  "height": 1987,
+  "page": "https://commons.wikimedia.org/wiki/File:Montenegro_Panorama_16.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Dirk.heldmaier",
+  "banner": false
+ },
+ "MF": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/OrientBeachSaintMartin_20080108.jpg/3840px-OrientBeachSaintMartin_20080108.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 11362,
+  "height": 1628,
+  "page": "https://commons.wikimedia.org/wiki/File:OrientBeachSaintMartin_20080108.jpg",
+  "license": "CC BY 3.0",
+  "artist": "UpstateNYer",
+  "banner": false
+ },
+ "MG": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Landscape_Madagascar_07.jpg/3840px-Landscape_Madagascar_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7096,
+  "height": 1736,
+  "page": "https://commons.wikimedia.org/wiki/File:Landscape_Madagascar_07.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bernard Gagnon",
+  "banner": false
+ },
+ "MH": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/Marshall_Islands_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Marshall_Islands_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Matt Kieffer",
+  "banner": true
+ },
+ "MK": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Museum_on_Water%2C_Ohrid.JPG/3840px-Museum_on_Water%2C_Ohrid.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4512,
+  "height": 1548,
+  "page": "https://commons.wikimedia.org/wiki/File:Museum_on_Water,_Ohrid.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Pudelek (Marcin Szala)",
+  "banner": false
+ },
+ "ML": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Bamako_037.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3226,
+  "height": 2400,
+  "page": "https://commons.wikimedia.org/wiki/File:Bamako_037.jpg",
+  "license": "Public domain",
+  "artist": "Arensond",
+  "banner": false
+ },
+ "MM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Bagan_%28Myanmar%29_banner_Sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Bagan_(Myanmar)_banner_Sunset.jpg",
+  "license": "CC BY 2.0",
+  "artist": "A_Bagan_Sunset.jpg: Soe Lin derivative work: JamesA",
+  "banner": true
+ },
+ "MN": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Mongolian_landscape_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Mongolian_landscape_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Ludovic Hirlimann https://www.flickr.com/photos/lhirlimann/ [dead link]",
+  "banner": true
+ },
+ "MO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Centro_de_Ciencia%2C_Macao%2C_2013-08-08%2C_DD_10.jpg/3840px-Centro_de_Ciencia%2C_Macao%2C_2013-08-08%2C_DD_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5394,
+  "height": 2472,
+  "page": "https://commons.wikimedia.org/wiki/File:Centro_de_Ciencia,_Macao,_2013-08-08,_DD_10.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Diego Delso",
+  "banner": false
+ },
+ "MP": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Saipan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3008,
+  "height": 2000,
+  "page": "https://commons.wikimedia.org/wiki/File:Saipan.jpg",
+  "license": "Public domain",
+  "artist": "P. Miller, (Pdmiller)",
+  "banner": false
+ },
+ "MQ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Maison_de_la_Canne_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3072,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Maison_de_la_Canne_001.jpg",
+  "license": "Public domain",
+  "artist": "Tux-Man",
+  "banner": false
+ },
+ "MR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/St_Louis_and_Mauritania_011.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:St_Louis_and_Mauritania_011.jpg",
+  "license": "Public domain",
+  "artist": "Arensond",
+  "banner": false
+ },
+ "MS": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Monserrat_-_Soufri%C3%A8re_Hills_close-up.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3648,
+  "height": 2736,
+  "page": "https://commons.wikimedia.org/wiki/File:Monserrat_-_Soufri%C3%A8re_Hills_close-up.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Pat Hawks",
+  "banner": false
+ },
+ "MT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Malta_Valletta_Panorama_02.jpg/3840px-Malta_Valletta_Panorama_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 9600,
+  "height": 2127,
+  "page": "https://commons.wikimedia.org/wiki/File:Malta_Valletta_Panorama_02.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Dirk Heldmaier",
+  "banner": false
+ },
+ "MU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Mauritius_banner_Sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Mauritius_banner_Sunset.jpg",
+  "license": "CC0",
+  "artist": "Damiano Luchetti",
+  "banner": true
+ },
+ "MV": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Maldives_banner_Small_island_shoreline_with_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Maldives_banner_Small_island_shoreline_with_beach.jpg",
+  "license": "CC0",
+  "artist": "Steevie",
+  "banner": true
+ },
+ "MW": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Panorama_Blick_auf_das_Zomba_Plateau_vom_Ndangopuma_H%C3%BCgel.jpg/3840px-Panorama_Blick_auf_das_Zomba_Plateau_vom_Ndangopuma_H%C3%BCgel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 16925,
+  "height": 1758,
+  "page": "https://commons.wikimedia.org/wiki/File:Panorama_Blick_auf_das_Zomba_Plateau_vom_Ndangopuma_H%C3%BCgel.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Rockwurm",
+  "banner": false
+ },
+ "MX": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Mezcala_Bridge_-_Mexico_edit1.jpg/3840px-Mezcala_Bridge_-_Mexico_edit1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5803,
+  "height": 1684,
+  "page": "https://commons.wikimedia.org/wiki/File:Mezcala_Bridge_-_Mexico_edit1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Jujutacular",
+  "banner": false
+ },
+ "MY": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Cameron_Highlands_Tea_Plantation_2012.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3393,
+  "height": 1897,
+  "page": "https://commons.wikimedia.org/wiki/File:Cameron_Highlands_Tea_Plantation_2012.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Bjørn Christian Tørrissen",
+  "banner": false
+ },
+ "MZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Boats_outside_Island_of_Mozambique.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3734,
+  "height": 2489,
+  "page": "https://commons.wikimedia.org/wiki/File:Boats_outside_Island_of_Mozambique.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Stig Nygaard",
+  "banner": false
+ },
+ "NA": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Sossusvlei_south_view.jpg/3840px-Sossusvlei_south_view.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10338,
+  "height": 2406,
+  "page": "https://commons.wikimedia.org/wiki/File:Sossusvlei_south_view.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Hans Hillewaert",
+  "banner": false
+ },
+ "NC": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Col_de_Prony.jpg/3840px-Col_de_Prony.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4288,
+  "height": 2848,
+  "page": "https://commons.wikimedia.org/wiki/File:Col_de_Prony.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Fourrure",
+  "banner": false
+ },
+ "NE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Niger_banner_Bagzane.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 1918,
+  "height": 274,
+  "page": "https://commons.wikimedia.org/wiki/File:Niger_banner_Bagzane.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "File:Bagzane1.jpg: Jacques Taberlet derivative work: Lkcl it",
+  "banner": true
+ },
+ "NF": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Anson_Bay_Banner_from_Beach_Level.jpg/3840px-Anson_Bay_Banner_from_Beach_Level.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4211,
+  "height": 600,
+  "page": "https://commons.wikimedia.org/wiki/File:Anson_Bay_Banner_from_Beach_Level.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Inas",
+  "banner": true
+ },
+ "NG": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Young_Eyo_from_above.jpg/3840px-Young_Eyo_from_above.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4000,
+  "height": 2250,
+  "page": "https://commons.wikimedia.org/wiki/File:Young_Eyo_from_above.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Slashme",
+  "banner": false
+ },
+ "NI": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Cattle_in_dry_season%2C_Nicaragua.jpg/3840px-Cattle_in_dry_season%2C_Nicaragua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4288,
+  "height": 2848,
+  "page": "https://commons.wikimedia.org/wiki/File:Cattle_in_dry_season,_Nicaragua.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Neil Palmer (CIAT)",
+  "banner": false
+ },
+ "NL": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Leiden-NL-Banner-2.jpg/3840px-Leiden-NL-Banner-2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5304,
+  "height": 760,
+  "page": "https://commons.wikimedia.org/wiki/File:Leiden-NL-Banner-2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Traveler100",
+  "banner": true
+ },
+ "NO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Raftsundet_panorama%2C_2010_09.jpg/3840px-Raftsundet_panorama%2C_2010_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7780,
+  "height": 1810,
+  "page": "https://commons.wikimedia.org/wiki/File:Raftsundet_panorama,_2010_09.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Ximonic, Simo Räsänen",
+  "banner": false
+ },
+ "NP": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Mountains_as_seen_from_Chisopani_-_panaroma_-_Flickr_-_thapa.laxman.jpg/3840px-Mountains_as_seen_from_Chisopani_-_panaroma_-_Flickr_-_thapa.laxman.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6057,
+  "height": 1024,
+  "page": "https://commons.wikimedia.org/wiki/File:Mountains_as_seen_from_Chisopani_-_panaroma_-_Flickr_-_thapa.laxman.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Laxman Thapa from Nepal",
+  "banner": false
+ },
+ "NR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Rocks_by_the_Beach_Nauru_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Rocks_by_the_Beach_Nauru_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Hadi Zaher https://www.flickr.com/photos/hazara/",
+  "banner": true
+ },
+ "NU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Niue_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2254,
+  "height": 322,
+  "page": "https://commons.wikimedia.org/wiki/File:Niue_banner.jpg",
+  "license": "CC BY-SA 2.0 de",
+  "artist": "File:Niue Küstenlandschaft 2.jpg: Msdstefan at de.wikipedia derivative work: Lkcl it",
+  "banner": true
+ },
+ "NZ": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/080420-Kaikouras_from_Kaikoura.jpg/3840px-080420-Kaikouras_from_Kaikoura.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4664,
+  "height": 1352,
+  "page": "https://commons.wikimedia.org/wiki/File:080420-Kaikouras_from_Kaikoura.jpg",
+  "license": "Public domain",
+  "artist": "Karora",
+  "banner": false
+ },
+ "OM": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Beehive_Tombs%2C_Qubur_Juhhal_at_Al_Ayn%2C_Oman.jpg/3840px-Beehive_Tombs%2C_Qubur_Juhhal_at_Al_Ayn%2C_Oman.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4843,
+  "height": 1594,
+  "page": "https://commons.wikimedia.org/wiki/File:Beehive_Tombs,_Qubur_Juhhal_at_Al_Ayn,_Oman.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Alfred Weidinger from Vienna, Austria",
+  "banner": false
+ },
+ "PA": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Panama_canal_panoramic_view_from_the_top_of_Ancon_hill.jpg/3840px-Panama_canal_panoramic_view_from_the_top_of_Ancon_hill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10557,
+  "height": 1248,
+  "page": "https://commons.wikimedia.org/wiki/File:Panama_canal_panoramic_view_from_the_top_of_Ancon_hill.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Brian Gratwicke",
+  "banner": false
+ },
+ "PE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/95_-_Machu_Picchu_-_Juin_2009.jpg/3840px-95_-_Machu_Picchu_-_Juin_2009.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 15300,
+  "height": 3600,
+  "page": "https://commons.wikimedia.org/wiki/File:95_-_Machu_Picchu_-_Juin_2009.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Martin St-Amant (S23678)",
+  "banner": false
+ },
+ "PF": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Polynesian_hammock_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Polynesian_hammock_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "mcclave https://www.flickr.com/photos/mcclave/",
+  "banner": true
+ },
+ "PG": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Koroba_5682b.JPG/3840px-Koroba_5682b.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4752,
+  "height": 3168,
+  "page": "https://commons.wikimedia.org/wiki/File:Koroba_5682b.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "http://veton.picq.fr",
+  "banner": false
+ },
+ "PH": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Banaue_Wikivoyage_banner.jpg/3840px-Banaue_Wikivoyage_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10106,
+  "height": 1448,
+  "page": "https://commons.wikimedia.org/wiki/File:Banaue_Wikivoyage_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Matthias Hiltner",
+  "banner": true
+ },
+ "PK": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Dudipat_Panorama.jpg/3840px-Dudipat_Panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 12235,
+  "height": 2608,
+  "page": "https://commons.wikimedia.org/wiki/File:Dudipat_Panorama.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Shikari7",
+  "banner": false
+ },
+ "PL": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Kietlice_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Kietlice_banner.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Ralf Lotys (Sicherlich), cropped by Jjtkk",
+  "banner": true
+ },
+ "PM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Miquelon_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2048,
+  "height": 292,
+  "page": "https://commons.wikimedia.org/wiki/File:Miquelon_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Miquelon_shore.jpg: User: (WT-shared) TVerBeek at wts wikivoyage derivative work: Jjtkk",
+  "banner": true
+ },
+ "PN": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Pitcairn-banner.jpg/3840px-Pitcairn-banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 12889,
+  "height": 2031,
+  "page": "https://commons.wikimedia.org/wiki/File:Pitcairn-banner.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Balou46",
+  "banner": true
+ },
+ "PR": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Fort_San_Cristobal%2C_Puerto_Rico.jpg/3840px-Fort_San_Cristobal%2C_Puerto_Rico.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 14764,
+  "height": 1563,
+  "page": "https://commons.wikimedia.org/wiki/File:Fort_San_Cristobal,_Puerto_Rico.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "https://www.flickr.com/people/tomasfano/",
+  "banner": false
+ },
+ "PS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Qubeibe_panoramic01_2012-03-17.jpg/3840px-Qubeibe_panoramic01_2012-03-17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 9876,
+  "height": 1811,
+  "page": "https://commons.wikimedia.org/wiki/File:Qubeibe_panoramic01_2012-03-17.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "KlausFoehl",
+  "banner": false
+ },
+ "PT": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Capela_Das_Almas_Oporto_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3500,
+  "height": 500,
+  "page": "https://commons.wikimedia.org/wiki/File:Capela_Das_Almas_Oporto_Banner.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Tsy1980",
+  "banner": true
+ },
+ "PW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Jellyfish_Lake_aerial_%28March_2008%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3456,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Jellyfish_Lake_aerial_(March_2008).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Lukas from Munich, Germany",
+  "banner": false
+ },
+ "PY": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Paraguay_Jesuit_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3835,
+  "height": 549,
+  "page": "https://commons.wikimedia.org/wiki/File:Paraguay_Jesuit_Banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Greg Schechter from San Francisco, USA",
+  "banner": true
+ },
+ "QA": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Doha_skyline.jpg/3840px-Doha_skyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5283,
+  "height": 3003,
+  "page": "https://commons.wikimedia.org/wiki/File:Doha_skyline.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Haakon S. Krohn",
+  "banner": false
+ },
+ "RE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/R%C3%A9union_banner_Mountain_scenery3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:R%C3%A9union_banner_Mountain_scenery3.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Fabimaru",
+  "banner": true
+ },
+ "RO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/Panorama_Fan_Festival.jpg/3840px-Panorama_Fan_Festival.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 9510,
+  "height": 1810,
+  "page": "https://commons.wikimedia.org/wiki/File:Panorama_Fan_Festival.jpg",
+  "license": "CC BY 3.0",
+  "artist": "El bes",
+  "banner": false
+ },
+ "RS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Danube_in_Ritopek%2C_Serbia.jpg/3840px-Danube_in_Ritopek%2C_Serbia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5061,
+  "height": 1200,
+  "page": "https://commons.wikimedia.org/wiki/File:Danube_in_Ritopek,_Serbia.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Lošmi",
+  "banner": false
+ },
+ "RU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Izborsk_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Izborsk_banner.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Izborsk_landscapes.jpg: Strokin.ru derivative work: Jjtkk",
+  "banner": true
+ },
+ "RW": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/Wv_Ruanda_banner.jpg/3840px-Wv_Ruanda_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5618,
+  "height": 803,
+  "page": "https://commons.wikimedia.org/wiki/File:Wv_Ruanda_banner.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Peace Batuma",
+  "banner": true
+ },
+ "SA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Mecca_banner_Kaaba_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Mecca_banner_Kaaba_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Mardetanha",
+  "banner": true
+ },
+ "SB": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Kennedy_Island%2C_Kasolo_Island%2C_Pudding_Plum.JPG/3840px-Kennedy_Island%2C_Kasolo_Island%2C_Pudding_Plum.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 3968,
+  "height": 2976,
+  "page": "https://commons.wikimedia.org/wiki/File:Kennedy_Island,_Kasolo_Island,_Pudding_Plum.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Nash Belarus",
+  "banner": false
+ },
+ "SC": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/2005-03-13_08-55-02_Seychelles_-_Misere.jpg/3840px-2005-03-13_08-55-02_Seychelles_-_Misere.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 9004,
+  "height": 1282,
+  "page": "https://commons.wikimedia.org/wiki/File:2005-03-13_08-55-02_Seychelles_-_Misere.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "NOTE: This image is a panorama of Seychelles consisting of multiple frames that were merged or stitched in Panorama Stud",
+  "banner": true
+ },
+ "SD": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Sudan_-_the_black_pharaohs.jpg/3840px-Sudan_-_the_black_pharaohs.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4752,
+  "height": 2659,
+  "page": "https://commons.wikimedia.org/wiki/File:Sudan_-_the_black_pharaohs.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Retlaw Snellac",
+  "banner": false
+ },
+ "SE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Nykulla.JPG/3840px-Nykulla.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 3860,
+  "height": 1216,
+  "page": "https://commons.wikimedia.org/wiki/File:Nykulla.JPG",
+  "license": "Public domain",
+  "artist": "Pieter Kuiper",
+  "banner": false
+ },
+ "SG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Supertree_Grove%2C_Gardens_by_the_Bay%2C_Singapore_-_20120704_%28banner%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3010,
+  "height": 430,
+  "page": "https://commons.wikimedia.org/wiki/File:Supertree_Grove,_Gardens_by_the_Bay,_Singapore_-_20120704_(banner).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Khairul Nizam.",
+  "banner": true
+ },
+ "SH": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Ascension_Island1.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3072,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Ascension_Island1.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "LordHarris",
+  "banner": false
+ },
+ "SI": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Izlake_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2303,
+  "height": 329,
+  "page": "https://commons.wikimedia.org/wiki/File:Izlake_banner.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Izlake_panorama.jpg: Z.K. derivative work: Jjtkk",
+  "banner": true
+ },
+ "SJ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/SvalbardView.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2576,
+  "height": 1932,
+  "page": "https://commons.wikimedia.org/wiki/File:SvalbardView.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Niels Elgaard Larsen - User: (WT-shared) Elgaard at wts wikivoyage",
+  "banner": false
+ },
+ "SK": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Spis_Castle_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Spis_Castle_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Spis_Castle_01.JPG: József Süveg derivative work: Danapit",
+  "banner": true
+ },
+ "SL": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Sierra_Leone_banner_Village_beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Sierra_Leone_banner_Village_beach.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Flickr_-_stringer_bel_-_River_No._2_Village_Beach,_Sierra_Leone_(3).jpg: Annabel Symington derivative work: Jjtkk",
+  "banner": true
+ },
+ "SM": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Panoramic_SanMarino_Adriatic_matl.jpg/3840px-Panoramic_SanMarino_Adriatic_matl.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 7031,
+  "height": 1675,
+  "page": "https://commons.wikimedia.org/wiki/File:Panoramic_SanMarino_Adriatic_matl.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Matl",
+  "banner": false
+ },
+ "SN": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Senegal_624.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3264,
+  "height": 2448,
+  "page": "https://commons.wikimedia.org/wiki/File:Senegal_624.jpg",
+  "license": "Public domain",
+  "artist": "Arensond",
+  "banner": false
+ },
+ "SO": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Mogadishu_banner_Lido_Beach.jpg/3840px-Mogadishu_banner_Lido_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 5206,
+  "height": 744,
+  "page": "https://commons.wikimedia.org/wiki/File:Mogadishu_banner_Lido_Beach.jpg",
+  "license": "CC0",
+  "artist": "AMISOM",
+  "banner": true
+ },
+ "SR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Suriname_banner.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Suriname_banner.png",
+  "license": "CC BY-SA 3.0",
+  "artist": "WiDi",
+  "banner": true
+ },
+ "SS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Huts_in_Yei_township%2C_South_Sudan.jpg/3840px-Huts_in_Yei_township%2C_South_Sudan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4960,
+  "height": 1136,
+  "page": "https://commons.wikimedia.org/wiki/File:Huts_in_Yei_township,_South_Sudan.jpg",
+  "license": "CC BY 2.0",
+  "artist": "SuSanA Secretariat",
+  "banner": false
+ },
+ "ST": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sao_Tome_banner_Eggs_of_Prinia_molleri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Sao_Tome_banner_Eggs_of_Prinia_molleri.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Didier Descouens",
+  "banner": true
+ },
+ "SU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Soviet_Union_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 1842,
+  "height": 263,
+  "page": "https://commons.wikimedia.org/wiki/File:Soviet_Union_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Milan Nykodym from Kutna Hora, Czech Republic",
+  "banner": true
+ },
+ "SV": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/El_Salvador_banner_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3150,
+  "height": 450,
+  "page": "https://commons.wikimedia.org/wiki/File:El_Salvador_banner_2.jpg",
+  "license": "CC0",
+  "artist": "Renemgb",
+  "banner": true
+ },
+ "SX": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/St_Maarten_%288624354806%29_%28banner%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2500,
+  "height": 278,
+  "page": "https://commons.wikimedia.org/wiki/File:St_Maarten_(8624354806)_(banner).jpg",
+  "license": "CC BY 2.0",
+  "artist": "Jonathan Palombo",
+  "banner": true
+ },
+ "SY": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Palmyra_banner_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Palmyra_banner_2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "http://commons.wikimedia.org/wiki/User:Yvonnefm",
+  "banner": true
+ },
+ "SZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Swaziland_-_Traditional_homes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3456,
+  "height": 2244,
+  "page": "https://commons.wikimedia.org/wiki/File:Swaziland_-_Traditional_homes.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Caitlin from Hertfordshire, UK",
+  "banner": false
+ },
+ "TC": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Chalk_Sound.jpg/3840px-Chalk_Sound.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4752,
+  "height": 3168,
+  "page": "https://commons.wikimedia.org/wiki/File:Chalk_Sound.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Tim Sackton",
+  "banner": false
+ },
+ "TD": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Ancienne_ville_d%27Ouara%2C_Ouadda%C3%AF%2C_Chad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3008,
+  "height": 2000,
+  "page": "https://commons.wikimedia.org/wiki/File:Ancienne_ville_d%27Ouara,_Ouadda%C3%AF,_Chad.jpg",
+  "license": "Public domain",
+  "artist": "Robertgrafl",
+  "banner": false
+ },
+ "TF": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Ile_de_Saint_paul_et_le_Marion_Dufresne_au_large_%28cropped%29.jpg/3840px-Ile_de_Saint_paul_et_le_Marion_Dufresne_au_large_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4320,
+  "height": 540,
+  "page": "https://commons.wikimedia.org/wiki/File:Ile_de_Saint_paul_et_le_Marion_Dufresne_au_large_(cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Francis Letourmy",
+  "banner": true
+ },
+ "TG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Fishing_net%2C_Togo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3396,
+  "height": 1564,
+  "page": "https://commons.wikimedia.org/wiki/File:Fishing_net,_Togo.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Ferdinand Reus from Arnhem, Holland",
+  "banner": false
+ },
+ "TH": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Railay_Beach_Panorama.jpeg/3840px-Railay_Beach_Panorama.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 11693,
+  "height": 1853,
+  "page": "https://commons.wikimedia.org/wiki/File:Railay_Beach_Panorama.jpeg",
+  "license": "CC BY 3.0",
+  "artist": "Wikigod at en.wikipedia",
+  "banner": false
+ },
+ "TJ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Pamir_highway_near_karakul.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3456,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Pamir_highway_near_karakul.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Hylgeriak / Wikipedia",
+  "banner": false
+ },
+ "TK": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Nukunonu_Lagoon20070716_%28banner%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2560,
+  "height": 320,
+  "page": "https://commons.wikimedia.org/wiki/File:Nukunonu_Lagoon20070716_(banner).jpg",
+  "license": "CC BY 2.5",
+  "artist": "CloudSurfer",
+  "banner": true
+ },
+ "TL": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/East_Timor_banner_Reef_Tube_sponge.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:East_Timor_banner_Reef_Tube_sponge.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Nhobgood Nick Hobgood",
+  "banner": true
+ },
+ "TM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Turkmenistan_banner_Carpets_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Turkmenistan_banner_Carpets_2.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Rastapopulous",
+  "banner": true
+ },
+ "TN": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Tunisia_banner_Roman_mosaic_at_Carthage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Tunisia_banner_Roman_mosaic_at_Carthage.jpg",
+  "license": "CC0",
+  "artist": "Rais67",
+  "banner": true
+ },
+ "TO": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/%27Atata_Island.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2848,
+  "height": 2136,
+  "page": "https://commons.wikimedia.org/wiki/File:%27Atata_Island.JPG",
+  "license": "CC BY-SA 4.0",
+  "artist": "Haanofonua",
+  "banner": false
+ },
+ "TR": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Courtyard_of_the_S%C3%BCleymaniye_Mosque_in_Istanbul%2C_Turkey_001.jpg/3840px-Courtyard_of_the_S%C3%BCleymaniye_Mosque_in_Istanbul%2C_Turkey_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4066,
+  "height": 2366,
+  "page": "https://commons.wikimedia.org/wiki/File:Courtyard_of_the_S%C3%BCleymaniye_Mosque_in_Istanbul,_Turkey_001.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Moonik",
+  "banner": false
+ },
+ "TT": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Pigeon_Point_Tobago_fr_Water.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3072,
+  "height": 2304,
+  "page": "https://commons.wikimedia.org/wiki/File:Pigeon_Point_Tobago_fr_Water.jpg",
+  "license": "Public domain",
+  "artist": "Wikifurn",
+  "banner": false
+ },
+ "TV": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Tuvalu_-_Funafuti_-_Beach.jpg/3840px-Tuvalu_-_Funafuti_-_Beach.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4352,
+  "height": 2892,
+  "page": "https://commons.wikimedia.org/wiki/File:Tuvalu_-_Funafuti_-_Beach.jpg",
+  "license": "CC BY 2.0",
+  "artist": "mrlins",
+  "banner": false
+ },
+ "TW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/34/DaZhongZhiZheng_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 1280,
+  "height": 183,
+  "page": "https://commons.wikimedia.org/wiki/File:DaZhongZhiZheng_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "TianyinLee",
+  "banner": true
+ },
+ "UA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Chernivtsi-banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 301,
+  "page": "https://commons.wikimedia.org/wiki/File:Chernivtsi-banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "uploaded by Chern038",
+  "banner": true
+ },
+ "UG": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Uganda_Wikivoyage_banner.jpg/3840px-Uganda_Wikivoyage_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4360,
+  "height": 622,
+  "page": "https://commons.wikimedia.org/wiki/File:Uganda_Wikivoyage_banner.jpg",
+  "license": "CC BY-SA 2.0",
+  "artist": "Rod Waddington from Kergunyah, Australia",
+  "banner": true
+ },
+ "UM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Brunaj_suloj_sur_fostoj_de_la_Jonsonatolo.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 1163,
+  "height": 268,
+  "page": "https://commons.wikimedia.org/wiki/File:Brunaj_suloj_sur_fostoj_de_la_Jonsonatolo.png",
+  "license": "CC BY 2.0",
+  "artist": "U.S. Fish and Wildlife Service Headquarters",
+  "banner": true
+ },
+ "US": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Statue_of_Liberty_light_banner.jpg/3840px-Statue_of_Liberty_light_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 6552,
+  "height": 936,
+  "page": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_light_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "https://www.flickr.com/photos/buggolo/ Stefano Brivio",
+  "banner": true
+ },
+ "UY": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Playa_Pocitos_Pano_banner_2.jpg/3840px-Playa_Pocitos_Pano_banner_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4776,
+  "height": 687,
+  "page": "https://commons.wikimedia.org/wiki/File:Playa_Pocitos_Pano_banner_2.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Elemaki",
+  "banner": true
+ },
+ "UZ": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Registan_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Registan_banner.jpg",
+  "license": "CC BY 2.0",
+  "artist": "https://www.flickr.com/photos/dalbera/ Jean-Pierre Dalbéra",
+  "banner": true
+ },
+ "VA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Vatican_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Vatican_Banner.jpg",
+  "license": "Public domain",
+  "artist": "Michelangelo",
+  "banner": true
+ },
+ "VC": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Palm_Island_The_Grenadines.jpg/3840px-Palm_Island_The_Grenadines.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4256,
+  "height": 2832,
+  "page": "https://commons.wikimedia.org/wiki/File:Palm_Island_The_Grenadines.jpg",
+  "license": "CC BY 3.0",
+  "artist": "Nikonian",
+  "banner": false
+ },
+ "VE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Canaima_panoramic.jpg/3840px-Canaima_panoramic.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8579,
+  "height": 2399,
+  "page": "https://commons.wikimedia.org/wiki/File:Canaima_panoramic.jpg",
+  "license": "Public domain",
+  "artist": "Samuel Bristow",
+  "banner": false
+ },
+ "VG": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/British_Virgin_Islands_banner_sailboats_at_Tortola.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:British_Virgin_Islands_banner_sailboats_at_Tortola.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Jackie",
+  "banner": true
+ },
+ "VI": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Caneel_Bay_Turtle_Bay_Beach_4.jpg/3840px-Caneel_Bay_Turtle_Bay_Beach_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 4116,
+  "height": 2738,
+  "page": "https://commons.wikimedia.org/wiki/File:Caneel_Bay_Turtle_Bay_Beach_4.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Fred Hsu (Wikipedia:User:Fred Hsu on en.wikipedia)",
+  "banner": false
+ },
+ "VN": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/HaLongBayBIG.jpg/3840px-HaLongBayBIG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 10064,
+  "height": 1664,
+  "page": "https://commons.wikimedia.org/wiki/File:HaLongBayBIG.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Slaza : Sándor Laza",
+  "banner": false
+ },
+ "VU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Eratap%2C_Efate%2C_Vanuatu%2C_13_April_2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3658,
+  "height": 2441,
+  "page": "https://commons.wikimedia.org/wiki/File:Eratap,_Efate,_Vanuatu,_13_April_2008.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Phillip Capper",
+  "banner": false
+ },
+ "WF": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Alofitai.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3840,
+  "height": 2880,
+  "page": "https://commons.wikimedia.org/wiki/File:Alofitai.JPG",
+  "license": "CC BY-SA 3.0",
+  "artist": "Troisoc",
+  "banner": false
+ },
+ "WS": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Lalomanu_Beach_-_Samoa.jpg/3840px-Lalomanu_Beach_-_Samoa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 8887,
+  "height": 3547,
+  "page": "https://commons.wikimedia.org/wiki/File:Lalomanu_Beach_-_Samoa.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Neil",
+  "banner": false
+ },
+ "XK": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/25/Velika_Livada_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Velika_Livada_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "VelikaLivada.jpg: The original uploader was Marko Markovic at English Wikipedia. derivative work: Jjtkk",
+  "banner": true
+ },
+ "YE": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/2/28/Shibam_%28Hadhramaut%2C_Yemen%29_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Shibam_(Hadhramaut,_Yemen)_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Shibam_Wadi_Hadhramaut_Yemen.jpg: Jialiang Gao www.peace-on-earth.org derivative work: JamesA",
+  "banner": true
+ },
+ "YT": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Maki_De_Mayotte_1.jpg/3840px-Maki_De_Mayotte_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+  "width": 3888,
+  "height": 2592,
+  "page": "https://commons.wikimedia.org/wiki/File:Maki_De_Mayotte_1.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "MekTypro",
+  "banner": false
+ },
+ "YU": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Yugoslavia_WV_Banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 3242,
+  "height": 463,
+  "page": "https://commons.wikimedia.org/wiki/File:Yugoslavia_WV_Banner.jpg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Werner100359",
+  "banner": true
+ },
+ "ZA": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Table_Mountain_panorama.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Table_Mountain_panorama.jpg",
+  "license": "CC BY 2.0",
+  "artist": "Damien du Toit https://www.flickr.com/photos/coda/",
+  "banner": true
+ },
+ "ZM": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Serenje_district_%28Zambia%29_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Serenje_district_(Zambia)_banner.jpg",
+  "license": "CC0",
+  "artist": "Kkibumba",
+  "banner": true
+ },
+ "ZW": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Zimbabwe_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+  "width": 2100,
+  "height": 300,
+  "page": "https://commons.wikimedia.org/wiki/File:Zimbabwe_banner.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": "Digr",
+  "banner": true
+ }
+};
