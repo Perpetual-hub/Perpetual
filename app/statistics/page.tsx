@@ -3,11 +3,13 @@ import Link from "next/link";
 import { ChartCard } from "@/components/area/AreaPage";
 import { AreaTable } from "@/components/charts/AreaTable";
 import { BarList } from "@/components/charts/BarList";
+import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
 import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import {
   AS_OF_YEAR,
   DATA_AS_OF,
+  getCapacityOutlook,
   getCountries,
   getGlobalCapacity,
   getRegions,
@@ -79,6 +81,17 @@ export default function StatisticsPage() {
             Energy Agency.
           </p>
           <GlobalCapacityChart series={getGlobalCapacity()} />
+        </section>
+
+        <section aria-labelledby="outlook-h" className="rounded-[var(--radius)] border border-line p-6 md:p-8">
+          <h2 id="outlook-h" className="text-2xl font-bold tracking-tight">
+            Capacity Outlook to {getCapacityOutlook().scenarios[0].rows.at(-1)?.year}
+          </h2>
+          <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
+            Projections of world renewable capacity from the US Energy Information Administration&rsquo;s International
+            Energy Outlook, under three of its published scenarios.
+          </p>
+          <CapacityOutlookChart outlook={getCapacityOutlook()} actual={getGlobalCapacity().rows} />
         </section>
 
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">

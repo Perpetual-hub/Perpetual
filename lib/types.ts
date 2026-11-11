@@ -25,7 +25,10 @@ export interface StatSource {
   citation: string;
   url: string;
   licence: string;
-  lastUpdated: string;
+  /** ISO date the source last updated the series. */
+  lastUpdated?: string;
+  /** Year or date the source published the edition. */
+  published?: string;
   nextUpdate?: string;
   retrieved: string;
 }
@@ -45,4 +48,24 @@ export interface CapacitySeries {
   unit: "GW";
   source: StatSource;
   rows: CapacityRow[];
+}
+
+export interface OutlookRow {
+  year: number;
+  solar: number;
+  wind: number;
+  hydro: number;
+  geothermal: number;
+  other: number;
+  /** Renewables total as published (excludes battery storage). */
+  total: number;
+  battery: number;
+}
+
+/** Third-party projections, stored exactly as published. Perpetual makes no forecasts. */
+export interface CapacityOutlook {
+  unit: "GW";
+  edition: string;
+  source: StatSource;
+  scenarios: { id: string; label: string; rows: OutlookRow[] }[];
 }

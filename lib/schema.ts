@@ -169,20 +169,23 @@ export const researchItem = z.object({
 const isoDay = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
 const gw = z.number().nonnegative();
 
-export const capacitySeries = z
-  .object({
-    unit: z.literal("GW"),
-    source: z.object({
+const statSource = z.object({
       title: z.string().min(1),
       publisher: z.string().min(1),
       via: z.string().optional(),
       citation: z.string().min(1),
       url: z.string().url(),
       licence: z.string().min(1),
-      lastUpdated: isoDay,
+      lastUpdated: isoDay.optional(),
+      published: z.string().optional(),
       nextUpdate: isoDay.optional(),
       retrieved: isoDay,
-    }),
+    });
+
+export const capacitySeries = z
+  .object({
+    unit: z.literal("GW"),
+    source: statSource,
     rows: z
       .array(
         z.object({
@@ -199,3 +202,34 @@ export const capacitySeries = z
       .min(1),
   })
   .refine((s) => s.rows.every((r, i) => i === 0 || r.year === s.rows[i - 1].year + 1), "Years must be consecutive");
+
+const consecutive = (rows: { year: number }[]) => rows.every((r, i) => i === 0 || r.year === rows[i - 1].year + 1);
+
+export const capacityOutlook = z.object({
+  unit: z.literal("GW"),
+  edition: z.string().regex(/^\d{4}$/),
+  source: statSource,
+  scenarios: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        label: z.string().min(1),
+        rows: z
+          .array(
+            z.object({
+              year: z.number().int().min(1990).max(2100),
+              solar: gw,
+              wind: gw,
+              hydro: gw,
+              geothermal: gw,
+              other: gw,
+              total: gw,
+              battery: gw,
+            }),
+          )
+          .min(1)
+          .refine(consecutive, "Years must be consecutive"),
+      }),
+    )
+    .min(1),
+});

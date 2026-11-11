@@ -10,6 +10,7 @@ export const changelog: { version: string; date: string; changes: string[] }[] =
     date: "2026-11-11",
     changes: [
       "Added global installed renewable capacity by technology, 2000 to 2025, from IRENA via Our World in Data.",
+      "Added the US EIA International Energy Outlook 2023 projections of world renewable capacity to 2050, in three scenarios.",
     ],
   },
   {
