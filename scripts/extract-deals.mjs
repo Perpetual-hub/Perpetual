@@ -45,14 +45,26 @@ const Extracted = z.object({
   capacity_mw: z.number().nullable().describe("Generation or storage power capacity in MW, only if stated"),
   storage_mwh: z.number().nullable(),
   summary: z.string().describe("Two or three sentences in our own words: who did what, how big, where."),
-  details: z.string().nullable().describe("Project and technology specifics in our own words: capacity split, storage duration, development stage, expected dates."),
-  context: z.string().nullable().describe("Why it matters to the parties, in our own words, using only what the release says."),
+  details: z
+    .string()
+    .nullable()
+    .describe(
+      "Three to five sentences in our own words: what the assets are (capacity split, storage duration, location, stage), how the deal is structured (loan types, tax equity, offtake contract and its length), who the lenders or advisers are, and expected dates. Explain any jargon in plain words.",
+    ),
+  context: z
+    .string()
+    .nullable()
+    .describe(
+      "Two to four sentences in our own words: why the deal matters to the parties and the market, using only what the release says, with company claims reported as claims.",
+    ),
+  advisors: z.array(Party).describe("Legal, financial or technical advisers named in the release"),
 });
 
 const SYSTEM = `You extract renewable energy deal records from press releases for a public deal database.
 Rules:
 - Use only facts stated in the release. If something is not stated, use null or an empty list. Never estimate or infer numbers.
 - Write title, summary, details and context in your own words. Do not copy sentences from the release. No marketing language, no quotes, no semicolons.
+- Readers include students and people new to the industry: explain terms like tax equity, financial close, build-transfer or merchant in a few plain words when they appear.
 - The company that issued the release is a party, not a source of truth for opinions: report its claims as claims ("the company expects...").
 - Set is_renewable_transaction to false for product launches, earnings, appointments, market reports, awards, residential offers, or deals not in renewable energy, storage or green hydrogen.
 - Dates and amounts: amounts in full units (US$145 million = 145000000).`;
@@ -158,6 +170,7 @@ function toDeal(x) {
       ? { value: { amount: d.value_amount, currency: cur, ...(cur === "USD" ? { usd: d.value_amount } : {}), disclosed: true } }
       : {}),
     ...(d.capacity_mw && d.capacity_mw > 0 ? { capacityMW: d.capacity_mw } : {}),
+    ...(parties(d.advisors ?? []).length ? { advisors: parties(d.advisors) } : {}),
     summary: d.summary,
     ...(d.details ? { details: d.details } : {}),
     ...(d.context ? { context: d.context } : {}),
@@ -170,26 +183,37 @@ const curatedSrc = readFileSync(new URL("../data/deals-curated.ts", import.meta.
 const curatedUrls = new Set([...curatedSrc.matchAll(/"url": "([^"]+)"/g)].map((m) => m[1]));
 const candidates = JSON.parse(readFileSync(candidatesPath, "utf8")).filter((c) => !curatedUrls.has(c.url));
 const results = [];
-let n = 0;
-for (const c of candidates) {
-  if (n >= LIMIT) break;
-  n++;
-  try {
-    const x = await extract(c);
-    results.push(x);
-    if (x.error) console.log(`skip ${c.url}: ${x.error}`);
-  } catch (e) {
-    if (e instanceof Anthropic.RateLimitError) {
-      console.log("rate limited, waiting 60s");
-      await sleep(60_000);
-    } else if (e instanceof Anthropic.AuthenticationError) {
-      throw new Error("No valid Claude API credentials. Add an API key and run again.");
-    } else {
-      console.log(`error ${c.url}: ${e instanceof Error ? e.message : e}`);
+const todo = candidates.slice(0, Number.isFinite(LIMIT) ? LIMIT : undefined);
+const CONCURRENCY = Number(process.env.EXTRACT_CONCURRENCY ?? 4);
+// Stop starting new releases after this many minutes, so a long catch-up still saves its work.
+const deadline = Date.now() + Number(process.env.MAX_MINUTES ?? 300) * 60_000;
+let next = 0;
+let done = 0;
+let authFailed = false;
+async function worker() {
+  while (next < todo.length && Date.now() < deadline && !authFailed) {
+    const c = todo[next++];
+    try {
+      const x = await extract(c);
+      results.push(x);
+      if (x.error) console.log(`skip ${c.url}: ${x.error}`);
+    } catch (e) {
+      if (e instanceof Anthropic.AuthenticationError) {
+        authFailed = true;
+      } else if (e instanceof Anthropic.RateLimitError) {
+        console.log("rate limited, waiting 60s");
+        next--; // retry this release
+        await sleep(60_000);
+      } else {
+        console.log(`error ${c.url}: ${e instanceof Error ? e.message : e}`);
+      }
     }
+    if (++done % 25 === 0) console.log(`${done}/${todo.length} processed`);
   }
-  if (n % 25 === 0) console.log(`${n}/${Math.min(candidates.length, LIMIT)} processed`);
 }
+await Promise.all(Array.from({ length: CONCURRENCY }, worker));
+if (authFailed) throw new Error("No valid Claude API credentials. Check the ANTHROPIC_API_KEY secret.");
+if (next < todo.length) console.log(`Stopped at the time limit: ${todo.length - next} releases left for the next run.`);
 
 // Keep every deal already published, add the new ones, newest first, one record per release.
 const outFile = new URL("../data/deals-news.ts", import.meta.url);

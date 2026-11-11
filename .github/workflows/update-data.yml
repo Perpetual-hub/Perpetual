@@ -7,6 +7,10 @@ on:
   schedule:
     - cron: "17 5 * * *"
   workflow_dispatch:
+    inputs:
+      months:
+        description: "How many months of press releases to look back (2 for daily, 60 for the five-year catch-up)"
+        default: "2"
 
 permissions:
   contents: write
@@ -15,7 +19,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 350
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
@@ -46,11 +50,13 @@ jobs:
       - name: World Bank financings
         run: node scripts/fetch-worldbank-deals.mjs
 
-      - name: Press releases (last 2 months)
-        run: python3 scripts/collect-deal-news.py .cache/candidates.json .cache/prn 2
+      - name: Press releases
+        run: python3 scripts/collect-deal-news.py .cache/candidates.json .cache/prn ${{ inputs.months || 2 }}
 
       - name: Extract deals from press releases
         if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        env:
+          MAX_MINUTES: "280"
         run: node scripts/extract-deals.mjs .cache/candidates.json .cache/extract
 
       - name: PROFITS indicator scores
