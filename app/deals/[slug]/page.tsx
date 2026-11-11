@@ -41,8 +41,8 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
 
   return (
     <article>
-      <header className="border-b border-line bg-surface-2">
-        <div className="container-page pt-8 pb-10">
+      <header className="border-b border-line">
+        <div className="container-page pt-10 pb-12 md:pt-14 md:pb-14">
           <nav aria-label="Breadcrumb" className="mb-6 text-sm">
             <Link href="/deals" className="inline-flex items-center gap-1 text-muted hover:text-brand-blue">
               <ArrowLeft className="size-3.5" aria-hidden />
@@ -55,7 +55,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             <DealStatusBadge status={d.status} />
             {d.isSample && <SampleBadge />}
           </div>
-          <h1 className="mt-4 max-w-4xl text-3xl leading-[1.1] font-extrabold tracking-[-0.02em] md:text-[2.75rem]">{d.title}</h1>
+          <h1 className="mt-4 max-w-4xl text-3xl leading-[1.1] font-bold tracking-[-0.02em] md:text-[2.75rem]">{d.title}</h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/80">{d.summary}</p>
           <dl className="mt-8 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
             <HeadStat label="Value" value={d.value?.disclosed ? formatMoney(d.value.amount, d.value.currency) : "Undisclosed"} />
@@ -111,7 +111,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
           </Section>
 
           {projects.length > 0 && (
-            <Section id="projects" title="Projects in this deal">
+            <Section id="projects" title="Associated projects">
               <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
                 {projects.map((p) => (
                   <li key={p.id}>

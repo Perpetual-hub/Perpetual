@@ -10,7 +10,7 @@ const STYLE: Record<DealStatus, string> = {
 /** Deal status as text with a shape cue (never colour alone). */
 export function DealStatusBadge({ status }: { status: DealStatus }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full border bg-white px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${STYLE[status]}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-[3px] border bg-white px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${STYLE[status]}`}>
       <span
         aria-hidden
         className={`size-1.5 rounded-full ${status === "completed" ? "bg-brand-green" : status === "announced" ? "border border-current" : "bg-muted"}`}

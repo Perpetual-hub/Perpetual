@@ -63,7 +63,7 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
             </span>
             <p className={`text-xs font-semibold ${dark ? "text-hero-muted" : "text-muted"}`}>Sector</p>
           </div>
-          <h1 className={`mt-5 text-4xl font-extrabold tracking-[-0.025em] md:text-6xl ${dark ? "text-white" : ""}`}>{t.label}</h1>
+          <h1 className={`mt-5 text-4xl font-bold tracking-[-0.025em] md:text-6xl ${dark ? "text-white" : ""}`}>{t.label}</h1>
           <p className={`mt-5 max-w-[60ch] text-lg leading-relaxed ${dark ? "text-[#d5e0ec]" : "text-ink/80"}`}>{t.explainer}</p>
         </div>
         <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line shadow-[0_12px_40px_-20px_rgba(0,0,0,0.5)]">

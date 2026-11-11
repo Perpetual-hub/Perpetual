@@ -6,7 +6,7 @@ export function SampleBadge({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <span
       title="Illustrative sample record, not real data"
-      className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${
+      className={`inline-flex items-center gap-1 rounded-[3px] border px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${
         tone === "dark" ? "border-hero-line text-hero-muted" : "border-line bg-surface-2 text-muted"
       }`}
     >
@@ -29,7 +29,7 @@ const STATUS_STYLE: Record<ProjectStatus, string> = {
 /** Status as text with a small shape cue; colour is never the only signal. */
 export function StatusBadge({ status }: { status: ProjectStatus }) {
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full border bg-white px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${STATUS_STYLE[status]}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-[3px] border bg-white px-2 py-0.5 text-[11px] font-medium whitespace-nowrap ${STATUS_STYLE[status]}`}>
       <span
         aria-hidden
         className={`size-1.5 rounded-full ${status === "operating" ? "bg-brand-green" : status === "construction" ? "bg-brand-blue" : "border border-current"}`}
@@ -42,7 +42,7 @@ export function StatusBadge({ status }: { status: ProjectStatus }) {
 export function Pill({ children, tone = "light" }: { children: React.ReactNode; tone?: "light" | "dark" }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-semibold ${
+      className={`inline-flex items-center rounded-[3px] px-2 py-0.5 text-[11px] font-semibold ${
         tone === "dark" ? "bg-white/10 text-hero-ink" : "bg-surface-2 text-brand-navy"
       }`}
     >

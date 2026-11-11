@@ -3,10 +3,8 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <div className="container-page py-28 md:py-36">
-      <p className="text-xs font-semibold text-brand-blue">404</p>
-      <h1 className="mt-3 max-w-2xl text-4xl font-extrabold tracking-tight md:text-5xl">
-        This page isn&apos;t here yet.
-      </h1>
+      <p className="tabular text-sm text-muted">Error 404</p>
+      <h1 className="mt-3 max-w-2xl text-[2.5rem] leading-[1.05] font-bold tracking-[-0.025em] md:text-[3.5rem]">Page not found</h1>
       <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted">
         Perpetual is in beta and some sections are still being built. The record you were looking for may also have moved.
       </p>

@@ -9,8 +9,14 @@ import world from "world-atlas/countries-110m.json";
 export function GET() {
   const topo = world as unknown as Topology<{ countries: GeometryCollection<{ name: string }> }>;
   const fc = feature(topo, topo.objects.countries);
+  // Round to 2 decimals (~1 km): plenty for a 1:110m world map, and much smaller to send.
+  const round = (c: unknown): unknown => (typeof c === "number" ? Math.round(c * 100) / 100 : (c as unknown[]).map(round));
   const features = fc.features
-    .map((f) => ({ ...f, properties: { iso2: countries.numericToAlpha2(String(f.id ?? "")) ?? "", name: f.properties?.name ?? "" } }))
+    .map((f) => ({
+      type: "Feature" as const,
+      geometry: { ...f.geometry, coordinates: round((f.geometry as GeoJSON.Polygon).coordinates) },
+      properties: { iso2: countries.numericToAlpha2(String(f.id ?? "")) ?? "", name: f.properties?.name ?? "" },
+    }))
     .filter((f) => f.properties.iso2);
   return Response.json({ type: "FeatureCollection", features });
 }

@@ -153,7 +153,7 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
             className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-sm font-medium md:hidden"
           >
             <SlidersHorizontal className="size-4" aria-hidden />
-            Filters{active > 0 && <span className="tabular rounded-full bg-brand-navy px-1.5 text-[11px] text-white">{active}</span>}
+            Filters{active > 0 && <span className="tabular rounded-[3px] bg-brand-navy px-1.5 text-[11px] text-white">{active}</span>}
           </button>
           <div className="hidden flex-wrap items-center gap-2 md:flex">
             <FilterPopover label="Type" active={!!f.type?.length} summary={sum(f.type, (t) => DEAL_TYPE_LABEL[t as DealType])}>

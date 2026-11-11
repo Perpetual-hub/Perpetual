@@ -29,7 +29,7 @@ type Mode = "annual" | "cumulative";
 export function CapacityTimeline({
   cells,
   asOfYear,
-  title = "Capacity coming online",
+  title = "Capacity additions by year",
   defaultMode = "annual",
 }: {
   cells: TimelineCell[];

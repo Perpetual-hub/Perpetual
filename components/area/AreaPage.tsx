@@ -40,8 +40,8 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
   return (
     <div>
-      <header className="border-b border-line bg-surface-2">
-        <div className="container-page pt-8 pb-10">
+      <header className="border-b border-line">
+        <div className="container-page pt-10 pb-12 md:pt-14 md:pb-14">
           <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap gap-1.5 text-sm text-muted">
             <Link href="/statistics" className="hover:text-brand-blue">
               Statistics
@@ -56,7 +56,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             )}
           </nav>
           <p className="text-xs font-semibold text-brand-blue">{s.kind === "country" ? "Country profile" : "Region profile"}</p>
-          <h1 className="mt-2 text-4xl font-extrabold tracking-[-0.02em] md:text-5xl">{s.name}</h1>
+          <h1 className="mt-2 text-4xl font-bold tracking-[-0.02em] md:text-5xl">{s.name}</h1>
           <dl className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
             <Stat label="Projects tracked" value={String(s.projects)} />
             <Stat label="Total capacity" value={formatGW(s.totalMW)} unit="GW" />
@@ -80,13 +80,13 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
         </div>
 
         <section className="rounded-[var(--radius)] border border-line p-6">
-          <CapacityTimeline cells={timeline} asOfYear={AS_OF_YEAR} title={`Capacity coming online in ${s.name}`} />
+          <CapacityTimeline cells={timeline} asOfYear={AS_OF_YEAR} title="Capacity additions by year" />
         </section>
 
         <section aria-labelledby="map-h">
           <div className="mb-4 flex items-baseline justify-between gap-4">
             <h2 id="map-h" className="text-xl font-bold tracking-tight">
-              Projects on the map
+              Project map
             </h2>
             <Link href={`/projects?${filterQuery}`} className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue">
               Open in explorer

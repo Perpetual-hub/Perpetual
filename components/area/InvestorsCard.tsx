@@ -3,11 +3,21 @@ import type { InvestorSummary } from "@/lib/data";
 import { formatMoney } from "@/lib/format";
 
 /** "Most active investors and lenders" list (deal count and disclosed value). */
-export function InvestorsCard({ investors, title = "Most active investors and lenders" }: { investors: InvestorSummary[]; title?: string }) {
+export function InvestorsCard({
+  investors,
+  title = "Most active investors and lenders",
+  level = 2,
+}: {
+  investors: InvestorSummary[];
+  title?: string;
+  /** Heading level, so the card can sit under a section heading. */
+  level?: 2 | 3;
+}) {
+  const H = level === 3 ? "h3" : "h2";
   return (
     <section>
       <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="text-xl font-bold tracking-tight">{title}</h2>
+        <H className={level === 3 ? "font-sans text-lg font-semibold text-ink" : "text-xl font-bold tracking-tight"}>{title}</H>
         <Link href="/deals" className="text-sm font-medium text-brand-blue hover:underline">
           All deals
         </Link>

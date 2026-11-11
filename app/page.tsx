@@ -1,7 +1,7 @@
 import { ArrowRight, FileCheck2, History, Link2 } from "lucide-react";
 import Link from "next/link";
 import { InvestorsCard } from "@/components/area/InvestorsCard";
-import { FeatureDealCard, SmallCard, dealValue } from "@/components/cards/Cards";
+import { FeatureDealCard, dealValue } from "@/components/cards/Cards";
 import { AreaTable } from "@/components/charts/AreaTable";
 import { HomeHero } from "@/components/home/HomeHero";
 import { LatestRail, type RailItem } from "@/components/home/LatestRail";
@@ -18,8 +18,9 @@ import {
   getTechCounts,
   getTopInvestors,
 } from "@/lib/data";
-import { DEAL_TYPE_LABEL, countryName, daysBetween } from "@/lib/format";
+import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "@/lib/format";
 import { getPolicyRows, rankPolicies } from "@/lib/policy";
+import { rampColor } from "@/lib/policy-colors";
 
 export default function Home() {
   const deals = getDeals();
@@ -44,7 +45,7 @@ export default function Home() {
   }));
   const policyRows = getPolicyRows(countryName);
   const topCountries = rankPolicies(policyRows, WEIGHT_PRESETS[1].weights).slice(0, 5);
-  const moreDeals = deals.filter((d) => d.id !== featured.id).slice(0, 4);
+  const moreDeals = deals.filter((d) => d.id !== featured.id).slice(0, 5);
 
   return (
     <>
@@ -53,39 +54,48 @@ export default function Home() {
       {/* This week in deals */}
       <section className="container-page py-20 md:py-28" aria-labelledby="this-week">
         <Reveal>
-          <SectionHeading id="this-week" eyebrow="This week" title="Where the money moved" href="/deals" linkLabel="Open the deal tracker" />
+          <SectionHeading id="this-week" title="Recent transactions" description="The latest acquisitions, financings, power purchase agreements and fund closes." href="/deals" linkLabel="Deal tracker" />
         </Reveal>
-        <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
           <Reveal>
             <FeatureDealCard deal={featured} />
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {moreDeals.map((d, i) => (
-              <Reveal key={d.id} delay={i * 0.04}>
-                <SmallCard
-                  href={`/deals/${d.slug}`}
-                  kicker={DEAL_TYPE_LABEL[d.type]}
-                  date={d.date}
-                  title={d.title}
-                  techs={d.technologies}
-                  isSample={d.isSample}
-                />
-              </Reveal>
+          <ul className="divide-y divide-line border-y border-line">
+            {moreDeals.map((d) => (
+              <li key={d.id}>
+                <Link href={`/deals/${d.slug}`} className="group grid grid-cols-[minmax(0,1fr)_auto] gap-x-6 gap-y-1 py-5">
+                  <span className="text-xs text-muted">
+                    <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[d.type]}</span> · {formatDate(d.date)}
+                  </span>
+                  <span className="tabular row-span-2 self-center text-right text-sm font-semibold text-ink">{dealValue(d) ?? "Undisclosed"}</span>
+                  <span className="font-display text-lg leading-snug font-semibold text-ink group-hover:text-brand-blue">{d.title}</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* Investors and policy */}
-      <section className="border-t border-line" aria-label="Investors and policy">
-        <div className="container-page grid grid-cols-[minmax(0,1fr)] gap-12 py-20 md:py-24 lg:grid-cols-2">
+      <section className="border-t border-line" aria-labelledby="markets">
+        <div className="container-page py-20 md:py-28">
           <Reveal>
-            <InvestorsCard investors={getTopInvestors(deals, 6)} />
+            <SectionHeading
+              id="markets"
+              title="Investors and markets"
+              description="The most active capital providers in the deal record, and the highest-scoring countries under the PROFITS framework."
+              href="/policy"
+              linkLabel="Policy assessment"
+            />
+          </Reveal>
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <InvestorsCard investors={getTopInvestors(deals, 6)} title="Most active investors" level={3} />
           </Reveal>
           <Reveal>
             <section>
               <div className="mb-4 flex items-baseline justify-between">
-                <h2 className="text-xl font-bold tracking-tight">Most investable countries</h2>
+                <h3 className="font-sans text-lg font-semibold text-ink">Country rankings</h3>
                 <Link href="/policy" className="text-sm font-medium text-brand-blue hover:underline">
                   Full ranking
                 </Link>
@@ -97,7 +107,7 @@ export default function Home() {
                       <span className="tabular w-5 text-sm text-muted">{c.rank}</span>
                       <span className="min-w-0 flex-1 truncate font-semibold text-ink">{c.name}</span>
                       <span className="h-1.5 w-28 rounded-full bg-surface-2" aria-hidden>
-                        <span className="block h-full rounded-full bg-[#2f9264]" style={{ width: `${(c.score / 5) * 100}%` }} />
+                        <span className="block h-full rounded-[2px]" style={{ width: `${(c.score / 5) * 100}%`, background: rampColor(c.score) }} />
                       </span>
                       <span className="tabular w-10 text-right text-sm font-semibold">{c.score.toFixed(1)}</span>
                     </Link>
@@ -110,6 +120,7 @@ export default function Home() {
               </p>
             </section>
           </Reveal>
+          </div>
         </div>
       </section>
 
@@ -117,7 +128,7 @@ export default function Home() {
       <section className="border-t border-line bg-surface-2" aria-labelledby="regions">
         <div className="container-page py-20 md:py-28">
           <Reveal>
-            <SectionHeading id="regions" eyebrow="Statistics" title="Where the capacity is" href="/statistics" linkLabel="All statistics" />
+            <SectionHeading id="regions" title="Capacity by region" description="Operating and pipeline capacity across tracked projects, by sector." href="/statistics" linkLabel="Statistics" />
           </Reveal>
           <Reveal>
             <AreaTable rows={getRegions()} hrefFor={(r) => `/regions/${r.key}`} nameHeader="Region" />
@@ -129,7 +140,7 @@ export default function Home() {
       <section className="border-b border-line" aria-labelledby="techs">
         <div className="container-page py-20 md:py-28">
           <Reveal>
-            <SectionHeading id="techs" eyebrow="Sectors" title="Eight sectors, one dataset" href="/projects" linkLabel="Explore all projects" />
+            <SectionHeading id="techs" title="Sectors" description="Projects and capacity tracked in each sector." href="/projects" linkLabel="Project explorer" />
           </Reveal>
           <Reveal>
             <TechGrid counts={getTechCounts()} />
@@ -143,11 +154,11 @@ export default function Home() {
           <div className="grid gap-10 rounded-[calc(var(--radius)+4px)] bg-brand-navy px-7 py-12 text-white md:grid-cols-[1.1fr_1.5fr] md:px-12 md:py-14">
             <div>
               <h2 id="sources-promise" className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-                Every number has a source.
+                Data integrity
               </h2>
               <p className="mt-4 max-w-sm leading-relaxed text-[#c6d6e8]">
-                Full information and full disclosure is the whole point. If a fact is on Perpetual, you can see where it came
-                from and when we checked it.
+                Each deal, project and score lists its sources and the date they were checked, so every figure can be traced to
+                where it was published.
               </p>
               <Link
                 href="/methodology"

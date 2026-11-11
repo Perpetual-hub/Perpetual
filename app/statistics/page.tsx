@@ -20,18 +20,17 @@ export default function StatisticsPage() {
   const countries = getCountries();
   return (
     <div>
-      <header className="border-b border-line bg-surface-2">
-        <div className="container-page pt-12 pb-10">
-          <p className="text-xs font-semibold text-brand-blue">Statistics</p>
-          <h1 className="mt-2 max-w-3xl text-4xl font-extrabold tracking-[-0.02em] md:text-5xl">Renewable capacity by region and country</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">
+      <header className="border-b border-line">
+        <div className="container-page pt-16 pb-12 md:pt-24 md:pb-16">
+          <h1 className="max-w-4xl text-[2.5rem] leading-[1.05] font-bold tracking-[-0.025em] md:text-[3.5rem]">Statistics</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             Totals are built from the project records on Perpetual, so every number can be traced back to individual projects and their
             sources. Data version {DATA_VERSION}, compiled {formatDate(DATA_AS_OF)}.{" "}
             <Link href="/methodology" className="text-brand-blue underline underline-offset-2">
               How we count
             </Link>
           </p>
-          <dl className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-4">
+          <dl className="mt-12 grid grid-cols-2 gap-6 border-t border-line pt-8 sm:grid-cols-4">
             {[
               ["Projects tracked", String(stats.projects)],
               ["Total capacity", `${formatGW(stats.totalMW)} GW`],
@@ -63,7 +62,7 @@ export default function StatisticsPage() {
             />
           </ChartCard>
           <section className="rounded-[var(--radius)] border border-line p-6">
-            <CapacityTimeline cells={getTimeline()} asOfYear={AS_OF_YEAR} title="Capacity coming online, by sector" />
+            <CapacityTimeline cells={getTimeline()} asOfYear={AS_OF_YEAR} title="Capacity additions by year" />
           </section>
         </div>
 

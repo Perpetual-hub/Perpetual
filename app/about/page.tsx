@@ -12,8 +12,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHeader
-        eyebrow="About"
-        title="All things renewables, in one place"
+        title="About Perpetual"
         intro="Perpetual follows the money behind the energy transition: what is being built, where, who is financing it, and which countries make it easiest to invest."
       />
       <div className="container-page py-12">
@@ -24,14 +23,14 @@ export default function AboutPage() {
             Sample records carry a &ldquo;Sample data&rdquo; badge. Data version {DATA_VERSION}.
           </div>
 
-          <h2 id="why">Why Perpetual</h2>
+          <h2 id="why">Purpose</h2>
           <p>
             Information about renewable projects is scattered across regulators, company announcements, lenders and the press. It
             is often paywalled, out of date, or impossible to trace back to a source. Perpetual brings it together in one open place,
             with a source behind every fact.
           </p>
 
-          <h2 id="what">What you can do here</h2>
+          <h2 id="what">Coverage</h2>
           <ul>
             <li>
               <Link href="/projects">Explore projects</Link> on a map or in a table, filter by sector, status, country, capacity,
@@ -57,7 +56,7 @@ export default function AboutPage() {
             </li>
           </ul>
 
-          <h2 id="next">What comes next</h2>
+          <h2 id="next">Roadmap</h2>
           <p>
             After the beta we will connect open datasets (checking each one&rsquo;s licence and freshness first), so the site updates
             itself. Accounts, watchlists and alerts may follow. Read the <Link href="/methodology">methodology</Link> for how the data

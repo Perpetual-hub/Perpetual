@@ -9,13 +9,13 @@ export function Prose({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function PageHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: React.ReactNode }) {
+export function PageHeader({ title, intro, children }: { eyebrow?: string; title: string; intro?: React.ReactNode; children?: React.ReactNode }) {
   return (
-    <header className="border-b border-line bg-surface-2">
-      <div className="container-page pt-12 pb-10 md:pt-16">
-        <p className="text-xs font-semibold text-brand-blue">{eyebrow}</p>
-        <h1 className="mt-2 max-w-3xl text-4xl font-extrabold tracking-[-0.02em] md:text-5xl">{title}</h1>
-        {intro && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{intro}</p>}
+    <header className="border-b border-line">
+      <div className="container-page pt-16 pb-12 md:pt-24 md:pb-16">
+        <h1 className="max-w-4xl text-[2.5rem] leading-[1.05] font-bold tracking-[-0.025em] md:text-[3.5rem]">{title}</h1>
+        {intro && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{intro}</p>}
+        {children}
       </div>
     </header>
   );

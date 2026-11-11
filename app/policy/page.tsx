@@ -18,8 +18,7 @@ export default function PolicyPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Policy map"
-        title="How investable is each country?"
+        title="Policy assessment"
         intro="PROFITS looks at a country the way an investor would: seven pillars, each scored 1 to 5, then weighted for the kind of deal you are doing."
       />
       <div className="container-page space-y-14 py-12">
@@ -40,14 +39,14 @@ export default function PolicyPage() {
 
         <section aria-labelledby="ranking-h">
           <h2 id="ranking-h" className="mb-5 text-2xl font-bold tracking-tight">
-            Ranking
+            Country ranking
           </h2>
           <PolicyRanking rows={rows} />
         </section>
 
         <section aria-labelledby="pillars-h">
           <h2 id="pillars-h" className="mb-2 text-2xl font-bold tracking-tight">
-            The seven pillars
+            Framework pillars
           </h2>
           <p className="mb-6 max-w-3xl text-muted">
             Each pillar is scored 1 (weak) to 5 (strong). A country can be strongly pro-renewable and still hard to invest in: high
@@ -123,7 +122,7 @@ export default function PolicyPage() {
                 </li>
               ))}
             </ul>
-            <h3 className="mt-8 mb-2 font-sans text-base font-semibold text-ink">Data to draw on</h3>
+            <h3 className="mt-8 mb-2 font-sans text-base font-semibold text-ink">Reference data</h3>
             <p className="text-sm leading-relaxed text-muted">
               Existing indices are useful starting points and checks: the World Bank&rsquo;s RISE indicators, BNEF Climatescope and EY
               RECAI, with IEA and IRENA for capacity and market data. Utility credit strength, curtailment and deal trends usually come

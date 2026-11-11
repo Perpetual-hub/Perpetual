@@ -4,6 +4,7 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { PILLARS, WEIGHT_PRESETS, type PillarId } from "@/data/policy";
+import { rampColor } from "@/lib/policy-colors";
 import { rankPolicies } from "@/lib/policy-score";
 
 interface Row {
@@ -113,7 +114,7 @@ export function PolicyRanking({ rows }: { rows: Row[] }) {
                 <td className="px-3 py-2.5">
                   <span className="flex items-center gap-2">
                     <span className="h-1.5 w-16 rounded-full bg-surface-2" aria-hidden>
-                      <span className="block h-full rounded-full bg-[#2f9264]" style={{ width: `${(r.score / 5) * 100}%` }} />
+                      <span className="block h-full rounded-[2px]" style={{ width: `${(r.score / 5) * 100}%`, background: rampColor(r.score) }} />
                     </span>
                     <span className="tabular font-semibold">{r.score.toFixed(1)}</span>
                   </span>
@@ -121,9 +122,9 @@ export function PolicyRanking({ rows }: { rows: Row[] }) {
                 {PILLARS.map((pl) => (
                   <td key={pl.id} className="tabular px-2 py-2.5 text-center">
                     <span
-                      className="inline-block min-w-8 rounded px-1.5 py-0.5 text-xs"
-                      style={{ background: `rgba(47,146,100,${0.08 + (r.scores[pl.id] - 1) * 0.12})` }}
+                      className="inline-flex min-w-9 items-center justify-center gap-1 rounded-[3px] bg-surface-2 px-1.5 py-0.5 text-xs"
                     >
+                      <span className="size-1.5 rounded-full" style={{ background: rampColor(r.scores[pl.id]) }} aria-hidden />
                       {r.scores[pl.id].toFixed(1)}
                     </span>
                   </td>

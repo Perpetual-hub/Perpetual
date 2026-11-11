@@ -68,7 +68,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
         <section aria-labelledby="map-h">
           <div className="mb-4 flex items-baseline justify-between gap-4">
             <h2 id="map-h" className="text-xl font-bold tracking-tight">
-              {t.label} projects on the map
+              Project map
             </h2>
             <Link href={`/projects?tech=${tech}`} className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue">
               Open in explorer
@@ -108,7 +108,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
         </div>
 
         <section className="rounded-[var(--radius)] border border-line p-6">
-          <CapacityTimeline cells={getTimeline((p) => p.technology === tech)} asOfYear={AS_OF_YEAR} title={`${t.label} capacity coming online`} />
+          <CapacityTimeline cells={getTimeline((p) => p.technology === tech)} asOfYear={AS_OF_YEAR} title="Capacity additions by year" />
         </section>
 
         <section aria-labelledby="largest-h">

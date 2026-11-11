@@ -62,8 +62,8 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
   return (
     <article>
       {/* Header */}
-      <header className="border-b border-line bg-surface-2">
-        <div className="container-page pt-8 pb-10">
+      <header className="border-b border-line">
+        <div className="container-page pt-10 pb-12 md:pt-14 md:pb-14">
           <nav aria-label="Breadcrumb" className="mb-6 text-sm">
             <Link href="/projects" className="inline-flex items-center gap-1 text-muted hover:text-brand-blue">
               <ArrowLeft className="size-3.5" aria-hidden />
@@ -75,7 +75,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             <StatusBadge status={p.status} />
             {p.isSample && <SampleBadge />}
           </div>
-          <h1 className="mt-4 max-w-4xl text-3xl leading-[1.08] font-extrabold tracking-[-0.02em] md:text-5xl">{p.name}</h1>
+          <h1 className="mt-4 max-w-4xl text-3xl leading-[1.08] font-bold tracking-[-0.02em] md:text-5xl">{p.name}</h1>
           <p className="mt-3 text-lg text-muted">
             {p.subType && sentence(p.subType)}
             {p.admin1 && ` · ${p.admin1}`} ·{" "}
@@ -147,7 +147,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             />
           </Section>
 
-          <Section id="parties" title="Who's involved">
+          <Section id="parties" title="Parties">
             <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
               <PartyBlock title="Developer" parties={p.developer} />
               <OwnersBlock owners={p.owners} />
@@ -172,7 +172,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
                   <h3 className="mb-2 font-sans text-xs font-semibold text-muted">Financing instruments</h3>
                   <ul className="flex flex-wrap gap-1.5">
                     {p.financing.instruments.map((i) => (
-                      <li key={i} className="rounded-full border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">
+                      <li key={i} className="rounded-[3px] border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">
                         {sentence(i)}
                       </li>
                     ))}
@@ -267,7 +267,7 @@ function OwnersBlock({ owners }: { owners?: Party[] }) {
             </div>
             {o.stakePct != null && (
               <div className="mt-1.5 h-1.5 rounded-full bg-surface-2" aria-hidden>
-                <div className="h-full rounded-full bg-brand-navy" style={{ width: `${o.stakePct}%` }} />
+                <div className="h-full rounded-[3px] bg-brand-navy" style={{ width: `${o.stakePct}%` }} />
               </div>
             )}
           </li>

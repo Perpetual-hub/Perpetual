@@ -49,7 +49,7 @@ function fallbackStyle(theme: MapTheme): StyleSpecification {
     version: 8,
     sources: {},
     layers: [
-      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#0c2a4f" : "#eef2f7" } },
+      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#041330" : "#eef2f7" } },
     ],
   };
 }
@@ -84,6 +84,33 @@ function pulseRadius(k: number): ExpressionSpecification {
     5,
     ["interpolate", ["linear"], sqrtMW, 0, 4.5 * k, 40, 16 * k],
   ];
+}
+
+/** Land colours on the hero globe: a touch of green normally; neutral slate under the policy heatmap. */
+const LAND = { projects: "#1d5550", vegetation: "#226352", policy: "#24364f" };
+
+/** True when the basemap tiles loaded (not the offline fallback, whose background is the ocean). */
+function hasTiles(map: MlMap) {
+  return Object.values(map.getStyle().sources ?? {}).some((src) => src.type === "vector");
+}
+
+function setLand(map: MlMap, color: string) {
+  if (map.getLayer("land-fill")) map.setPaintProperty("land-fill", "fill-color", color);
+  const tiles = hasTiles(map);
+  for (const layer of map.getStyle().layers ?? []) {
+    try {
+      if (layer.type === "background" && tiles) map.setPaintProperty(layer.id, "background-color", color);
+      else if (layer.type === "fill" && /landcover|landuse|park|wood|grass/.test(layer.id))
+        map.setPaintProperty(layer.id, "fill-color", color === LAND.policy ? color : LAND.vegetation);
+    } catch {
+      // Unknown layer shape: leave it.
+    }
+  }
+}
+
+/** Zoom at which the globe's diameter is about `px` pixels (measured for MapLibre's globe). */
+function globeZoomFor(px: number): number {
+  return Math.log2(Math.max(px, 80) / 133);
 }
 
 /** Writes scores onto the country outlines and refreshes the policy source. */
@@ -176,6 +203,8 @@ interface Props {
   showControls?: boolean;
   /** Hero styling: brighter globe, glowing points, pulse rings, no clustering. */
   vivid?: boolean;
+  /** Size the globe to this share of the container's shorter side (and keep it fitted on resize). */
+  fitGlobe?: number;
   /** Scores for the policy heatmap (mode "policy"). */
   policy?: PolicyScores;
   onPolicySelect?: (iso2: string, name: string) => void;
@@ -196,6 +225,7 @@ export default function ProjectMap({
   interactive = true,
   showControls = true,
   vivid = false,
+  fitGlobe,
   policy,
   onPolicySelect,
 }: Props) {
@@ -225,11 +255,15 @@ export default function ProjectMap({
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dark = theme === "dark";
 
+    const fittedZoom = () => {
+      const r = container.getBoundingClientRect();
+      return globeZoomFor(fitGlobe! * Math.min(r.width, r.height));
+    };
     const map = new MlMap({
       container,
       style: STYLE_URL[theme],
       center: initialView.center,
-      zoom: initialView.zoom,
+      zoom: fitGlobe ? fittedZoom() : initialView.zoom,
       minZoom: 0.5,
       maxZoom: 14,
       interactive,
@@ -266,6 +300,18 @@ export default function ProjectMap({
 
       // --- Policy heatmap: country fills (data loaded on first use) ---
       map.addSource("policy", { type: "geojson", data: { type: "FeatureCollection", features: [] }, promoteId: "iso2" });
+      if (vivid) {
+        // Our own land layer (same outlines), so continents read clearly even if tiles are slow.
+        map.addLayer({
+          id: "land-fill",
+          type: "fill",
+          source: "policy",
+          maxzoom: 4.5,
+          // The coarse Antarctica outline draws a stray ring on the globe; leave it out.
+          filter: ["!=", ["get", "iso2"], "AQ"],
+          paint: { "fill-color": modeRef.current === "policy" ? LAND.policy : LAND.projects, "fill-opacity": 1 },
+        });
+      }
       map.addLayer({
         id: "policy-fill",
         type: "fill",
@@ -377,7 +423,7 @@ export default function ProjectMap({
             "case",
             ["boolean", ["feature-state", "selected"], false],
             "#f5b000",
-            dark ? "#061a33" : "#ffffff",
+            vivid ? "rgba(255,255,255,0.9)" : dark ? "#061a33" : "#ffffff",
           ],
           "circle-stroke-width": [
             "case",
@@ -425,6 +471,28 @@ export default function ProjectMap({
       }
       setReady(true);
     });
+    if (vivid) {
+      map.once("idle", () => {
+        if (geoRef.current) return;
+        fetch("/geo/countries.json")
+          .then((r) => r.json())
+          .then((fc: GeoJSON.FeatureCollection) => {
+            geoRef.current = fc;
+            applyPolicy(map, fc, policyRef.current);
+          })
+          .catch(() => console.warn("[Perpetual] Could not load country outlines."));
+      });
+    }
+    // Keep the globe fitted to its box until the user zooms themselves.
+    let userZoomed = false;
+    map.once("wheel", () => (userZoomed = true));
+    map.once("touchstart", () => (userZoomed = true));
+    const ro = fitGlobe
+      ? new ResizeObserver(() => {
+          if (!userZoomed) map.jumpTo({ zoom: fittedZoom() });
+        })
+      : null;
+    ro?.observe(container);
 
     // ----- Interaction -----
     let hovered: { source: string; id: number | string } | undefined;
@@ -545,6 +613,7 @@ export default function ProjectMap({
       stopSpin();
       stopPulse();
       io.disconnect();
+      ro?.disconnect();
       map.remove();
       mapRef.current = null;
     };
@@ -583,6 +652,7 @@ export default function ProjectMap({
     set(["clusters", "cluster-count", "points", "points-glow", "points-pulse"], mode === "projects");
     set(["country-bubbles", "country-labels"], mode === "countries");
     set(["policy-fill", "policy-line", "policy-flag"], mode === "policy");
+    if (vivid) setLand(map, mode === "policy" ? LAND.policy : LAND.projects);
     setHover(null);
     if (mode === "policy" && !geoRef.current) {
       fetch("/geo/countries.json")
@@ -593,7 +663,7 @@ export default function ProjectMap({
         })
         .catch(() => console.warn("[Perpetual] Could not load country outlines."));
     }
-  }, [mode, ready]);
+  }, [mode, ready, vivid]);
 
   // Re-colour countries when the scores (e.g. the weight preset) change.
   useEffect(() => {
@@ -696,14 +766,15 @@ function Tooltip({ hover, theme }: { hover: Hover; theme: MapTheme }) {
  * and coastlines so the globe reads as a lit planet rather than a flat disc.
  */
 function tintDarkBasemap(map: MlMap, vivid = false) {
-  const land = vivid ? "#16426f" : "#0d2c52";
+  const land = vivid ? LAND.projects : "#0d2c52";
   const water = vivid ? "#041330" : "#071d3a";
+  const tiles = hasTiles(map);
   for (const layer of map.getStyle().layers ?? []) {
     try {
-      if (layer.type === "background") map.setPaintProperty(layer.id, "background-color", land);
+      if (layer.type === "background" && tiles) map.setPaintProperty(layer.id, "background-color", land);
       else if (layer.type === "fill" && /water|ocean/.test(layer.id)) map.setPaintProperty(layer.id, "fill-color", water);
       else if (layer.type === "fill" && vivid && /landcover|landuse|park|wood|grass/.test(layer.id))
-        map.setPaintProperty(layer.id, "fill-color", "#1a4b7d");
+        map.setPaintProperty(layer.id, "fill-color", LAND.vegetation);
       else if (layer.type === "line" && /boundary|admin/.test(layer.id))
         map.setPaintProperty(layer.id, "line-color", vivid ? "rgba(150,200,245,0.45)" : "rgba(159,178,200,0.35)");
       else if (layer.type === "line" && vivid && /water|coast/.test(layer.id)) map.setPaintProperty(layer.id, "line-color", "rgba(90,169,230,0.5)");

@@ -132,7 +132,7 @@ export function PolicyPanel({
                 <p className="mt-5 text-xs text-muted">No deal-breakers recorded.</p>
               )}
 
-              <h3 className="mt-7 mb-3 font-sans text-sm font-semibold text-ink">The seven pillars</h3>
+              <h3 className="mt-7 mb-3 font-sans text-sm font-semibold text-ink">Pillar scores</h3>
               <ul className="space-y-4">
                 {PILLARS.map((p) => {
                   const v = entry.scores[p.id];

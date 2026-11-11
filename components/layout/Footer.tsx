@@ -54,8 +54,8 @@ export function Footer() {
         {/* Link groups */}
         <div className="grid gap-x-10 gap-y-12 pt-16 pb-4 md:grid-cols-2 lg:grid-cols-[1fr_1.35fr_1fr_1fr] lg:pt-20">
           {GROUPS.map((g) => (
-            <section key={g.title} aria-labelledby={`footer-${g.title}`}>
-              <h2 id={`footer-${g.title}`} className="mb-6 font-sans text-sm font-medium text-white/65">
+            <div key={g.title}>
+              <h2 className="mb-6 font-sans text-sm font-medium text-white/65">
                 {g.title}
               </h2>
               <ul className={g.twoCol ? "grid grid-cols-2 gap-x-8 gap-y-4" : "space-y-4"}>
@@ -79,30 +79,19 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </section>
+            </div>
           ))}
         </div>
 
-        {/* Logo at the end, Brookfield-style */}
-        <div className="pt-16 pb-10 md:pt-20">
+        {/* Logo directly above the copyright line (Brookfield-style) */}
+        <div className="mt-16 pb-8 md:mt-20">
           <Link href="/" className="inline-block" aria-label="Perpetual, All Things Renewables, home">
-            <span className="hidden md:inline">
-              <LogoOnDark size={64} bg={BRAND_DARK.footer} />
-            </span>
-            <span className="md:hidden">
-              <LogoOnDark size={44} bg={BRAND_DARK.footer} />
-            </span>
+            <LogoOnDark size={34} bg={BRAND_DARK.footer} />
           </Link>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/70">
-            What is being built, where, by whom and who paid for it. With a source behind every fact.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3 pb-8 text-sm text-white/75 md:flex-row md:items-center md:justify-between">
-          <p>© {DATA_AS_OF.slice(0, 4)} Perpetual</p>
-          <p className="text-white/65">
-            Beta: all records are sample data. Not investment advice. Data compiled {formatDate(DATA_AS_OF)}.
-          </p>
+          <div className="mt-6 flex flex-col gap-2 text-sm text-white/75 md:flex-row md:items-center md:justify-between">
+            <p>© {DATA_AS_OF.slice(0, 4)} Perpetual</p>
+            <p className="text-white/60">Beta: all records are sample data. Not investment advice. Data compiled {formatDate(DATA_AS_OF)}.</p>
+          </div>
         </div>
       </div>
     </footer>

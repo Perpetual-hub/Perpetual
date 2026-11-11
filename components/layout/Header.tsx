@@ -171,7 +171,7 @@ export function Header({
           >
             <Search className="size-5" aria-hidden />
           </button>
-          <span className="rounded-full border border-brand-sun/50 bg-brand-sun/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#7a5800]">
+          <span className="rounded-[3px] border border-brand-sun/50 bg-brand-sun/10 px-2.5 py-0.5 text-[11px] font-semibold text-[#7a5800]">
             Beta
           </span>
           <button
