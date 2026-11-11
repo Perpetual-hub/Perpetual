@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/technologies/:tech", destination: "/sectors/:tech", permanent: true },
       { source: "/technologies", destination: "/statistics", permanent: true },
+      // "Methodology" was renamed "Disclosure".
+      { source: "/methodology", destination: "/disclosure", permanent: true },
     ];
   },
   partialPrefetching: true,

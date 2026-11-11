@@ -614,7 +614,7 @@ export function getSearchIndex(): SearchEntry[] {
       { title: "Deal tracker", href: "/deals" },
       { title: "Policy map (PROFITS)", href: "/policy" },
       { title: "Statistics", href: "/statistics" },
-      { title: "Methodology", href: "/methodology" },
+      { title: "Disclosure", href: "/disclosure" },
       { title: "Report a correction", href: "/corrections" },
       { title: "About Perpetual", href: "/about" },
     ].map((p) => ({ type: "page" as const, title: p.title, subtitle: "Page", href: p.href, keywords: "" })),

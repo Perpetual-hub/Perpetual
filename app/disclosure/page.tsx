@@ -1,17 +1,15 @@
-import { AlertTriangle, ArrowRight, Building2, FileSearch, Landmark, Scale } from "lucide-react";
+import { ArrowRight, Building2, FileSearch, Landmark } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader, Toc } from "@/components/prose/Prose";
 import { StatusBadge } from "@/components/ui/Badge";
-import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS } from "@/data/policy";
 import { DATA_AS_OF, DATA_VERSION, changelog, countryStats, getDeals } from "@/lib/data";
 import { formatDate } from "@/lib/format";
-import { rampColor } from "@/lib/policy-colors";
 import { TECHNOLOGIES } from "@/lib/tech";
 import type { ProjectStatus } from "@/lib/types";
 
 export const metadata: Metadata = {
-  title: "Methodology",
+  title: "Disclosure",
   description:
     "How Perpetual's data works: coverage, definitions, sources, the PROFITS policy framework, how numbers are handled, limitations, corrections and the data changelog.",
 };
@@ -38,25 +36,13 @@ const STATUSES: [ProjectStatus, string][] = [
   ["cancelled", "Stopped by the developer or an authority before operating."],
 ];
 
-const SCALE: [number, string, string][] = [
-  [1, "Prohibitive", "Risks make most investment impractical without exceptional support."],
-  [2, "Weak", "Significant gaps. Investable only with strong mitigation such as DFI cover or guarantees."],
-  [3, "Adequate", "A workable framework with notable risks that must be priced in."],
-  [4, "Strong", "Clear, stable rules. Risks are understood and manageable."],
-  [5, "Best practice", "Among the most predictable and bankable markets for this pillar."],
-];
 
-export default function MethodologyPage() {
+export default function DisclosurePage() {
   const dealCount = getDeals().length;
-  const utility = WEIGHT_PRESETS.find((w) => w.id === "utility")!;
-  // Worked example with hypothetical pillar scores (not any real country).
-  const example = { P: 4, R: 3, O: 3.5, F: 2.5, I: 3, T: 4, S: 3.5 } as const;
-  const sumW = PILLARS.reduce((s, p) => s + utility.weights[p.id], 0);
-  const sumWS = PILLARS.reduce((s, p) => s + utility.weights[p.id] * example[p.id], 0);
 
   return (
     <>
-      <PageHeader title="Methodology" intro="How Perpetual collects, defines and scores its data, and where its limits are.">
+      <PageHeader title="Disclosure" intro="Where every figure on Perpetual comes from, how it is defined and checked, and where its limits are.">
         <dl className="mt-10 grid max-w-3xl grid-cols-2 gap-6 border-t border-line pt-6 sm:grid-cols-4">
           {[
             ["Data version", DATA_VERSION],
@@ -176,120 +162,19 @@ export default function MethodologyPage() {
             </div>
           </Block>
 
-          {/* PROFITS */}
+          {/* PROFITS lives on the Policy page */}
           <Block
             id="profits"
             title="PROFITS Framework"
-            lead="PROFITS scores how investable a country is for renewable energy, from an investor's point of view. Seven pillars are each scored 1 to 5, then combined with weights that depend on the type of deal."
+            lead="Country scores use PROFITS, Perpetual's framework for how investable a country is for renewable energy. The framework, its weights, the deal-breakers and every country's score are explained in full on the Policy page."
           >
-            <h3 className="mb-3 font-sans text-base font-semibold text-ink">The Seven Pillars and Their Weights</h3>
-            <Table head={["Pillar", "Key question", "What we assess", ...WEIGHT_PRESETS.map((w) => w.label)]} numericFrom={3} minWidth={980}>
-              {PILLARS.map((p) => (
-                <tr key={p.id} className="align-top">
-                  <th scope="row" className="w-52 px-5 py-4 text-left">
-                    <span className="flex items-baseline gap-2.5">
-                      <span className="font-display text-xl font-bold text-brand-blue">{p.id}</span>
-                      <span className="text-sm font-semibold text-ink">{p.name}</span>
-                    </span>
-                  </th>
-                  <td className="w-60 px-5 py-4 text-sm text-ink">{p.question}</td>
-                  <td className="px-5 py-4">
-                    <ul className="list-disc space-y-1 pl-4 text-sm text-muted">
-                      {p.checks.map((c) => (
-                        <li key={c}>{c}</li>
-                      ))}
-                    </ul>
-                  </td>
-                  {WEIGHT_PRESETS.map((w) => (
-                    <td key={w.id} className="tabular px-4 py-4 text-center text-sm">
-                      <span className={w.weights[p.id] > 1 ? "font-semibold text-ink" : "text-muted"}>×{w.weights[p.id]}</span>
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </Table>
-            <ul className="mt-4 space-y-1 text-sm text-muted">
-              {WEIGHT_PRESETS.map((w) => (
-                <li key={w.id}>
-                  <strong className="font-semibold text-ink">{w.label}:</strong> {w.description}
-                </li>
-              ))}
-              <li>Weights are relative: a pillar weighted ×2 counts twice as much as one weighted ×1.</li>
-            </ul>
-
-            <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-10 xl:grid-cols-2">
-              <div>
-                <h3 className="mb-3 font-sans text-base font-semibold text-ink">Scoring Scale</h3>
-                <Table head={["Score", "Meaning", "What it signals"]}>
-                  {SCALE.map(([n, label, d]) => (
-                    <tr key={n} className="align-top">
-                      <td className="w-20 px-5 py-3.5">
-                        <span className="tabular inline-flex items-center gap-2 font-semibold">
-                          <span className="size-2.5 rounded-full" style={{ background: rampColor(n) }} aria-hidden />
-                          {n}
-                        </span>
-                      </td>
-                      <td className="w-32 px-5 py-3.5 text-sm font-semibold text-ink">{label}</td>
-                      <td className="px-5 py-3.5 text-sm text-muted">{d}</td>
-                    </tr>
-                  ))}
-                </Table>
-                <p className="mt-3 text-sm text-muted">Half points (e.g. 3.5) are allowed. On the map, low scores are red-orange and high scores green.</p>
-              </div>
-
-              <div>
-                <h3 className="mb-3 font-sans text-base font-semibold text-ink">How the Total Is Calculated</h3>
-                <div className="rounded-[var(--radius)] border border-line bg-surface-2 p-6">
-                  <p className="text-sm text-muted">Weighted average of the seven pillar scores:</p>
-                  <p className="tabular mt-3 font-display text-lg font-semibold text-ink">Score = Σ (weight × pillar score) ÷ Σ weights</p>
-                  <p className="mt-6 text-xs font-semibold text-muted">Worked example ({utility.label} weights, hypothetical scores)</p>
-                  <div className="mt-2 grid grid-cols-7 gap-1 text-center">
-                    {PILLARS.map((p) => (
-                      <div key={p.id} className="rounded-[3px] bg-white px-1 py-2">
-                        <div className="text-xs font-bold text-brand-blue">{p.id}</div>
-                        <div className="tabular text-sm font-semibold text-ink">{example[p.id]}</div>
-                        <div className="tabular text-[11px] text-muted">×{utility.weights[p.id]}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="tabular mt-4 text-sm text-ink">
-                    {sumWS.toFixed(2)} ÷ {sumW} = <strong className="text-base">{(sumWS / sumW).toFixed(2)}</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <h3 className="mt-12 mb-3 font-sans text-base font-semibold text-ink">Deal-Breakers</h3>
-            <p className="mb-4 max-w-3xl text-sm text-muted">Any one of these fails a country whatever its total. On the map they show as a dashed outline.</p>
-            <div className="grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-3">
-              {DEAL_BREAKERS.map((d) => (
-                <div key={d.id} className="rounded-[var(--radius)] border border-line p-5">
-                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
-                    <AlertTriangle className="size-4 shrink-0 text-[#9a6b00]" aria-hidden />
-                    {d.title}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{d.label}.</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <Feature icon={Scale} title="Supportive Is Not the Same as Investable">
-                A country can set ambitious targets (a high P) and still be hard to invest in if contracts (R) and money (F) are uncertain.
-                Keeping the pillars separate makes that gap visible.
-              </Feature>
-              <Feature icon={FileSearch} title="Reference Indices">
-                Scores are checked against the World Bank&rsquo;s RISE indicators, BNEF Climatescope and EY RECAI, with IEA and IRENA for
-                capacity and market data. Utility credit, curtailment and deal trends come from rating agencies, grid operators and deal
-                records.
-              </Feature>
-            </div>
-            <p className="mt-6 text-sm text-muted">
-              Country scores are being researched and will be published with the sources behind every pillar.{" "}
-              <Link href="/policy" className="font-medium text-brand-blue underline underline-offset-2">
-                View the policy assessment
-              </Link>
-            </p>
+            <Link
+              href="/policy"
+              className="group inline-flex items-center gap-2 rounded-lg bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue"
+            >
+              Open the PROFITS framework
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
           </Block>
 
           {/* Numbers */}

@@ -53,7 +53,7 @@ export default function StatisticsPage() {
               the International Renewable Energy Agency (IRENA), and each figure
               is credited to its source. Data compiled {formatDate(DATA_AS_OF)}.{" "}
               <Link
-                href="/methodology#sources"
+                href="/disclosure#sources"
                 className="text-brand-blue underline underline-offset-2"
               >
                 Sources and methods

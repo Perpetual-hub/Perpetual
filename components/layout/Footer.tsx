@@ -33,14 +33,14 @@ const GROUPS: { title: string; links: FooterLink[]; twoCol?: boolean }[] = [
     title: "About Perpetual",
     links: [
       { href: "/about", label: "About Perpetual" },
-      { href: "/methodology", label: "Methodology" },
+      { href: "/disclosure", label: "Disclosure" },
       { href: "/corrections", label: "Report a Correction" },
     ],
   },
   {
     title: "Data & Credits",
     links: [
-      { href: "/methodology#changelog", label: `Data Version ${DATA_VERSION}` },
+      { href: "/disclosure#changelog", label: `Data Version ${DATA_VERSION}` },
       { href: "https://www.openstreetmap.org/copyright", label: "OpenStreetMap", external: true },
       { href: "https://openfreemap.org", label: "OpenFreeMap", external: true },
     ],

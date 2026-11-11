@@ -59,7 +59,7 @@ export default function AboutPage() {
           <h2 id="next">Roadmap</h2>
           <p>
             We are connecting open datasets (checking each one&rsquo;s licence and freshness first), so the site updates
-            itself. Accounts, watchlists and alerts may follow. Read the <Link href="/methodology">methodology</Link> for how the data
+            itself. Accounts, watchlists and alerts may follow. Read the <Link href="/disclosure">disclosure page</Link> for how the data
             works.
           </p>
           <p className="text-sm text-muted">Perpetual is information only and not investment advice.</p>

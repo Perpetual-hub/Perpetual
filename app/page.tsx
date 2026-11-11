@@ -163,10 +163,10 @@ export default function Home() {
                 where it was published.
               </p>
               <Link
-                href="/methodology"
+                href="/disclosure"
                 className="group mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-brand-navy transition-colors duration-150 hover:bg-[#e8f1fb]"
               >
-                Read our methodology
+                Read our disclosure
                 <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
               </Link>
             </div>

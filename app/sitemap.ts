@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/deals", 0.9),
     page("/policy", 0.8),
     page("/statistics", 0.8),
-    page("/methodology", 0.5),
+    page("/disclosure", 0.5),
     page("/about", 0.4),
     page("/corrections", 0.3),
     ...TECHNOLOGIES.map((t) => page(`/sectors/${t.id}`, 0.8)),

@@ -41,6 +41,10 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/recurrent-energy-completes-sale-of-two-100-mw--400-mwh-bess-projects-in-france-to-bw-ess-302920922.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-001",
+   "prj-002"
   ]
  },
  {
@@ -106,6 +110,9 @@ export const curatedDeals: Deal[] = [
     "name": "Bryan Cave Leighton Paisner",
     "role": "Lender and tax equity local counsel"
    }
+  ],
+  "projectIds": [
+   "prj-003"
   ]
  },
  {
@@ -147,6 +154,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/copenhagen-infrastructure-partners-acquires-25-stake-in-five-estuaries-offshore-wind-farm-302906693.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-004"
   ]
  },
  {
@@ -449,6 +459,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/copenhagen-infrastructure-partners-announces-eur-270-million-investment-in-new-scottish-battery-storage-project-302897097.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-005"
   ]
  },
  {
@@ -512,6 +525,9 @@ export const curatedDeals: Deal[] = [
     "name": "Foley & Lardner",
     "role": "Counsel to DESRI"
    }
+  ],
+  "projectIds": [
+   "prj-006"
   ]
  },
  {
@@ -563,6 +579,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/globeleq-reaches-financial-close-on-40mwac-kafue-solar-in-zambia-302895876.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-007"
   ]
  },
  {
@@ -598,6 +617,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/envision-energy-advances-southeastern-europes-wind-market-as-north-macedonias-largest-wind-project-reaches-financial-close-302887442.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-008"
   ]
  },
  {
@@ -867,6 +889,9 @@ export const curatedDeals: Deal[] = [
     "name": "Windlab",
     "role": "Seller"
    }
+  ],
+  "projectIds": [
+   "prj-041"
   ]
  },
  {
@@ -908,6 +933,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/westbridge-announces-definitive-agreement-for-the-sale-of-red-willow-solar-project-and-highlights-improving-market-fundamentals-in-alberta-and-growing-ai-driven-demand-across-north-america-302862833.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-042"
   ]
  },
  {
@@ -1048,6 +1076,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/recurrent-energy-secures-695-million-in-project-financing-for-330-mw-california-solar-project-302849434.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-009"
   ]
  },
  {
@@ -1091,6 +1122,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/edf-power-solutions-al-khadra-partners-and-oqae-reach-financial-close-on-the-120-mw-jbb-wind-project-in-the-sultanate-of-oman-302848110.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-010"
   ]
  },
  {
@@ -1178,6 +1212,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/rwe-and-google-sign-power-purchase-agreement-for-oklahoma-solar-project-302841226.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-011"
   ]
  },
  {
@@ -1280,6 +1317,10 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/exus-renewables-north-america-closes-356m-construction-financing-for-two-pennsylvania-wind-projects-302828905.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-013",
+   "prj-014"
   ]
  },
  {
@@ -1418,6 +1459,10 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/pulse-clean-energy-closes-two-uk-energy-storage-projects-with-support-from-ariel-greens-technology-performance-insurance-302818797.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-043",
+   "prj-044"
   ]
  },
  {
@@ -1480,6 +1525,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/linea-energy-and-crux-close-tax-equity-financing-for-172-mwdc-michigan-solar-project-302818739.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-015"
   ]
  },
  {
@@ -1587,6 +1635,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/matrix-renewables-closes-portfolio-financing-and-secures-tax-equity-commitments-for-us-utility-scale-solar-and-storage-projects-with-a-combined-capacity-of-859mwdc-and-167mwh-302807761.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-040"
   ]
  },
  {
@@ -1633,6 +1684,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/oci-energy-closes-130-million-tax-equity-financing-with-greenprint-capital-for-san-antonio-area-battery-project-302806665.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-016"
   ]
  },
  {
@@ -1753,6 +1807,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/meta-expands-partnership-with-rwe-through-a-long-term-corporate-ppa-for-rabbits-foot-solar-in-north-texas-302798053.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-012"
   ]
  },
  {
@@ -1847,6 +1904,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/vesper-energy-closes-236-million-financing-for-201-mw-nazareth-solar-302787087.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-017"
   ]
  },
  {
@@ -1895,6 +1955,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/brightnight-announces-financial-close-for-frontier-a-120-mw-solar-project-delivering-clean-power-to-kentucky-302782086.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-018"
   ]
  },
  {
@@ -1943,6 +2006,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/ecopetrol-advances-acquisition-of-the-jemeiwaa-kai-wind-cluster-in-la-guajira-with-the-purchase-of-a-49-interest-in-the-jk1-and-jk2-wind-projects-302777666.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-019"
   ]
  },
  {
@@ -1986,6 +2052,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/hull-street-energy-to-acquire-firstlights-us-generation-fleet-scaling-the-firms-hydro-footprint-302776103.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-020"
   ]
  },
  {
@@ -2049,6 +2118,11 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/sunraycer-renewables-closes-901-million-project-financing-facility-with-mufg-bank-ltd-ally-bank-nomura-securities-international-inc-norddeutsche-landesbank-girozentrale-and-societe-generale-302771800.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-021",
+   "prj-022",
+   "prj-023"
   ]
  },
  {
@@ -2194,6 +2268,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/matrix-renewables-closes-245-million-non-recourse-financing-for-500mw-battery-storage-project-in-scotland-302755662.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-024"
   ]
  },
  {
@@ -2363,6 +2440,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/origis-energy-secures-tax-equity-from-rbc-for-california-solar--storage-project-302737223.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-025"
   ]
  },
  {
@@ -2409,6 +2489,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/esvolta-secures-139-6-million-project-financing-for-300-mwh-boxcar-energy-storage-project-in-texas-302722809.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-027"
   ]
  },
  {
@@ -2455,6 +2538,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/grid-connected-infrastructure-sells-100-mw-megamouth-battery-energy-storage-project-in-houston-to-banpu-power-us-302722650.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-028"
   ]
  },
  {
@@ -2564,6 +2650,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/doral-renewables-secures-nearly-900-million-of-financing-commitments-for-construction-of-cold-creek-solar--storage-project-302723255.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-029"
   ]
  },
  {
@@ -2605,6 +2694,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/cypress-creek-acquires-2-5-gw-solar-project-with-2-9-gwh-energy-storage-in-development-in-arkansas-from-swift-current-energy-302711078.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-030"
   ]
  },
  {
@@ -2689,6 +2781,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/arevon-closes-920-million-in-financing-for-its-1-200-megawatt-hour-nighthawk-energy-storage-project-in-california-302710346.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-031"
   ]
  },
  {
@@ -2748,6 +2843,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/gemini-solar--storage-project-closes-600-million-bond-refinancing-302708904.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-032"
   ]
  },
  {
@@ -2816,6 +2914,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/aypa-power-and-six-nations-of-the-grand-river-development-corporation-secure-ca700-million-financing-close-for-ontario-battery-energy-storage-projects-302708425.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-033"
   ]
  },
  {
@@ -2866,6 +2967,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/origis-energy-announces-545-million-financing-for-texas-solar-portfolio-302704419.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-034"
   ]
  },
  {
@@ -2909,6 +3013,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/globeleq-confirms-acquisition-of-a-majority-stake-in-zambias-lunsemfwa-hydro-power-company-302703086.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-035"
   ]
  },
  {
@@ -2967,6 +3074,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/oci-energy-and-arava-power-have-closed-construction-financing-with-ing-capital-to-support-a-347-mwdc-solar-energy-project-near-houston-302697538.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-036"
   ]
  },
  {
@@ -3007,6 +3117,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/hunt-energy-network-acquires-100mw-battery-from-recurrent-energy-302695223.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-037"
   ]
  },
  {
@@ -3065,6 +3178,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/swift-current-energy-secures-project-financing-and-tax-equity-for-122-mw-energy-facility-in-maine-302691415.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-038"
   ]
  },
  {
@@ -3127,6 +3243,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/iown-energy-facilitates-financing-and-sale-of-127-mw-battery-project-in-nevada-302730629.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-026"
   ]
  },
  {
@@ -3219,6 +3338,9 @@ export const curatedDeals: Deal[] = [
     "url": "https://www.prnewswire.com/news-releases/kyiv-based-horizon-capital-backs-notus-energy-in-launching-a-124-mw-wind-power-project-in-ukraine-as-the-first-investment-from-horizon-capital-catalyst-fund-its-newest-fund-302665428.html",
     "retrievedAt": "2026-11-11"
    }
+  ],
+  "projectIds": [
+   "prj-039"
   ]
  },
  {
