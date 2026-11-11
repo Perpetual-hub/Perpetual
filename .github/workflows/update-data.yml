@@ -9,8 +9,14 @@ on:
   workflow_dispatch:
     inputs:
       months:
-        description: "How many months of press releases to look back (2 for daily, 60 for the five-year catch-up)"
+        description: "How many months of press releases and news to look back (2 for daily, 60 for the five-year catch-up)"
         default: "2"
+      max_releases:
+        description: "Most new articles to read in this run (caps the Claude API cost)"
+        default: "300"
+      model:
+        description: "Claude model for extraction (claude-opus-5-5 or claude-haiku-5-5)"
+        default: "claude-opus-5-5"
 
 permissions:
   contents: write
@@ -53,11 +59,18 @@ jobs:
       - name: Press releases
         run: python3 scripts/collect-deal-news.py .cache/candidates.json .cache/prn ${{ inputs.months || 2 }}
 
-      - name: Extract deals from press releases
+      - name: Energy news sites (Asia, Africa, Europe, Australia)
+        run: |
+          python3 scripts/collect-news-sitemaps.py .cache/news-candidates.json .cache/news-sitemaps ${{ inputs.months || 2 }}
+          python3 -c "import json; a=json.load(open('.cache/candidates.json')); b=json.load(open('.cache/news-candidates.json')); json.dump(sorted(a+b, key=lambda x: x.get('lastmod') or x.get('month') or '', reverse=True), open('.cache/all-candidates.json','w'))"
+
+      - name: Extract deals from press releases and news
         if: ${{ env.ANTHROPIC_API_KEY != '' }}
         env:
           MAX_MINUTES: "280"
-        run: node scripts/extract-deals.mjs .cache/candidates.json .cache/extract
+          MAX_RELEASES: ${{ inputs.max_releases || '300' }}
+          EXTRACT_MODEL: ${{ inputs.model || 'claude-opus-5-5' }}
+        run: node scripts/extract-deals.mjs .cache/all-candidates.json .cache/extract
 
       - name: PROFITS indicator scores
         run: node scripts/build-profits.mjs

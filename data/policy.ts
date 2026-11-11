@@ -8,6 +8,7 @@ export const PILLARS = [
   {
     id: "P",
     name: "Political & Policy",
+    measures: ["Renewable target in law", "New renewable policies", "Political stability"],
     question: "Does the government actually want renewables, and will that last?",
     checks: [
       "Renewable targets (NDC, national power plan)",
@@ -20,6 +21,7 @@ export const PILLARS = [
   {
     id: "R",
     name: "Regulatory & Legal",
+    measures: ["Support schemes (FiT, auctions, certificates)", "Regulatory quality", "Rule of law"],
     question: "Can you build, own and get paid under clear rules?",
     checks: [
       "PPA framework (FiT, auctions, direct corporate PPAs)",
@@ -33,6 +35,7 @@ export const PILLARS = [
   {
     id: "O",
     name: "Offtake & Market",
+    measures: ["Power demand growth", "Economic growth"],
     question: "Who buys the power, and can they pay?",
     checks: [
       "Power demand growth",
@@ -45,6 +48,7 @@ export const PILLARS = [
   {
     id: "F",
     name: "Financial & Macro",
+    measures: ["Incentives for renewables", "Inflation", "Currency stability", "Interest rates"],
     question: "Can the project be financed, and does the money hold its value?",
     checks: [
       "Sovereign credit rating",
@@ -58,6 +62,7 @@ export const PILLARS = [
   {
     id: "I",
     name: "Infrastructure & Implementation",
+    measures: ["Renewable share of power", "Grid losses", "Electricity access", "Build-out speed"],
     question: "Can the grid take the power, and can projects actually get built and run?",
     checks: [
       "Solar and wind resource quality",
@@ -70,6 +75,7 @@ export const PILLARS = [
   {
     id: "T",
     name: "Track Record & Transactions",
+    measures: ["Installed capacity", "Capacity added", "Deals on record"],
     question: "Has anyone already made money here?",
     checks: [
       "Capacity installed so far",
@@ -82,6 +88,7 @@ export const PILLARS = [
   {
     id: "S",
     name: "Social & Environmental",
+    measures: ["Voice and accountability", "Control of corruption"],
     question: "Will local people and the wider environment accept the projects?",
     checks: [
       "Community acceptance",
@@ -134,6 +141,17 @@ export interface PolicyIndicator {
   /** This indicator's 1-5 score (percentile across countries). */
   score: number;
   source: string;
+  /** Text shown instead of the number, for yes/no style indicators. */
+  display?: string;
+  /** One plain-language sentence explaining what the indicator says about this country. */
+  reason?: string;
+}
+
+export interface CountryPolicyItem {
+  title: string;
+  year?: string;
+  instrument: string;
+  url?: string;
 }
 
 export interface CountryPolicy {
@@ -144,6 +162,8 @@ export interface CountryPolicy {
   basis?: "indicators" | "researched";
   /** The indicators behind each pillar score (indicator-based scores only). */
   indicators?: Partial<Record<PillarId, PolicyIndicator[]>>;
+  /** Recent renewable policies in force (Climate Policy Database). */
+  policies?: CountryPolicyItem[];
   scores: Record<PillarId, number>;
   dealBreakers: DealBreakerId[];
   assessedAt: string;

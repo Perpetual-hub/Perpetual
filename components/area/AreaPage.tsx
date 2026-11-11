@@ -14,6 +14,7 @@ import {
   toMapPoint,
 } from "@/lib/data";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
+import { countryPhotos } from "@/data/geo/country-photos";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import { STATUSES, regionSlug } from "@/lib/filters";
 import {
@@ -59,6 +60,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
     .sort((a, b) => (b.capacityMW ?? 0) - (a.capacityMW ?? 0))
     .slice(0, 8);
   const regionInfo = s.kind === "region" ? countryStats.region(s.key) : undefined;
+  const photo = s.kind === "country" ? countryPhotos[s.key] : undefined;
   const official =
     s.kind === "country" ? countryStats.get(s.key) : regionInfo ? countryStats.aggregate(regionInfo) : undefined;
   const memberRows = regionInfo
@@ -77,11 +79,24 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
   return (
     <div>
-      <header className="border-b border-line">
-        <div className="container-page pt-10 pb-12 md:pt-14 md:pb-14">
+      <header className={photo ? "relative isolate overflow-hidden bg-brand-navy text-white" : "border-b border-line"}>
+        {photo && (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element -- remote Commons image, sized by Wikimedia */}
+            <img
+              src={photo.url}
+              alt=""
+              className="absolute inset-0 -z-20 h-full w-full object-cover"
+              loading="eager"
+              decoding="async"
+            />
+            <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#061a33]/95 via-[#061a33]/60 to-[#061a33]/25" />
+          </>
+        )}
+        <div className={`container-page pt-10 pb-12 md:pt-14 md:pb-14 ${photo ? "md:pt-40 md:pb-12" : ""}`}>
           <nav
             aria-label="Breadcrumb"
-            className="mb-6 flex flex-wrap gap-1.5 text-sm text-muted"
+            className={`mb-6 flex flex-wrap gap-1.5 text-sm ${photo ? "text-white/80" : "text-muted"}`}
           >
             <Link href="/statistics" className="hover:text-brand-blue">
               Statistics
@@ -98,25 +113,25 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
               </>
             )}
           </nav>
-          <p className="text-xs font-semibold text-brand-blue">
+          <p className={`text-xs font-semibold ${photo ? "text-brand-sky" : "text-brand-blue"}`}>
             {s.kind === "country" ? "Country profile" : "Region profile"}
           </p>
-          <h1 className="mt-2 text-4xl font-bold tracking-[-0.02em] md:text-5xl">
+          <h1 className={`mt-2 text-4xl font-bold tracking-[-0.02em] md:text-6xl ${photo ? "text-white" : ""}`}>
             {s.name}
           </h1>
           {snap ? (
             <dl className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-              <Stat
+              <Stat dark={!!photo}
                 label={`Renewable capacity, ${snap.year}`}
                 {...cap(snap.renewableMW)}
               />
-              <Stat label="Solar" {...cap(snap.solarMW)} />
-              <Stat label="Wind" {...cap(snap.windMW)} />
-              <Stat
+              <Stat dark={!!photo} label="Solar" {...cap(snap.solarMW)} />
+              <Stat dark={!!photo} label="Wind" {...cap(snap.windMW)} />
+              <Stat dark={!!photo}
                 label="Hydropower"
                 {...cap(snap.hydroMW)}
               />
-              <Stat
+              <Stat dark={!!photo}
                 label={
                   snap.generationYear
                     ? `Renewable share of electricity, ${snap.generationYear}`
@@ -128,28 +143,37 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             </dl>
           ) : (
             <dl className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-              <Stat label="Projects tracked" value={String(s.projects)} />
-              <Stat
+              <Stat dark={!!photo} label="Projects tracked" value={String(s.projects)} />
+              <Stat dark={!!photo}
                 label="Total capacity"
                 value={formatGW(s.totalMW)}
                 unit="GW"
               />
-              <Stat
+              <Stat dark={!!photo}
                 label="Operating"
                 value={formatGW(s.operatingMW)}
                 unit="GW"
               />
-              <Stat
+              <Stat dark={!!photo}
                 label="In pipeline"
                 value={formatGW(s.pipelineMW)}
                 unit="GW"
               />
-              <Stat label="Deals tracked" value={String(s.deals)} />
+              <Stat dark={!!photo} label="Deals tracked" value={String(s.deals)} />
             </dl>
           )}
           {snap && (
-            <p className="mt-6 text-xs text-muted">
+            <p className={`mt-6 text-xs ${photo ? "text-white/70" : "text-muted"}`}>
               Source: {countryStats.source.citation}
+            </p>
+          )}
+          {photo && (
+            <p className="mt-2 text-[11px] text-white/60">
+              Photo:{" "}
+              <a href={photo.page} target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-white">
+                {photo.artist || "Wikimedia Commons"}
+              </a>
+              , {photo.license}, via Wikimedia Commons
             </p>
           )}
         </div>
@@ -308,18 +332,20 @@ function Stat({
   label,
   value,
   unit,
+  dark = false,
 }: {
   label: string;
   value: string;
   unit?: string;
+  dark?: boolean;
 }) {
   return (
     <div>
-      <dt className="text-xs font-medium text-muted">{label}</dt>
-      <dd className="tabular mt-1 font-display text-3xl font-bold tracking-tight text-brand-navy">
+      <dt className={`text-xs font-medium ${dark ? "text-white/75" : "text-muted"}`}>{label}</dt>
+      <dd className={`tabular mt-1 font-display text-3xl font-bold tracking-tight ${dark ? "text-white" : "text-brand-navy"}`}>
         {value}
         {unit && (
-          <span className="ml-1 text-base font-semibold text-muted">
+          <span className={`ml-1 text-base font-semibold ${dark ? "text-white/70" : "text-muted"}`}>
             {unit}
           </span>
         )}
