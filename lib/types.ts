@@ -16,3 +16,33 @@ export type DealType = Deal["type"];
 export type DealStatus = Deal["status"];
 export type ResearchItem = z.infer<typeof S.researchItem>;
 export type ResearchType = ResearchItem["type"];
+
+/** A published statistics series, stored exactly as the source publishes it. */
+export interface StatSource {
+  title: string;
+  publisher: string;
+  via?: string;
+  citation: string;
+  url: string;
+  licence: string;
+  lastUpdated: string;
+  nextUpdate?: string;
+  retrieved: string;
+}
+
+export interface CapacityRow {
+  year: number;
+  solar: number;
+  wind: number;
+  hydro: number;
+  bioenergy: number;
+  geothermal: number;
+  marine: number;
+  total: number;
+}
+
+export interface CapacitySeries {
+  unit: "GW";
+  source: StatSource;
+  rows: CapacityRow[];
+}

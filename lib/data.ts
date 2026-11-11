@@ -10,11 +10,13 @@ import { deals as rawDeals } from "@/data/deals";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { projects as rawProjects } from "@/data/projects";
 import { research as rawResearch } from "@/data/research";
+import { globalCapacity as rawGlobalCapacity } from "@/data/stats/global-capacity";
 import { PIPELINE_STATUSES, matchesFilters, regionSlug, type ProjectFilters } from "./filters";
 import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "./format";
 import type { Milestone, MilestoneKind } from "./milestones";
 import * as S from "./schema";
 import type {
+  CapacitySeries,
   Deal,
   Ownership,
   Project,
@@ -65,6 +67,22 @@ const research = validate("data/research.ts", S.researchItem, rawResearch).sort(
 }
 
 export { DATA_AS_OF, DATA_VERSION, changelog };
+
+// ---------- Published statistics (open datasets, stored as published) ----------
+
+const globalCapacity = (() => {
+  const r = S.capacitySeries.safeParse(rawGlobalCapacity);
+  if (!r.success) {
+    const msg = r.error.issues.map((i) => `  data/stats/global-capacity.ts › ${i.path.join(".")}: ${i.message}`).join("\n");
+    throw new Error(`\n\nPerpetual statistics failed validation:\n${msg}\n`);
+  }
+  return r.data;
+})();
+
+/** Global installed renewable capacity by technology (IRENA via Our World in Data). */
+export function getGlobalCapacity(): CapacitySeries {
+  return globalCapacity;
+}
 
 // ---------- Projects ----------
 

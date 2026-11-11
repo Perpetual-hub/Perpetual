@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SampleBadge } from "@/components/ui/Badge";
 import { PolicyRanking } from "@/components/policy/PolicyRanking";
 import { PageHeader } from "@/components/prose/Prose";
 import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS } from "@/data/policy";
@@ -21,24 +22,28 @@ export default function PolicyPage() {
         title="Policy Assessment"
         intro="PROFITS looks at a country the way an investor would: seven pillars, each scored 1 to 5, then weighted for the kind of deal you are doing."
       />
-      <div className="container-page space-y-16 py-12 md:py-16">
-        <div className="flex flex-wrap items-start gap-4 rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-sm leading-relaxed">
-          <p className="max-w-3xl flex-1">
-            <strong>Illustrative scores.</strong> The scores below are placeholders, so the design and the
-            maths can be tested. They are <strong>not an assessment</strong> of any country. Researched scores, with sources for each
-            pillar, will replace them.
-          </p>
-          <Link
-            href="/#policy"
-            className="group inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
-          >
-            See it on the globe
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-          </Link>
-        </div>
-
+      <div className="container-page space-y-16 py-10 md:py-14">
         <section aria-labelledby="ranking-h">
-          <SectionHead id="ranking-h" title="Country Ranking" />
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
+                  Country Ranking
+                </h2>
+                <SampleBadge />
+              </div>
+              <p className="mt-2 max-w-3xl leading-relaxed text-muted">
+                Weighted PROFITS score for each country, highest first. Choose a deal type to change the weights.
+              </p>
+            </div>
+            <Link
+              href="/#policy"
+              className="group inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
+            >
+              See it on the globe
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </div>
           <PolicyRanking rows={rows} />
         </section>
 

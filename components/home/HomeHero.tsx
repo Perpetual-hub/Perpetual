@@ -314,7 +314,7 @@ function PolicyList({ ranked, onSelect }: { ranked: ReturnType<typeof rankPolici
 
 function Stat({ label, value, unit }: { label: string; value: string; unit?: string }) {
   return (
-    <div>
+    <div className="text-center">
       <dt className="text-[11px] leading-tight font-medium text-hero-muted">{label}</dt>
       <dd className="tabular mt-1.5 font-display text-2xl font-bold tracking-tight text-white md:text-[1.75rem]">
         {value}

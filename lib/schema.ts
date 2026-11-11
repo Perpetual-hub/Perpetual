@@ -165,3 +165,37 @@ export const researchItem = z.object({
   url: z.string().optional(),
   inHouse: z.boolean(),
 });
+
+const isoDay = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+const gw = z.number().nonnegative();
+
+export const capacitySeries = z
+  .object({
+    unit: z.literal("GW"),
+    source: z.object({
+      title: z.string().min(1),
+      publisher: z.string().min(1),
+      via: z.string().optional(),
+      citation: z.string().min(1),
+      url: z.string().url(),
+      licence: z.string().min(1),
+      lastUpdated: isoDay,
+      nextUpdate: isoDay.optional(),
+      retrieved: isoDay,
+    }),
+    rows: z
+      .array(
+        z.object({
+          year: z.number().int().min(1990).max(2100),
+          solar: gw,
+          wind: gw,
+          hydro: gw,
+          bioenergy: gw,
+          geothermal: gw,
+          marine: gw,
+          total: gw,
+        }),
+      )
+      .min(1),
+  })
+  .refine((s) => s.rows.every((r, i) => i === 0 || r.year === s.rows[i - 1].year + 1), "Years must be consecutive");

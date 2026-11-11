@@ -1,10 +1,17 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.1";
+export const DATA_VERSION = "2026.11.2";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
 export const DATA_AS_OF = "2026-11-10";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.2",
+    date: "2026-11-11",
+    changes: [
+      "Added global installed renewable capacity by technology, 2000 to 2025, from IRENA via Our World in Data.",
+    ],
+  },
   {
     version: "2026.11.1",
     date: "2026-11-11",

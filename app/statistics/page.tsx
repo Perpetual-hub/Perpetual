@@ -4,10 +4,12 @@ import { ChartCard } from "@/components/area/AreaPage";
 import { AreaTable } from "@/components/charts/AreaTable";
 import { BarList } from "@/components/charts/BarList";
 import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
+import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import {
   AS_OF_YEAR,
   DATA_AS_OF,
   getCountries,
+  getGlobalCapacity,
   getRegions,
   getStats,
   getTechCounts,
@@ -68,6 +70,17 @@ export default function StatisticsPage() {
       </header>
 
       <div className="container-page space-y-16 py-12">
+        <section aria-labelledby="global-h" className="rounded-[var(--radius)] border border-line p-6 md:p-8">
+          <h2 id="global-h" className="text-2xl font-bold tracking-tight">
+            Global Renewable Capacity
+          </h2>
+          <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
+            Installed renewable power capacity worldwide, by technology, as published by the International Renewable
+            Energy Agency.
+          </p>
+          <GlobalCapacityChart series={getGlobalCapacity()} />
+        </section>
+
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
           <ChartCard title="Capacity by Sector" note="Click a bar to explore">
             <BarList
