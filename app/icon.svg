@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <!-- Perpetual mark (logo canvas, Round 5, white-background version), same artwork as the site header. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8.5 -2.5 106.5 106.5">
+  <!-- Perpetual mark (logo canvas, Round 5, white-background version), same artwork as the site header,
+       cropped edge to edge so it fills the browser tab. -->
   <g>
     <polygon points="53,56 67,56 76,13 44,13" fill="#0B5CAD" stroke="#0B5CAD" stroke-width="4" stroke-linejoin="round"/>
     <g stroke="#FFFFFF" stroke-width="2.5">

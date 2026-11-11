@@ -31,18 +31,18 @@ const TOC = [
 const STATUSES: [ProjectStatus, string][] = [
   ["announced", "Publicly named by a developer or government. No permits yet."],
   ["permitting", "Seeking or securing key permits: environmental, land and grid connection."],
-  ["financing", "Permits largely in place; raising debt and equity. Not yet at financial close."],
+  ["financing", "Permits largely in place, with debt and equity being raised. Not yet at financial close."],
   ["construction", "Financial close reached, or physical work has started on site."],
-  ["operating", "Commercial operation reached; selling power or product."],
+  ["operating", "Commercial operation reached and selling power or product."],
   ["decommissioned", "Stopped operating permanently."],
   ["cancelled", "Stopped by the developer or an authority before operating."],
 ];
 
 const SCALE: [number, string, string][] = [
   [1, "Prohibitive", "Risks make most investment impractical without exceptional support."],
-  [2, "Weak", "Significant gaps; investable only with strong mitigation such as DFI cover or guarantees."],
+  [2, "Weak", "Significant gaps. Investable only with strong mitigation such as DFI cover or guarantees."],
   [3, "Adequate", "A workable framework with notable risks that must be priced in."],
-  [4, "Strong", "Clear, stable rules; risks are understood and manageable."],
+  [4, "Strong", "Clear, stable rules. Risks are understood and manageable."],
   [5, "Best practice", "Among the most predictable and bankable markets for this pillar."],
 ];
 
@@ -104,7 +104,7 @@ export default function MethodologyPage() {
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               <Card title="What Counts as a Project">
                 One power plant, storage facility or hydrogen plant at one site, in one main sector, built or proposed by an identifiable
-                developer. Phases with separate owners or financing are separate projects; hybrid sites are split by sector and linked
+                developer. Phases with separate owners or financing are separate projects, and hybrid sites are split by sector and linked
                 through their deals.
               </Card>
               <Card title="What Counts as a Deal">
@@ -132,7 +132,7 @@ export default function MethodologyPage() {
               <Card title="Commercial Operation (COD)">The date a project starts selling its output under normal operating conditions.</Card>
               <Card title="Financial Close">The date all financing agreements are signed and the first funds can be drawn.</Card>
               <Card title="AC and DC Capacity">
-                Panels produce DC; inverters convert it to AC. DC is usually 10–30% higher. We record AC where possible and label the basis.
+                Panels produce DC, and inverters convert it to AC. DC is usually 10–30% higher. We record AC where possible and label the basis.
               </Card>
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -141,7 +141,7 @@ export default function MethodologyPage() {
                 <div>
                   <h3 className="font-sans text-sm font-semibold text-ink">Confirmed Date</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted">
-                    Has happened and is backed by a source. Shown as a filled marker; counted as historical in charts.
+                    Has happened and is backed by a source. Shown as a filled marker and counted as historical in charts.
                   </p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function MethodologyPage() {
                 <div>
                   <h3 className="font-sans text-sm font-semibold text-ink">Estimated Date</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted">
-                    A plan or forecast; read it as a range. Shown as a hollow marker; counted as forecast in charts.
+                    A plan or forecast, best read as a range. Shown as a hollow marker and counted as forecast in charts.
                   </p>
                 </div>
               </div>
@@ -316,7 +316,7 @@ export default function MethodologyPage() {
                 ["Pipeline Is Not a Forecast", "Many announced projects are never built."],
                 ["Delays", "Estimated dates often slip, sometimes by years."],
                 ["Conflicting Sources", "We record the most authoritative one and note the disagreement."],
-                ["Undisclosed Values", "Deal values are often private; we never estimate one and present it as fact."],
+                ["Undisclosed Values", "Deal values are often private. We never estimate one and present it as fact."],
                 ["Policy Can Change Quickly", "Scores reflect the assessment date shown on each country."],
               ].map(([t, d], i) => (
                 <li key={t} className="flex gap-4 bg-white p-5">
@@ -377,7 +377,7 @@ export default function MethodologyPage() {
           <Block id="legal" title="Legal">
             <p className="max-w-3xl rounded-[var(--radius)] bg-surface-2 p-6 text-sm leading-relaxed text-muted">
               Perpetual is provided for information only and is <strong className="text-ink">not investment advice</strong>. Linked filings,
-              announcements and reports belong to their owners; we link to them as sources. Policy scores are an opinion framework, not a
+              announcements and reports belong to their owners, and we link to them as sources. Policy scores are an opinion framework, not a
               rating or a recommendation to invest. Photos are used under their stated licences, credited where they appear. Map data ©
               OpenStreetMap contributors, OpenMapTiles, OpenFreeMap.
             </p>

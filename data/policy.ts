@@ -107,7 +107,7 @@ export const WEIGHT_PRESETS: { id: string; label: string; description: string; w
   {
     id: "utility",
     label: "Utility-scale IPP",
-    description: "Regulation, offtake and finance decide whether you get paid; the grid matters more at scale.",
+    description: "Regulation, offtake and finance decide whether you get paid. The grid matters more at scale.",
     weights: { P: 1, R: 2, O: 2, F: 2, I: 1.5, T: 1, S: 0.75 },
   },
   {

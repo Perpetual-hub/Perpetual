@@ -228,21 +228,33 @@ function SectorLegend({ points }: { points: MapPoint[] }) {
 function PolicyLegend() {
   const grad = `linear-gradient(90deg, ${POLICY_RAMP.map(([, c]) => c).join(", ")})`;
   return (
-    <>
-      <div className="flex items-center gap-3 pb-3 text-xs text-hero-ink">
+    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pb-2 text-xs text-hero-ink">
+      <div className="flex items-center gap-3">
         <span>Unsupportive</span>
         <span className="relative h-2 w-40 rounded-[2px]" style={{ background: grad }} aria-hidden>
-          <span className="tabular absolute -bottom-4 left-0 text-[10px]">1</span>
-          <span className="tabular absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px]">3</span>
-          <span className="tabular absolute right-0 -bottom-4 text-[10px]">5</span>
+          <span className="tabular absolute -bottom-4 left-0 text-[10px] text-hero-muted">1</span>
+          <span className="tabular absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-hero-muted">3</span>
+          <span className="tabular absolute right-0 -bottom-4 text-[10px] text-hero-muted">5</span>
         </span>
         <span>Supportive</span>
       </div>
-      <p className="text-xs text-hero-muted">
-        Grey-blue = not scored · <span className="text-[#f5b000]">dashed outline</span> = deal-breaker ·{" "}
-        <span className="font-medium text-hero-ink">illustrative scores</span>
-      </p>
-    </>
+      <span className="hidden h-5 w-px bg-hero-line sm:block" aria-hidden />
+      <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Map key">
+        <li className="inline-flex items-center gap-2">
+          <span className="h-3 w-5 rounded-[2px] border border-white/15 bg-[#24364f]" aria-hidden />
+          Not yet scored
+        </li>
+        <li className="inline-flex items-center gap-2">
+          <span className="h-3 w-5 rounded-[2px] border-[1.5px] border-dashed border-[#f5b000]" aria-hidden />
+          Deal-breaker
+        </li>
+        <li>
+          <span className="rounded-[3px] border border-brand-sun/60 bg-brand-sun/10 px-2 py-0.5 text-[11px] font-semibold text-brand-sun">
+            Illustrative scores
+          </span>
+        </li>
+      </ul>
+    </div>
   );
 }
 

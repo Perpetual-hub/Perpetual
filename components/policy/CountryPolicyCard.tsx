@@ -35,7 +35,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
             )}
             <p className="mt-3 text-xs text-muted">
               {c.dealBreakers.length
-                ? `Deal-breaker: ${c.dealBreakers.map((d) => DEAL_BREAKERS.find((x) => x.id === d)?.label).join("; ")}`
+                ? `Deal-breaker: ${c.dealBreakers.map((d) => DEAL_BREAKERS.find((x) => x.id === d)?.label).join(", ")}`
                 : "No deal-breakers recorded."}
             </p>
           </div>

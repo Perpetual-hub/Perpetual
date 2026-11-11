@@ -19,11 +19,15 @@ export interface TechPhoto {
 }
 
 export const TECH_PHOTOS: Partial<Record<Technology, TechPhoto>> = {
-  // TODO(credit): supplied by the Perpetual team; add the photographer/licence once confirmed.
   hydrogen: {
-    src: "/photos/hydrogen.jpg",
-    alt: "Hydrogen storage tanks beside wind turbines and solar panels",
-    position: "center 45%",
+    src: "/photos/hydrogen-station.jpg",
+    alt: "Hydrogen refuelling station with a blue H2 canopy at Stuttgart Airport, Germany",
+    credit: "5R-MFT",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Wasserstoff_Tankstelle_Stuttgart_Flughafen.jpg",
+    position: "center 12%",
+    modified: true,
   },
   solar: {
     src: "/photos/solar.jpg",

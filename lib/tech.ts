@@ -42,7 +42,7 @@ export const TECHNOLOGIES: TechMeta[] = [
     icon: Wind,
     short: "Onshore and offshore wind farms.",
     explainer:
-      "Wind farms use turbines to turn moving air into electricity. Onshore farms sit on land; offshore farms sit at sea, either fixed to the seabed or floating. Offshore projects are usually bigger and take longer to build.",
+      "Wind farms use turbines to turn moving air into electricity. Onshore farms sit on land, while offshore farms sit at sea, either fixed to the seabed or floating. Offshore projects are usually bigger and take longer to build.",
   },
   {
     id: "hydro",
@@ -52,7 +52,7 @@ export const TECHNOLOGIES: TechMeta[] = [
     icon: Droplets,
     short: "Reservoir, run-of-river and pumped storage.",
     explainer:
-      "Hydropower uses flowing or falling water to spin turbines. Reservoir plants store water behind a dam; run-of-river plants use a river's natural flow; pumped storage moves water uphill when power is cheap and releases it when it is needed.",
+      "Hydropower uses flowing or falling water to spin turbines. Reservoir plants store water behind a dam, and run-of-river plants use a river's natural flow. Pumped storage moves water uphill when power is cheap and releases it when it is needed.",
   },
   {
     id: "storage",
@@ -82,7 +82,7 @@ export const TECHNOLOGIES: TechMeta[] = [
     icon: FlaskConical,
     short: "Green hydrogen from renewable-powered electrolysers.",
     explainer:
-      "We only track green hydrogen: hydrogen made by splitting water in an electrolyser that runs on renewable power. Capacity is the electrolyser's power input in MW; where known we also show output in tonnes per year.",
+      "We only track green hydrogen: hydrogen made by splitting water in an electrolyser that runs on renewable power. Capacity is the electrolyser's power input in MW. Where known, we also show output in tonnes per year.",
   },
   {
     id: "bioenergy",
@@ -102,7 +102,7 @@ export const TECHNOLOGIES: TechMeta[] = [
     icon: Waves,
     short: "Tidal stream and wave energy.",
     explainer:
-      "Marine energy uses the movement of the sea. Tidal stream turbines sit in fast tidal channels; wave devices ride the swell. It is an early-stage technology, so projects are small but closely watched.",
+      "Marine energy uses the movement of the sea. Tidal stream turbines sit in fast tidal channels, and wave devices ride the swell. It is an early-stage technology, so projects are small but closely watched.",
   },
 ];
 
