@@ -11,7 +11,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
     <section aria-labelledby="profits-h" className="rounded-[var(--radius)] border border-line p-6">
       <div className="mb-5 flex flex-wrap items-baseline justify-between gap-3">
         <h2 id="profits-h" className="text-xl font-bold tracking-tight">
-          Policy assessment
+          Policy Assessment
         </h2>
         <Link href="/policy" className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue">
           About PROFITS

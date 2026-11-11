@@ -71,22 +71,22 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
         {s.kind === "country" && <CountryPolicyCard code={s.key} name={s.name} />}
 
         <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
-          <ChartCard title="Capacity by sector" note="Click a bar to explore">
+          <ChartCard title="Capacity by Sector" note="Click a bar to explore">
             <BarList rows={byTech} caption={`Capacity by sector in ${s.name}`} />
           </ChartCard>
-          <ChartCard title="Capacity by status" note="Click a bar to explore">
+          <ChartCard title="Capacity by Status" note="Click a bar to explore">
             <BarList rows={byStatus} caption={`Capacity by project status in ${s.name}`} />
           </ChartCard>
         </div>
 
         <section className="rounded-[var(--radius)] border border-line p-6">
-          <CapacityTimeline cells={timeline} asOfYear={AS_OF_YEAR} title="Capacity additions by year" />
+          <CapacityTimeline cells={timeline} asOfYear={AS_OF_YEAR} title="Capacity Additions by Year" />
         </section>
 
         <section aria-labelledby="map-h">
           <div className="mb-4 flex items-baseline justify-between gap-4">
             <h2 id="map-h" className="text-xl font-bold tracking-tight">
-              Project map
+              Project Map
             </h2>
             <Link href={`/projects?${filterQuery}`} className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue">
               Open in explorer
@@ -107,7 +107,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
         <section aria-labelledby="largest-h">
           <h2 id="largest-h" className="mb-5 text-xl font-bold tracking-tight">
-            Largest projects
+            Largest Projects
           </h2>
           <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
             {top.map((p) => (

@@ -54,7 +54,7 @@ export default function Home() {
       {/* This week in deals */}
       <section className="container-page py-20 md:py-28" aria-labelledby="this-week">
         <Reveal>
-          <SectionHeading id="this-week" title="Recent transactions" description="The latest acquisitions, financings, power purchase agreements and fund closes." href="/deals" linkLabel="Deal tracker" />
+          <SectionHeading id="this-week" title="Recent Transactions" description="The latest acquisitions, financings, power purchase agreements and fund closes." href="/deals" linkLabel="Deal tracker" />
         </Reveal>
         <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
           <Reveal>
@@ -82,7 +82,7 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               id="markets"
-              title="Investors and markets"
+              title="Investors and Markets"
               description="The most active capital providers in the deal record, and the highest-scoring countries under the PROFITS framework."
               href="/policy"
               linkLabel="Policy assessment"
@@ -90,12 +90,12 @@ export default function Home() {
           </Reveal>
           <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <InvestorsCard investors={getTopInvestors(deals, 6)} title="Most active investors" level={3} />
+            <InvestorsCard investors={getTopInvestors(deals, 6)} title="Most Active Investors" level={3} />
           </Reveal>
           <Reveal>
             <section>
               <div className="mb-4 flex items-baseline justify-between">
-                <h3 className="font-sans text-lg font-semibold text-ink">Country rankings</h3>
+                <h3 className="font-sans text-lg font-semibold text-ink">Country Rankings</h3>
                 <Link href="/policy" className="text-sm font-medium text-brand-blue hover:underline">
                   Full ranking
                 </Link>
@@ -128,7 +128,7 @@ export default function Home() {
       <section className="border-t border-line bg-surface-2" aria-labelledby="regions">
         <div className="container-page py-20 md:py-28">
           <Reveal>
-            <SectionHeading id="regions" title="Capacity by region" description="Operating and pipeline capacity across tracked projects, by sector." href="/statistics" linkLabel="Statistics" />
+            <SectionHeading id="regions" title="Capacity by Region" description="Operating and pipeline capacity across tracked projects, by sector." href="/statistics" linkLabel="Statistics" />
           </Reveal>
           <Reveal>
             <AreaTable rows={getRegions()} hrefFor={(r) => `/regions/${r.key}`} nameHeader="Region" />
@@ -154,7 +154,7 @@ export default function Home() {
           <div className="grid gap-10 rounded-[calc(var(--radius)+4px)] bg-brand-navy px-7 py-12 text-white md:grid-cols-[1.1fr_1.5fr] md:px-12 md:py-14">
             <div>
               <h2 id="sources-promise" className="text-3xl font-bold tracking-tight text-white md:text-4xl">
-                Data integrity
+                Data Integrity
               </h2>
               <p className="mt-4 max-w-sm leading-relaxed text-[#c6d6e8]">
                 Each deal, project and score lists its sources and the date they were checked, so every figure can be traced to

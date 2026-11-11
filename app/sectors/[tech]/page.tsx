@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: PageProps<"/sectors/[tech]">)
   const t = TECH_BY_ID[tech];
   const s = getTechProfile(tech).stats;
   return {
-    title: `${t.label} sector: projects, deals and statistics`,
+    title: `${t.label} Sector: Projects, Deals and Statistics`,
     description: `${s.projects} ${t.label.toLowerCase()} projects (${formatGW(s.totalMW)} GW) tracked worldwide: capacity by status and region, projects coming online, latest deals and the most active investors.`,
   };
 }
@@ -68,7 +68,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
         <section aria-labelledby="map-h">
           <div className="mb-4 flex items-baseline justify-between gap-4">
             <h2 id="map-h" className="text-xl font-bold tracking-tight">
-              Project map
+              Project Map
             </h2>
             <Link href={`/projects?tech=${tech}`} className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue">
               Open in explorer
@@ -79,7 +79,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
         </section>
 
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-2">
-          <ChartCard title="Capacity by status" note="Click a bar to explore">
+          <ChartCard title="Capacity by Status" note="Click a bar to explore">
             <BarList
               caption={`${t.label} capacity by project status`}
               rows={prof.byStatus.map((s) => ({
@@ -92,7 +92,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
               }))}
             />
           </ChartCard>
-          <ChartCard title="Capacity by region" note="Click a bar to explore">
+          <ChartCard title="Capacity by Region" note="Click a bar to explore">
             <BarList
               caption={`${t.label} capacity by region`}
               rows={prof.byRegion.map((r) => ({
@@ -113,7 +113,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
 
         <section aria-labelledby="largest-h">
           <h2 id="largest-h" className="mb-5 text-xl font-bold tracking-tight">
-            Largest {t.label.toLowerCase()} projects
+            Largest {t.label} Projects
           </h2>
           <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
             {largest.map((p) => (

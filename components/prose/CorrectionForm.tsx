@@ -42,7 +42,7 @@ export function CorrectionForm({ records }: { records: RecordOption[] }) {
     return (
       <div role="status" className="rounded-[var(--radius)] border border-line bg-surface-2 p-8">
         <CheckCircle2 className="size-7 text-brand-green" aria-hidden />
-        <h2 className="mt-4 text-2xl font-bold tracking-tight">Thank you</h2>
+        <h2 className="mt-4 text-2xl font-bold tracking-tight">Thank You</h2>
         <p className="mt-2 max-w-prose leading-relaxed text-muted">
           In this beta, correction reports are <strong className="text-ink">not sent or stored yet</strong>: the form shows how
           reporting will work. Once it is connected, we aim to review each report and log accepted changes in the methodology

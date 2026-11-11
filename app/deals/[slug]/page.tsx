@@ -70,7 +70,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
 
       <div className="container-page grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="space-y-12">
-          <Section id="facts" title="Key facts">
+          <Section id="facts" title="Key Facts">
             <FactGrid
               facts={[
                 ["Deal type", DEAL_TYPE_LABEL[d.type]],
@@ -111,7 +111,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
           </Section>
 
           {projects.length > 0 && (
-            <Section id="projects" title="Associated projects">
+            <Section id="projects" title="Associated Projects">
               <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
                 {projects.map((p) => (
                   <li key={p.id}>
@@ -162,7 +162,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <h2 className="font-sans text-sm font-semibold text-ink">Related deals</h2>
+          <h2 className="font-sans text-sm font-semibold text-ink">Related Deals</h2>
           <ul className="space-y-3">
             {related.map((x) => (
               <li key={x.id}>

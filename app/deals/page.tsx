@@ -6,7 +6,7 @@ import { DATA_AS_OF, getDeals } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "Deal tracker",
+  title: "Deal Tracker",
   description:
     "Renewable energy M&A, project finance, equity raises, PPAs, IPOs and fund closes: who bought what, for how much, and who financed it.",
 };
@@ -15,7 +15,7 @@ export default function DealsPage() {
   return (
     <>
       <PageHeader
-        title="Deal tracker"
+        title="Deal Tracker"
         intro={`M&A, project finance, equity raises, PPAs, IPOs and fund closes, with values in their original currency and USD. Data compiled ${formatDate(DATA_AS_OF)}.`}
       />
       {/* Filters live in the URL and are read on the client, so the page stays static. */}

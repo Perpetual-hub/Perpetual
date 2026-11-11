@@ -102,12 +102,12 @@ export default function MethodologyPage() {
               })}
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <Card title="What counts as a project">
+              <Card title="What Counts as a Project">
                 One power plant, storage facility or hydrogen plant at one site, in one main sector, built or proposed by an identifiable
                 developer. Phases with separate owners or financing are separate projects; hybrid sites are split by sector and linked
                 through their deals.
               </Card>
-              <Card title="What counts as a deal">
+              <Card title="What Counts as a Deal">
                 A transaction tied to renewable assets or companies: M&amp;A, project finance, equity raises, power purchase agreements,
                 IPOs, fund closes, joint ventures and refinancings. We record parties, stake, value (if disclosed), capacity and the
                 projects involved.
@@ -117,7 +117,7 @@ export default function MethodologyPage() {
 
           {/* Definitions */}
           <Block id="definitions" title="Definitions">
-            <h3 className="mb-3 font-sans text-base font-semibold text-ink">Project status</h3>
+            <h3 className="mb-3 font-sans text-base font-semibold text-ink">Project Status</h3>
             <Table head={["Status", "Meaning"]}>
               {STATUSES.map(([s, d]) => (
                 <tr key={s}>
@@ -129,9 +129,9 @@ export default function MethodologyPage() {
               ))}
             </Table>
             <div className="mt-8 grid gap-6 md:grid-cols-3">
-              <Card title="Commercial operation (COD)">The date a project starts selling its output under normal operating conditions.</Card>
-              <Card title="Financial close">The date all financing agreements are signed and the first funds can be drawn.</Card>
-              <Card title="AC and DC capacity">
+              <Card title="Commercial Operation (COD)">The date a project starts selling its output under normal operating conditions.</Card>
+              <Card title="Financial Close">The date all financing agreements are signed and the first funds can be drawn.</Card>
+              <Card title="AC and DC Capacity">
                 Panels produce DC; inverters convert it to AC. DC is usually 10–30% higher. We record AC where possible and label the basis.
               </Card>
             </div>
@@ -139,7 +139,7 @@ export default function MethodologyPage() {
               <div className="flex gap-4 rounded-[var(--radius)] border border-line p-5">
                 <span className="mt-1 size-4 shrink-0 rounded-full border-2 border-brand-blue bg-brand-blue" aria-hidden />
                 <div>
-                  <h3 className="font-sans text-sm font-semibold text-ink">Confirmed date</h3>
+                  <h3 className="font-sans text-sm font-semibold text-ink">Confirmed Date</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted">
                     Has happened and is backed by a source. Shown as a filled marker; counted as historical in charts.
                   </p>
@@ -148,7 +148,7 @@ export default function MethodologyPage() {
               <div className="flex gap-4 rounded-[var(--radius)] border border-line p-5">
                 <span className="mt-1 size-4 shrink-0 rounded-full border-2 border-[#9aabbf] bg-white" aria-hidden />
                 <div>
-                  <h3 className="font-sans text-sm font-semibold text-ink">Estimated date</h3>
+                  <h3 className="font-sans text-sm font-semibold text-ink">Estimated Date</h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted">
                     A plan or forecast; read it as a range. Shown as a hollow marker; counted as forecast in charts.
                   </p>
@@ -164,13 +164,13 @@ export default function MethodologyPage() {
             lead="Perpetual records facts, not other people's articles. Every record lists where each fact was published and when we retrieved it."
           >
             <div className="grid gap-6 md:grid-cols-3">
-              <Feature icon={Building2} title="Primary disclosures">
+              <Feature icon={Building2} title="Primary Disclosures">
                 Company and investor announcements, stock-exchange and regulatory filings, lenders and development banks.
               </Feature>
-              <Feature icon={Landmark} title="Official sources">
+              <Feature icon={Landmark} title="Official Sources">
                 Regulators, grid operators, auction results and government publications.
               </Feature>
-              <Feature icon={FileSearch} title="Open datasets">
+              <Feature icon={FileSearch} title="Open Datasets">
                 Used under their licence terms and credited on the records they inform.
               </Feature>
             </div>
@@ -179,10 +179,10 @@ export default function MethodologyPage() {
           {/* PROFITS */}
           <Block
             id="profits"
-            title="PROFITS framework"
+            title="PROFITS Framework"
             lead="PROFITS scores how investable a country is for renewable energy, from an investor's point of view. Seven pillars are each scored 1 to 5, then combined with weights that depend on the type of deal."
           >
-            <h3 className="mb-3 font-sans text-base font-semibold text-ink">The seven pillars and their weights</h3>
+            <h3 className="mb-3 font-sans text-base font-semibold text-ink">The Seven Pillars and Their Weights</h3>
             <Table head={["Pillar", "Key question", "What we assess", ...WEIGHT_PRESETS.map((w) => w.label)]} numericFrom={3} minWidth={980}>
               {PILLARS.map((p) => (
                 <tr key={p.id} className="align-top">
@@ -219,7 +219,7 @@ export default function MethodologyPage() {
 
             <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-10 xl:grid-cols-2">
               <div>
-                <h3 className="mb-3 font-sans text-base font-semibold text-ink">Scoring scale</h3>
+                <h3 className="mb-3 font-sans text-base font-semibold text-ink">Scoring Scale</h3>
                 <Table head={["Score", "Meaning", "What it signals"]}>
                   {SCALE.map(([n, label, d]) => (
                     <tr key={n} className="align-top">
@@ -238,7 +238,7 @@ export default function MethodologyPage() {
               </div>
 
               <div>
-                <h3 className="mb-3 font-sans text-base font-semibold text-ink">How the total is calculated</h3>
+                <h3 className="mb-3 font-sans text-base font-semibold text-ink">How the Total Is Calculated</h3>
                 <div className="rounded-[var(--radius)] border border-line bg-surface-2 p-6">
                   <p className="text-sm text-muted">Weighted average of the seven pillar scores:</p>
                   <p className="tabular mt-3 font-display text-lg font-semibold text-ink">Score = Σ (weight × pillar score) ÷ Σ weights</p>
@@ -259,23 +259,26 @@ export default function MethodologyPage() {
               </div>
             </div>
 
-            <h3 className="mt-12 mb-3 font-sans text-base font-semibold text-ink">Deal-breakers</h3>
+            <h3 className="mt-12 mb-3 font-sans text-base font-semibold text-ink">Deal-Breakers</h3>
             <p className="mb-4 max-w-3xl text-sm text-muted">Any one of these fails a country whatever its total. On the map they show as a dashed outline.</p>
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid grid-cols-[minmax(0,1fr)] gap-4 md:grid-cols-3">
               {DEAL_BREAKERS.map((d) => (
-                <div key={d.id} className="flex gap-3 rounded-[var(--radius)] border border-line p-5">
-                  <AlertTriangle className="mt-0.5 size-4 shrink-0 text-[#9a6b00]" aria-hidden />
-                  <p className="text-sm leading-relaxed text-ink">{d.label}</p>
+                <div key={d.id} className="rounded-[var(--radius)] border border-line p-5">
+                  <p className="flex items-center gap-2 text-sm font-semibold text-ink">
+                    <AlertTriangle className="size-4 shrink-0 text-[#9a6b00]" aria-hidden />
+                    {d.title}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{d.label}.</p>
                 </div>
               ))}
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <Feature icon={Scale} title="Supportive is not the same as investable">
+              <Feature icon={Scale} title="Supportive Is Not the Same as Investable">
                 A country can set ambitious targets (a high P) and still be hard to invest in if contracts (R) and money (F) are uncertain.
                 Keeping the pillars separate makes that gap visible.
               </Feature>
-              <Feature icon={FileSearch} title="Reference indices">
+              <Feature icon={FileSearch} title="Reference Indices">
                 Scores are checked against the World Bank&rsquo;s RISE indicators, BNEF Climatescope and EY RECAI, with IEA and IRENA for
                 capacity and market data. Utility credit, curtailment and deal trends come from rating agencies, grid operators and deal
                 records.
@@ -290,7 +293,7 @@ export default function MethodologyPage() {
           </Block>
 
           {/* Numbers */}
-          <Block id="numbers" title="Numbers and units">
+          <Block id="numbers" title="Numbers and Units">
             <div className="grid gap-6 md:grid-cols-3">
               <Card title="Currencies">
                 The original currency and amount are always kept. Where a USD equivalent is shown, the exchange-rate date appears beside it.
@@ -309,12 +312,12 @@ export default function MethodologyPage() {
           <Block id="limitations" title="Limitations">
             <ol className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line md:grid-cols-2">
               {[
-                ["Uneven coverage", "Some countries and sectors publish far more than others."],
-                ["Pipeline is not a forecast", "Many announced projects are never built."],
+                ["Uneven Coverage", "Some countries and sectors publish far more than others."],
+                ["Pipeline Is Not a Forecast", "Many announced projects are never built."],
                 ["Delays", "Estimated dates often slip, sometimes by years."],
-                ["Conflicting sources", "We record the most authoritative one and note the disagreement."],
-                ["Undisclosed values", "Deal values are often private; we never estimate one and present it as fact."],
-                ["Policy can change quickly", "Scores reflect the assessment date shown on each country."],
+                ["Conflicting Sources", "We record the most authoritative one and note the disagreement."],
+                ["Undisclosed Values", "Deal values are often private; we never estimate one and present it as fact."],
+                ["Policy Can Change Quickly", "Scores reflect the assessment date shown on each country."],
               ].map(([t, d], i) => (
                 <li key={t} className="flex gap-4 bg-white p-5">
                   <span className="tabular font-display text-lg font-bold text-brand-blue">{String(i + 1).padStart(2, "0")}</span>

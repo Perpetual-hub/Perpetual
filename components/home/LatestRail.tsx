@@ -20,7 +20,7 @@ export function LatestRail({ items }: { items: RailItem[] }) {
   return (
     <div className="flex h-full flex-col">
       <div className="px-4 pt-6 pb-2 md:px-8 lg:px-6 lg:pt-5">
-        <h2 className="font-display text-sm font-semibold text-hero-muted">Latest deals</h2>
+        <h2 className="font-display text-sm font-semibold text-hero-muted">Latest Deals</h2>
       </div>
       <ol className="flex-1 px-4 md:px-8 lg:px-6">
         {items.map((it) => (

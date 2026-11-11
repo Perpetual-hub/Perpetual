@@ -357,7 +357,7 @@ function EmptyState({ onClear }: { onClear: () => void }) {
       <div className="flex size-12 items-center justify-center rounded-full border border-line bg-surface-2">
         <SlidersHorizontal className="size-5 text-muted" aria-hidden />
       </div>
-      <h2 className="mt-5 text-xl font-bold">No projects match these filters</h2>
+      <h2 className="mt-5 text-xl font-bold">No Projects Match These Filters</h2>
       <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
         Try widening the capacity or year range, or removing a filter. Coverage in the beta is limited to sample data.
       </p>

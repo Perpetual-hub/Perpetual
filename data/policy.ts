@@ -120,9 +120,9 @@ export const WEIGHT_PRESETS: { id: string; label: string; description: string; w
 
 /** Deal-breakers fail a country whatever its total score. */
 export const DEAL_BREAKERS = [
-  { id: "fx", label: "Currency cannot be converted or profits taken out of the country" },
-  { id: "retroactive", label: "Contracts changed after the fact, with no fix" },
-  { id: "ownership", label: "Foreign owners cannot hold a controlling stake" },
+  { id: "fx", title: "Currency Convertibility", label: "Currency cannot be converted or profits taken out of the country" },
+  { id: "retroactive", title: "Retroactive Changes", label: "Contracts changed after the fact, with no fix" },
+  { id: "ownership", title: "Foreign Ownership", label: "Foreign owners cannot hold a controlling stake" },
 ] as const;
 
 export type DealBreakerId = (typeof DEAL_BREAKERS)[number]["id"];

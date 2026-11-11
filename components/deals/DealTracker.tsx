@@ -219,7 +219,7 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
       <div className="container-page space-y-10 py-10">
         {filtered.length === 0 ? (
           <div className="py-20 text-center">
-            <h2 className="text-xl font-bold">No deals match these filters</h2>
+            <h2 className="text-xl font-bold">No Deals Match These Filters</h2>
             <p className="mt-2 text-sm text-muted">Try a longer date range or remove a filter.</p>
             <button type="button" onClick={() => push({})} className="mt-6 rounded-lg bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue">
               Clear all filters
@@ -230,12 +230,12 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
             {/* Charts */}
             <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
               <section className="rounded-[var(--radius)] border border-line p-6">
-                <h2 className="mb-4 font-sans text-base font-semibold text-ink">Disclosed deal value by quarter</h2>
+                <h2 className="mb-4 font-sans text-base font-semibold text-ink">Disclosed Deal Value by Quarter</h2>
                 <DealValueChart deals={filtered} />
               </section>
               <section className="rounded-[var(--radius)] border border-line p-6">
                 <div className="mb-4 flex items-baseline justify-between">
-                  <h2 className="font-sans text-base font-semibold text-ink">Deals by type</h2>
+                  <h2 className="font-sans text-base font-semibold text-ink">Deals by Type</h2>
                   <span className="text-xs text-muted">Click a bar to filter</span>
                 </div>
                 <BarList rows={byType} caption="Number of deals by type" format={(v) => `${v} deal${v === 1 ? "" : "s"}`} countLabel="deals" />
@@ -253,7 +253,7 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
             {investors.length > 0 && (
               <section aria-labelledby="inv-h">
                 <h2 id="inv-h" className="mb-4 text-xl font-bold tracking-tight">
-                  Most active investors and lenders
+                  Most Active Investors and Lenders
                 </h2>
                 <ol className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
                   {investors.map((x, i) => (

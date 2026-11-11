@@ -103,7 +103,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
         <div className="space-y-12">
           {p.description && <p className="max-w-[68ch] text-lg leading-relaxed text-ink/85">{p.description}</p>}
 
-          <Section id="facts" title="Key facts">
+          <Section id="facts" title="Key Facts">
             <FactGrid
               facts={[
                 ["Sector", <span key="t" className="inline-flex items-center gap-1.5"><span className="size-2 rounded-full" style={{ background: tech.hex }} aria-hidden />{tech.label}</span>],
@@ -169,7 +169,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
               <PartyBlock title="Equity" parties={p.financing?.equity} />
               {!!p.financing?.instruments?.length && (
                 <div>
-                  <h3 className="mb-2 font-sans text-xs font-semibold text-muted">Financing instruments</h3>
+                  <h3 className="mb-2 font-sans text-xs font-semibold text-muted">Financing Instruments</h3>
                   <ul className="flex flex-wrap gap-1.5">
                     {p.financing.instruments.map((i) => (
                       <li key={i} className="rounded-[3px] border border-line bg-surface-2 px-2.5 py-1 text-xs font-medium text-ink">
