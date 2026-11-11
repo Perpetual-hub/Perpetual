@@ -10,7 +10,7 @@ export const changelog: { version: string; date: string; changes: string[] }[] =
     date: "2026-11-11",
     changes: [
       "PROFITS scores for 195 countries, computed from World Bank governance and development indicators, IRENA statistics and the deal record. The policy heatmap is back.",
-      "24 deals from company press releases (August to October 2026), with project details and context written in our own words and a link to each release.",
+      "68 deals from company press releases (January to October 2026), with project details and context written in our own words and a link to each release.",
     ],
   },
   {
