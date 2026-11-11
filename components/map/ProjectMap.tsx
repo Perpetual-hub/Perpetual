@@ -749,6 +749,16 @@ function Tooltip({ hover, theme, mode }: { hover: Hover; theme: MapTheme; mode: 
             <div className={`mt-0.5 ${muted}`}>Not scored yet</div>
           )}
         </>
+      ) : hover.kind === "point" && hover.p.deal ? (
+        <>
+          <div className="leading-snug font-semibold">{hover.p.name}</div>
+          <div className={`mt-1 flex items-center gap-1.5 ${muted}`}>
+            <span className="size-2 rounded-full" style={{ background: TECH_BY_ID[hover.p.technology].hex }} aria-hidden />
+            {hover.p.deal.type} · {formatDate(hover.p.deal.date)}
+          </div>
+          <div className={`mt-0.5 tabular ${muted}`}>{hover.p.deal.value ?? "Value undisclosed"}</div>
+          <div className={`mt-1 ${muted}`}>Click to open the deal</div>
+        </>
       ) : hover.kind === "point" ? (
         <>
           <div className="leading-snug font-semibold">{hover.p.name}</div>

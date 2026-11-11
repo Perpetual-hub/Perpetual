@@ -14,8 +14,7 @@ import {
   getCountryStatsRows,
   getDeals,
   getFeaturedDeal,
-  getGlobalCapacity,
-  getRecentMilestonePoints,
+  getDealPoints,
   getRegionStatsRows,
   getSectorSummary,
   getTopInvestors,
@@ -26,11 +25,7 @@ import { getPolicyRows } from "@/lib/policy";
 export default function Home() {
   const deals = getDeals();
   const featured = getFeaturedDeal();
-  const recent = deals.filter((d) => {
-    const age = daysBetween(d.date, DATA_AS_OF);
-    return age >= 0 && age <= 365;
-  });
-  const dealStats = { recent: recent.length, total: deals.length };
+  const dealPoints = getDealPoints(365);
   const rail: RailItem[] = deals.slice(0, 10).map((d) => ({
     id: d.id,
     href: `/deals/${d.slug}`,
@@ -46,21 +41,14 @@ export default function Home() {
   const countryRows = getCountryStatsRows();
   const leaders = [...countryRows].sort((a, b) => b.renewableMW - a.renewableMW).slice(0, 6);
   const leaderMax = leaders[0]?.renewableMW ?? 1;
-  const world = getGlobalCapacity().rows;
-  const now = world[world.length - 1];
-  const before = world.find((r) => r.year === now.year - 5) ?? world[0];
-  const shareRows = countryRows
-    .filter((r) => r.renewableGenerationShare != null && r.generationYear != null)
-    .map((r) => ({ iso2: r.iso2, name: r.name, share: r.renewableGenerationShare!, year: r.generationYear! }));
 
   return (
     <>
       <HomeHero
-        points={getRecentMilestonePoints(30)}
+        points={dealPoints}
+        ages={Object.fromEntries(dealPoints.map((p) => [p.id, daysBetween(p.deal!.date, DATA_AS_OF)]))}
         policyRows={policyRows}
-        dealStats={dealStats}
-        shareRows={shareRows}
-        world={{ year: now.year, capacityGW: now.total, fromYear: before.year, addedGW: now.total - before.total, countries: countryRows.length }}
+        totalDeals={deals.length}
         rail={<LatestRail items={rail} />}
       />
 

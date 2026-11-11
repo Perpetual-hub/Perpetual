@@ -20,6 +20,7 @@ import { globalCapacity as rawGlobalCapacity } from "@/data/stats/global-capacit
 import { PIPELINE_STATUSES, matchesFilters, regionSlug, type ProjectFilters } from "./filters";
 import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "./format";
 import type { Milestone, MilestoneKind } from "./milestones";
+import { centroids } from "@/data/geo/centroids";
 import { makeCountryStats } from "./country-stats";
 import * as S from "./schema";
 import type {
@@ -146,6 +147,8 @@ export interface MapPoint {
   instruments?: string[];
   /** The most recent confirmed milestone on or before the dataset date. */
   milestone?: Milestone;
+  /** Set when the point is a deal (placed at its country), not a project site. */
+  deal?: { type: string; date: string; value?: string; usd?: number; href: string };
 }
 
 
@@ -194,6 +197,52 @@ export function getMapPoints(filters?: ProjectFilters): MapPoint[] {
 }
 
 /** Projects that reached a confirmed milestone in the `days` before the dataset date. */
+/**
+ * Deals from the last `days` days as globe points: one per deal, placed near the centre of its
+ * (first) country with a small fixed offset so deals in one country don't sit on top of each other.
+ * `capacityMW` carries the circle size: the disclosed value in millions (USD where given).
+ */
+export function getDealPoints(days = 365): MapPoint[] {
+  const out: MapPoint[] = [];
+  for (const d of deals) {
+    const age = daysBetween(d.date, DATA_AS_OF);
+    if (age < 0 || age > days || !d.countries.length) continue;
+    const c = centroids[d.countries[0]];
+    if (!c) continue;
+    let h = 2166136261;
+    for (const ch of d.id) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
+    const ang = ((h >>> 0) % 360) * (Math.PI / 180);
+    const r = 0.6 + (((h >>> 9) % 100) / 100) * 1.6;
+    const amount = d.value?.usd ?? d.value?.amount;
+    out.push({
+      id: d.id,
+      slug: d.slug,
+      name: d.title,
+      technology: d.technologies[0],
+      capacityMW: amount ? Math.min(amount / 1e6, 3000) : 15,
+      country: d.countries[0],
+      region: d.region,
+      status: "financing",
+      lat: c[1] + r * Math.sin(ang),
+      lng: c[0] + r * Math.cos(ang),
+      isSample: d.isSample,
+      ownership: "private",
+      deal: {
+        type: DEAL_TYPE_LABEL[d.type],
+        date: d.date,
+        value: d.value?.disclosed ? `${d.value.currency} ${formatCompact(d.value.amount)}` : undefined,
+        usd: d.value?.disclosed ? d.value.usd : undefined,
+        href: `/deals/${d.slug}`,
+      },
+    });
+  }
+  return out;
+}
+
+function formatCompact(n: number): string {
+  return n >= 1e9 ? `${(n / 1e9).toLocaleString("en", { maximumFractionDigits: 2 })}bn` : `${Math.round(n / 1e6).toLocaleString("en")}m`;
+}
+
 export function getRecentMilestonePoints(days = 30): MapPoint[] {
   return projects
     .map(toMapPoint)

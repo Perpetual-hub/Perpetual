@@ -5,34 +5,22 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { MapPlaceholder } from "@/components/map/MapPlaceholder";
-import { ProjectDrawer } from "@/components/map/ProjectDrawer";
 import { ProjectGlobeLazy } from "@/components/map/ProjectMapLazy";
 import { PolicyPanel } from "@/components/policy/PolicyPanel";
 import { WEIGHT_PRESETS, type PillarId } from "@/data/policy";
 import type { MapPoint } from "@/lib/data";
-import { MILESTONE_LABEL, type MilestoneKind } from "@/lib/milestones";
-import { POLICY_RAMP, SHARE_RAMP, rampColor, shareColor, type PolicyScores } from "@/lib/policy-colors";
-import { formatDate, formatGW, formatMW } from "@/lib/format";
+import { POLICY_RAMP, rampColor, type PolicyScores } from "@/lib/policy-colors";
+import { formatDate } from "@/lib/format";
 import { rankPolicies } from "@/lib/policy-score";
 import { TECHNOLOGIES, TECH_BY_ID } from "@/lib/tech";
 
-type Mode = "share" | "new" | "policy";
+type Mode = "deals" | "policy";
 
-export interface ShareRow {
-  iso2: string;
-  name: string;
-  /** 0 to 1 */
-  share: number;
-  year: number;
-}
-
-export interface WorldStats {
-  year: number;
-  capacityGW: number;
-  fromYear: number;
-  addedGW: number;
-  countries: number;
-}
+const PERIODS = [
+  { days: 30, label: "30 days" },
+  { days: 90, label: "90 days" },
+  { days: 365, label: "12 months" },
+] as const;
 
 interface PolicyRow {
   country: string;
@@ -43,25 +31,21 @@ interface PolicyRow {
 }
 
 interface Props {
-  /** Projects with a confirmed milestone in the last 30 days. */
+  /** Deals from the last 12 months as globe points (see getDealPoints). */
   points: MapPoint[];
+  /** Days between each deal and the dataset date, keyed by deal id. */
+  ages: Record<string, number>;
   policyRows: PolicyRow[];
-  /** Deals in the last 12 months, and all deals on record. */
-  dealStats: { recent: number; total: number };
-  /** Renewable share of electricity by country (IRENA), for the default globe view. */
-  shareRows: ShareRow[];
-  world: WorldStats;
+  /** All deals on record. */
+  totalDeals: number;
   rail: React.ReactNode;
 }
 
-const MILESTONES: MilestoneKind[] = ["announced", "permits", "financing", "construction", "operating"];
-
-export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail }: Props) {
-  const [mode, setMode] = useState<Mode>("share");
+export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) {
+  const [mode, setMode] = useState<Mode>("deals");
   const router = useRouter();
-  const [kinds, setKinds] = useState<MilestoneKind[]>([]);
+  const [days, setDays] = useState<number>(90);
   const [preset, setPreset] = useState(WEIGHT_PRESETS[1].id);
-  const [selected, setSelected] = useState<MapPoint | null>(null);
   const [policyPick, setPolicyPick] = useState<{ iso2: string; name: string } | null>(null);
   const [view, setView] = useState<"globe" | "list">("globe");
   const isWide = useMediaQuery("(min-width: 1024px)");
@@ -73,22 +57,12 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
     // eslint-disable-next-line react-hooks/exhaustive-deps -- once on mount
   }, []);
 
-  const shareScores: PolicyScores = useMemo(
-    () => Object.fromEntries(shareRows.map((r) => [r.iso2, { score: r.share * 100, note: String(r.year) }])),
-    [shareRows],
-  );
-  const shareRanked = useMemo(() => [...shareRows].sort((a, b) => b.share - a.share), [shareRows]);
   const modeOptions = [
-    { id: "share" as Mode, label: "Renewable Share" },
-    ...(points.length ? [{ id: "new" as Mode, label: "New This Month" }] : []),
+    { id: "deals" as Mode, label: "Deals" },
     ...(policyRows.length ? [{ id: "policy" as Mode, label: "Policy Heatmap" }] : []),
   ];
 
-  const filtered = useMemo(
-    () => (kinds.length ? points.filter((p) => p.milestone && kinds.includes(p.milestone.kind)) : points),
-    [points, kinds],
-  );
-  const presentKinds = MILESTONES.filter((k) => points.some((p) => p.milestone?.kind === k));
+  const filtered = useMemo(() => points.filter((p) => (ages[p.id] ?? Infinity) <= days), [points, ages, days]);
 
   const weights = WEIGHT_PRESETS.find((p) => p.id === preset)!.weights;
   const ranked = useMemo(() => rankPolicies(policyRows, weights), [policyRows, weights]);
@@ -100,27 +74,25 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
     [ranked],
   );
 
-  const stats = useMemo(
-    () => ({
-      projects: filtered.length,
-      mw: filtered.reduce((s, p) => s + p.capacityMW, 0),
-      closes: points.filter((p) => p.milestone?.kind === "financing").length,
+  const stats = useMemo(() => {
+    const usd = filtered.reduce((s, p) => s + (p.deal?.usd ?? 0), 0);
+    return {
+      deals: filtered.length,
+      usd,
       countries: new Set(filtered.map((p) => p.country)).size,
-    }),
-    [filtered, points],
-  );
+      sectors: new Set(filtered.map((p) => p.technology)).size,
+    };
+  }, [filtered]);
 
-  const toggleKind = (k: MilestoneKind) => setKinds((cur) => (cur.includes(k) ? cur.filter((x) => x !== k) : [...cur, k]));
-  const onPolicySelect = useCallback(
-    (iso2: string, name: string) => (mode === "share" ? router.push(`/countries/${iso2}`) : setPolicyPick({ iso2, name })),
-    [mode, router],
-  );
+  const onSelect = useCallback((p: MapPoint) => p.deal && router.push(p.deal.href), [router]);
+  const onPolicySelect = useCallback((iso2: string, name: string) => setPolicyPick({ iso2, name }), []);
   const presetLabel = WEIGHT_PRESETS.find((p) => p.id === preset)!.label;
+  const periodLabel = PERIODS.find((p) => p.days === days)!.label;
 
   return (
     <section className="on-dark relative bg-hero text-hero-ink" aria-labelledby="hero-title">
       <h1 id="hero-title" className="sr-only">
-        Perpetual: new renewable energy projects this month, and how investable each country is
+        Perpetual: the latest renewable energy deals around the world, and how investable each country is
       </h1>
       {/* Same centred grid as the header, so every edge lines up at any width. */}
       <div className="container-page grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
@@ -128,30 +100,24 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
           {/* Toolbar */}
           <div className="flex flex-wrap items-center gap-3 border-b border-hero-line py-3">
             {modeOptions.length > 1 && (
-            <Segmented
-              label="Globe view"
-              value={mode}
-              onChange={(m) => {
-                setMode(m);
-                setView("globe");
-                setSelected(null);
-              }}
-              options={modeOptions}
-            />
+              <Segmented
+                label="Globe view"
+                value={mode}
+                onChange={(m) => {
+                  setMode(m);
+                  setView("globe");
+                }}
+                options={modeOptions}
+              />
             )}
-            {mode === "share" ? (
-              <p className="text-xs text-hero-muted">
-                Share of each country&rsquo;s electricity generated from renewable sources. Source: IRENA.
-              </p>
-            ) : mode === "new" ? (
-              <div role="group" aria-label="Filter by milestone" className="flex flex-wrap gap-1.5">
-                <Chip pressed={kinds.length === 0} onClick={() => setKinds([])}>
-                  All milestones
-                </Chip>
-                {presentKinds.map((k) => (
-                  <Chip key={k} pressed={kinds.includes(k)} onClick={() => toggleKind(k)}>
-                    {MILESTONE_LABEL[k]}
-                    <span className="tabular text-[11px] opacity-70">{points.filter((p) => p.milestone?.kind === k).length}</span>
+            {mode === "deals" ? (
+              <div role="group" aria-label="Time period" className="flex flex-wrap gap-1.5">
+                {PERIODS.map((p) => (
+                  <Chip key={p.days} pressed={days === p.days} onClick={() => setDays(p.days)}>
+                    {p.label}
+                    <span className="tabular text-[11px] opacity-70">
+                      {points.filter((x) => (ages[x.id] ?? Infinity) <= p.days).length}
+                    </span>
                   </Chip>
                 ))}
               </div>
@@ -172,11 +138,11 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
                 List
               </button>
               <Link
-                href={mode === "policy" ? "/policy" : mode === "share" ? "/statistics#countries-h" : "/projects"}
+                href={mode === "policy" ? "/policy" : "/deals"}
                 className="hidden items-center gap-1.5 rounded-[3px] border border-hero-line px-3 py-1.5 text-xs font-medium text-hero-ink transition-colors duration-150 hover:bg-white/5 sm:inline-flex"
               >
                 <Maximize2 className="size-3.5" aria-hidden />
-                {mode === "policy" ? "Full ranking" : mode === "share" ? "All countries" : "All projects"}
+                {mode === "policy" ? "Full ranking" : "All deals"}
               </Link>
             </div>
           </div>
@@ -190,60 +156,43 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
                 points={filtered}
                 theme="dark"
                 projection="globe"
-                mode={mode === "policy" ? "policy" : mode === "share" ? "share" : "projects"}
+                mode={mode === "policy" ? "policy" : "projects"}
                 vivid
                 autoRotate
                 fitGlobe={0.86}
                 initialView={{ center: [15, 16], zoom: 1.5 }}
                 showControls={isWide}
-                onSelect={setSelected}
-                selectedId={selected?.id}
-                policy={mode === "share" ? shareScores : policyScores}
+                onSelect={onSelect}
+                policy={policyScores}
                 onPolicySelect={onPolicySelect}
                 ariaLabel={
-                  mode === "share"
-                    ? "Globe coloured by each country's renewable share of electricity. Use the List button for a keyboard-friendly ranking."
-                    : mode === "policy"
+                  mode === "policy"
                     ? "Globe coloured by PROFITS policy score. Use the List button for a keyboard-friendly ranking."
-                    : "Globe of renewable projects with a milestone in the last 30 days. Use the List button for a keyboard-friendly alternative."
+                    : `Globe of renewable energy deals from the last ${periodLabel}, sized by deal value. Use the List button for a keyboard-friendly list.`
                 }
               />
-            ) : mode === "share" ? (
-              <ShareList rows={shareRanked} />
             ) : mode === "policy" ? (
               <PolicyList ranked={ranked} onSelect={(r) => setPolicyPick({ iso2: r.country, name: r.name })} />
             ) : (
-              <MilestoneList points={filtered} onSelect={setSelected} />
+              <DealList points={filtered} period={periodLabel} />
             )}
           </div>
 
           {/* Legend row, below the globe */}
           <div className="flex flex-col items-center gap-2 border-t border-hero-line py-4 text-center">
-            {mode === "share" ? <ShareLegend /> : mode === "policy" ? <PolicyLegend /> : <SectorLegend points={filtered} />}
+            {mode === "policy" ? <PolicyLegend /> : <SectorLegend points={filtered} period={periodLabel} />}
           </div>
 
           {/* Stats strip */}
-          <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-6">
-            {mode === "new" ? (
-              <>
-                <Stat label="Milestones, 30 days" value={String(stats.projects)} />
-                <Stat label="Capacity involved" value={formatGW(stats.mw)} unit="GW" />
-                <Stat label="Financial closes" value={String(stats.closes)} />
-                <Stat label="Countries" value={String(stats.countries)} />
-              </>
-            ) : (
-              <>
-                <Stat label={`World renewable capacity, ${world.year}`} value={Math.round(world.capacityGW).toLocaleString("en-GB")} unit="GW" />
-                <Stat label={`Added since ${world.fromYear}`} value={Math.round(world.addedGW).toLocaleString("en-GB")} unit="GW" />
-                <Stat label="Countries covered" value={String(world.countries)} />
-                <Stat
-                  label="Countries above 50% renewable"
-                  value={String(shareRows.filter((r) => r.share >= 0.5).length)}
-                />
-              </>
-            )}
-            <Stat label="Deals, last 12 months" value={dealStats.recent.toLocaleString("en-GB")} />
-            <Stat label="Deals on record" value={dealStats.total.toLocaleString("en-GB")} />
+          <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
+            <Stat label={`Deals, last ${periodLabel}`} value={stats.deals.toLocaleString("en-GB")} />
+            <Stat
+              label="Disclosed value (USD deals)"
+              value={stats.usd ? `$${stats.usd >= 1e9 ? `${(stats.usd / 1e9).toFixed(1)}bn` : `${Math.round(stats.usd / 1e6)}m`}` : "—"}
+            />
+            <Stat label="Countries" value={String(stats.countries)} />
+            <Stat label="Sectors" value={String(stats.sectors)} />
+            <Stat label="Deals on record" value={totalDeals.toLocaleString("en-GB")} />
           </dl>
         </div>
 
@@ -253,7 +202,6 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
         </aside>
       </div>
 
-      <ProjectDrawer point={selected} onClose={() => setSelected(null)} />
       <PolicyPanel
         entry={policyPick ? (ranked.find((r) => r.country === policyPick.iso2) ?? null) : null}
         name={policyPick?.name ?? null}
@@ -266,7 +214,7 @@ export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail
   );
 }
 
-function SectorLegend({ points }: { points: MapPoint[] }) {
+function SectorLegend({ points, period }: { points: MapPoint[]; period: string }) {
   const present = TECHNOLOGIES.filter((t) => points.some((p) => p.technology === t.id));
   return (
     <>
@@ -278,57 +226,8 @@ function SectorLegend({ points }: { points: MapPoint[] }) {
           </li>
         ))}
       </ul>
-      <p className="text-xs text-hero-muted">Projects with a milestone in the last 30 days. Circle size shows capacity.</p>
+      <p className="text-xs text-hero-muted">Deals from the last {period}, placed in the country of the assets. Circle size shows deal value.</p>
     </>
-  );
-}
-
-function ShareLegend() {
-  const grad = `linear-gradient(90deg, ${SHARE_RAMP.map(([, c]) => c).join(", ")})`;
-  return (
-    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pb-2 text-xs text-hero-ink">
-      <div className="flex items-center gap-3">
-        <span>Renewable share of electricity</span>
-        <span className="relative h-2 w-40 rounded-[2px]" style={{ background: grad }} aria-hidden>
-          <span className="tabular absolute -bottom-4 left-0 text-[10px] text-hero-muted">0%</span>
-          <span className="tabular absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-hero-muted">50%</span>
-          <span className="tabular absolute right-0 -bottom-4 text-[10px] text-hero-muted">100%</span>
-        </span>
-      </div>
-      <span className="hidden h-5 w-px bg-hero-line sm:block" aria-hidden />
-      <ul className="flex items-center gap-x-6" aria-label="Map key">
-        <li className="inline-flex items-center gap-2">
-          <span className="h-3 w-5 rounded-[2px] border border-white/15 bg-[#24364f]" aria-hidden />
-          No published data
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-function ShareList({ rows }: { rows: ShareRow[] }) {
-  return (
-    <div className="absolute inset-0 overflow-y-auto py-5">
-      <div className="max-w-4xl">
-        <p className="mb-3 text-xs text-hero-muted">
-          {rows.length} countries, highest renewable share of electricity first. Source: IRENA.
-        </p>
-        <ol className="divide-y divide-hero-line border-y border-hero-line">
-          {rows.map((r, i) => (
-            <li key={r.iso2}>
-              <Link href={`/countries/${r.iso2}`} className="flex w-full items-center gap-3 py-3 text-left hover:bg-white/5">
-                <span className="tabular w-8 text-sm text-hero-muted">{i + 1}</span>
-                <span className="min-w-0 flex-1 truncate text-sm font-medium text-white">{r.name}</span>
-                <span className="h-1.5 w-24 rounded-[3px] bg-white/10" aria-hidden>
-                  <span className="block h-full rounded-[2px]" style={{ width: `${r.share * 100}%`, background: shareColor(r.share * 100) }} />
-                </span>
-                <span className="tabular w-12 text-right text-sm text-hero-ink">{Math.round(r.share * 100)}%</span>
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </div>
   );
 }
 
@@ -360,27 +259,28 @@ function PolicyLegend() {
   );
 }
 
-function MilestoneList({ points, onSelect }: { points: MapPoint[]; onSelect: (p: MapPoint) => void }) {
+function DealList({ points, period }: { points: MapPoint[]; period: string }) {
+  const sorted = [...points].sort((a, b) => (b.deal?.date ?? "").localeCompare(a.deal?.date ?? ""));
   return (
     <div className="absolute inset-0 overflow-y-auto py-5">
       <div className="max-w-4xl">
-        <p className="mb-3 text-xs text-hero-muted">{points.length} projects with a milestone in the last 30 days, newest first.</p>
+        <p className="mb-3 text-xs text-hero-muted">{points.length} deals from the last {period}, newest first.</p>
         <ul className="divide-y divide-hero-line border-y border-hero-line">
-          {points.map((p) => {
+          {sorted.map((p) => {
             const t = TECH_BY_ID[p.technology];
             return (
               <li key={p.id}>
-                <button type="button" onClick={() => onSelect(p)} className="flex w-full items-center gap-3 py-3 text-left hover:bg-white/5">
+                <Link href={p.deal?.href ?? "/deals"} className="flex w-full items-center gap-3 py-3 text-left hover:bg-white/5">
                   <span className="size-2.5 shrink-0 rounded-full" style={{ background: t.hex }} aria-hidden />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-medium text-white">{p.name}</span>
                     <span className="block text-xs text-hero-muted">
-                      {p.milestone && `${MILESTONE_LABEL[p.milestone.kind]} · ${formatDate(p.milestone.date, { year: false })} · `}
+                      {p.deal && `${p.deal.type} · ${formatDate(p.deal.date)} · `}
                       {t.label} · {p.country}
                     </span>
                   </span>
-                  <span className="tabular text-sm text-hero-ink">{formatMW(p.capacityMW)}</span>
-                </button>
+                  <span className="tabular text-sm text-hero-ink">{p.deal?.value ?? "Undisclosed"}</span>
+                </Link>
               </li>
             );
           })}
