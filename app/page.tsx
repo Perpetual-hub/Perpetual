@@ -2,37 +2,35 @@ import { ArrowRight, FileCheck2, History, Link2 } from "lucide-react";
 import Link from "next/link";
 import { InvestorsCard } from "@/components/area/InvestorsCard";
 import { FeatureDealCard, dealValue } from "@/components/cards/Cards";
-import { AreaTable } from "@/components/charts/AreaTable";
+import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { HomeHero } from "@/components/home/HomeHero";
 import { LatestRail, type RailItem } from "@/components/home/LatestRail";
 import { TechGrid } from "@/components/home/TechGrid";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { WEIGHT_PRESETS } from "@/data/policy";
 import {
   DATA_AS_OF,
+  countryStats,
+  getCountryStatsRows,
   getDeals,
   getFeaturedDeal,
+  getGlobalCapacity,
   getRecentMilestonePoints,
-  getRegions,
-  getTechCounts,
+  getRegionStatsRows,
+  getSectorSummary,
   getTopInvestors,
 } from "@/lib/data";
 import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "@/lib/format";
-import { getPolicyRows, rankPolicies } from "@/lib/policy";
-import { rampColor } from "@/lib/policy-colors";
+import { getPolicyRows } from "@/lib/policy";
 
 export default function Home() {
   const deals = getDeals();
   const featured = getFeaturedDeal();
   const recent = deals.filter((d) => {
     const age = daysBetween(d.date, DATA_AS_OF);
-    return age >= 0 && age <= 30;
+    return age >= 0 && age <= 365;
   });
-  const dealStats = {
-    count: recent.length,
-    usd: recent.reduce((s, d) => s + (d.value?.disclosed ? (d.value.usd ?? 0) : 0), 0),
-  };
+  const dealStats = { recent: recent.length, total: deals.length };
   const rail: RailItem[] = deals.slice(0, 10).map((d) => ({
     id: d.id,
     href: `/deals/${d.slug}`,
@@ -44,12 +42,27 @@ export default function Home() {
     isNew: daysBetween(d.date, DATA_AS_OF) <= 3,
   }));
   const policyRows = getPolicyRows(countryName);
-  const topCountries = rankPolicies(policyRows, WEIGHT_PRESETS[1].weights).slice(0, 5);
-  const moreDeals = deals.filter((d) => d.id !== featured.id).slice(0, 5);
+  const moreDeals = deals.filter((d) => d.id !== featured?.id).slice(0, 5);
+  const countryRows = getCountryStatsRows();
+  const leaders = [...countryRows].sort((a, b) => b.renewableMW - a.renewableMW).slice(0, 6);
+  const leaderMax = leaders[0]?.renewableMW ?? 1;
+  const world = getGlobalCapacity().rows;
+  const now = world[world.length - 1];
+  const before = world.find((r) => r.year === now.year - 5) ?? world[0];
+  const shareRows = countryRows
+    .filter((r) => r.renewableGenerationShare != null && r.generationYear != null)
+    .map((r) => ({ iso2: r.iso2, name: r.name, share: r.renewableGenerationShare!, year: r.generationYear! }));
 
   return (
     <>
-      <HomeHero points={getRecentMilestonePoints(30)} policyRows={policyRows} dealStats={dealStats} rail={<LatestRail items={rail} />} />
+      <HomeHero
+        points={getRecentMilestonePoints(30)}
+        policyRows={policyRows}
+        dealStats={dealStats}
+        shareRows={shareRows}
+        world={{ year: now.year, capacityGW: now.total, fromYear: before.year, addedGW: now.total - before.total, countries: countryRows.length }}
+        rail={<LatestRail items={rail} />}
+      />
 
       {/* This week in deals */}
       <section className="container-page py-14 md:py-20" aria-labelledby="this-week">
@@ -58,7 +71,7 @@ export default function Home() {
         </Reveal>
         <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
           <Reveal>
-            <FeatureDealCard deal={featured} />
+            {featured && <FeatureDealCard deal={featured} />}
           </Reveal>
           <ul className="divide-y divide-line border-y border-line">
             {moreDeals.map((d) => (
@@ -83,9 +96,9 @@ export default function Home() {
             <SectionHeading
               id="markets"
               title="Investors and Markets"
-              description="The most active capital providers in the deal record, and the highest-scoring countries under the PROFITS framework."
-              href="/policy"
-              linkLabel="Policy assessment"
+              description="The most active capital providers in the deal record, and the countries with the most installed renewable capacity."
+              href="/statistics"
+              linkLabel="Statistics"
             />
           </Reveal>
           <div className="grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-2 lg:gap-16">
@@ -95,28 +108,29 @@ export default function Home() {
           <Reveal>
             <section>
               <div className="mb-4 flex items-baseline justify-between">
-                <h3 className="font-sans text-lg font-semibold text-ink">Country Rankings</h3>
-                <Link href="/policy" className="text-sm font-medium text-brand-blue hover:underline">
-                  Full ranking
+                <h3 className="font-sans text-lg font-semibold text-ink">Renewable Capacity Leaders</h3>
+                <Link href="/statistics#countries-h" className="text-sm font-medium text-brand-blue hover:underline">
+                  All countries
                 </Link>
               </div>
               <ol className="divide-y divide-line rounded-[var(--radius)] border border-line">
-                {topCountries.map((c) => (
-                  <li key={c.country}>
-                    <Link href={`/countries/${c.country}`} className="flex items-center gap-4 px-5 py-3.5 hover:bg-surface-2">
-                      <span className="tabular w-5 text-sm text-muted">{c.rank}</span>
+                {leaders.map((c, i) => (
+                  <li key={c.iso2}>
+                    <Link href={`/countries/${c.iso2}`} className="flex items-center gap-4 px-5 py-3.5 hover:bg-surface-2">
+                      <span className="tabular w-5 text-sm text-muted">{i + 1}</span>
                       <span className="min-w-0 flex-1 truncate font-semibold text-ink">{c.name}</span>
                       <span className="h-1.5 w-28 rounded-full bg-surface-2" aria-hidden>
-                        <span className="block h-full rounded-[2px]" style={{ width: `${(c.score / 5) * 100}%`, background: rampColor(c.score) }} />
+                        <span className="block h-full rounded-[2px] bg-brand-blue" style={{ width: `${(c.renewableMW / leaderMax) * 100}%` }} />
                       </span>
-                      <span className="tabular w-10 text-right text-sm font-semibold">{c.score.toFixed(1)}</span>
+                      <span className="tabular w-20 text-right text-sm font-semibold">
+                        {Math.round(c.renewableMW / 1000).toLocaleString("en-GB")} GW
+                      </span>
                     </Link>
                   </li>
                 ))}
               </ol>
               <p className="mt-3 text-xs text-muted">
-                PROFITS score, weighted for utility-scale IPPs. <strong className="font-semibold text-ink">Illustrative scores</strong> until
-                researched scores are published.
+                Installed renewable capacity, {countryStats.latestYear}. Source: IRENA.
               </p>
             </section>
           </Reveal>
@@ -128,10 +142,10 @@ export default function Home() {
       <section className="border-t border-line bg-surface-2" aria-labelledby="regions">
         <div className="container-page py-14 md:py-20">
           <Reveal>
-            <SectionHeading id="regions" title="Capacity by Region" description="Operating and pipeline capacity across tracked projects, by sector." href="/statistics" linkLabel="Statistics" />
+            <SectionHeading id="regions" title="Capacity by Region" description={`Installed renewable capacity in each region, ${countryStats.latestYear}, from official IRENA statistics.`} href="/statistics" linkLabel="Statistics" />
           </Reveal>
           <Reveal>
-            <AreaTable rows={getRegions()} hrefFor={(r) => `/regions/${r.key}`} nameHeader="Region" />
+            <CountryStatsTable rows={getRegionStatsRows()} year={countryStats.latestYear} basePath="/regions/" noun="region" />
           </Reveal>
         </div>
       </section>
@@ -140,10 +154,10 @@ export default function Home() {
       <section className="border-b border-line" aria-labelledby="techs">
         <div className="container-page py-14 md:py-20">
           <Reveal>
-            <SectionHeading id="techs" title="Sectors" description="Projects and capacity tracked in each sector." href="/projects" linkLabel="Project explorer" />
+            <SectionHeading id="techs" title="Sectors" description="World installed capacity and the deals on record in each sector." href="/projects" linkLabel="Project explorer" />
           </Reveal>
           <Reveal>
-            <TechGrid counts={getTechCounts()} />
+            <TechGrid counts={getSectorSummary()} />
           </Reveal>
         </div>
       </section>

@@ -23,29 +23,53 @@ export default function PolicyPage() {
         intro="PROFITS looks at a country the way an investor would: seven pillars, each scored 1 to 5, then weighted for the kind of deal you are doing."
       />
       <div className="container-page space-y-16 py-10 md:py-14">
-        <section aria-labelledby="ranking-h">
-          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
-                  Country Ranking
-                </h2>
-                <SampleBadge />
+        {rows.length > 0 ? (
+          <section aria-labelledby="ranking-h">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
+                    Country Ranking
+                  </h2>
+                  {rows.every((r) => r.isSample) && <SampleBadge />}
+                </div>
+                <p className="mt-2 max-w-3xl leading-relaxed text-muted">
+                  Weighted PROFITS score for each country, highest first. Choose a deal type to change the weights.
+                </p>
               </div>
+              <Link
+                href="/#policy"
+                className="group inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
+              >
+                See it on the globe
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+              </Link>
+            </div>
+            <PolicyRanking rows={rows} />
+          </section>
+        ) : (
+          <section
+            aria-labelledby="ranking-h"
+            className="grid gap-6 rounded-[var(--radius)] border border-line bg-surface-2 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8"
+          >
+            <div>
+              <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
+                Country Ranking
+              </h2>
               <p className="mt-2 max-w-3xl leading-relaxed text-muted">
-                Weighted PROFITS score for each country, highest first. Choose a deal type to change the weights.
+                Country scores are being researched. Each country will be published with a score and the sources behind
+                every pillar, starting with the largest renewable markets.
               </p>
             </div>
             <Link
-              href="/#policy"
-              className="group inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
+              href="/statistics#countries-h"
+              className="group inline-flex items-center gap-1.5 justify-self-start rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
             >
-              See it on the globe
+              Country statistics
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </Link>
-          </div>
-          <PolicyRanking rows={rows} />
-        </section>
+          </section>
+        )}
 
         <section aria-labelledby="pillars-h">
           <SectionHead id="pillars-h" title="Framework Pillars">

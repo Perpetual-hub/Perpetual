@@ -9,7 +9,7 @@ import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import { TechTag } from "@/components/ui/TechTag";
 import { getDeal, getDeals, getProjectById } from "@/lib/data";
-import { DEAL_TYPE_LABEL, countryName, formatDate, formatMW, formatMoney } from "@/lib/format";
+import { DEAL_TYPE_LABEL, countryName, formatDate, formatMW, formatMoney, titleCase } from "@/lib/format";
 import type { Deal, Party } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -211,7 +211,7 @@ function PartyList({ title, parties }: { title: string; parties?: Party[] }) {
             <Link href={`/deals?q=${encodeURIComponent(p.name)}`} className="font-semibold text-ink hover:text-brand-blue">
               {p.name}
             </Link>
-            {p.role && <span className="ml-2 text-sm text-muted">{p.role}</span>}
+            {p.role && <span className="ml-2 text-sm text-muted">{titleCase(p.role)}</span>}
             {p.stakePct != null && <span className="tabular ml-2 text-sm text-muted">{p.stakePct}%</span>}
           </li>
         ))}

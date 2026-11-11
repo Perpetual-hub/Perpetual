@@ -17,12 +17,14 @@ import {
   toMapPoint,
 } from "@/lib/data";
 import { OWNERSHIP_LABEL } from "@/lib/filters";
-import { countryName, formatDate, formatMW, formatMoney, DEAL_TYPE_LABEL } from "@/lib/format";
+import { countryName, formatDate, formatMW, formatMoney, DEAL_TYPE_LABEL, titleCase } from "@/lib/format";
 import { TECH_BY_ID } from "@/lib/tech";
 import type { Party, Project } from "@/lib/types";
 
 export function generateStaticParams() {
-  return getProjects().map((p) => ({ slug: p.slug }));
+  // Cache Components needs at least one param: with no projects, prerender a 404 placeholder.
+  const list = getProjects().map((p) => ({ slug: p.slug }));
+  return list.length ? list : [{ slug: "none" }];
 }
 
 export async function generateMetadata({ params }: PageProps<"/projects/[slug]">): Promise<Metadata> {
@@ -138,11 +140,11 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             <Timeline
               milestones={[
                 { label: "Announced", value: p.dates.announced },
-                { label: "Permits granted", value: p.dates.permits },
-                { label: "Financial close", value: p.financing?.financialClose },
-                { label: "Construction start", value: p.dates.construction },
-                { label: "Commercial operation (COD)", value: p.dates.cod },
-                { label: "Planned decommissioning", value: p.dates.decommission },
+                { label: "Permits Granted", value: p.dates.permits },
+                { label: "Financial Close", value: p.financing?.financialClose },
+                { label: "Construction Start", value: p.dates.construction },
+                { label: "Commercial Operation (COD)", value: p.dates.cod },
+                { label: "Planned Decommissioning", value: p.dates.decommission },
               ]}
             />
           </Section>
@@ -151,16 +153,16 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
               <PartyBlock title="Developer" parties={p.developer} />
               <OwnersBlock owners={p.owners} />
-              <PartyBlock title="EPC contractor" parties={p.epc} />
-              <PartyBlock title="Operations & maintenance" parties={p.om} />
+              <PartyBlock title="EPC Contractor" parties={p.epc} />
+              <PartyBlock title="Operations & Maintenance" parties={p.om} />
               {p.offtake && (
                 <div>
                   <h3 className="mb-2 font-sans text-xs font-semibold text-muted">Offtake</h3>
                   <p className="font-semibold text-ink">{p.offtake.offtaker ?? (p.offtake.type === "merchant" ? "Merchant (no long-term buyer)" : "—")}</p>
                   {p.offtake.type && p.offtake.type !== "merchant" && (
                     <p className="mt-0.5 text-sm text-muted">
-                      {p.offtake.type}
-                      {p.offtake.tenorYears && `, ${p.offtake.tenorYears} years`}
+                      {p.offtake.type === "PPA" || p.offtake.type === "CfD" || p.offtake.type === "FiT" ? p.offtake.type : titleCase(p.offtake.type)}
+                      {p.offtake.tenorYears && `, ${p.offtake.tenorYears} Years`}
                     </p>
                   )}
                 </div>
@@ -244,7 +246,7 @@ function PartyBlock({ title, parties }: { title: string; parties?: Party[] }) {
         {parties.map((x) => (
           <li key={x.name}>
             <span className="font-semibold text-ink">{x.name}</span>
-            {x.role && <span className="ml-2 text-sm text-muted">{x.role}</span>}
+            {x.role && <span className="ml-2 text-sm text-muted">{titleCase(x.role)}</span>}
           </li>
         ))}
       </ul>

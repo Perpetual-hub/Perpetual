@@ -75,3 +75,18 @@ export const DEAL_TYPE_LABEL: Record<DealType, string> = {
   "joint venture": "Joint Venture",
   refinancing: "Refinancing",
 };
+
+const SMALL_WORDS = new Set(["a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to", "with"]);
+
+/** Title Case for labels and roles ("lead developer" -> "Lead Developer"), keeping acronyms like EPC, O&M, DFI. */
+export function titleCase(s: string): string {
+  return s
+    .split(/(\s+|-)/)
+    .map((w, i) => {
+      if (!w.trim() || w === "-") return w;
+      if (/[A-Z]/.test(w.slice(1)) || /^[A-Z&]+$/.test(w)) return w;
+      if (i > 0 && SMALL_WORDS.has(w.toLowerCase())) return w.toLowerCase();
+      return w.charAt(0).toUpperCase() + w.slice(1);
+    })
+    .join("");
+}

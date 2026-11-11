@@ -3,7 +3,7 @@ import { Inter, Nunito, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Logo } from "@/components/layout/Logo";
-import { getTechCounts } from "@/lib/data";
+import { getSectorSummary } from "@/lib/data";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-          <Header logo={<Logo />} techCounts={getTechCounts()} />
+          <Header logo={<Logo />} techCounts={getSectorSummary()} />
           <main id="main" className="flex-1">
             {children}
           </main>

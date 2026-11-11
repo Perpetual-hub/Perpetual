@@ -4,7 +4,6 @@ import { ChevronDown, Menu, Search, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { formatGW } from "@/lib/format";
 import { TECHNOLOGIES } from "@/lib/tech";
 import type { Technology } from "@/lib/types";
 
@@ -29,7 +28,7 @@ function SearchLauncher({ open, onOpenChange }: { open: boolean; onOpenChange: (
   return <CommandPalette open={open} onOpenChange={onOpenChange} />;
 }
 
-export type TechCounts = Record<Technology, { projects: number; totalMW: number }>;
+export type TechCounts = Record<Technology, { deals: number; worldMW?: number }>;
 
 const NAV = [
   { href: "/projects", label: "Projects" },
@@ -133,7 +132,8 @@ export function Header({
                                 {t.label}
                               </span>
                               <span className="tabular text-xs text-muted">
-                                {c.projects} projects · {formatGW(c.totalMW)} GW
+                                {c.worldMW != null ? `${(c.worldMW / 1000).toLocaleString("en", { maximumFractionDigits: c.worldMW < 10_000 ? 1 : 0 })} GW worldwide · ` : ""}
+                                {c.deals} {c.deals === 1 ? "deal" : "deals"}
                               </span>
                             </span>
                           </Link>
@@ -209,7 +209,7 @@ export function Header({
                       >
                         <Icon className="size-4" style={{ color: t.hex }} aria-hidden />
                         {t.label}
-                        <span className="tabular ml-auto text-xs text-muted">{techCounts[t.id].projects}</span>
+                        <span className="tabular ml-auto text-xs text-muted">{techCounts[t.id].deals} deals</span>
                       </Link>
                     </li>
                   );

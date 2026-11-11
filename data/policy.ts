@@ -137,32 +137,6 @@ export interface CountryPolicy {
   sources: { publisher: string; title: string; url: string; retrievedAt: string }[];
 }
 
-// Illustrative placeholder scores: derived from a fixed hash of the country code, so they
-// carry no judgement about any real country. Countries are those with sample projects.
-const SAMPLE_COUNTRIES = [
-  "ZA", "VN", "CL", "IN", "US", "MA", "AU", "EG", "PT", "BR", "KZ", "ID", "GB", "DE", "PL", "AR", "KE", "CN", "TW", "NP",
-  "LA", "NO", "ET", "PE", "CA", "TJ", "PH", "JP", "AE", "IS", "NZ", "OM", "ES", "NL", "NA", "FI", "TH", "GH", "FR", "KR",
-];
-
-function placeholderScore(country: string, pillar: string): number {
-  let h = 2166136261;
-  for (const ch of `${country}:${pillar}`) h = Math.imul(h ^ ch.charCodeAt(0), 16777619);
-  const u = ((h >>> 0) % 1000) / 1000; // 0–1
-  return Math.round((1.5 + u * 3.5) * 2) / 2; // 1.5–5.0 in half steps
-}
-
-export const countryPolicies: CountryPolicy[] = SAMPLE_COUNTRIES.map((country) => ({
-  country,
-  isSample: true,
-  scores: Object.fromEntries(PILLARS.map((p) => [p.id, placeholderScore(country, p.id)])) as Record<PillarId, number>,
-  dealBreakers: [],
-  assessedAt: "2026-11-10",
-  sources: [
-    {
-      publisher: "Perpetual sample data",
-      title: "Illustrative placeholder scores (not an assessment)",
-      url: "#sample",
-      retrievedAt: "2026-11-10",
-    },
-  ],
-}));
+// Researched PROFITS scores go here, one entry per country, each with its sources.
+// Empty until the first countries are assessed: the site shows "Not yet scored".
+export const countryPolicies: CountryPolicy[] = [];

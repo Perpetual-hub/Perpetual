@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { InvestorSummary } from "@/lib/data";
 import { formatMoney } from "@/lib/format";
 
-/** "Most active investors and lenders" list (deal count and disclosed value). */
+/** "Most Active Investors and Lenders" list (deal count and disclosed value). */
 export function InvestorsCard({
   investors,
-  title = "Most active investors and lenders",
+  title = "Most Active Investors and Lenders",
   level = 2,
 }: {
   investors: InvestorSummary[];

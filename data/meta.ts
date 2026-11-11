@@ -1,10 +1,19 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.2";
+export const DATA_VERSION = "2026.11.3";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
-export const DATA_AS_OF = "2026-11-10";
+export const DATA_AS_OF = "2026-11-11";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.3",
+    date: "2026-11-11",
+    changes: [
+      "Removed all sample projects, deals, research and placeholder policy scores.",
+      "Added 404 renewable energy financings from development lenders' published IATI data (ADB, EIB, BII, AFD, AfDB, GCF, IDB).",
+      "Region pages now use official IRENA statistics. The home globe shows each country's renewable share of electricity.",
+    ],
+  },
   {
     version: "2026.11.2",
     date: "2026-11-11",

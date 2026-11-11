@@ -9,7 +9,7 @@ function relative(iso: string, now: number): string {
   if (days === 1) return "Yesterday";
   if (days < 7) return `${days}d ago`;
   if (days < 30) return `${Math.floor(days / 7)}w ago`;
-  return formatDate(iso, { year: false });
+  return formatDate(iso, { year: new Date(iso).getUTCFullYear() !== new Date(now).getUTCFullYear() });
 }
 
 /**
@@ -17,7 +17,7 @@ function relative(iso: string, now: number): string {
  * then swaps to "3d ago" in the browser.
  */
 export function TimeAgo({ date, className }: { date: string; className?: string }) {
-  const [label, setLabel] = useState(() => formatDate(date, { year: false }));
+  const [label, setLabel] = useState(() => formatDate(date));
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- relative time is browser-only by design
     setLabel(relative(date, Date.now()));

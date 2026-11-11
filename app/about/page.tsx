@@ -17,10 +17,10 @@ export default function AboutPage() {
       />
       <div className="container-page py-12">
         <Prose>
-          <div className="rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-[0.95rem] leading-relaxed">
-            <strong>Sample records.</strong> Records marked &ldquo;Sample data&rdquo; were invented to test the design and the data
-            model, and are being replaced with sourced data. Their names, owners, values and dates do not describe real projects or
-            companies. Data version {DATA_VERSION}.
+          <div className="rounded-[var(--radius)] border border-line bg-surface-2 px-5 py-4 text-[0.95rem] leading-relaxed">
+            <strong>Open, sourced data.</strong> Statistics come from IRENA and the US Energy Information Administration, and deals
+            from the World Bank and from development lenders&rsquo; own published data. Every record links to where it was
+            published. Data version {DATA_VERSION}.
           </div>
 
           <h2 id="why">Purpose</h2>

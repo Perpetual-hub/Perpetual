@@ -1,10 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { formatGW } from "@/lib/format";
 import { TECHNOLOGIES } from "@/lib/tech";
 import type { Technology } from "@/lib/types";
 
-export function TechGrid({ counts }: { counts: Record<Technology, { projects: number; totalMW: number }> }) {
+export function TechGrid({ counts }: { counts: Record<Technology, { deals: number; worldMW?: number }> }) {
   return (
     <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line md:grid-cols-4">
       {TECHNOLOGIES.map((t) => {
@@ -33,7 +32,8 @@ export function TechGrid({ counts }: { counts: Record<Technology, { projects: nu
                 {t.label}
               </span>
               <span className="tabular mt-1 text-sm text-muted">
-                {c.projects} projects · {formatGW(c.totalMW)} GW
+                {c.worldMW != null ? `${(c.worldMW / 1000).toLocaleString("en", { maximumFractionDigits: c.worldMW < 10_000 ? 1 : 0 })} GW worldwide · ` : ""}
+                {c.deals} {c.deals === 1 ? "deal" : "deals"}
               </span>
             </Link>
           </li>

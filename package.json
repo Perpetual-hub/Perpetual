@@ -11,6 +11,7 @@
     "data:capacity": "node scripts/fetch-global-capacity.mjs",
     "data:outlook": "node scripts/fetch-eia-outlook.mjs",
     "data:worldbank": "node scripts/fetch-worldbank-deals.mjs",
+    "data:iati": "python3 scripts/import-iati-deals.py",
     "postinstall": "node scripts/copy-maplibre-worker.mjs",
     "predev": "node scripts/copy-maplibre-worker.mjs",
     "prebuild": "node scripts/copy-maplibre-worker.mjs"

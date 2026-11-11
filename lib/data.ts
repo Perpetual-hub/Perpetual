@@ -7,6 +7,7 @@
 // with a message naming the file, record and field.
 import { z } from "zod";
 import { deals as sampleDeals } from "@/data/deals";
+import { iatiDeals } from "@/data/deals-iati";
 import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { projects as rawProjects } from "@/data/projects";
@@ -60,7 +61,7 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeComp
 
 const projects = validate("data/projects.ts", S.project, rawProjects);
 // Sample deals plus real records imported from open sources (see scripts/).
-const deals = validate("data/deals.ts + data/deals-worldbank.ts", S.deal, [...sampleDeals, ...worldBankDeals]).sort(byDateDesc);
+const deals = validate("data/deals*.ts", S.deal, [...sampleDeals, ...worldBankDeals, ...iatiDeals]).sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
 
 // Cross-file reference checks.
@@ -217,7 +218,7 @@ export function getLatest(n: number) {
   return { deals: deals.slice(0, n), research: research.slice(0, n) };
 }
 
-export function getFeaturedDeal(): Deal {
+export function getFeaturedDeal(): Deal | undefined {
   return deals.find((d) => d.featured) ?? deals[0];
 }
 
@@ -257,6 +258,23 @@ export function getTechCounts(): Record<Technology, { projects: number; totalMW:
   for (const p of projects) {
     out[p.technology].projects += 1;
     out[p.technology].totalMW += p.capacityMW ?? 0;
+  }
+  return out;
+}
+
+export interface SectorSummary {
+  deals: number;
+  /** World installed capacity from IRENA, where IRENA reports the sector. */
+  worldMW?: number;
+}
+
+/** Real per-sector figures: world capacity (IRENA) and the number of deals on record. */
+export function getSectorSummary(): Record<Technology, SectorSummary> {
+  const last = globalCapacity.rows[globalCapacity.rows.length - 1];
+  const out = {} as Record<Technology, SectorSummary>;
+  for (const t of S.technology.options) {
+    const gw = t in last ? (last as unknown as Record<string, number>)[t] : undefined;
+    out[t] = { deals: deals.filter((d) => d.technologies.includes(t)).length, worldMW: gw != null ? gw * 1000 : undefined };
   }
   return out;
 }
@@ -352,6 +370,7 @@ export function getCountryProfile(code: string): AreaProfile | undefined {
     getCountries().find((x) => x.key === c) ??
     (countryStats.get(c) || dealList.length ? summarise("country", c, countryName(c), [], dealList.length) : undefined);
   if (!summary) return undefined;
+  summary.region = countryStats.regionOf(c) ?? summary.region;
   return {
     summary,
     projects: projects.filter((p) => p.country === c),
@@ -360,17 +379,33 @@ export function getCountryProfile(code: string): AreaProfile | undefined {
   };
 }
 
+/** Latest official figures for every country, for ranking tables. */
+export function getCountryStatsRows() {
+  return countryStats
+    .all()
+    .map((c) => ({ ...countryStats.snapshot(c), name: countryName(c.iso2) }))
+    .filter((r) => r.renewableMW > 0);
+}
+
+/** Latest official figures for each IRENA region (sum of its countries). Keyed by region slug. */
+export function getRegionStatsRows() {
+  return countryStats.regions().map((r) => ({ ...countryStats.snapshot(countryStats.aggregate(r)), iso2: r.slug, name: r.name }));
+}
+
+/** Regions with a page: IRENA's regions, each listing its member countries. */
+export function getRegionList() {
+  return countryStats.regions();
+}
+
 export function getRegionProfile(slug: string): AreaProfile | undefined {
-  const summary = getRegions().find((x) => x.key === slug);
-  if (!summary) return undefined;
-  const inRegion = projects.filter((p) => p.region === summary.name);
-  const codes = new Set(inRegion.map((p) => p.country));
-  return {
-    summary,
-    projects: inRegion,
-    deals: deals.filter((d) => d.region === summary.name || d.countries.some((c) => codes.has(c))),
-    countries: getCountries().filter((c) => codes.has(c.key)),
-  };
+  const region = countryStats.region(slug);
+  if (!region) return undefined;
+  const codes = new Set(region.countries);
+  const inRegion = projects.filter((p) => codes.has(p.country));
+  const dealList = deals.filter((d) => d.countries.some((c) => codes.has(c)));
+  const summary = summarise("region", slug, region.name, inRegion, dealList.length);
+  summary.countries = region.countries.length;
+  return { summary, projects: inRegion, deals: dealList, countries: getCountries().filter((c) => codes.has(c.key)) };
 }
 
 // ---------- Technologies ----------

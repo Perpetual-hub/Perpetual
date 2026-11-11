@@ -20,7 +20,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef, useState } from "react";
 import type { MapPoint } from "@/lib/data";
 import { MILESTONE_LABEL } from "@/lib/milestones";
-import { POLICY_RAMP, type PolicyCell, type PolicyScores } from "@/lib/policy-colors";
+import { POLICY_RAMP, SHARE_RAMP, type PolicyCell, type PolicyScores } from "@/lib/policy-colors";
 import { countryName, formatDate, formatMW } from "@/lib/format";
 import { TECHNOLOGIES, TECH_BY_ID } from "@/lib/tech";
 import type { Technology } from "@/lib/types";
@@ -31,7 +31,16 @@ setWorkerUrl("/vendor/maplibre-gl-worker.mjs");
 
 export type MapTheme = "dark" | "light";
 export type MapProjection = "globe" | "mercator";
-export type MapMode = "projects" | "countries" | "policy";
+export type MapMode = "projects" | "countries" | "policy" | "share";
+
+const isChoropleth = (m: MapMode) => m === "policy" || m === "share";
+const fillExpr = (m: MapMode) =>
+  [
+    "case",
+    ["==", ["get", "score"], null],
+    "rgba(255,255,255,0.03)",
+    ["interpolate", ["linear"], ["get", "score"], ...(m === "share" ? SHARE_RAMP : POLICY_RAMP).flat()],
+  ] as unknown as ExpressionSpecification;
 
 export type { PolicyCell, PolicyScores } from "@/lib/policy-colors";
 
@@ -299,7 +308,8 @@ export default function ProjectMap({
       } as never);
 
       const hasGlyphs = Boolean(map.getStyle().glyphs);
-      const visible = (m: MapMode) => (modeRef.current === m ? "visible" : "none");
+      const visible = (m: MapMode) =>
+        modeRef.current === m || (m === "policy" && isChoropleth(modeRef.current)) ? "visible" : "none";
 
       // --- Policy heatmap: country fills (data loaded on first use) ---
       map.addSource("policy", { type: "geojson", data: { type: "FeatureCollection", features: [] }, promoteId: "iso2" });
@@ -312,7 +322,7 @@ export default function ProjectMap({
           maxzoom: 4.5,
           // The coarse Antarctica outline draws a stray ring on the globe; leave it out.
           filter: ["!=", ["get", "iso2"], "AQ"],
-          paint: { "fill-color": !dark ? LIGHT.land : modeRef.current === "policy" ? LAND.policy : LAND.projects, "fill-opacity": 1 },
+          paint: { "fill-color": !dark ? LIGHT.land : isChoropleth(modeRef.current) ? LAND.policy : LAND.projects, "fill-opacity": 1 },
         });
       }
       map.addLayer({
@@ -321,12 +331,7 @@ export default function ProjectMap({
         source: "policy",
         layout: { visibility: visible("policy") },
         paint: {
-          "fill-color": [
-            "case",
-            ["==", ["get", "score"], null],
-            "rgba(255,255,255,0.03)",
-            ["interpolate", ["linear"], ["get", "score"], ...POLICY_RAMP.flat()],
-          ] as unknown as ExpressionSpecification,
+          "fill-color": fillExpr(modeRef.current),
           "fill-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 1, 0.88],
         },
       });
@@ -662,10 +667,12 @@ export default function ProjectMap({
       ids.forEach((id) => map.getLayer(id) && map.setLayoutProperty(id, "visibility", on ? "visible" : "none"));
     set(["clusters", "cluster-count", "points", "points-glow", "points-pulse"], mode === "projects");
     set(["country-bubbles", "country-labels"], mode === "countries");
-    set(["policy-fill", "policy-line", "policy-flag"], mode === "policy");
-    if (vivid) setLand(map, mode === "policy" ? LAND.policy : LAND.projects);
+    set(["policy-fill", "policy-line"], isChoropleth(mode));
+    set(["policy-flag"], mode === "policy");
+    if (map.getLayer("policy-fill")) map.setPaintProperty("policy-fill", "fill-color", fillExpr(mode));
+    if (vivid) setLand(map, isChoropleth(mode) ? LAND.policy : LAND.projects);
     setHover(null);
-    if (mode === "policy" && !geoRef.current) {
+    if (isChoropleth(mode) && !geoRef.current) {
       fetch("/geo/countries.json")
         .then((r) => r.json())
         .then((fc: GeoJSON.FeatureCollection) => {
@@ -703,12 +710,12 @@ export default function ProjectMap({
     <div className={`relative h-full w-full ${theme === "dark" ? "map-dark" : ""}`}>
       {/* Not absolutely positioned: maplibre-gl.css forces `position: relative` on the container. */}
       <div ref={containerRef} className="h-full w-full" />
-      {hover && <Tooltip hover={hover} theme={theme} />}
+      {hover && <Tooltip hover={hover} theme={theme} mode={mode} />}
     </div>
   );
 }
 
-function Tooltip({ hover, theme }: { hover: Hover; theme: MapTheme }) {
+function Tooltip({ hover, theme, mode }: { hover: Hover; theme: MapTheme; mode: MapMode }) {
   const dark = theme === "dark";
   const muted = dark ? "text-hero-muted" : "text-muted";
   return (
@@ -722,7 +729,16 @@ function Tooltip({ hover, theme }: { hover: Hover; theme: MapTheme }) {
       {hover.kind === "policy" ? (
         <>
           <div className="leading-snug font-semibold">{hover.name}</div>
-          {hover.cell?.score != null ? (
+          {mode === "share" ? (
+            hover.cell?.score != null ? (
+              <div className={`mt-0.5 tabular ${muted}`}>
+                {Math.round(hover.cell.score)}% renewable electricity{hover.cell.note ? `, ${hover.cell.note}` : ""}
+                <div className="mt-1">Click for the country profile</div>
+              </div>
+            ) : (
+              <div className={`mt-0.5 ${muted}`}>No published data</div>
+            )
+          ) : hover.cell?.score != null ? (
             <div className={`mt-0.5 tabular ${muted}`}>
               Score {hover.cell.score.toFixed(1)} / 5{hover.cell.rank ? ` · rank ${hover.cell.rank}` : ""}
               {hover.cell.flagged && <div className="mt-1 font-medium text-[#f5b000]">Has a deal-breaker</div>}

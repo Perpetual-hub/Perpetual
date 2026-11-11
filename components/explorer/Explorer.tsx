@@ -224,7 +224,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
 
       {/* Results */}
       {filtered.length === 0 ? (
-        <EmptyState onClear={clearAll} />
+        <EmptyState onClear={clearAll} noData={points.length === 0} />
       ) : view === "table" ? (
         <div className="container-page min-h-0 flex-1 overflow-auto py-6">
           <ProjectTable points={filtered} />
@@ -351,7 +351,29 @@ function ResultsList({ points, onHover }: { points: MapPoint[]; onHover: (id?: s
   );
 }
 
-function EmptyState({ onClear }: { onClear: () => void }) {
+function EmptyState({ onClear, noData }: { onClear: () => void; noData: boolean }) {
+  if (noData) {
+    return (
+      <div className="container-page flex flex-1 flex-col items-center justify-center py-24 text-center">
+        <div className="flex size-12 items-center justify-center rounded-full border border-line bg-surface-2">
+          <SlidersHorizontal className="size-5 text-muted" aria-hidden />
+        </div>
+        <h2 className="mt-5 text-xl font-bold">Project Records Are Being Added</h2>
+        <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
+          Individual projects will appear here as they are sourced. In the meantime, explore official capacity statistics for
+          every country and the financings on record.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <Link href="/statistics" className="rounded-lg bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue">
+            Country statistics
+          </Link>
+          <Link href="/deals" className="rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:border-[#cdd6e2]">
+            Deal tracker
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="container-page flex flex-1 flex-col items-center justify-center py-24 text-center">
       <div className="flex size-12 items-center justify-center rounded-full border border-line bg-surface-2">

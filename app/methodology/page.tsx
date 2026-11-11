@@ -4,7 +4,7 @@ import Link from "next/link";
 import { PageHeader, Toc } from "@/components/prose/Prose";
 import { StatusBadge } from "@/components/ui/Badge";
 import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS } from "@/data/policy";
-import { DATA_AS_OF, DATA_VERSION, changelog, getDeals, getProjects } from "@/lib/data";
+import { DATA_AS_OF, DATA_VERSION, changelog, countryStats, getDeals } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 import { rampColor } from "@/lib/policy-colors";
 import { TECHNOLOGIES } from "@/lib/tech";
@@ -47,7 +47,6 @@ const SCALE: [number, string, string][] = [
 ];
 
 export default function MethodologyPage() {
-  const projectCount = getProjects().length;
   const dealCount = getDeals().length;
   const utility = WEIGHT_PRESETS.find((w) => w.id === "utility")!;
   // Worked example with hypothetical pillar scores (not any real country).
@@ -62,7 +61,7 @@ export default function MethodologyPage() {
           {[
             ["Data version", DATA_VERSION],
             ["Compiled", formatDate(DATA_AS_OF)],
-            ["Projects", String(projectCount)],
+            ["Countries", String(countryStats.all().length)],
             ["Deals", String(dealCount)],
           ].map(([k, v]) => (
             <div key={k}>
@@ -76,9 +75,10 @@ export default function MethodologyPage() {
       <div className="container-page grid gap-16 py-16 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-20">
         <Toc items={TOC} />
         <div className="min-w-0 space-y-24">
-          <p className="max-w-3xl rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-sm leading-relaxed text-ink">
-            <strong>Sample records.</strong> Records marked &ldquo;Sample data&rdquo; are illustrative and are being replaced with
-            sourced data. The rules below describe how every record is handled.
+          <p className="max-w-3xl rounded-[var(--radius)] border border-line bg-surface-2 px-5 py-4 text-sm leading-relaxed text-ink">
+            <strong>Where the data comes from.</strong> Capacity statistics come from IRENA, projections from the US Energy
+            Information Administration, and deals from the World Bank and from lenders&rsquo; own published (IATI) data. Every
+            record links to its source. The rules below describe how every record is handled.
           </p>
 
           {/* Coverage */}
@@ -285,7 +285,7 @@ export default function MethodologyPage() {
               </Feature>
             </div>
             <p className="mt-6 text-sm text-muted">
-              Country scores marked as illustrative are placeholders, not assessments, until researched scores replace them.{" "}
+              Country scores are being researched and will be published with the sources behind every pillar.{" "}
               <Link href="/policy" className="font-medium text-brand-blue underline underline-offset-2">
                 View the policy assessment
               </Link>

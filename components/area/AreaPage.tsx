@@ -1,7 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { dealValue } from "@/components/cards/Cards";
-import { AreaTable } from "@/components/charts/AreaTable";
 import { BarList } from "@/components/charts/BarList";
 import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
 import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
@@ -14,10 +13,12 @@ import {
   getTopInvestors,
   toMapPoint,
 } from "@/lib/data";
+import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import { STATUSES, regionSlug } from "@/lib/filters";
 import {
   STATUS_LABEL,
+  countryName,
   formatDate,
   formatGW,
   formatMW,
@@ -30,7 +31,7 @@ import { AreaMap } from "./AreaMap";
 
 /** Shared template for country and region statistics pages. */
 export function AreaPage({ profile }: { profile: AreaProfile }) {
-  const { summary: s, projects, deals, countries } = profile;
+  const { summary: s, projects, deals } = profile;
   const filterQuery =
     s.kind === "country"
       ? `country=${s.key}`
@@ -57,7 +58,15 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
   const top = [...projects]
     .sort((a, b) => (b.capacityMW ?? 0) - (a.capacityMW ?? 0))
     .slice(0, 8);
-  const official = s.kind === "country" ? countryStats.get(s.key) : undefined;
+  const regionInfo = s.kind === "region" ? countryStats.region(s.key) : undefined;
+  const official =
+    s.kind === "country" ? countryStats.get(s.key) : regionInfo ? countryStats.aggregate(regionInfo) : undefined;
+  const memberRows = regionInfo
+    ? regionInfo.countries
+        .map((iso) => countryStats.get(iso))
+        .filter((c) => c !== undefined)
+        .map((c) => ({ ...countryStats.snapshot(c), name: countryName(c.iso2) }))
+    : [];
   const snap = official ? countryStats.snapshot(official) : undefined;
   // Large systems read in GW, small ones in MW.
   const cap = (mw: number) =>
@@ -160,13 +169,26 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
               Installed Renewable Capacity
             </h2>
             <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
-              Official capacity statistics for {s.name}, by technology, as
-              published by the International Renewable Energy Agency.
+              Official capacity statistics for {s.name}
+              {s.kind === "region" ? ", summed across its countries" : ""}, by technology, as published by the
+              International Renewable Energy Agency.
             </p>
             <GlobalCapacityChart
               series={countryStats.series(official)}
               place={s.name}
             />
+          </section>
+        )}
+
+        {memberRows.length > 0 && (
+          <section aria-labelledby="countries-h">
+            <h2 id="countries-h" className="mb-2 text-2xl font-bold tracking-tight">
+              Countries in {s.name}
+            </h2>
+            <p className="mb-6 max-w-3xl leading-relaxed text-muted">
+              Official installed renewable capacity for each country in the region. Select a country for its full history.
+            </p>
+            <CountryStatsTable rows={memberRows} year={countryStats.latestYear} />
           </section>
         )}
 
@@ -226,22 +248,6 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
               <AreaMap points={projects.map(toMapPoint)} label={s.name} />
             </section>
 
-            {countries.length > 0 && (
-              <section aria-labelledby="countries-h">
-                <h2
-                  id="countries-h"
-                  className="mb-5 text-xl font-bold tracking-tight"
-                >
-                  Countries in {s.name}
-                </h2>
-                <AreaTable
-                  rows={countries}
-                  hrefFor={(c) => `/countries/${c.key}`}
-                  nameHeader="Country"
-                />
-              </section>
-            )}
-
             <section aria-labelledby="largest-h">
               <h2
                 id="largest-h"
@@ -275,7 +281,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
         {(deals.length > 0 || projects.length > 0) && (
           <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
             <ListCard
-              title="Latest deals"
+              title="Latest Deals"
               empty="No deals tracked here yet."
               href="/deals"
             >

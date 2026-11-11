@@ -8,7 +8,9 @@ export const size = OG_SIZE;
 export const contentType = "image/png";
 
 export function generateStaticParams() {
-  return getProjects().map((p) => ({ slug: p.slug }));
+  // Cache Components needs at least one param: with no projects, prerender a 404 placeholder.
+  const list = getProjects().map((p) => ({ slug: p.slug }));
+  return list.length ? list : [{ slug: "none" }];
 }
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {

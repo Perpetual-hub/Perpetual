@@ -20,7 +20,7 @@ export function ogImage({
   subtitle,
   accent = BRAND_DARK.tagline,
   stats = [],
-  sample = true,
+  sample = false,
 }: {
   eyebrow: string;
   title: string;

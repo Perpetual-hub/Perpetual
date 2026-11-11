@@ -2,6 +2,7 @@
 
 import { List, Maximize2 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { MapPlaceholder } from "@/components/map/MapPlaceholder";
 import { ProjectDrawer } from "@/components/map/ProjectDrawer";
@@ -10,12 +11,28 @@ import { PolicyPanel } from "@/components/policy/PolicyPanel";
 import { WEIGHT_PRESETS, type PillarId } from "@/data/policy";
 import type { MapPoint } from "@/lib/data";
 import { MILESTONE_LABEL, type MilestoneKind } from "@/lib/milestones";
-import { POLICY_RAMP, rampColor, type PolicyScores } from "@/lib/policy-colors";
-import { formatDate, formatGW, formatMW, formatMoney } from "@/lib/format";
+import { POLICY_RAMP, SHARE_RAMP, rampColor, shareColor, type PolicyScores } from "@/lib/policy-colors";
+import { formatDate, formatGW, formatMW } from "@/lib/format";
 import { rankPolicies } from "@/lib/policy-score";
 import { TECHNOLOGIES, TECH_BY_ID } from "@/lib/tech";
 
-type Mode = "new" | "policy";
+type Mode = "share" | "new" | "policy";
+
+export interface ShareRow {
+  iso2: string;
+  name: string;
+  /** 0 to 1 */
+  share: number;
+  year: number;
+}
+
+export interface WorldStats {
+  year: number;
+  capacityGW: number;
+  fromYear: number;
+  addedGW: number;
+  countries: number;
+}
 
 interface PolicyRow {
   country: string;
@@ -29,14 +46,19 @@ interface Props {
   /** Projects with a confirmed milestone in the last 30 days. */
   points: MapPoint[];
   policyRows: PolicyRow[];
-  dealStats: { count: number; usd: number };
+  /** Deals in the last 12 months, and all deals on record. */
+  dealStats: { recent: number; total: number };
+  /** Renewable share of electricity by country (IRENA), for the default globe view. */
+  shareRows: ShareRow[];
+  world: WorldStats;
   rail: React.ReactNode;
 }
 
 const MILESTONES: MilestoneKind[] = ["announced", "permits", "financing", "construction", "operating"];
 
-export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
-  const [mode, setMode] = useState<Mode>("new");
+export function HomeHero({ points, policyRows, dealStats, shareRows, world, rail }: Props) {
+  const [mode, setMode] = useState<Mode>("share");
+  const router = useRouter();
   const [kinds, setKinds] = useState<MilestoneKind[]>([]);
   const [preset, setPreset] = useState(WEIGHT_PRESETS[1].id);
   const [selected, setSelected] = useState<MapPoint | null>(null);
@@ -47,8 +69,20 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
   // Deep link: /#policy opens the heatmap.
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reads the URL hash once, browser-only
-    if (window.location.hash === "#policy") setMode("policy");
+    if (window.location.hash === "#policy" && policyRows.length) setMode("policy");
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- once on mount
   }, []);
+
+  const shareScores: PolicyScores = useMemo(
+    () => Object.fromEntries(shareRows.map((r) => [r.iso2, { score: r.share * 100, note: String(r.year) }])),
+    [shareRows],
+  );
+  const shareRanked = useMemo(() => [...shareRows].sort((a, b) => b.share - a.share), [shareRows]);
+  const modeOptions = [
+    { id: "share" as Mode, label: "Renewable Share" },
+    ...(points.length ? [{ id: "new" as Mode, label: "New This Month" }] : []),
+    ...(policyRows.length ? [{ id: "policy" as Mode, label: "Policy Heatmap" }] : []),
+  ];
 
   const filtered = useMemo(
     () => (kinds.length ? points.filter((p) => p.milestone && kinds.includes(p.milestone.kind)) : points),
@@ -77,7 +111,10 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
   );
 
   const toggleKind = (k: MilestoneKind) => setKinds((cur) => (cur.includes(k) ? cur.filter((x) => x !== k) : [...cur, k]));
-  const onPolicySelect = useCallback((iso2: string, name: string) => setPolicyPick({ iso2, name }), []);
+  const onPolicySelect = useCallback(
+    (iso2: string, name: string) => (mode === "share" ? router.push(`/countries/${iso2}`) : setPolicyPick({ iso2, name })),
+    [mode, router],
+  );
   const presetLabel = WEIGHT_PRESETS.find((p) => p.id === preset)!.label;
 
   return (
@@ -90,6 +127,7 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
         <div className="flex min-w-0 flex-col">
           {/* Toolbar */}
           <div className="flex flex-wrap items-center gap-3 border-b border-hero-line py-3">
+            {modeOptions.length > 1 && (
             <Segmented
               label="Globe view"
               value={mode}
@@ -98,12 +136,14 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
                 setView("globe");
                 setSelected(null);
               }}
-              options={[
-                { id: "new", label: "New this month" },
-                { id: "policy", label: "Policy heatmap" },
-              ]}
+              options={modeOptions}
             />
-            {mode === "new" ? (
+            )}
+            {mode === "share" ? (
+              <p className="text-xs text-hero-muted">
+                Share of each country&rsquo;s electricity generated from renewable sources. Source: IRENA.
+              </p>
+            ) : mode === "new" ? (
               <div role="group" aria-label="Filter by milestone" className="flex flex-wrap gap-1.5">
                 <Chip pressed={kinds.length === 0} onClick={() => setKinds([])}>
                   All milestones
@@ -132,11 +172,11 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
                 List
               </button>
               <Link
-                href={mode === "policy" ? "/policy" : "/projects"}
+                href={mode === "policy" ? "/policy" : mode === "share" ? "/statistics#countries-h" : "/projects"}
                 className="hidden items-center gap-1.5 rounded-[3px] border border-hero-line px-3 py-1.5 text-xs font-medium text-hero-ink transition-colors duration-150 hover:bg-white/5 sm:inline-flex"
               >
                 <Maximize2 className="size-3.5" aria-hidden />
-                {mode === "policy" ? "Full ranking" : "All projects"}
+                {mode === "policy" ? "Full ranking" : mode === "share" ? "All countries" : "All projects"}
               </Link>
             </div>
           </div>
@@ -150,7 +190,7 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
                 points={filtered}
                 theme="dark"
                 projection="globe"
-                mode={mode === "policy" ? "policy" : "projects"}
+                mode={mode === "policy" ? "policy" : mode === "share" ? "share" : "projects"}
                 vivid
                 autoRotate
                 fitGlobe={0.86}
@@ -158,14 +198,18 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
                 showControls={isWide}
                 onSelect={setSelected}
                 selectedId={selected?.id}
-                policy={policyScores}
+                policy={mode === "share" ? shareScores : policyScores}
                 onPolicySelect={onPolicySelect}
                 ariaLabel={
-                  mode === "policy"
+                  mode === "share"
+                    ? "Globe coloured by each country's renewable share of electricity. Use the List button for a keyboard-friendly ranking."
+                    : mode === "policy"
                     ? "Globe coloured by PROFITS policy score. Use the List button for a keyboard-friendly ranking."
                     : "Globe of renewable projects with a milestone in the last 30 days. Use the List button for a keyboard-friendly alternative."
                 }
               />
+            ) : mode === "share" ? (
+              <ShareList rows={shareRanked} />
             ) : mode === "policy" ? (
               <PolicyList ranked={ranked} onSelect={(r) => setPolicyPick({ iso2: r.country, name: r.name })} />
             ) : (
@@ -175,17 +219,31 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
 
           {/* Legend row, below the globe */}
           <div className="flex flex-col items-center gap-2 border-t border-hero-line py-4 text-center">
-            {mode === "policy" ? <PolicyLegend /> : <SectorLegend points={filtered} />}
+            {mode === "share" ? <ShareLegend /> : mode === "policy" ? <PolicyLegend /> : <SectorLegend points={filtered} />}
           </div>
 
           {/* Stats strip */}
           <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-6">
-            <Stat label="Milestones, 30 days" value={String(stats.projects)} />
-            <Stat label="Capacity involved" value={formatGW(stats.mw)} unit="GW" />
-            <Stat label="Financial closes" value={String(stats.closes)} />
-            <Stat label="Countries" value={String(stats.countries)} />
-            <Stat label="Deals, 30 days" value={String(dealStats.count)} />
-            <Stat label="Disclosed deal value" value={dealStats.usd ? formatMoney(dealStats.usd, "USD").replace("USD ", "$") : "—"} />
+            {mode === "new" ? (
+              <>
+                <Stat label="Milestones, 30 days" value={String(stats.projects)} />
+                <Stat label="Capacity involved" value={formatGW(stats.mw)} unit="GW" />
+                <Stat label="Financial closes" value={String(stats.closes)} />
+                <Stat label="Countries" value={String(stats.countries)} />
+              </>
+            ) : (
+              <>
+                <Stat label={`World renewable capacity, ${world.year}`} value={Math.round(world.capacityGW).toLocaleString("en-GB")} unit="GW" />
+                <Stat label={`Added since ${world.fromYear}`} value={Math.round(world.addedGW).toLocaleString("en-GB")} unit="GW" />
+                <Stat label="Countries covered" value={String(world.countries)} />
+                <Stat
+                  label="Countries above 50% renewable"
+                  value={String(shareRows.filter((r) => r.share >= 0.5).length)}
+                />
+              </>
+            )}
+            <Stat label="Deals, last 12 months" value={dealStats.recent.toLocaleString("en-GB")} />
+            <Stat label="Deals on record" value={dealStats.total.toLocaleString("en-GB")} />
           </dl>
         </div>
 
@@ -225,6 +283,55 @@ function SectorLegend({ points }: { points: MapPoint[] }) {
   );
 }
 
+function ShareLegend() {
+  const grad = `linear-gradient(90deg, ${SHARE_RAMP.map(([, c]) => c).join(", ")})`;
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pb-2 text-xs text-hero-ink">
+      <div className="flex items-center gap-3">
+        <span>Renewable share of electricity</span>
+        <span className="relative h-2 w-40 rounded-[2px]" style={{ background: grad }} aria-hidden>
+          <span className="tabular absolute -bottom-4 left-0 text-[10px] text-hero-muted">0%</span>
+          <span className="tabular absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-hero-muted">50%</span>
+          <span className="tabular absolute right-0 -bottom-4 text-[10px] text-hero-muted">100%</span>
+        </span>
+      </div>
+      <span className="hidden h-5 w-px bg-hero-line sm:block" aria-hidden />
+      <ul className="flex items-center gap-x-6" aria-label="Map key">
+        <li className="inline-flex items-center gap-2">
+          <span className="h-3 w-5 rounded-[2px] border border-white/15 bg-[#24364f]" aria-hidden />
+          No published data
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+function ShareList({ rows }: { rows: ShareRow[] }) {
+  return (
+    <div className="absolute inset-0 overflow-y-auto py-5">
+      <div className="max-w-4xl">
+        <p className="mb-3 text-xs text-hero-muted">
+          {rows.length} countries, highest renewable share of electricity first. Source: IRENA.
+        </p>
+        <ol className="divide-y divide-hero-line border-y border-hero-line">
+          {rows.map((r, i) => (
+            <li key={r.iso2}>
+              <Link href={`/countries/${r.iso2}`} className="flex w-full items-center gap-3 py-3 text-left hover:bg-white/5">
+                <span className="tabular w-8 text-sm text-hero-muted">{i + 1}</span>
+                <span className="min-w-0 flex-1 truncate text-sm font-medium text-white">{r.name}</span>
+                <span className="h-1.5 w-24 rounded-[3px] bg-white/10" aria-hidden>
+                  <span className="block h-full rounded-[2px]" style={{ width: `${r.share * 100}%`, background: shareColor(r.share * 100) }} />
+                </span>
+                <span className="tabular w-12 text-right text-sm text-hero-ink">{Math.round(r.share * 100)}%</span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  );
+}
+
 function PolicyLegend() {
   const grad = `linear-gradient(90deg, ${POLICY_RAMP.map(([, c]) => c).join(", ")})`;
   return (
@@ -247,11 +354,6 @@ function PolicyLegend() {
         <li className="inline-flex items-center gap-2">
           <span className="h-3 w-5 rounded-[2px] border-[1.5px] border-dashed border-[#f5b000]" aria-hidden />
           Deal-breaker
-        </li>
-        <li>
-          <span className="rounded-[3px] border border-brand-sun/60 bg-brand-sun/10 px-2 py-0.5 text-[11px] font-semibold text-brand-sun">
-            Illustrative scores
-          </span>
         </li>
       </ul>
     </div>
@@ -292,7 +394,7 @@ function PolicyList({ ranked, onSelect }: { ranked: ReturnType<typeof rankPolici
   return (
     <div className="absolute inset-0 overflow-y-auto py-5">
       <div className="max-w-4xl">
-        <p className="mb-3 text-xs text-hero-muted">{ranked.length} countries, highest score first. Illustrative scores.</p>
+        <p className="mb-3 text-xs text-hero-muted">{ranked.length} countries, highest score first.</p>
         <ol className="divide-y divide-hero-line border-y border-hero-line">
           {ranked.map((r) => (
             <li key={r.country}>

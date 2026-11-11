@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { DATA_AS_OF, getCountries, getDeals, getProjects, getRegions } from "@/lib/data";
+import { DATA_AS_OF, getAllCountryCodes, getDeals, getProjects, getRegionList } from "@/lib/data";
 import { TECHNOLOGIES } from "@/lib/tech";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -21,8 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/about", 0.4),
     page("/corrections", 0.3),
     ...TECHNOLOGIES.map((t) => page(`/sectors/${t.id}`, 0.8)),
-    ...getRegions().map((r) => page(`/regions/${r.key}`)),
-    ...getCountries().map((c) => page(`/countries/${c.key}`)),
+    ...getRegionList().map((r) => page(`/regions/${r.slug}`)),
+    ...getAllCountryCodes().map((c) => page(`/countries/${c}`)),
     ...getDeals().map((d) => page(`/deals/${d.slug}`, 0.5)),
     ...getProjects().map((p) => ({ ...page(`/projects/${p.slug}`, 0.5), lastModified: new Date(p.lastUpdated) })),
   ];

@@ -42,3 +42,4 @@ next-env.d.ts
 
 # generated from node_modules by scripts/copy-maplibre-worker.mjs
 /public/vendor/
+.cache/

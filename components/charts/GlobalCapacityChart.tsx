@@ -18,7 +18,9 @@ const ALL_SERIES: { key: Key; label: string }[] = [
 ];
 
 const fmt = (v: number) =>
-  v >= 100 ? Math.round(v).toLocaleString("en-GB") : v.toLocaleString("en-GB", { maximumFractionDigits: 1 });
+  v >= 100
+    ? Math.round(v).toLocaleString("en-GB")
+    : v.toLocaleString("en-GB", { maximumFractionDigits: v > 0 && v < 1 ? 2 : 1 });
 
 type TipProps = {
   active?: boolean;

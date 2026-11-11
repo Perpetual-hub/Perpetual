@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SampleBadge } from "@/components/ui/Badge";
 import { ChartCard } from "@/components/area/AreaPage";
-import { AreaTable } from "@/components/charts/AreaTable";
 import { BarList } from "@/components/charts/BarList";
 import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
 import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
@@ -14,7 +13,8 @@ import {
   countryStats,
   getCapacityOutlook,
   getGlobalCapacity,
-  getRegions,
+  getProjects,
+  getRegionStatsRows,
   getTechCounts,
   getTimeline,
 } from "@/lib/data";
@@ -29,7 +29,6 @@ export const metadata: Metadata = {
 
 export default function StatisticsPage() {
   const counts = getTechCounts();
-  const regions = getRegions();
   const world = getGlobalCapacity().rows;
   const worldNow = world[world.length - 1];
   const worldFiveAgo = world.find((r) => r.year === worldNow.year - 5) ?? world[0];
@@ -52,8 +51,7 @@ export default function StatisticsPage() {
               Capacity statistics are compiled from open public datasets, such
               as those published by the International Energy Agency (IEA) and
               the International Renewable Energy Agency (IRENA), and each figure
-              is credited to its source. Figures marked as sample are
-              sample data, compiled {formatDate(DATA_AS_OF)}.{" "}
+              is credited to its source. Data compiled {formatDate(DATA_AS_OF)}.{" "}
               <Link
                 href="/methodology#sources"
                 className="text-brand-blue underline underline-offset-2"
@@ -103,6 +101,16 @@ export default function StatisticsPage() {
           <CapacityOutlookChart outlook={getCapacityOutlook()} actual={getGlobalCapacity().rows} />
         </section>
 
+        <section aria-labelledby="regions-h">
+          <h2 id="regions-h" className="mb-2 text-2xl font-bold tracking-tight">
+            By Region
+          </h2>
+          <p className="mb-6 max-w-3xl leading-relaxed text-muted">
+            Installed renewable capacity in each region, summed from IRENA&rsquo;s country figures.
+          </p>
+          <CountryStatsTable rows={getRegionStatsRows()} year={countryStats.latestYear} basePath="/regions/" noun="region" />
+        </section>
+
         <section aria-labelledby="countries-h">
           <h2 id="countries-h" className="mb-2 text-2xl font-bold tracking-tight">
             By Country
@@ -121,6 +129,8 @@ export default function StatisticsPage() {
           </p>
         </section>
 
+        {getProjects().length > 0 && (
+          <>
         <div className="flex flex-wrap items-center gap-3 border-t border-line pt-14">
           <h2 className="text-2xl font-bold tracking-tight">Tracked Projects</h2>
           <SampleBadge />
@@ -151,16 +161,8 @@ export default function StatisticsPage() {
           </section>
         </div>
 
-        <section aria-labelledby="regions-h">
-          <h3 id="regions-h" className="mb-5 font-sans text-lg font-semibold text-ink">
-            By Region
-          </h3>
-          <AreaTable
-            rows={regions}
-            hrefFor={(r) => `/regions/${r.key}`}
-            nameHeader="Region"
-          />
-        </section>
+          </>
+        )}
 
       </div>
     </div>
