@@ -180,8 +180,10 @@ function toDeal(x) {
 
 // Releases already written by hand are not re-extracted.
 const curatedSrc = readFileSync(new URL("../data/deals-curated.ts", import.meta.url), "utf8");
-const curatedUrls = new Set([...curatedSrc.matchAll(/"url": "([^"]+)"/g)].map((m) => m[1]));
-const candidates = JSON.parse(readFileSync(candidatesPath, "utf8")).filter((c) => !curatedUrls.has(c.url));
+// PR Newswire regional copies of one release differ only in the trailing number.
+const releaseKey = (u) => u.replace(/-\d+\.html$/, "");
+const curatedUrls = new Set([...curatedSrc.matchAll(/"url": "([^"]+)"/g)].map((m) => releaseKey(m[1])));
+const candidates = JSON.parse(readFileSync(candidatesPath, "utf8")).filter((c, i, all) => !curatedUrls.has(releaseKey(c.url)) && all.findIndex((o) => releaseKey(o.url) === releaseKey(c.url)) === i);
 const results = [];
 const todo = candidates.slice(0, Number.isFinite(LIMIT) ? LIMIT : undefined);
 const CONCURRENCY = Number(process.env.EXTRACT_CONCURRENCY ?? 4);
