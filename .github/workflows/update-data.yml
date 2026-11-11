@@ -96,7 +96,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- data; then echo "No data changes."; exit 0; fi
-          branch="data-update/$(date -u +%Y-%m-%d)"
+          branch="data-update/$(date -u +%Y-%m-%d)-${{ github.run_id }}"
           git config user.name "perpetual-data-bot"
           git config user.email "perpetual-data-bot@users.noreply.github.com"
           git checkout -b "$branch"
