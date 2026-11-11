@@ -467,7 +467,7 @@ export function getSearchIndex(): SearchEntry[] {
       { title: "Statistics", href: "/statistics" },
       { title: "Methodology", href: "/methodology" },
       { title: "Report a correction", href: "/corrections" },
-      { title: "About the beta", href: "/about" },
+      { title: "About Perpetual", href: "/about" },
     ].map((p) => ({ type: "page" as const, title: p.title, subtitle: "Page", href: p.href, keywords: "" })),
   ];
 }

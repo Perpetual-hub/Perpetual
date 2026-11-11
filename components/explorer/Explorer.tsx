@@ -359,7 +359,7 @@ function EmptyState({ onClear }: { onClear: () => void }) {
       </div>
       <h2 className="mt-5 text-xl font-bold">No Projects Match These Filters</h2>
       <p className="mt-2 max-w-sm text-sm leading-relaxed text-muted">
-        Try widening the capacity or year range, or removing a filter. Coverage in the beta is limited to sample data.
+        Try widening the capacity or year range, or removing a filter. Coverage is still growing.
       </p>
       <button type="button" onClick={onClear} className="mt-6 rounded-lg bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue">
         Clear all filters

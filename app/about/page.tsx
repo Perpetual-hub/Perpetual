@@ -5,7 +5,7 @@ import { DATA_VERSION } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "What Perpetual is: an open map and record of renewable energy projects, deals and policy. Currently in beta.",
+  description: "What Perpetual is: an open map and record of renewable energy projects, deals and policy.",
 };
 
 export default function AboutPage() {
@@ -18,9 +18,9 @@ export default function AboutPage() {
       <div className="container-page py-12">
         <Prose>
           <div className="rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-[0.95rem] leading-relaxed">
-            <strong>This is a beta.</strong> Every project, deal and policy score on the site is <strong>sample data</strong>, invented
-            to test the design and the data model. Names, owners, values and dates do not describe real projects or companies.
-            Sample records carry a &ldquo;Sample data&rdquo; badge. Data version {DATA_VERSION}.
+            <strong>Sample records.</strong> Records marked &ldquo;Sample data&rdquo; were invented to test the design and the data
+            model, and are being replaced with sourced data. Their names, owners, values and dates do not describe real projects or
+            companies. Data version {DATA_VERSION}.
           </div>
 
           <h2 id="why">Purpose</h2>
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
           <h2 id="next">Roadmap</h2>
           <p>
-            After the beta we will connect open datasets (checking each one&rsquo;s licence and freshness first), so the site updates
+            We are connecting open datasets (checking each one&rsquo;s licence and freshness first), so the site updates
             itself. Accounts, watchlists and alerts may follow. Read the <Link href="/methodology">methodology</Link> for how the data
             works.
           </p>

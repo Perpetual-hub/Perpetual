@@ -39,7 +39,7 @@ export default function StatisticsPage() {
               Capacity statistics are compiled from open public datasets, such
               as those published by the International Energy Agency (IEA) and
               the International Renewable Energy Agency (IRENA), and each figure
-              is credited to its source. The figures shown during the beta are
+              is credited to its source. Figures marked as sample are
               sample data, compiled {formatDate(DATA_AS_OF)}.{" "}
               <Link
                 href="/methodology#sources"

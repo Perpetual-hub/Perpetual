@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Nunito, Plus_Jakarta_Sans } from "next/font/google";
-import { BetaBar } from "@/components/layout/BetaBar";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Logo } from "@/components/layout/Logo";
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · Perpetual",
   },
   description:
-    "Renewable energy deals, new projects and how investable each country is, with a source behind every fact. Beta: all records are sample data.",
+    "Renewable energy deals, new projects and how investable each country is, with a source behind every fact.",
   openGraph: { siteName: "Perpetual", type: "website" },
 };
 
@@ -46,7 +45,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
-          <BetaBar />
           <Header logo={<Logo />} techCounts={getTechCounts()} />
           <main id="main" className="flex-1">
             {children}

@@ -32,7 +32,7 @@ const GROUPS: { title: string; links: FooterLink[]; twoCol?: boolean }[] = [
   {
     title: "About Perpetual",
     links: [
-      { href: "/about", label: "About the Beta" },
+      { href: "/about", label: "About Perpetual" },
       { href: "/methodology", label: "Methodology" },
       { href: "/corrections", label: "Report a Correction" },
     ],
@@ -90,7 +90,7 @@ export function Footer() {
           </Link>
           <div className="mt-6 flex flex-col gap-2 text-sm text-white/75 md:flex-row md:items-center md:justify-between">
             <p>© {DATA_AS_OF.slice(0, 4)} Perpetual</p>
-            <p className="text-white/60">Beta: all records are sample data. Not investment advice. Data compiled {formatDate(DATA_AS_OF)}.</p>
+            <p className="text-white/60">Records marked Sample data are illustrative. Not investment advice. Data compiled {formatDate(DATA_AS_OF)}.</p>
           </div>
         </div>
       </div>

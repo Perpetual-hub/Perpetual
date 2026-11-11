@@ -115,8 +115,8 @@ export default function Home() {
                 ))}
               </ol>
               <p className="mt-3 text-xs text-muted">
-                PROFITS score, weighted for utility-scale IPPs. <strong className="font-semibold text-ink">Illustrative scores</strong> for
-                the beta.
+                PROFITS score, weighted for utility-scale IPPs. <strong className="font-semibold text-ink">Illustrative scores</strong> until
+                researched scores are published.
               </p>
             </section>
           </Reveal>

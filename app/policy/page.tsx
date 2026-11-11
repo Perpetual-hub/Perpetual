@@ -24,7 +24,7 @@ export default function PolicyPage() {
       <div className="container-page space-y-16 py-12 md:py-16">
         <div className="flex flex-wrap items-start gap-4 rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-sm leading-relaxed">
           <p className="max-w-3xl flex-1">
-            <strong>Illustrative scores.</strong> The scores below are placeholders generated for the beta, so the design and the
+            <strong>Illustrative scores.</strong> The scores below are placeholders, so the design and the
             maths can be tested. They are <strong>not an assessment</strong> of any country. Researched scores, with sources for each
             pillar, will replace them.
           </p>

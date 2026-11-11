@@ -96,7 +96,7 @@ export function PolicyPanel({
             <>
               {entry.isSample && (
                 <p className="mb-5 rounded-lg border border-brand-sun/50 bg-brand-sun/10 px-3.5 py-2.5 text-xs leading-relaxed text-ink">
-                  <strong>Illustrative score.</strong> Placeholder values for the beta, not an assessment of this country.
+                  <strong>Illustrative score.</strong> Placeholder values, not an assessment of this country.
                 </p>
               )}
               <dl className="grid grid-cols-2 gap-4">

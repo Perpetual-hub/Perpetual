@@ -33,7 +33,7 @@ export default function CorrectionsPage() {
             <li>The change is listed in the methodology changelog.</li>
           </ol>
           <p className="mt-4">
-            In this beta the form is not connected yet, so nothing is sent. Please don&rsquo;t include personal data beyond an
+            The form is not connected yet, so nothing is sent. Please don&rsquo;t include personal data beyond an
             email.
           </p>
         </aside>

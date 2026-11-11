@@ -70,7 +70,7 @@ export function ogImage({
               <div style={{ display: "flex", fontFamily: "Jakarta", fontSize: 40, fontWeight: 800 }}>{s.value}</div>
             </div>
           ))}
-          {sample && !stats.length && <div style={{ display: "flex", fontSize: 24, color: "rgba(255,255,255,0.75)" }}>Beta · sample data</div>}
+          {sample && !stats.length && <div style={{ display: "flex", fontSize: 24, color: "rgba(255,255,255,0.75)" }}>Sample data</div>}
         </div>
       </div>
     ),

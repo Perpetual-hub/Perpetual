@@ -6,7 +6,7 @@ export default function NotFound() {
       <p className="tabular text-sm text-muted">Error 404</p>
       <h1 className="mt-3 max-w-2xl text-[2.5rem] leading-[1.05] font-bold tracking-[-0.025em] md:text-[3.5rem]">Page Not Found</h1>
       <p className="mt-4 max-w-lg text-lg leading-relaxed text-muted">
-        Perpetual is in beta and some sections are still being built. The record you were looking for may also have moved.
+        The page or record you were looking for may have moved or been removed.
       </p>
       <Link
         href="/"

@@ -77,8 +77,8 @@ export default function MethodologyPage() {
         <Toc items={TOC} />
         <div className="min-w-0 space-y-24">
           <p className="max-w-3xl rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-sm leading-relaxed text-ink">
-            <strong>Beta.</strong> Every project, deal and policy score currently on Perpetual is sample data, created to test the
-            design. The rules below describe how real data will be handled.
+            <strong>Sample records.</strong> Records marked &ldquo;Sample data&rdquo; are illustrative and are being replaced with
+            sourced data. The rules below describe how every record is handled.
           </p>
 
           {/* Coverage */}
@@ -285,7 +285,7 @@ export default function MethodologyPage() {
               </Feature>
             </div>
             <p className="mt-6 text-sm text-muted">
-              In the beta, all country scores are illustrative placeholders, not assessments.{" "}
+              Country scores marked as illustrative are placeholders, not assessments, until researched scores replace them.{" "}
               <Link href="/policy" className="font-medium text-brand-blue underline underline-offset-2">
                 View the policy assessment
               </Link>
