@@ -6,21 +6,25 @@ import type { Technology } from "./types";
 export interface TechPhoto {
   src: string;
   alt: string;
-  /** Author as named on the source page. */
-  credit: string;
-  license: string;
-  licenseUrl: string;
+  /** Author as named on the source page. Omitted for images supplied directly to Perpetual. */
+  credit?: string;
+  license?: string;
+  licenseUrl?: string;
   /** The Commons file page. */
-  sourceUrl: string;
+  sourceUrl?: string;
   /** CSS object-position, to keep the subject in frame. */
   position?: string;
   /** True when we crop/darken it (CC BY-SA asks us to say so). */
   modified?: boolean;
 }
 
-// Hydrogen has no photo yet: Commons had no good, openly licensed image of a modern
-// electrolyser plant. Its page falls back to the tinted band.
 export const TECH_PHOTOS: Partial<Record<Technology, TechPhoto>> = {
+  // TODO(credit): supplied by the Perpetual team; add the photographer/licence once confirmed.
+  hydrogen: {
+    src: "/photos/hydrogen.jpg",
+    alt: "Hydrogen storage tanks beside wind turbines and solar panels",
+    position: "center 45%",
+  },
   solar: {
     src: "/photos/solar.jpg",
     alt: "Rows of solar panels at a photovoltaic plant in Frechilla de Almaz\u00e1n, Soria, Spain",

@@ -40,16 +40,13 @@ const STYLE_URL: Record<MapTheme, string> = {
   light: "https://tiles.openfreemap.org/styles/positron",
 };
 
-const OSM_ATTRIBUTION =
-  '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> © <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> Data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
-
 /** Used only if the basemap can't be fetched (offline, blocked): points still render. */
 function fallbackStyle(theme: MapTheme): StyleSpecification {
   return {
     version: 8,
     sources: {},
     layers: [
-      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#041330" : "#eef2f7" } },
+      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#041330" : LIGHT.water } },
     ],
   };
 }
@@ -88,6 +85,9 @@ function pulseRadius(k: number): ExpressionSpecification {
 
 /** Land colours on the hero globe: a touch of green normally; neutral slate under the policy heatmap. */
 const LAND = { projects: "#1d5550", vegetation: "#226352", policy: "#24364f" };
+
+/** Flat (light) maps: blue sea, soft green land, so the map reads as a map rather than grey on white. */
+const LIGHT = { water: "#a9d3f0", land: "#eef4e2", vegetation: "#d4e8c2", border: "#7f9bb8", label: "#24405e" };
 
 /** True when the basemap tiles loaded (not the offline fallback, whose background is the ocean). */
 function hasTiles(map: MlMap) {
@@ -267,9 +267,10 @@ export default function ProjectMap({
       minZoom: 0.5,
       maxZoom: 14,
       interactive,
-      attributionControl: { compact: true, customAttribution: OSM_ATTRIBUTION },
+      // The basemap style carries its own attribution; adding ours too printed it twice.
+      attributionControl: { compact: true },
       maplibreLogo: false,
-      renderWorldCopies: projection === "mercator",
+      renderWorldCopies: false,
     });
     mapRef.current = map;
     if (interactive && showControls) map.addControl(new NavigationControl({ showCompass: false }), "top-right");
@@ -289,6 +290,8 @@ export default function ProjectMap({
       // Projection must be set inside style.load: setting it earlier throws.
       map.setProjection({ type: projection });
       if (dark) tintDarkBasemap(map, vivid);
+      else tintLightBasemap(map);
+      applyEnglishLabels(map);
       map.setSky({
         "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0],
         "sky-color": dark ? "#061a33" : "#ffffff",
@@ -300,7 +303,7 @@ export default function ProjectMap({
 
       // --- Policy heatmap: country fills (data loaded on first use) ---
       map.addSource("policy", { type: "geojson", data: { type: "FeatureCollection", features: [] }, promoteId: "iso2" });
-      if (vivid) {
+      if (vivid || (!dark && !hasTiles(map))) {
         // Our own land layer (same outlines), so continents read clearly even if tiles are slow.
         map.addLayer({
           id: "land-fill",
@@ -309,7 +312,7 @@ export default function ProjectMap({
           maxzoom: 4.5,
           // The coarse Antarctica outline draws a stray ring on the globe; leave it out.
           filter: ["!=", ["get", "iso2"], "AQ"],
-          paint: { "fill-color": modeRef.current === "policy" ? LAND.policy : LAND.projects, "fill-opacity": 1 },
+          paint: { "fill-color": !dark ? LIGHT.land : modeRef.current === "policy" ? LAND.policy : LAND.projects, "fill-opacity": 1 },
         });
       }
       map.addLayer({
@@ -471,7 +474,7 @@ export default function ProjectMap({
       }
       setReady(true);
     });
-    if (vivid) {
+    if (vivid || !dark) {
       map.once("idle", () => {
         if (geoRef.current) return;
         fetch("/geo/countries.json")
@@ -493,6 +496,13 @@ export default function ProjectMap({
         })
       : null;
     ro?.observe(container);
+    const fitWorldWidth = () => {
+      if (projection !== "mercator") return;
+      map.setMinZoom(Math.max(0.5, Math.log2(container.getBoundingClientRect().width / 512)));
+    };
+    fitWorldWidth();
+    const roWorld = projection === "mercator" ? new ResizeObserver(fitWorldWidth) : null;
+    roWorld?.observe(container);
 
     // ----- Interaction -----
     let hovered: { source: string; id: number | string } | undefined;
@@ -614,6 +624,7 @@ export default function ProjectMap({
       stopPulse();
       io.disconnect();
       ro?.disconnect();
+      roWorld?.disconnect();
       map.remove();
       mapRef.current = null;
     };
@@ -780,6 +791,37 @@ function tintDarkBasemap(map: MlMap, vivid = false) {
       else if (layer.type === "line" && vivid && /water|coast/.test(layer.id)) map.setPaintProperty(layer.id, "line-color", "rgba(90,169,230,0.5)");
     } catch {
       // Unknown layer shape: leave it as the style defines it.
+    }
+  }
+}
+
+function tintLightBasemap(map: MlMap) {
+  const tiles = hasTiles(map);
+  for (const layer of map.getStyle().layers ?? []) {
+    try {
+      if (layer.type === "background" && tiles) map.setPaintProperty(layer.id, "background-color", LIGHT.land);
+      else if (layer.type === "fill" && /water|ocean/.test(layer.id)) map.setPaintProperty(layer.id, "fill-color", LIGHT.water);
+      else if (layer.type === "fill" && /landcover|park|wood|grass|forest/.test(layer.id))
+        map.setPaintProperty(layer.id, "fill-color", LIGHT.vegetation);
+      else if (layer.type === "line" && /boundary|admin/.test(layer.id)) map.setPaintProperty(layer.id, "line-color", LIGHT.border);
+      else if (layer.type === "line" && /waterway|river/.test(layer.id)) map.setPaintProperty(layer.id, "line-color", LIGHT.water);
+      else if (layer.type === "symbol" && /place|country|state|city/.test(layer.id)) map.setPaintProperty(layer.id, "text-color", LIGHT.label);
+    } catch {
+      // Unknown layer shape: leave it as the style defines it.
+    }
+  }
+}
+
+/** Basemap labels default to local scripts (Россия, 대한민국); show English names where the tiles have them. */
+function applyEnglishLabels(map: MlMap) {
+  for (const layer of map.getStyle().layers ?? []) {
+    if (layer.type !== "symbol") continue;
+    const field = map.getLayoutProperty(layer.id, "text-field");
+    if (!field || !JSON.stringify(field).includes("name")) continue;
+    try {
+      map.setLayoutProperty(layer.id, "text-field", ["coalesce", ["get", "name:en"], ["get", "name_en"], ["get", "name:latin"], ["get", "name"]]);
+    } catch {
+      // Leave the style's own label.
     }
   }
 }

@@ -33,7 +33,7 @@ export default function Home() {
     count: recent.length,
     usd: recent.reduce((s, d) => s + (d.value?.disclosed ? (d.value.usd ?? 0) : 0), 0),
   };
-  const rail: RailItem[] = deals.slice(0, 7).map((d) => ({
+  const rail: RailItem[] = deals.slice(0, 10).map((d) => ({
     id: d.id,
     href: `/deals/${d.slug}`,
     date: d.date,
@@ -52,7 +52,7 @@ export default function Home() {
       <HomeHero points={getRecentMilestonePoints(30)} policyRows={policyRows} dealStats={dealStats} rail={<LatestRail items={rail} />} />
 
       {/* This week in deals */}
-      <section className="container-page py-20 md:py-28" aria-labelledby="this-week">
+      <section className="container-page py-14 md:py-20" aria-labelledby="this-week">
         <Reveal>
           <SectionHeading id="this-week" title="Recent Transactions" description="The latest acquisitions, financings, power purchase agreements and fund closes." href="/deals" linkLabel="Deal tracker" />
         </Reveal>
@@ -78,7 +78,7 @@ export default function Home() {
 
       {/* Investors and policy */}
       <section className="border-t border-line" aria-labelledby="markets">
-        <div className="container-page py-20 md:py-28">
+        <div className="container-page py-14 md:py-20">
           <Reveal>
             <SectionHeading
               id="markets"
@@ -126,7 +126,7 @@ export default function Home() {
 
       {/* Where capacity is: region snapshot */}
       <section className="border-t border-line bg-surface-2" aria-labelledby="regions">
-        <div className="container-page py-20 md:py-28">
+        <div className="container-page py-14 md:py-20">
           <Reveal>
             <SectionHeading id="regions" title="Capacity by Region" description="Operating and pipeline capacity across tracked projects, by sector." href="/statistics" linkLabel="Statistics" />
           </Reveal>
@@ -138,7 +138,7 @@ export default function Home() {
 
       {/* Technologies */}
       <section className="border-b border-line" aria-labelledby="techs">
-        <div className="container-page py-20 md:py-28">
+        <div className="container-page py-14 md:py-20">
           <Reveal>
             <SectionHeading id="techs" title="Sectors" description="Projects and capacity tracked in each sector." href="/projects" linkLabel="Project explorer" />
           </Reveal>
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* Disclosure promise */}
-      <section className="container-page py-20 md:py-24" aria-labelledby="sources-promise">
+      <section className="container-page py-14 md:py-20" aria-labelledby="sources-promise">
         <Reveal>
           <div className="grid gap-10 rounded-[calc(var(--radius)+4px)] bg-brand-navy px-7 py-12 text-white md:grid-cols-[1.1fr_1.5fr] md:px-12 md:py-14">
             <div>

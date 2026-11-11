@@ -173,24 +173,7 @@ p {
   }
 }
 
-/* Scroll reveal (components/ui/Reveal.tsx). Hidden only once JS has marked the page. */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition:
-    opacity 300ms var(--ease-out),
-    transform 300ms var(--ease-out);
-}
-.js .reveal.is-in {
-  opacity: 1;
-  transform: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .js .reveal {
-    opacity: 1;
-    transform: none;
-  }
-}
+/* Scroll reveal was removed: sections that faded in late read as empty space. Content is always visible. */
 
 /* Small enter animations (replace a JS animation library; disabled for reduced motion above). */
 @keyframes enter-down {

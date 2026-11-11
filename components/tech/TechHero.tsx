@@ -79,16 +79,28 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
         </dl>
       </div>
 
-      {photo && (
+      {photo?.credit && (
         <p className="absolute right-4 bottom-2 max-w-[70%] truncate text-right text-[10px] text-white/70 md:right-8">
           Photo:{" "}
-          <a href={photo.sourceUrl} target="_blank" rel="noopener" className="underline-offset-2 hover:text-white hover:underline">
-            {photo.credit}
-          </a>
-          ,{" "}
-          <a href={photo.licenseUrl} target="_blank" rel="noopener license" className="underline-offset-2 hover:text-white hover:underline">
-            {photo.license}
-          </a>
+          {photo.sourceUrl ? (
+            <a href={photo.sourceUrl} target="_blank" rel="noopener" className="underline-offset-2 hover:text-white hover:underline">
+              {photo.credit}
+            </a>
+          ) : (
+            photo.credit
+          )}
+          {photo.license && (
+            <>
+              ,{" "}
+              {photo.licenseUrl ? (
+                <a href={photo.licenseUrl} target="_blank" rel="noopener license" className="underline-offset-2 hover:text-white hover:underline">
+                  {photo.license}
+                </a>
+              ) : (
+                photo.license
+              )}
+            </>
+          )}
           {photo.modified && ", cropped and darkened"}
         </p>
       )}

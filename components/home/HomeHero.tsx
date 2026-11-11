@@ -174,7 +174,7 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
           </div>
 
           {/* Legend row, below the globe */}
-          <div className="flex min-h-12 flex-wrap items-center justify-between gap-x-8 gap-y-2 border-t border-hero-line py-3">
+          <div className="flex flex-col items-center gap-2 border-t border-hero-line py-4 text-center">
             {mode === "policy" ? <PolicyLegend /> : <SectorLegend points={filtered} />}
           </div>
 
@@ -189,8 +189,9 @@ export function HomeHero({ points, policyRows, dealStats, rail }: Props) {
           </dl>
         </div>
 
-        <aside aria-label="Latest deals" className="-mx-4 border-t border-hero-line md:-mx-8 lg:mx-0 lg:border-t-0 lg:border-l lg:pl-2">
-          {rail}
+        {/* On wide screens the rail matches the globe column's height and scrolls inside it, so neither column leaves a gap. */}
+        <aside aria-label="Latest deals" className="-mx-4 border-t border-hero-line md:-mx-8 lg:relative lg:mx-0 lg:border-t-0 lg:border-l lg:pl-2">
+          <div className="lg:absolute lg:inset-0 lg:left-2">{rail}</div>
         </aside>
       </div>
 
@@ -211,15 +212,15 @@ function SectorLegend({ points }: { points: MapPoint[] }) {
   const present = TECHNOLOGIES.filter((t) => points.some((p) => p.technology === t.id));
   return (
     <>
-      <ul className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-hero-muted" aria-label="Sectors">
+      <ul className="flex flex-wrap justify-center gap-x-6 gap-y-1.5 text-[13px] text-hero-ink" aria-label="Sectors">
         {present.map((t) => (
           <li key={t.id} className="inline-flex items-center gap-1.5">
-            <span className="size-2 rounded-full" style={{ background: t.hex }} aria-hidden />
+            <span className="size-2.5 rounded-full" style={{ background: t.hex }} aria-hidden />
             {t.label}
           </li>
         ))}
       </ul>
-      <p className="text-xs text-hero-muted">Milestones in the 30 days to the data date · circle area = capacity</p>
+      <p className="text-xs text-hero-muted">Projects with a milestone in the last 30 days. Circle size shows capacity.</p>
     </>
   );
 }
@@ -228,7 +229,7 @@ function PolicyLegend() {
   const grad = `linear-gradient(90deg, ${POLICY_RAMP.map(([, c]) => c).join(", ")})`;
   return (
     <>
-      <div className="flex items-center gap-3 text-xs text-hero-muted">
+      <div className="flex items-center gap-3 pb-3 text-xs text-hero-ink">
         <span>Unsupportive</span>
         <span className="relative h-2 w-40 rounded-[2px]" style={{ background: grad }} aria-hidden>
           <span className="tabular absolute -bottom-4 left-0 text-[10px]">1</span>

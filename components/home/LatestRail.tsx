@@ -22,7 +22,7 @@ export function LatestRail({ items }: { items: RailItem[] }) {
       <div className="px-4 pt-6 pb-2 md:px-8 lg:px-6 lg:pt-5">
         <h2 className="font-display text-sm font-semibold text-hero-muted">Latest Deals</h2>
       </div>
-      <ol className="flex-1 px-4 md:px-8 lg:px-6">
+      <ol className="flex-1 px-4 md:px-8 lg:min-h-0 lg:overflow-y-auto lg:px-6 lg:[mask-image:linear-gradient(to_bottom,black_88%,transparent)] lg:[scrollbar-width:thin]">
         {items.map((it) => (
           <li key={it.id} className="border-t border-hero-line first:border-t-0">
             <Link href={it.href} className="group block py-4">
@@ -45,7 +45,7 @@ export function LatestRail({ items }: { items: RailItem[] }) {
           </li>
         ))}
       </ol>
-      <div className="px-4 pt-2 pb-6 md:px-8 lg:px-6">
+      <div className="border-t border-hero-line px-4 pt-4 pb-6 md:px-8 lg:px-6">
         <Link href="/deals" className="group inline-flex items-center gap-1 text-sm font-medium text-brand-sky hover:text-white">
           Open the deal tracker
           <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />

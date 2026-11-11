@@ -303,7 +303,7 @@ export default function MethodologyPage() {
                 in MW, with output in tonnes per year where known.
               </Card>
               <Card title="Totals">
-                Statistics are sums of the records on Perpetual, so they cover only what is tracked. They are not national totals.
+                Country and regional statistics come from open public datasets such as IEA and IRENA, credited to each source. Project-level figures cover only what Perpetual tracks.
               </Card>
             </div>
           </Block>
