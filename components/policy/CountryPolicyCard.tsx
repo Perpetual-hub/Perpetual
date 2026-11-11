@@ -35,8 +35,8 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
             )}
             {c.basis === "indicators" && (
               <p className="mt-3 rounded-lg border border-line bg-surface-2 px-3 py-2 text-xs leading-relaxed text-muted">
-                <strong className="text-ink">Indicator baseline.</strong> Computed from published World Bank and IRENA data,
-                ranked against other countries. Updated {c.assessedAt}.
+                <strong className="text-ink">Data-based score.</strong> Computed from renewable policies in force, World Bank
+                and IRENA data, compared with other countries. Updated {c.assessedAt}.
               </p>
             )}
             <p className="mt-3 text-xs text-muted">
@@ -60,8 +60,60 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
             ))}
           </ul>
           {c.indicators && (
+            <div className="md:col-span-2">
+              <h3 className="font-sans text-base font-semibold text-ink">Why These Scores</h3>
+              <ul className="mt-4 grid gap-x-10 gap-y-6 md:grid-cols-2">
+                {PILLARS.map((p) => {
+                  const reasons = (c.indicators?.[p.id] ?? []).map((i) => i.reason).filter(Boolean);
+                  if (!reasons.length) return null;
+                  return (
+                    <li key={p.id}>
+                      <p className="flex items-baseline gap-2 text-sm font-semibold text-ink">
+                        <span className="font-display text-lg font-extrabold text-brand-blue">{p.id}</span>
+                        {p.name}
+                        <span className="tabular ml-auto text-sm text-muted">{c.scores[p.id].toFixed(1)} / 5</span>
+                      </p>
+                      <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-ink/85">
+                        {reasons.map((r) => (
+                          <li key={r} className="flex gap-2">
+                            <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-blue/60" aria-hidden />
+                            {r}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+          {!!c.policies?.length && (
+            <div className="md:col-span-2">
+              <h3 className="font-sans text-base font-semibold text-ink">Renewable Policies in Force</h3>
+              <ul className="mt-3 divide-y divide-line rounded-[var(--radius)] border border-line">
+                {c.policies.map((pol) => (
+                  <li key={pol.title} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 px-4 py-3 text-sm">
+                    <span className="tabular w-10 text-muted">{pol.year ?? "—"}</span>
+                    {pol.url ? (
+                      <a href={pol.url} target="_blank" rel="noopener" className="min-w-0 flex-1 font-medium text-ink underline-offset-2 hover:text-brand-blue hover:underline">
+                        {pol.title}
+                      </a>
+                    ) : (
+                      <span className="min-w-0 flex-1 font-medium text-ink">{pol.title}</span>
+                    )}
+                    <span className="text-xs text-muted">{pol.instrument}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-2 text-xs text-muted">
+                Source: Climate Policy Database 2025 (NewClimate Institute, Wageningen University and PBL, CC BY 4.0), which
+                includes policies from the IEA Policies Hub.
+              </p>
+            </div>
+          )}
+          {c.indicators && (
             <details className="group md:col-span-2">
-              <summary className="cursor-pointer text-sm font-medium text-brand-blue">Show the indicators behind each pillar</summary>
+              <summary className="cursor-pointer text-sm font-medium text-brand-blue">Show the data behind each pillar</summary>
               <div className="mt-4 overflow-x-auto rounded-lg border border-line">
                 <table className="w-full text-sm">
                   <caption className="sr-only">Indicators behind the PROFITS scores for {name}</caption>
@@ -81,7 +133,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
                           <td className="px-3 py-2 font-bold text-brand-blue">{i === 0 ? p.id : ""}</td>
                           <td className="px-3 py-2 text-ink">{ind.name}</td>
                           <td className="tabular px-3 py-2 text-right">
-                            {ind.value.toLocaleString("en-GB", { maximumFractionDigits: Math.abs(ind.value) >= 100 ? 0 : 2 })}
+                            {ind.display ?? ind.value.toLocaleString("en-GB", { maximumFractionDigits: Math.abs(ind.value) >= 100 ? 0 : 2 })}
                           </td>
                           <td className="tabular px-3 py-2 text-right text-muted">{ind.year}</td>
                           <td className="tabular px-3 py-2 text-right font-semibold">{ind.score.toFixed(1)}</td>

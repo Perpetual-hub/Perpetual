@@ -25,6 +25,7 @@ const SINCE = new Date(Date.now() - 5 * 365 * 86_400_000).toISOString().slice(0,
 mkdirSync(cacheDir, { recursive: true });
 
 const client = new Anthropic();
+const MODEL = process.env.EXTRACT_MODEL || "claude-opus-5-5";
 
 const Party = z.object({ name: z.string(), role: z.string().nullable() });
 const Extracted = z.object({
@@ -76,7 +77,9 @@ function articleText(page) {
   const body =
     page.match(/<section[^>]+class="[^"]*release-body[^"]*"[^>]*>([\s\S]*?)<\/section>/)?.[1] ??
     page.match(/<article[\s\S]*?<\/article>/)?.[0] ??
-    "";
+    page.match(/<div[^>]+class="[^"]*(?:entry-content|article-body|post-content|field--name-body|story-body|article__content)[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/)?.[1] ??
+    // Fallback: every paragraph on the page, which for news articles is mostly the story.
+    (page.match(/<p[\s>][\s\S]*?<\/p>/g) ?? []).join("\n");
   return body
     .replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, " ")
     .replace(/<\/(p|div|li|h\d|tr)>/g, "\n")
@@ -106,10 +109,10 @@ async function extract(c) {
   if (!text || text.length < 200) return { url: c.url, error: "no article text" };
 
   const response = await client.beta.messages.parse({
-    model: "claude-opus-5-5",
+    model: MODEL,
     max_tokens: 4000,
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
+    // Server-side refusal fallback where the model supports it (not on Haiku).
+    ...(/haiku/.test(MODEL) ? {} : { betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" }),
     output_config: { effort: "low", format: betaZodOutputFormat(Extracted) },
     system: SYSTEM,
     messages: [
@@ -122,9 +125,9 @@ async function extract(c) {
   const result =
     response.stop_reason === "refusal" || !response.parsed_output
       ? { url: c.url, error: `no output (${response.stop_reason})` }
-      : { url: c.url, headline, published, data: response.parsed_output };
+      : { url: c.url, publisher: c.publisher ?? "PR Newswire", headline, published, data: response.parsed_output };
   writeFileSync(cachePath, JSON.stringify(result));
-  await sleep(1000); // be polite to the wire
+  await sleep(1000); // be polite to the source site
   return result;
 }
 
@@ -174,7 +177,7 @@ function toDeal(x) {
     summary: d.summary,
     ...(d.details ? { details: d.details } : {}),
     ...(d.context ? { context: d.context } : {}),
-    sources: [{ publisher: "PR Newswire", title: x.headline, url: x.url, retrievedAt: new Date().toISOString().slice(0, 10) }],
+    sources: [{ publisher: x.publisher ?? "PR Newswire", title: x.headline, url: x.url, retrievedAt: new Date().toISOString().slice(0, 10) }],
   };
 }
 
@@ -185,7 +188,9 @@ const releaseKey = (u) => u.replace(/-\d+\.html$/, "");
 const curatedUrls = new Set([...curatedSrc.matchAll(/"url": "([^"]+)"/g)].map((m) => releaseKey(m[1])));
 const candidates = JSON.parse(readFileSync(candidatesPath, "utf8")).filter((c, i, all) => !curatedUrls.has(releaseKey(c.url)) && all.findIndex((o) => releaseKey(o.url) === releaseKey(c.url)) === i);
 const results = [];
-const todo = candidates.slice(0, Number.isFinite(LIMIT) ? LIMIT : undefined);
+// MAX_RELEASES caps how many new releases one run reads (newest first), which caps its cost.
+const MAX = Math.min(Number.isFinite(LIMIT) ? LIMIT : Infinity, Number(process.env.MAX_RELEASES ?? Infinity));
+const todo = candidates.slice(0, Number.isFinite(MAX) ? MAX : undefined);
 const CONCURRENCY = Number(process.env.EXTRACT_CONCURRENCY ?? 4);
 // Stop starting new releases after this many minutes, so a long catch-up still saves its work.
 const deadline = Date.now() + Number(process.env.MAX_MINUTES ?? 300) * 60_000;
@@ -229,11 +234,27 @@ for (const d of existing) {
   seenTitle.add(`${d.date}|${d.title.toLowerCase()}`);
   deals.push(d);
 }
+// The same deal is often reported by a company release and by news sites. Treat two records as one
+// when their titles share most of their meaningful words and they are dated within ten days.
+const words = (t) => new Set(t.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(" ").filter((w) => w.length > 2));
+const curatedAll = JSON.parse(curatedSrc.slice(curatedSrc.indexOf("= [") + 2, curatedSrc.lastIndexOf(";")));
+const known = [...curatedAll, ...existing].map((d) => ({ w: words(d.title), t: Date.parse(d.date) }));
+const sameDeal = (d) => {
+  const w = words(d.title);
+  const t = Date.parse(d.date);
+  return known.some((k) => {
+    if (Math.abs(k.t - t) > 10 * 86_400_000) return false;
+    let shared = 0;
+    for (const x of w) if (k.w.has(x)) shared++;
+    return shared / Math.min(w.size, k.w.size) >= 0.6;
+  });
+};
 for (const x of results) {
   const d = x && !x.error ? toDeal(x) : null;
   if (!d) continue;
   const k = `${d.date}|${d.title.toLowerCase()}`;
-  if (seenTitle.has(k) || seenId.has(d.id)) continue;
+  if (seenTitle.has(k) || seenId.has(d.id) || sameDeal(d)) continue;
+  known.push({ w: words(d.title), t: Date.parse(d.date) });
   seenId.add(d.id);
   seenTitle.add(k);
   deals.push(d);
@@ -247,7 +268,7 @@ for (const d of deals) {
 writeFileSync(
   outFile,
   `// GENERATED by scripts/extract-deals.mjs. Do not edit by hand.
-// Facts from company press releases (PR Newswire), written in our own words. Each record links to its release.
+// Facts from company press releases and energy news sites, written in our own words. Each record links to its source.
 import type { Deal } from "@/lib/types";
 
 export const newsDeals: Deal[] = ${JSON.stringify(deals, null, 1)};
