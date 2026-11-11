@@ -47,7 +47,8 @@ jobs:
       - run: pip install openpyxl
 
       # Downloads and extractions are cached between runs, so each release is read and billed once.
-      - uses: actions/cache@v4
+      # The cache is saved by its own step straight after extraction, even if that step fails, so paid work is never lost.
+      - uses: actions/cache/restore@v4
         with:
           path: .cache
           key: data-cache-${{ github.run_id }}
@@ -84,6 +85,21 @@ jobs:
           MAX_RELEASES: ${{ inputs.max_releases || '300' }}
           EXTRACT_MODEL: ${{ inputs.model || 'claude-opus-5-5' }}
         run: node scripts/extract-deals.mjs .cache/all-candidates.json .cache/extract
+
+      - name: Save the cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache
+          key: data-cache-${{ github.run_id }}
+
+      - name: Keep a copy of the new data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-${{ github.run_id }}
+          path: data/
+          retention-days: 30
 
       - name: PROFITS indicator scores
         run: node scripts/build-profits.mjs
