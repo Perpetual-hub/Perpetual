@@ -12,13 +12,12 @@ import { TechTag } from "@/components/ui/TechTag";
 import { dealValue } from "@/components/cards/Cards";
 import {
   getDealsForProject,
-  getNewsForProject,
   getProject,
   getProjects,
   toMapPoint,
 } from "@/lib/data";
 import { OWNERSHIP_LABEL } from "@/lib/filters";
-import { NEWS_CATEGORY_LABEL, countryName, formatDate, formatMW, formatMoney, DEAL_TYPE_LABEL } from "@/lib/format";
+import { countryName, formatDate, formatMW, formatMoney, DEAL_TYPE_LABEL } from "@/lib/format";
 import { TECH_BY_ID } from "@/lib/tech";
 import type { Party, Project } from "@/lib/types";
 
@@ -50,7 +49,6 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
   if (!p) notFound();
   const tech = TECH_BY_ID[p.technology];
   const deals = getDealsForProject(p.id);
-  const news = getNewsForProject(p.id);
   const capex = p.financing?.totalCapex;
 
   const capacity =
@@ -184,14 +182,11 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             </div>
           </Section>
 
-          {(deals.length > 0 || news.length > 0) && (
-            <Section id="related" title="Related deals and news">
+          {deals.length > 0 && (
+            <Section id="related" title="Deals">
               <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
                 {deals.map((d) => (
                   <RelatedRow key={d.id} href={`/deals/${d.slug}`} kicker={`Deal · ${DEAL_TYPE_LABEL[d.type]}`} date={d.date} title={d.title} extra={dealValue(d)} />
-                ))}
-                {news.map((n) => (
-                  <RelatedRow key={n.id} href={`/news/${n.slug}`} kicker={NEWS_CATEGORY_LABEL[n.category]} date={n.date} title={n.headline} />
                 ))}
               </ul>
             </Section>

@@ -14,12 +14,12 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="All things renewables, in one place"
-        intro="Perpetual is a map and record of the energy transition: what is being built, where, by whom, who paid for it, and what changed this week."
+        intro="Perpetual follows the money behind the energy transition: what is being built, where, who is financing it, and which countries make it easiest to invest."
       />
       <div className="container-page py-12">
         <Prose>
           <div className="rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-[0.95rem] leading-relaxed">
-            <strong>This is a beta.</strong> Every project, deal and news item on the site is <strong>sample data</strong>, invented
+            <strong>This is a beta.</strong> Every project, deal and policy score on the site is <strong>sample data</strong>, invented
             to test the design and the data model. Names, owners, values and dates do not describe real projects or companies.
             Sample records carry a &ldquo;Sample data&rdquo; badge. Data version {DATA_VERSION}.
           </div>
@@ -41,7 +41,7 @@ export default function AboutPage() {
               See <Link href="/statistics">statistics</Link> by region, country and sector, including what is expected to come
               online in coming years.
             </li>
-            <li>Follow the deals and policy changes that move the market.</li>
+            <li>Follow the deals, financings and investors behind the projects, and compare how investable each country&rsquo;s policies are.</li>
           </ul>
 
           <h2 id="principles">Principles</h2>
@@ -51,9 +51,6 @@ export default function AboutPage() {
             </li>
             <li>
               <strong>Honest uncertainty.</strong> Estimated dates and forecasts are labelled as such.
-            </li>
-            <li>
-              <strong>Respect for publishers.</strong> We summarise news in our own words and link to the original.
             </li>
             <li>
               <strong>Correctable.</strong> Anyone can <Link href="/corrections">report a correction</Link>.

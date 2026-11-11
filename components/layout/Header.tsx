@@ -33,9 +33,9 @@ export type TechCounts = Record<Technology, { projects: number; totalMW: number 
 
 const NAV = [
   { href: "/projects", label: "Projects" },
-  { href: "/statistics", label: "Statistics" },
   { href: "/deals", label: "Deals" },
-  { href: "/news", label: "News & Policy" },
+  { href: "/policy", label: "Policy" },
+  { href: "/statistics", label: "Statistics" },
   { href: "/methodology", label: "Methodology" },
 ];
 

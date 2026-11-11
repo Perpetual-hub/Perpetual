@@ -13,10 +13,9 @@ const GROUP_LABEL: Record<SearchType, string> = {
   country: "Countries",
   region: "Regions",
   deal: "Deals",
-  news: "News & Policy",
   page: "Pages",
 };
-const GROUP_ORDER: SearchType[] = ["project", "technology", "country", "region", "deal", "news", "page"];
+const GROUP_ORDER: SearchType[] = ["project", "deal", "technology", "country", "region", "page"];
 const PER_GROUP = 5;
 
 /** Opens with ⌘K / Ctrl K (or the header search button) and searches everything at once. */
@@ -134,7 +133,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
               setQ(e.target.value);
               setActive(0);
             }}
-            placeholder="Search projects, countries, deals, news…"
+            placeholder="Search projects, deals, investors, countries…"
             className="h-14 flex-1 bg-transparent text-base text-ink placeholder:text-muted/80 focus:outline-none"
           />
           <button type="button" onClick={close} aria-label="Close search" className="rounded-md p-1.5 text-muted hover:bg-surface-2">

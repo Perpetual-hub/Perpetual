@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { SampleBadge } from "@/components/ui/Badge";
 import { TechTag } from "@/components/ui/TechTag";
-import { DEAL_TYPE_LABEL, NEWS_CATEGORY_LABEL, formatDate, formatMW, formatMoney } from "@/lib/format";
-import type { Deal, NewsItem } from "@/lib/types";
+import { DEAL_TYPE_LABEL, formatDate, formatMW, formatMoney } from "@/lib/format";
+import type { Deal } from "@/lib/types";
 
 const cardBase =
   "group relative flex h-full flex-col rounded-[var(--radius)] border border-line bg-white transition-[border-color,box-shadow] duration-200 hover:border-[#cdd6e2] hover:shadow-[0_8px_24px_-14px_rgba(11,27,46,0.22)]";
@@ -60,32 +60,8 @@ function BigStat({ label, value }: { label: string; value: string }) {
   );
 }
 
-/** Large editorial card for a featured story. */
-export function FeatureStoryCard({ item }: { item: NewsItem }) {
-  return (
-    <article className={`${cardBase} p-7`}>
-      <Meta>
-        <span className="font-semibold text-brand-blue">{NEWS_CATEGORY_LABEL[item.category]}</span>
-        <span>{formatDate(item.date)}</span>
-        {item.isSample && <SampleBadge />}
-      </Meta>
-      <h3 className="mt-6 text-2xl leading-[1.15] font-bold tracking-tight md:text-[2rem]">
-        <Link href={`/news/${item.slug}`} className="after:absolute after:inset-0">
-          {item.headline}
-        </Link>
-      </h3>
-      <p className="mt-4 text-lg leading-relaxed text-muted">{item.summary}</p>
-      <div className="mt-auto flex flex-wrap items-center gap-3 pt-8">
-        {item.technologies.map((t) => (
-          <TechTag key={t} tech={t} />
-        ))}
-        <span className="ml-auto text-xs text-muted">Source: {item.source.publisher}</span>
-      </div>
-    </article>
-  );
-}
 
-/** Compact card for news or deals. */
+/** Compact card for a deal. */
 export function SmallCard({
   href,
   kicker,

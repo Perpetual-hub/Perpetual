@@ -1,6 +1,6 @@
 # Perpetual — All Things Renewables (beta)
 
-A global map of renewable energy projects, deals and policy, with a source behind every fact.
+Renewable energy deals, new projects and how investable each country is, with a source behind every fact.
 **Every record in this beta is sample data.**
 
 ## Run it
@@ -19,7 +19,7 @@ npm run build
 |---|---|
 | `app/` | Routes: `/`, `/projects`, `/projects/[slug]`, `/sectors/[tech]`, `/statistics`, `/countries/[code]`, `/regions/[slug]`, `/methodology`, `/about`, `/corrections`; plus `sitemap.xml`, `robots.txt`, `search-index.json` and Open Graph images |
 | `components/` | `map/` (MapLibre globe/map, drawer), `explorer/`, `charts/`, `cards/`, `layout/`, `search/` (⌘K palette), `brand/` (logo marks), `prose/`, `ui/` |
-| `data/` | Seed files (`projects.ts`, `deals.ts`, `news.ts`, `research.ts`, `meta.ts`) |
+| `data/` | Seed files (`projects.ts`, `deals.ts`, `policy.ts` (PROFITS), `research.ts`, `meta.ts`) |
 | `lib/data.ts` | The **only** module that reads `/data`. Swap it for a DB/CMS later without touching pages |
 | `lib/schema.ts` | zod schemas. `next build` fails with a clear message if a record breaks them |
 | `lib/filters.ts` | Project filters + URL query (de)serialisation, shared by server and client |
@@ -31,8 +31,9 @@ npm run build
 ## Add a record
 
 - **Project**: append an object to `data/projects.ts`. Give it a unique `id` and kebab-case `slug`, an ISO-2 `country`, and at least one `sources` entry. Run `npm run build` to validate.
-- **Deal / news item**: append to `data/deals.ts` / `data/news.ts`. Link projects with `projectIds` (and deals with `dealIds`); broken links fail the build.
-- News stores **only** our own 1–3 sentence summary and a link to the original. Never paste article text.
+- **Deal**: append to `data/deals.ts`. Link projects with `projectIds`; broken links fail the build.
+- **Policy score**: edit `data/policy.ts` (seven PROFITS pillars, 1–5 each, plus any deal-breakers and sources).
+  Current scores are illustrative placeholders (`isSample: true`).
 - Bump `DATA_VERSION` and add a changelog entry in `data/meta.ts`.
 
 ## Brand files
@@ -40,6 +41,13 @@ npm run build
 The logo is drawn in code from the design canvas (Round 5, white-background version): `components/brand/Mark.tsx`
 (mark) and `components/layout/Logo.tsx` (mark + Nunito 800 wordmark). `public/brand/perpetual-mark.svg` is a standalone copy.
 The favicon `app/icon.svg` is the simplified small-size mark. The mark has white cut-outs: light surfaces only.
+
+## Home globe
+
+- **New this month**: projects whose latest *confirmed* milestone (announced, permits, financial close, construction
+  start, started operating) falls in the 30 days before `DATA_AS_OF` (`getRecentMilestonePoints` in `lib/data.ts`).
+- **Policy heatmap**: countries coloured by weighted PROFITS score (presets in `data/policy.ts`). Country outlines come
+  from Natural Earth via `world-atlas`, served as `/geo/countries.json` and loaded only when the heatmap is opened.
 
 ## Charts
 
@@ -55,7 +63,7 @@ and update its entry; never use a photo without a licence that allows reuse.
 
 ## Search, SEO and accessibility
 
-- **⌘K / Ctrl K** opens search across projects, technologies, countries, regions, deals and news. The palette and its
+- **⌘K / Ctrl K** opens search across projects, deals, sectors, countries and regions. The palette and its
   index (`/search-index.json`, built from `getSearchIndex()` in `lib/data.ts`) load only on first use.
 - Every page sets its own title and description; projects and technologies get generated Open Graph images
   (`lib/og.tsx`, fonts in `assets/fonts/`). Set `NEXT_PUBLIC_SITE_URL` in production so OG and sitemap URLs are absolute.

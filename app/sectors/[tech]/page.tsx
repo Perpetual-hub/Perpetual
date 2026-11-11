@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { AreaMap } from "@/components/area/AreaMap";
+import { InvestorsCard } from "@/components/area/InvestorsCard";
 import { ChartCard, ListCard, ListRow } from "@/components/area/AreaPage";
 import { dealValue } from "@/components/cards/Cards";
 import { BarList } from "@/components/charts/BarList";
@@ -12,9 +13,9 @@ import { TechHero } from "@/components/tech/TechHero";
 import { TechSwitcher } from "@/components/tech/TechSwitcher";
 import { StatusBadge } from "@/components/ui/Badge";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
-import { AS_OF_YEAR, getTechProfile, getTimeline, toMapPoint } from "@/lib/data";
+import { AS_OF_YEAR, getTechProfile, getTimeline, getTopInvestors, toMapPoint } from "@/lib/data";
 import { regionSlug } from "@/lib/filters";
-import { NEWS_CATEGORY_LABEL, STATUS_LABEL, countryName, formatGW, formatMW, DEAL_TYPE_LABEL } from "@/lib/format";
+import { STATUS_LABEL, countryName, formatGW, formatMW, DEAL_TYPE_LABEL } from "@/lib/format";
 import { TECHNOLOGIES, TECH_BY_ID, isTechnology } from "@/lib/tech";
 
 export function generateStaticParams() {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/sectors/[tech]">)
   const s = getTechProfile(tech).stats;
   return {
     title: `${t.label} sector: projects, deals and statistics`,
-    description: `${s.projects} ${t.label.toLowerCase()} projects (${formatGW(s.totalMW)} GW) tracked worldwide: capacity by status and region, projects coming online, latest deals and policy news.`,
+    description: `${s.projects} ${t.label.toLowerCase()} projects (${formatGW(s.totalMW)} GW) tracked worldwide: capacity by status and region, projects coming online, latest deals and the most active investors.`,
   };
 }
 
@@ -77,7 +78,7 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
           <AreaMap points={prof.projects.map(toMapPoint)} label={`${t.label} projects`} />
         </section>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-2">
           <ChartCard title="Capacity by status" note="Click a bar to explore">
             <BarList
               caption={`${t.label} capacity by project status`}
@@ -149,17 +150,13 @@ async function TechnologyContent({ params }: { params: PageProps<"/sectors/[tech
           </p>
         </section>
 
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
           <ListCard title={`Latest ${t.label.toLowerCase()} deals`} empty="No deals tracked for this sector yet." href="/deals">
             {prof.deals.slice(0, 5).map((d) => (
               <ListRow key={d.id} href={`/deals/${d.slug}`} kicker={DEAL_TYPE_LABEL[d.type]} date={d.date} title={d.title} extra={dealValue(d)} />
             ))}
           </ListCard>
-          <ListCard title="Latest news & policy" empty="No news tracked for this sector yet." href="/news">
-            {prof.news.slice(0, 5).map((n) => (
-              <ListRow key={n.id} href={`/news/${n.slug}`} kicker={NEWS_CATEGORY_LABEL[n.category]} date={n.date} title={n.headline} />
-            ))}
-          </ListCard>
+          <InvestorsCard investors={getTopInvestors(prof.deals)} />
         </div>
       </div>
     </div>

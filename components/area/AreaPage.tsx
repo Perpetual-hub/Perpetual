@@ -6,15 +6,17 @@ import { BarList } from "@/components/charts/BarList";
 import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
 import { StatusBadge } from "@/components/ui/Badge";
 import { TechTag } from "@/components/ui/TechTag";
-import { AS_OF_YEAR, type AreaProfile, getTimeline, toMapPoint } from "@/lib/data";
+import { AS_OF_YEAR, type AreaProfile, getTimeline, getTopInvestors, toMapPoint } from "@/lib/data";
 import { STATUSES, regionSlug } from "@/lib/filters";
-import { NEWS_CATEGORY_LABEL, STATUS_LABEL, formatDate, formatGW, formatMW, DEAL_TYPE_LABEL } from "@/lib/format";
+import { STATUS_LABEL, formatDate, formatGW, formatMW, DEAL_TYPE_LABEL } from "@/lib/format";
 import { TECHNOLOGIES } from "@/lib/tech";
+import { CountryPolicyCard } from "@/components/policy/CountryPolicyCard";
+import { InvestorsCard } from "./InvestorsCard";
 import { AreaMap } from "./AreaMap";
 
 /** Shared template for country and region statistics pages. */
 export function AreaPage({ profile }: { profile: AreaProfile }) {
-  const { summary: s, projects, deals, news, countries } = profile;
+  const { summary: s, projects, deals, countries } = profile;
   const filterQuery = s.kind === "country" ? `country=${s.key}` : `region=${encodeURIComponent(s.name)}`;
   const byStatus = STATUSES.map((st) => ({
     key: st,
@@ -66,7 +68,9 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
       </header>
 
       <div className="container-page space-y-14 py-12">
-        <div className="grid gap-10 lg:grid-cols-2">
+        {s.kind === "country" && <CountryPolicyCard code={s.key} name={s.name} />}
+
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
           <ChartCard title="Capacity by sector" note="Click a bar to explore">
             <BarList rows={byTech} caption={`Capacity by sector in ${s.name}`} />
           </ChartCard>
@@ -119,17 +123,13 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
           </ul>
         </section>
 
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
           <ListCard title="Latest deals" empty="No deals tracked here yet." href="/deals">
             {deals.slice(0, 5).map((d) => (
               <ListRow key={d.id} href={`/deals/${d.slug}`} kicker={DEAL_TYPE_LABEL[d.type]} date={d.date} title={d.title} extra={dealValue(d)} />
             ))}
           </ListCard>
-          <ListCard title="Latest news & policy" empty="No news tracked here yet." href="/news">
-            {news.slice(0, 5).map((n) => (
-              <ListRow key={n.id} href={`/news/${n.slug}`} kicker={NEWS_CATEGORY_LABEL[n.category]} date={n.date} title={n.headline} />
-            ))}
-          </ListCard>
+          <InvestorsCard investors={getTopInvestors(deals)} />
         </div>
       </div>
     </div>

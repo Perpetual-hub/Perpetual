@@ -48,7 +48,7 @@ export function ProjectTable({ points }: { points: MapPoint[] }) {
     );
 
   return (
-    <div className="overflow-x-auto rounded-[var(--radius)] border border-line bg-white">
+    <div className="relative overflow-x-auto rounded-[var(--radius)] border border-line bg-white">
       <table className="w-full min-w-[1080px] text-sm">
         <caption className="sr-only">Projects matching the current filters. Column headers sort the table.</caption>
         <thead className="sticky top-0 z-10 bg-white">

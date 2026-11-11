@@ -21,7 +21,18 @@ export interface BarRow {
  * Horizontal bar list (one series, so no legend box). Hover for details; bars with an
  * `href` are clickable and keyboard-reachable through the table below.
  */
-export function BarList({ rows, caption, countLabel = "projects" }: { rows: BarRow[]; caption: string; countLabel?: string }) {
+export function BarList({
+  rows,
+  caption,
+  countLabel = "projects",
+  format = formatMW,
+}: {
+  rows: BarRow[];
+  caption: string;
+  countLabel?: string;
+  /** How values are shown (default: MW/GW). */
+  format?: (v: number) => string;
+}) {
   const router = useRouter();
   const [active, setActive] = useState<number | null>(null);
   const data = [...rows].sort((a, b) => b.value - a.value);
@@ -57,7 +68,7 @@ export function BarList({ rows, caption, countLabel = "projects" }: { rows: BarR
             return (
               <div className="rounded-lg border border-line bg-white px-3 py-2 text-xs shadow-[0_8px_24px_-12px_rgba(11,27,46,0.25)]">
                 <div className="font-semibold text-ink">{r.label}</div>
-                <div className="tabular mt-0.5 text-ink">{formatMW(r.value)}</div>
+                <div className="tabular mt-0.5 text-ink">{format(r.value)}</div>
                 {r.count != null && (
                   <div className="tabular text-muted">
                     {r.count} {countLabel}
@@ -86,7 +97,7 @@ export function BarList({ rows, caption, countLabel = "projects" }: { rows: BarR
           <LabelList
             dataKey="value"
             position="right"
-            formatter={(v) => formatMW(Number(v))}
+            formatter={(v) => format(Number(v))}
             style={{ fontSize: 12, fontWeight: 600, fill: "var(--ink)", fontVariantNumeric: "tabular-nums" }}
           />
         </Bar>
@@ -98,7 +109,7 @@ export function BarList({ rows, caption, countLabel = "projects" }: { rows: BarR
           {data.map((r) => (
             <tr key={r.key}>
               <th scope="row">{r.href ? <a href={r.href}>{r.label}</a> : r.label}</th>
-              <td>{formatMW(r.value)}</td>
+              <td>{format(r.value)}</td>
               {r.count != null && <td>{r.count} {countLabel}</td>}
             </tr>
           ))}

@@ -287,7 +287,7 @@ export const projects: Project[] = [
     },
     financing: {
       financialClose: {
-        date: "2024-04-12",
+        date: "2026-11-05",
         confidence: "confirmed"
       },
       totalCapex: {
@@ -762,7 +762,7 @@ export const projects: Project[] = [
         confidence: "confirmed"
       },
       construction: {
-        date: "2025-02-02",
+        date: "2026-10-12",
         confidence: "confirmed"
       },
       cod: {
@@ -1051,7 +1051,7 @@ export const projects: Project[] = [
         confidence: "confirmed"
       },
       construction: {
-        date: "2025-03-08",
+        date: "2026-10-25",
         confidence: "confirmed"
       },
       cod: {
@@ -1069,7 +1069,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-09",
+    lastUpdated: "2026-10-25",
     dataVersion: "2026.11.0"
   },
   {
@@ -1108,7 +1108,7 @@ export const projects: Project[] = [
     ],
     dates: {
       announced: {
-        date: "2023-06-20",
+        date: "2026-10-14",
         confidence: "confirmed"
       },
       cod: {
@@ -1170,7 +1170,7 @@ export const projects: Project[] = [
     },
     dates: {
       announced: {
-        date: "2023-08-28",
+        date: "2026-10-22",
         confidence: "confirmed"
       },
       cod: {
@@ -1188,7 +1188,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-01",
+    lastUpdated: "2026-10-22",
     dataVersion: "2026.11.0"
   },
   {
@@ -1634,7 +1634,7 @@ export const projects: Project[] = [
     admin1: "Chubut",
     lat: -45.8,
     lng: -67.5,
-    status: "construction",
+    status: "operating",
     ownership: "private",
     developer: [
       {
@@ -1706,12 +1706,16 @@ export const projects: Project[] = [
         confidence: "confirmed"
       },
       cod: {
-        date: "2027-10-26",
+        date: "2026-10-30",
+        confidence: "confirmed"
+      },
+      decommission: {
+        date: "2056-12-31",
         confidence: "estimated"
       }
     },
     designLifeYears: 30,
-    description: "Sample record. A 220 MW onshore project in Chubut, currently construction. Facts on this page are illustrative and do not describe a real project.",
+    description: "Sample record. A 220 MW onshore project in Chubut, currently operating. Facts on this page are illustrative and do not describe a real project.",
     sources: [
       {
         publisher: "Perpetual sample data",
@@ -1720,8 +1724,14 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-01",
-    dataVersion: "2026.11.0"
+    lastUpdated: "2026-10-30",
+    dataVersion: "2026.11.0",
+    om: [
+      {
+        name: "Revell Operations",
+        role: "O&M provider"
+      }
+    ]
   },
   {
     id: "prj-018",
@@ -2390,7 +2400,7 @@ export const projects: Project[] = [
     ],
     dates: {
       announced: {
-        date: "2024-03-20",
+        date: "2026-11-03",
         confidence: "confirmed"
       },
       cod: {
@@ -2408,7 +2418,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-11-02",
+    lastUpdated: "2026-11-03",
     dataVersion: "2026.11.0"
   },
   {
@@ -2572,7 +2582,7 @@ export const projects: Project[] = [
     },
     financing: {
       financialClose: {
-        date: "2024-09-26",
+        date: "2026-10-27",
         confidence: "confirmed"
       },
       totalCapex: {
@@ -3901,7 +3911,7 @@ export const projects: Project[] = [
         confidence: "confirmed"
       },
       construction: {
-        date: "2025-05-27",
+        date: "2026-11-01",
         confidence: "confirmed"
       },
       cod: {
@@ -3919,7 +3929,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-09-09",
+    lastUpdated: "2026-11-01",
     dataVersion: "2026.11.0"
   },
   {
@@ -3958,7 +3968,7 @@ export const projects: Project[] = [
     ],
     dates: {
       announced: {
-        date: "2023-03-22",
+        date: "2026-10-19",
         confidence: "confirmed"
       },
       cod: {
@@ -3976,7 +3986,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-10-19",
     dataVersion: "2026.11.0"
   },
   {
@@ -4681,7 +4691,7 @@ export const projects: Project[] = [
     ],
     dates: {
       announced: {
-        date: "2025-07-07",
+        date: "2026-10-28",
         confidence: "confirmed"
       },
       cod: {
@@ -4699,7 +4709,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-10-28",
     dataVersion: "2026.11.0"
   },
   {
@@ -4917,7 +4927,7 @@ export const projects: Project[] = [
     },
     financing: {
       financialClose: {
-        date: "2024-07-25",
+        date: "2026-10-21",
         confidence: "confirmed"
       },
       totalCapex: {
@@ -5118,7 +5128,7 @@ export const projects: Project[] = [
     ],
     dates: {
       announced: {
-        date: "2025-09-18",
+        date: "2026-11-08",
         confidence: "confirmed"
       },
       cod: {
@@ -5136,7 +5146,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-11-08",
     dataVersion: "2026.11.0"
   },
   {
@@ -5558,7 +5568,7 @@ export const projects: Project[] = [
         confidence: "confirmed"
       },
       construction: {
-        date: "2025-07-13",
+        date: "2026-10-18",
         confidence: "confirmed"
       },
       cod: {
@@ -5576,7 +5586,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-03",
+    lastUpdated: "2026-10-18",
     dataVersion: "2026.11.0"
   },
   {
@@ -5614,7 +5624,7 @@ export const projects: Project[] = [
     ],
     dates: {
       announced: {
-        date: "2023-11-17",
+        date: "2026-10-16",
         confidence: "confirmed"
       },
       cod: {
@@ -5632,7 +5642,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-07",
+    lastUpdated: "2026-10-16",
     dataVersion: "2026.11.0"
   },
   {
@@ -5762,7 +5772,7 @@ export const projects: Project[] = [
     admin1: "Normandy",
     lat: 49.7,
     lng: -1.95,
-    status: "construction",
+    status: "operating",
     ownership: "mixed",
     developer: [
       {
@@ -5837,12 +5847,16 @@ export const projects: Project[] = [
         confidence: "confirmed"
       },
       cod: {
-        date: "2027-09-22",
+        date: "2026-11-04",
+        confidence: "confirmed"
+      },
+      decommission: {
+        date: "2051-12-31",
         confidence: "estimated"
       }
     },
     designLifeYears: 25,
-    description: "Sample record. A 12 MW tidal stream project in Normandy, currently construction. Facts on this page are illustrative and do not describe a real project.",
+    description: "Sample record. A 12 MW tidal stream project in Normandy, currently operating. Facts on this page are illustrative and do not describe a real project.",
     sources: [
       {
         publisher: "Perpetual sample data",
@@ -5851,8 +5865,14 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-09-04",
-    dataVersion: "2026.11.0"
+    lastUpdated: "2026-11-04",
+    dataVersion: "2026.11.0",
+    om: [
+      {
+        name: "Kinora Asset Management",
+        role: "O&M provider"
+      }
+    ]
   },
   {
     id: "prj-061",
@@ -5958,7 +5978,7 @@ export const projects: Project[] = [
     },
     dates: {
       announced: {
-        date: "2024-07-09",
+        date: "2026-11-06",
         confidence: "confirmed"
       },
       cod: {
@@ -5976,7 +5996,7 @@ export const projects: Project[] = [
         retrievedAt: "2026-11-01"
       }
     ],
-    lastUpdated: "2026-10-04",
+    lastUpdated: "2026-11-06",
     dataVersion: "2026.11.0"
   }
 ];

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · Perpetual",
   },
   description:
-    "A global map of renewable energy projects, deals and policy, with a source behind every fact. Beta: all records are sample data.",
+    "Renewable energy deals, new projects and how investable each country is, with a source behind every fact. Beta: all records are sample data.",
   openGraph: { siteName: "Perpetual", type: "website" },
 };
 

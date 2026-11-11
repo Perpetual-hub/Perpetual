@@ -48,7 +48,7 @@ export default function StatisticsPage() {
       </header>
 
       <div className="container-page space-y-16 py-12">
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
           <ChartCard title="Capacity by sector" note="Click a bar to explore">
             <BarList
               caption="Total tracked capacity by sector"

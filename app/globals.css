@@ -219,3 +219,20 @@ p {
 .anim-fade-in {
   animation: fade-in 200ms ease-out;
 }
+
+/* Faint starfield behind the hero globe (pure CSS, no images). */
+.starfield {
+  background-color: var(--hero-bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 27% 72%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 44% 12%, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 63% 84%, rgba(255, 255, 255, 0.45) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 30%, rgba(255, 255, 255, 0.5) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 64%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 52%, rgba(255, 255, 255, 0.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 52% 46%, rgba(255, 255, 255, 0.25) 50%, transparent 51%),
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(61, 142, 224, 0.16), transparent 70%);
+  background-size:
+    320px 320px, 260px 260px, 410px 410px, 300px 300px, 360px 360px, 280px 280px, 230px 230px, 390px 390px, 100% 100%;
+}

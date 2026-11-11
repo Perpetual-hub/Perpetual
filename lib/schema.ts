@@ -150,22 +150,6 @@ export const deal = z.object({
   sources: z.array(source).min(1),
 });
 
-export const newsItem = z.object({
-  id: z.string().min(1),
-  slug,
-  isSample: z.boolean(),
-  date: isoDate,
-  breaking: z.boolean().optional(),
-  featured: z.boolean().optional(),
-  category: z.enum(["policy", "auction", "corporate", "markets", "technology", "finance"]),
-  headline: z.string().min(1),
-  summary: z.string().min(1).max(600, "summaries are our own words, 1–3 sentences"),
-  technologies: z.array(technology),
-  countries: z.array(iso2),
-  source,
-  projectIds: z.array(z.string()).optional(),
-  dealIds: z.array(z.string()).optional(),
-});
 
 export const researchItem = z.object({
   id: z.string().min(1),

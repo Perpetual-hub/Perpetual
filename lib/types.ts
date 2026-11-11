@@ -14,7 +14,5 @@ export type Project = z.infer<typeof S.project>;
 export type Deal = z.infer<typeof S.deal>;
 export type DealType = Deal["type"];
 export type DealStatus = Deal["status"];
-export type NewsItem = z.infer<typeof S.newsItem>;
-export type NewsCategory = NewsItem["category"];
 export type ResearchItem = z.infer<typeof S.researchItem>;
 export type ResearchType = ResearchItem["type"];

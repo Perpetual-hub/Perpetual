@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CorrectionForm } from "@/components/prose/CorrectionForm";
 import { PageHeader } from "@/components/prose/Prose";
-import { getDeals, getNews, getProjects } from "@/lib/data";
+import { getDeals, getProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Report a correction",
@@ -13,7 +13,6 @@ export default function CorrectionsPage() {
   const records = [
     ...getProjects().map((p) => ({ id: p.id, label: `Project: ${p.name}` })),
     ...getDeals().map((d) => ({ id: d.id, label: `Deal: ${d.title}` })),
-    ...getNews().map((n) => ({ id: n.id, label: `News: ${n.headline}` })),
   ];
   return (
     <>

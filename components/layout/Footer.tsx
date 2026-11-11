@@ -19,9 +19,9 @@ const GROUPS: { title: string; links: FooterLink[]; twoCol?: boolean }[] = [
     title: "Explore Perpetual",
     links: [
       { href: "/projects", label: "Project Explorer" },
+      { href: "/deals", label: "Deal Tracker" },
+      { href: "/policy", label: "Policy Map" },
       { href: "/statistics", label: "Statistics" },
-      { href: "/deals", label: "Deals" },
-      { href: "/news", label: "News & Policy" },
     ],
   },
   {

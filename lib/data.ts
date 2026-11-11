@@ -8,15 +8,14 @@
 import { z } from "zod";
 import { deals as rawDeals } from "@/data/deals";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
-import { news as rawNews } from "@/data/news";
 import { projects as rawProjects } from "@/data/projects";
 import { research as rawResearch } from "@/data/research";
 import { PIPELINE_STATUSES, matchesFilters, regionSlug, type ProjectFilters } from "./filters";
 import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "./format";
+import type { Milestone, MilestoneKind } from "./milestones";
 import * as S from "./schema";
 import type {
   Deal,
-  NewsItem,
   Ownership,
   Project,
   ProjectStatus,
@@ -54,20 +53,14 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeComp
 
 const projects = validate("data/projects.ts", S.project, rawProjects);
 const deals = validate("data/deals.ts", S.deal, rawDeals).sort(byDateDesc);
-const news = validate("data/news.ts", S.newsItem, rawNews).sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
 
 // Cross-file reference checks.
 {
   const projectIds = new Set(projects.map((p) => p.id));
-  const dealIds = new Set(deals.map((d) => d.id));
   const bad: string[] = [];
   for (const d of deals)
     for (const id of d.projectIds ?? []) if (!projectIds.has(id)) bad.push(`deals › ${d.id} › unknown project ${id}`);
-  for (const n of news) {
-    for (const id of n.projectIds ?? []) if (!projectIds.has(id)) bad.push(`news › ${n.id} › unknown project ${id}`);
-    for (const id of n.dealIds ?? []) if (!dealIds.has(id)) bad.push(`news › ${n.id} › unknown deal ${id}`);
-  }
   if (bad.length) throw new Error(`\n\nPerpetual seed data has broken references:\n  ${bad.join("\n  ")}\n`);
 }
 
@@ -110,6 +103,24 @@ export interface MapPoint {
   codConfidence?: "confirmed" | "estimated";
   admin1?: string;
   instruments?: string[];
+  /** The most recent confirmed milestone on or before the dataset date. */
+  milestone?: Milestone;
+}
+
+
+/** Latest confirmed milestone up to the dataset date (estimated dates never count). */
+export function latestMilestone(p: Project, asOf = DATA_AS_OF): Milestone | undefined {
+  const c: [MilestoneKind, Project["dates"]["announced"]][] = [
+    ["announced", p.dates.announced],
+    ["permits", p.dates.permits],
+    ["financing", p.financing?.financialClose],
+    ["construction", p.dates.construction],
+    ["operating", p.dates.cod],
+  ];
+  return c
+    .filter(([, v]) => v && v.confidence === "confirmed" && v.date <= asOf)
+    .map(([kind, v]) => ({ kind, date: v!.date }))
+    .sort((a, b) => b.date.localeCompare(a.date))[0];
 }
 
 export function toMapPoint(p: Project): MapPoint {
@@ -133,6 +144,7 @@ export function toMapPoint(p: Project): MapPoint {
     codConfidence: p.dates.cod?.confidence,
     admin1: p.admin1,
     instruments: p.financing?.instruments,
+    milestone: latestMilestone(p),
   };
 }
 
@@ -140,19 +152,21 @@ export function getMapPoints(filters?: ProjectFilters): MapPoint[] {
   return getProjects(filters).map(toMapPoint);
 }
 
-// ---------- Deals, news, research ----------
+/** Projects that reached a confirmed milestone in the `days` before the dataset date. */
+export function getRecentMilestonePoints(days = 30): MapPoint[] {
+  return projects
+    .map(toMapPoint)
+    .filter((p) => p.milestone && daysBetween(p.milestone.date, DATA_AS_OF) <= days)
+    .sort((a, b) => b.milestone!.date.localeCompare(a.milestone!.date));
+}
+
+// ---------- Deals and research ----------
 
 export function getDeals(): Deal[] {
   return deals;
 }
 export function getDeal(slug: string): Deal | undefined {
   return deals.find((d) => d.slug === slug);
-}
-export function getNews(): NewsItem[] {
-  return news;
-}
-export function getNewsItem(slug: string): NewsItem | undefined {
-  return news.find((n) => n.slug === slug);
 }
 export function getResearch(): ResearchItem[] {
   return research;
@@ -162,20 +176,15 @@ export function getResearchItem(slug: string): ResearchItem | undefined {
 }
 
 export function getLatest(n: number) {
-  return { news: news.slice(0, n), deals: deals.slice(0, n), research: research.slice(0, n) };
+  return { deals: deals.slice(0, n), research: research.slice(0, n) };
 }
 
-export function getFeatured() {
-  const deal = deals.find((d) => d.featured) ?? deals[0];
-  const story = news.find((x) => x.featured) ?? news[0];
-  return { deal, story };
+export function getFeaturedDeal(): Deal {
+  return deals.find((d) => d.featured) ?? deals[0];
 }
 
 export function getDealsForProject(id: string): Deal[] {
   return deals.filter((d) => d.projectIds?.includes(id));
-}
-export function getNewsForProject(id: string): NewsItem[] {
-  return news.filter((n) => n.projectIds?.includes(id));
 }
 
 // ---------- Stats ----------
@@ -286,7 +295,6 @@ export interface AreaProfile {
   summary: AreaSummary;
   projects: Project[];
   deals: Deal[];
-  news: NewsItem[];
   /** For regions: the countries inside it. */
   countries: AreaSummary[];
 }
@@ -299,7 +307,6 @@ export function getCountryProfile(code: string): AreaProfile | undefined {
     summary,
     projects: projects.filter((p) => p.country === c),
     deals: deals.filter((d) => d.countries.includes(c)),
-    news: news.filter((n) => n.countries.includes(c)),
     countries: [],
   };
 }
@@ -313,7 +320,6 @@ export function getRegionProfile(slug: string): AreaProfile | undefined {
     summary,
     projects: inRegion,
     deals: deals.filter((d) => d.region === summary.name || d.countries.some((c) => codes.has(c))),
-    news: news.filter((n) => n.countries.some((c) => codes.has(c))),
     countries: getCountries().filter((c) => codes.has(c.key)),
   };
 }
@@ -325,7 +331,6 @@ export interface TechProfile {
   stats: Stats & { countries: number };
   projects: Project[];
   deals: Deal[];
-  news: NewsItem[];
   byStatus: { status: ProjectStatus; mw: number; count: number }[];
   byRegion: { region: string; mw: number; count: number }[];
   codByYear: { year: number; confirmed: number; estimated: number }[];
@@ -362,7 +367,6 @@ export function getTechProfile(tech: Technology): TechProfile {
     stats: { ...getStats(tech), countries: new Set(list.map((p) => p.country)).size },
     projects: list,
     deals: deals.filter((d) => d.technologies.includes(tech)),
-    news: news.filter((n) => n.technologies.includes(tech)),
     byStatus: [...statuses].map(([status, v]) => ({ status, ...v })),
     byRegion: [...regions].map(([region, v]) => ({ region, ...v })).sort((a, b) => b.mw - a.mw),
     codByYear,
@@ -403,7 +407,7 @@ export const AS_OF_YEAR = Number(DATA_AS_OF.slice(0, 4));
 
 // ---------- Search index (⌘K) ----------
 
-export type SearchType = "project" | "technology" | "country" | "region" | "deal" | "news" | "page";
+export type SearchType = "project" | "technology" | "country" | "region" | "deal" | "page";
 
 export interface SearchEntry {
   type: SearchType;
@@ -456,16 +460,10 @@ export function getSearchIndex(): SearchEntry[] {
       keywords: [...(d.buyers ?? []), ...(d.sellers ?? [])].map((x) => x.name).join(" ") + " " + d.countries.map(countryName).join(" "),
       tech: d.technologies[0],
     })),
-    ...news.map((n) => ({
-      type: "news" as const,
-      title: n.headline,
-      subtitle: `${n.source.publisher} · ${formatDate(n.date)}`,
-      href: `/news/${n.slug}`,
-      keywords: `${n.category} ${n.countries.map(countryName).join(" ")}`,
-      tech: n.technologies[0],
-    })),
     ...[
       { title: "Project explorer", href: "/projects" },
+      { title: "Deal tracker", href: "/deals" },
+      { title: "Policy map (PROFITS)", href: "/policy" },
       { title: "Statistics", href: "/statistics" },
       { title: "Methodology", href: "/methodology" },
       { title: "Report a correction", href: "/corrections" },
@@ -473,3 +471,30 @@ export function getSearchIndex(): SearchEntry[] {
     ].map((p) => ({ type: "page" as const, title: p.title, subtitle: "Page", href: p.href, keywords: "" })),
   ];
 }
+
+// ---------- Investors ----------
+
+export interface InvestorSummary {
+  name: string;
+  deals: number;
+  /** Sum of disclosed deal values in USD (undisclosed deals add nothing). */
+  usd: number;
+}
+
+/** Most active buyers, lenders and investors across a set of deals. */
+export function getTopInvestors(list: Deal[] = deals, n = 5): InvestorSummary[] {
+  const m = new Map<string, InvestorSummary>();
+  for (const d of list) {
+    for (const b of d.buyers ?? []) {
+      if (/\(sample\)|investors$/i.test(b.name)) continue; // skip generic placeholders like "Bond investors"
+      const x = m.get(b.name) ?? { name: b.name, deals: 0, usd: 0 };
+      x.deals += 1;
+      x.usd += d.value?.disclosed ? (d.value.usd ?? 0) / Math.max(d.buyers!.length, 1) : 0;
+      m.set(b.name, x);
+    }
+  }
+  return [...m.values()].sort((a, b) => b.deals - a.deals || b.usd - a.usd).slice(0, n);
+}
+
+export { MILESTONE_LABEL } from "./milestones";
+export type { Milestone, MilestoneKind } from "./milestones";

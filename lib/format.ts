@@ -1,5 +1,5 @@
 // Formatting helpers. Pure functions only, safe on server and client.
-import type { DealStatus, DealType, NewsCategory, ProjectStatus, ResearchType } from "./types";
+import type { DealStatus, DealType, ProjectStatus, ResearchType } from "./types";
 
 const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
 
@@ -49,14 +49,6 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
   cancelled: "Cancelled",
 };
 
-export const NEWS_CATEGORY_LABEL: Record<NewsCategory, string> = {
-  policy: "Policy & Regulation",
-  auction: "Auctions & Tenders",
-  corporate: "Corporate",
-  markets: "Markets",
-  technology: "Technology",
-  finance: "Finance",
-};
 
 export const RESEARCH_TYPE_LABEL: Record<ResearchType, string> = {
   report: "Report",

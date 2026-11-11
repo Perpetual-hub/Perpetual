@@ -15,6 +15,7 @@ const TOC = [
   { id: "what-we-track", label: "What we track" },
   { id: "definitions", label: "Definitions" },
   { id: "sources", label: "Sources" },
+  { id: "profits", label: "Policy scores (PROFITS)" },
   { id: "numbers", label: "How numbers are handled" },
   { id: "limitations", label: "Limitations" },
   { id: "corrections", label: "Corrections" },
@@ -49,14 +50,14 @@ export default function MethodologyPage() {
         <Toc items={TOC} />
         <Prose>
           <div className="rounded-[var(--radius)] border border-brand-sun/50 bg-brand-sun/10 px-5 py-4 text-[0.95rem] leading-relaxed">
-            <strong>Beta notice.</strong> Every project, deal and news record currently on Perpetual is <strong>sample data</strong>,
+            <strong>Beta notice.</strong> Every project, deal and policy score currently on Perpetual is <strong>sample data</strong>,
             made up to test the design. The rules below describe how real data will be handled.
           </div>
 
           <h2 id="what-we-track">What we track</h2>
           <p>
             Perpetual tracks renewable energy <strong>projects</strong>, the <strong>deals</strong> that fund or change hands over
-            them, and the <strong>news and policy</strong> that shapes them, across eight sectors:
+            them, and how <strong>investable</strong> each country&rsquo;s policies are, across eight sectors:
           </p>
           <dl>
             {TECHNOLOGIES.map((t) => (
@@ -111,33 +112,29 @@ export default function MethodologyPage() {
 
           <h2 id="sources">Sources</h2>
           <p>
-            Renewable energy news is spread across hundreds of places: trade press, newswires, regulators, grid operators, company
-            announcements and lenders. Perpetual brings it together so you can follow it in one place, then sends you to the original.
+            Perpetual records facts, not other people&rsquo;s articles. Deals and project milestones are built from primary
+            disclosures wherever possible: company and investor announcements, stock-exchange and regulatory filings, lenders and
+            development banks, auction results and grid operators. Each record links to where the fact was published.
           </p>
-          <h3>How we present other people&rsquo;s news</h3>
-          <ul>
-            <li>
-              <strong>Headline and our own short summary.</strong> We write a one-to-three sentence summary in our own words. We never
-              copy or republish article text, photos or charts.
-            </li>
-            <li>
-              <strong>Clear credit.</strong> Every item names its publisher and the date, and shows the publisher&rsquo;s name or logo
-              so you can see at a glance where it came from.
-            </li>
-            <li>
-              <strong>A direct link to the original.</strong> &ldquo;Read the original&rdquo; always goes to the publisher&rsquo;s own
-              page, where the full story lives. We don&rsquo;t frame, mirror or bypass paywalls.
-            </li>
-            <li>
-              <strong>Publishers can opt out.</strong> If you publish news and would prefer not to be listed, or want your logo shown
-              differently, <a href="/corrections">contact us</a> and we will act on it.
-            </li>
-          </ul>
-          <h3>How we choose sources for data</h3>
+          <h3>How we choose sources</h3>
           <p>
             Every project and deal lists its sources: publisher, title, link and the date we retrieved it. We prefer primary sources
             (regulators, grid operators, company filings and announcements, lenders) over secondary reporting. Where we use open
             datasets, we follow their licence terms and credit them on the records they inform.
+          </p>
+
+          <h2 id="profits">Policy scores (PROFITS)</h2>
+          <p>
+            PROFITS scores how investable a country is for renewable energy, the way an investor would see it. Seven pillars are each
+            scored 1 to 5: <strong>P</strong>olitical &amp; policy, <strong>R</strong>egulatory &amp; legal, <strong>O</strong>fftake
+            &amp; market, <strong>F</strong>inancial &amp; macro, <strong>I</strong>nfrastructure &amp; implementation,{" "}
+            <strong>T</strong>rack record &amp; transactions, and <strong>S</strong>ocial &amp; environmental. The total is a weighted
+            average, with weights that change by deal type (for example, offtake counts most for commercial and industrial deals).
+            Deal-breakers, such as being unable to take money out of the country, fail a country whatever its total.
+          </p>
+          <p>
+            In the beta, every score is an <strong>illustrative placeholder</strong>, not an assessment. Researched scores will list
+            their sources for each pillar. See the <a href="/policy">policy map</a> for the full framework and weights.
           </p>
 
           <h2 id="numbers">How numbers are handled</h2>
@@ -190,9 +187,9 @@ export default function MethodologyPage() {
 
           <h2 id="legal">Legal note</h2>
           <p>
-            Perpetual is provided for information only and is <strong>not investment advice</strong>. Third-party content, including
-            linked articles and reports, belongs to its owners; we link to originals and summarise in our own words. Publisher names and
-            logos are trademarks of their owners and are used only to identify the source. Photos are used
+            Perpetual is provided for information only and is <strong>not investment advice</strong>. Linked filings, announcements and
+            reports belong to their owners; we link to them as sources. Policy scores are an opinion framework, not a rating or a
+            recommendation to invest. Photos are used
             under their stated licences, credited where they appear. Map data © OpenStreetMap contributors, OpenMapTiles,
             OpenFreeMap.
           </p>

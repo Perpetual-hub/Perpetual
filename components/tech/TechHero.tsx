@@ -49,7 +49,7 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
       <span className="absolute inset-x-0 top-0 h-[3px]" style={{ background: t.hex }} aria-hidden />
 
       <div
-        className={`container-page grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end ${
+        className={`container-page grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end ${
           dark ? "pt-20 pb-16 md:pt-28 md:pb-20" : "pt-12 pb-12"
         }`}
       >
