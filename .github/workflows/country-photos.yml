@@ -1,0 +1,29 @@
+name: Country photos
+
+# Run by hand: finds a free-licensed landscape photo per country on Wikimedia
+# Commons and commits data/geo/country-photos.ts to a branch for review.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/fetch-country-photos.py
+      - name: Push to a branch
+        run: |
+          if git diff --quiet -- data; then echo "No changes."; exit 0; fi
+          git config user.name "perpetual-data-bot"
+          git config user.email "perpetual-data-bot@users.noreply.github.com"
+          git checkout -b data/country-photos
+          git add data/geo/country-photos.ts
+          git commit -m "Country photos from Wikimedia Commons"
+          git push -f -u origin data/country-photos

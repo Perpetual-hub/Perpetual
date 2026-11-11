@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SampleBadge } from "@/components/ui/Badge";
+import { PillarSpine } from "@/components/policy/PillarSpine";
 import { PolicyRanking } from "@/components/policy/PolicyRanking";
 import { PageHeader } from "@/components/prose/Prose";
 import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS } from "@/data/policy";
@@ -20,81 +21,15 @@ export default function PolicyPage() {
     <>
       <PageHeader
         title="Policy Assessment"
-        intro="PROFITS looks at a country the way an investor would: seven pillars, each scored 1 to 5, then weighted for the kind of deal you are doing."
+        intro="PROFITS looks at a country the way an investor would: seven questions, each scored 1 to 5, then weighted for the kind of deal you are doing. First the framework, then the results."
       />
       <div className="container-page space-y-16 py-10 md:py-14">
-        {rows.length > 0 ? (
-          <section aria-labelledby="ranking-h">
-            <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <div className="flex flex-wrap items-center gap-3">
-                  <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
-                    Country Ranking
-                  </h2>
-                  {rows.every((r) => r.isSample) && <SampleBadge />}
-                </div>
-                <p className="mt-2 max-w-3xl leading-relaxed text-muted">
-                  Weighted PROFITS score for each country, highest first. Choose a deal type to change the weights. Scores
-                  are a baseline computed from published indicators (World Bank governance and development data, IRENA
-                  statistics and our deal record), and are replaced by researched scores country by country. Open a
-                  country for the indicators behind each pillar.
-                </p>
-              </div>
-              <Link
-                href="/#policy"
-                className="group inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
-              >
-                See it on the globe
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-              </Link>
-            </div>
-            <PolicyRanking rows={rows} />
-          </section>
-        ) : (
-          <section
-            aria-labelledby="ranking-h"
-            className="grid gap-6 rounded-[var(--radius)] border border-line bg-surface-2 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8"
-          >
-            <div>
-              <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
-                Country Ranking
-              </h2>
-              <p className="mt-2 max-w-3xl leading-relaxed text-muted">
-                Country scores are being researched. Each country will be published with a score and the sources behind
-                every pillar, starting with the largest renewable markets.
-              </p>
-            </div>
-            <Link
-              href="/statistics#countries-h"
-              className="group inline-flex items-center gap-1.5 justify-self-start rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
-            >
-              Country statistics
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </Link>
-          </section>
-        )}
-
         <section aria-labelledby="pillars-h">
-          <SectionHead id="pillars-h" title="Framework Pillars">
-            Each pillar is scored 1 (weak) to 5 (strong). A country can be strongly pro-renewable and still hard to invest in: high
-            targets (P) mean little if contracts (R) and money (F) are uncertain, so the pillars are kept apart.
+          <SectionHead id="pillars-h" title="The PROFITS Framework">
+            Seven questions an investor asks before putting money into a country&rsquo;s renewable energy. A country can
+            want renewables and still be hard to invest in, so each question is scored on its own.
           </SectionHead>
-          <ol className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line md:grid-cols-2">
-            {PILLARS.map((p) => (
-              <li key={p.id} className="bg-white p-6 md:last:col-span-2">
-                <div className="flex items-baseline gap-3">
-                  <span className="font-display text-2xl font-extrabold text-brand-blue">{p.id}</span>
-                  <h3 className="font-sans text-base font-semibold text-ink">{p.name}</h3>
-                </div>
-                <p className="mt-2 font-medium text-ink">{p.question}</p>
-                <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-muted">
-                  {p.checks.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ol>
+          <PillarSpine />
         </section>
 
         <section aria-labelledby="weights-h">
@@ -176,6 +111,57 @@ export default function PolicyPage() {
             ))}
           </ol>
         </section>
+
+        {rows.length > 0 ? (
+          <section aria-labelledby="ranking-h">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
+                    Country Ranking
+                  </h2>
+                  {rows.every((r) => r.isSample) && <SampleBadge />}
+                </div>
+                <p className="mt-2 max-w-3xl leading-relaxed text-muted">
+                  The results: weighted PROFITS score for each country, highest first. Choose a deal type to change the
+                  weights. Scores are computed from published data, including renewable policies recorded in the Climate
+                  Policy Database (which draws on the IEA Policies Hub), World Bank indicators and IRENA statistics. Open
+                  a country for the reasons behind each pillar.
+                </p>
+              </div>
+              <Link
+                href="/#policy"
+                className="group inline-flex items-center gap-1.5 rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
+              >
+                See it on the globe
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+              </Link>
+            </div>
+            <PolicyRanking rows={rows} />
+          </section>
+        ) : (
+          <section
+            aria-labelledby="ranking-h"
+            className="grid gap-6 rounded-[var(--radius)] border border-line bg-surface-2 p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8"
+          >
+            <div>
+              <h2 id="ranking-h" className="text-2xl font-bold tracking-tight">
+                Country Ranking
+              </h2>
+              <p className="mt-2 max-w-3xl leading-relaxed text-muted">
+                Country scores are being researched. Each country will be published with a score and the sources behind
+                every pillar, starting with the largest renewable markets.
+              </p>
+            </div>
+            <Link
+              href="/statistics#countries-h"
+              className="group inline-flex items-center gap-1.5 justify-self-start rounded-lg bg-brand-navy px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue"
+            >
+              Country statistics
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+            </Link>
+          </section>
+        )}
 
         <section aria-labelledby="reference-h">
           <SectionHead id="reference-h" title="Reference Data">

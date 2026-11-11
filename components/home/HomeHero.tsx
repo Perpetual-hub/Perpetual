@@ -148,7 +148,7 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
           </div>
 
           {/* Globe: auto-fitted to its box, so labels never sit on top of it */}
-          <div className="starfield relative h-[58vh] min-h-[340px] lg:h-[calc(100svh-22rem)] lg:min-h-[340px]">
+          <div className="starfield relative h-[68vh] min-h-[440px] lg:h-[calc(100svh-13rem)] lg:min-h-[600px]">
             {isWide === null ? (
               <MapPlaceholder theme="dark" />
             ) : view === "globe" ? (
@@ -159,7 +159,7 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
                 mode={mode === "policy" ? "policy" : "projects"}
                 vivid
                 autoRotate
-                fitGlobe={0.86}
+                fitGlobe={0.94}
                 initialView={{ center: [15, 16], zoom: 1.5 }}
                 showControls={isWide}
                 onSelect={onSelect}
