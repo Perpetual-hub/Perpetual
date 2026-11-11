@@ -6,7 +6,7 @@ Starts from each country's Wikivoyage page banner (Wikidata property P948), whic
 editors choose as a representative landscape. Banners are narrow crops, so where
 the banner's description names the original photo and that original is large
 (at least 2400 px wide), the original is used instead. Writes
-data/geo/country-photos.ts with the image URL (a 2400 px rendition), the
+data/geo/country-photos.ts with the image URL (a 1920 px rendition, a size Wikimedia serves), the
 photographer, the licence and the Commons page for attribution. Only free
 licences (CC BY, CC BY-SA, CC0, public domain) are kept.
 Wikimedia asks for gentle traffic: one request at a time, with back-off on 429.
@@ -57,7 +57,7 @@ def info(title):
                 "titles": title,
                 "prop": "imageinfo|revisions",
                 "iiprop": "size|url|extmetadata",
-                "iiurlwidth": "2400",
+                "iiurlwidth": "1920",
                 "rvprop": "content",
                 "rvslots": "main",
                 "format": "json",

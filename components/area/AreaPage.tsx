@@ -82,14 +82,8 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
       <header className={photo ? "relative isolate overflow-hidden bg-brand-navy text-white" : "border-b border-line"}>
         {photo && (
           <>
-            {/* eslint-disable-next-line @next/next/no-img-element -- remote Commons image, sized by Wikimedia */}
-            <img
-              src={photo.url}
-              alt=""
-              className="absolute inset-0 -z-20 h-full w-full object-cover"
-              loading="eager"
-              decoding="async"
-            />
+            {/* Background image, so a photo that fails to load leaves the plain navy band rather than a broken icon. */}
+            <div aria-hidden className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: `url("${photo.url}")` }} />
             <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#061a33]/95 via-[#061a33]/60 to-[#061a33]/25" />
           </>
         )}
