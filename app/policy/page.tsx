@@ -34,7 +34,10 @@ export default function PolicyPage() {
                   {rows.every((r) => r.isSample) && <SampleBadge />}
                 </div>
                 <p className="mt-2 max-w-3xl leading-relaxed text-muted">
-                  Weighted PROFITS score for each country, highest first. Choose a deal type to change the weights.
+                  Weighted PROFITS score for each country, highest first. Choose a deal type to change the weights. Scores
+                  are a baseline computed from published indicators (World Bank governance and development data, IRENA
+                  statistics and our deal record), and are replaced by researched scores country by country. Open a
+                  country for the indicators behind each pillar.
                 </p>
               </div>
               <Link
@@ -193,12 +196,12 @@ export default function PolicyPage() {
 }
 
 const REFERENCES: [string, string][] = [
-  ["World Bank RISE", "Policy and regulatory indicators for renewable energy"],
-  ["BNEF Climatescope", "Country-level clean energy investment attractiveness"],
-  ["EY RECAI", "Renewable energy country attractiveness rankings"],
-  ["IEA and IRENA", "Installed capacity, generation and market data"],
-  ["Rating agencies", "Sovereign and utility credit strength"],
-  ["Grid operators and deal records", "Curtailment, connection queues and transaction trends, including Perpetual\u2019s tracker"],
+  ["World Bank WGI", "Political stability, government effectiveness, regulatory quality, rule of law, voice and accountability, control of corruption (pillars P, R and S)"],
+  ["World Bank WDI", "GDP growth, inflation, exchange rates, lending rates, electricity access and grid losses (pillars O, F and I)"],
+  ["IRENA statistics", "Installed renewable capacity, growth and electricity generation (pillars O, I and T)"],
+  ["Perpetual deal record", "Renewable financings recorded since 2021 (pillar T)"],
+  ["World Bank RISE, BNEF Climatescope, EY RECAI", "Cross-checks when a country receives a researched score"],
+  ["Rating agencies and grid operators", "Sovereign credit, utility credit, curtailment and connection queues for researched scores"],
 ];
 
 function SectionHead({ id, title, children }: { id: string; title: string; children?: React.ReactNode }) {

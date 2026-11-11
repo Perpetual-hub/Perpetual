@@ -148,6 +148,10 @@ export const deal = z.object({
   projectIds: z.array(z.string()).optional(),
   featured: z.boolean().optional(),
   summary: z.string().min(1),
+  /** Project and technology specifics (capacity mix, storage duration, stage, timeline), in our own words. */
+  details: z.string().optional(),
+  /** Why the deal matters for the parties, in our own words. */
+  context: z.string().optional(),
   sources: z.array(source).min(1),
 });
 

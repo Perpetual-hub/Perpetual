@@ -12,6 +12,9 @@
     "data:outlook": "node scripts/fetch-eia-outlook.mjs",
     "data:worldbank": "node scripts/fetch-worldbank-deals.mjs",
     "data:iati": "python3 scripts/import-iati-deals.py",
+    "data:profits": "node scripts/build-profits.mjs",
+    "data:news-candidates": "python3 scripts/collect-deal-news.py",
+    "data:news-deals": "node scripts/extract-deals.mjs",
     "postinstall": "node scripts/copy-maplibre-worker.mjs",
     "predev": "node scripts/copy-maplibre-worker.mjs",
     "prebuild": "node scripts/copy-maplibre-worker.mjs"
@@ -35,6 +38,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/geojson": "^7946.0.16",
     "@types/node": "^20",

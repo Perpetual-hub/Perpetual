@@ -1,0 +1,74 @@
+name: Update data
+
+# Daily: new deals from press releases and development lenders, plus refreshed
+# PROFITS indicators. Opens a pull request so every change is reviewed before it
+# goes live. Statistics (IRENA, EIA) update yearly and are refreshed by hand.
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: npm ci
+      - run: pip install openpyxl
+
+      # Downloads and extractions are cached between runs, so each release is read and billed once.
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: data-cache-${{ github.run_id }}
+          restore-keys: data-cache-
+
+      - name: Development lenders (IATI)
+        run: python3 scripts/import-iati-deals.py .cache/iati
+
+      - name: World Bank financings
+        run: node scripts/fetch-worldbank-deals.mjs
+
+      - name: Press releases (last 2 months)
+        run: python3 scripts/collect-deal-news.py .cache/candidates.json .cache/prn 2
+
+      - name: Extract deals from press releases
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: node scripts/extract-deals.mjs .cache/candidates.json .cache/extract
+
+      - name: PROFITS indicator scores
+        run: node scripts/build-profits.mjs
+
+      - name: Check the site still builds
+        run: npm run lint && npm run typecheck && npm run build
+
+      - name: Open a pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data; then echo "No data changes."; exit 0; fi
+          branch="data-update/$(date -u +%Y-%m-%d)"
+          git config user.name "perpetual-data-bot"
+          git config user.email "perpetual-data-bot@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data
+          git commit -m "Data update $(date -u +%Y-%m-%d)"
+          git push -u origin "$branch"
+          gh pr create --title "Data update $(date -u +%Y-%m-%d)" --body "Automated data refresh: new deals and indicators. Review the diff before merging."

@@ -1,10 +1,18 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.3";
+export const DATA_VERSION = "2026.11.4";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
 export const DATA_AS_OF = "2026-11-11";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.4",
+    date: "2026-11-11",
+    changes: [
+      "PROFITS scores for 195 countries, computed from World Bank governance and development indicators, IRENA statistics and the deal record. The policy heatmap is back.",
+      "24 deals from company press releases (August to October 2026), with project details and context written in our own words and a link to each release.",
+    ],
+  },
   {
     version: "2026.11.3",
     date: "2026-11-11",

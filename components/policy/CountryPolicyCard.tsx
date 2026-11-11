@@ -33,6 +33,12 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
                 <strong>Illustrative score</strong>, not an assessment of {name}.
               </p>
             )}
+            {c.basis === "indicators" && (
+              <p className="mt-3 rounded-lg border border-line bg-surface-2 px-3 py-2 text-xs leading-relaxed text-muted">
+                <strong className="text-ink">Indicator baseline.</strong> Computed from published World Bank and IRENA data,
+                ranked against other countries. Updated {c.assessedAt}.
+              </p>
+            )}
             <p className="mt-3 text-xs text-muted">
               {c.dealBreakers.length
                 ? `Deal-breaker: ${c.dealBreakers.map((d) => DEAL_BREAKERS.find((x) => x.id === d)?.label).join(", ")}`
@@ -53,6 +59,44 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
               </li>
             ))}
           </ul>
+          {c.indicators && (
+            <details className="group md:col-span-2">
+              <summary className="cursor-pointer text-sm font-medium text-brand-blue">Show the indicators behind each pillar</summary>
+              <div className="mt-4 overflow-x-auto rounded-lg border border-line">
+                <table className="w-full text-sm">
+                  <caption className="sr-only">Indicators behind the PROFITS scores for {name}</caption>
+                  <thead className="bg-surface-2 text-left text-xs text-muted">
+                    <tr>
+                      <th scope="col" className="px-3 py-2 font-medium">Pillar</th>
+                      <th scope="col" className="px-3 py-2 font-medium">Indicator</th>
+                      <th scope="col" className="px-3 py-2 text-right font-medium">Value</th>
+                      <th scope="col" className="px-3 py-2 text-right font-medium">Year</th>
+                      <th scope="col" className="px-3 py-2 text-right font-medium">Score</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-line">
+                    {PILLARS.flatMap((p) =>
+                      (c.indicators?.[p.id] ?? []).map((ind, i) => (
+                        <tr key={`${p.id}-${ind.id}`}>
+                          <td className="px-3 py-2 font-bold text-brand-blue">{i === 0 ? p.id : ""}</td>
+                          <td className="px-3 py-2 text-ink">{ind.name}</td>
+                          <td className="tabular px-3 py-2 text-right">
+                            {ind.value.toLocaleString("en-GB", { maximumFractionDigits: Math.abs(ind.value) >= 100 ? 0 : 2 })}
+                          </td>
+                          <td className="tabular px-3 py-2 text-right text-muted">{ind.year}</td>
+                          <td className="tabular px-3 py-2 text-right font-semibold">{ind.score.toFixed(1)}</td>
+                        </tr>
+                      )),
+                    )}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-2 text-xs text-muted">
+                Sources: {c.sources.map((x) => x.title).join(", ")}. Each indicator is ranked against every country with data
+                and scaled to 1 (lowest) to 5 (highest), reversed where lower is better.
+              </p>
+            </details>
+          )}
         </div>
       )}
     </section>

@@ -7,7 +7,9 @@
 // with a message naming the file, record and field.
 import { z } from "zod";
 import { deals as sampleDeals } from "@/data/deals";
+import { curatedDeals } from "@/data/deals-curated";
 import { iatiDeals } from "@/data/deals-iati";
+import { newsDeals } from "@/data/deals-news";
 import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { projects as rawProjects } from "@/data/projects";
@@ -61,7 +63,7 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeComp
 
 const projects = validate("data/projects.ts", S.project, rawProjects);
 // Sample deals plus real records imported from open sources (see scripts/).
-const deals = validate("data/deals*.ts", S.deal, [...sampleDeals, ...worldBankDeals, ...iatiDeals]).sort(byDateDesc);
+const deals = validate("data/deals*.ts", S.deal, [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBankDeals, ...iatiDeals]).sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
 
 // Cross-file reference checks.

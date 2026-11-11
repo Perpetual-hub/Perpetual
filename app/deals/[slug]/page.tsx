@@ -102,6 +102,18 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             />
           </Section>
 
+          {d.details && (
+            <Section id="details" title="Project Details">
+              <p className="max-w-3xl leading-relaxed text-ink/85">{d.details}</p>
+            </Section>
+          )}
+
+          {d.context && (
+            <Section id="context" title="Context">
+              <p className="max-w-3xl leading-relaxed text-ink/85">{d.context}</p>
+            </Section>
+          )}
+
           <Section id="parties" title="Parties">
             <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
               <PartyList title={partyTitle(d, "buyers")} parties={d.buyers} />
