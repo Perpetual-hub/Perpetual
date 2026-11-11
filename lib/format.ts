@@ -43,7 +43,7 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
   announced: "Announced",
   permitting: "Permitting",
   financing: "Financing",
-  construction: "Under construction",
+  construction: "Under Construction",
   operating: "Operating",
   decommissioned: "Decommissioned",
   cancelled: "Cancelled",
