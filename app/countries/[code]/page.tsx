@@ -3,19 +3,21 @@ import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AreaPage } from "@/components/area/AreaPage";
-import { getCountries, getCountryProfile } from "@/lib/data";
+import { countryStats, getAllCountryCodes, getCountryProfile } from "@/lib/data";
 import { formatGW } from "@/lib/format";
 
 export function generateStaticParams() {
-  return getCountries().map((c) => ({ code: c.key }));
+  return getAllCountryCodes().map((code) => ({ code }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/countries/[code]">): Promise<Metadata> {
   const p = getCountryProfile((await params).code);
   if (!p) return {};
   return {
-    title: `${p.summary.name}: renewable energy statistics`,
-    description: `${p.summary.projects} renewable projects and ${formatGW(p.summary.totalMW)} GW tracked in ${p.summary.name}, by sector and status, with deals and policy news.`,
+    title: `${p.summary.name}: Renewable Energy Statistics`,
+    description: countryStats.get(p.summary.key)
+      ? `Installed renewable capacity in ${p.summary.name} by technology, from official IRENA statistics, with deals and policy.`
+      : `${p.summary.projects} renewable projects and ${formatGW(p.summary.totalMW)} GW tracked in ${p.summary.name}, with deals and policy.`,
   };
 }
 

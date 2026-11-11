@@ -69,3 +69,33 @@ export interface CapacityOutlook {
   source: StatSource;
   scenarios: { id: string; label: string; rows: OutlookRow[] }[];
 }
+
+export type CountryCapacityKey =
+  | "solar"
+  | "windOnshore"
+  | "windOffshore"
+  | "hydro"
+  | "bioenergy"
+  | "geothermal"
+  | "marine"
+  | "fossil"
+  | "nuclear"
+  | "pumpedStorage"
+  | "otherNonRenewable";
+
+/** One country's IRENA series, one value per year from `years[0]` to `years[1]`. */
+export interface CountryCapacity {
+  iso2: string;
+  name: string;
+  region: string;
+  capacityMW: Partial<Record<CountryCapacityKey, number[]>>;
+  /** null where the source has not published that year yet. */
+  generationGWh: { renewable: (number | null)[]; total: (number | null)[] };
+}
+
+export interface CountryCapacityData {
+  unit: { capacity: "MW"; generation: "GWh" };
+  years: [number, number];
+  source: StatSource;
+  countries: CountryCapacity[];
+}

@@ -6,15 +6,18 @@
 // pages are prerendered during `next build`, a broken record fails the build
 // with a message naming the file, record and field.
 import { z } from "zod";
-import { deals as rawDeals } from "@/data/deals";
+import { deals as sampleDeals } from "@/data/deals";
+import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { projects as rawProjects } from "@/data/projects";
 import { research as rawResearch } from "@/data/research";
 import { capacityOutlook as rawCapacityOutlook } from "@/data/stats/capacity-outlook";
+import { countryCapacity as rawCountryCapacity } from "@/data/stats/country-capacity";
 import { globalCapacity as rawGlobalCapacity } from "@/data/stats/global-capacity";
 import { PIPELINE_STATUSES, matchesFilters, regionSlug, type ProjectFilters } from "./filters";
 import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "./format";
 import type { Milestone, MilestoneKind } from "./milestones";
+import { makeCountryStats } from "./country-stats";
 import * as S from "./schema";
 import type {
   CapacityOutlook,
@@ -56,7 +59,8 @@ function validate<T>(file: string, schema: z.ZodType<T>, rows: unknown[]): T[] {
 const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeCompare(a.date);
 
 const projects = validate("data/projects.ts", S.project, rawProjects);
-const deals = validate("data/deals.ts", S.deal, rawDeals).sort(byDateDesc);
+// Sample deals plus real records imported from open sources (see scripts/).
+const deals = validate("data/deals.ts + data/deals-worldbank.ts", S.deal, [...sampleDeals, ...worldBankDeals]).sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
 
 // Cross-file reference checks.
@@ -83,6 +87,12 @@ function validateStat<T>(file: string, schema: z.ZodType<T>, raw: unknown): T {
 
 const globalCapacity = validateStat("data/stats/global-capacity.ts", S.capacitySeries, rawGlobalCapacity);
 const capacityOutlook = validateStat("data/stats/capacity-outlook.ts", S.capacityOutlook, rawCapacityOutlook);
+
+/** Official installed capacity and generation for every country (IRENA). */
+export const countryStats = makeCountryStats(
+  validateStat("data/stats/country-capacity.ts", S.countryCapacityData, rawCountryCapacity),
+);
+export type { CountrySnapshot } from "./country-stats";
 
 /** EIA International Energy Outlook projections of world renewable capacity. Third-party forecasts only. */
 export function getCapacityOutlook(): CapacityOutlook {
@@ -327,9 +337,20 @@ export interface AreaProfile {
   countries: AreaSummary[];
 }
 
+/** Every country with a page: official statistics, projects or deals. */
+export function getAllCountryCodes(): string[] {
+  const codes = new Set(countryStats.all().map((c) => c.iso2));
+  for (const p of projects) codes.add(p.country);
+  for (const d of deals) for (const c of d.countries) codes.add(c);
+  return [...codes].sort();
+}
+
 export function getCountryProfile(code: string): AreaProfile | undefined {
   const c = code.toUpperCase();
-  const summary = getCountries().find((x) => x.key === c);
+  const dealList = deals.filter((d) => d.countries.includes(c));
+  const summary =
+    getCountries().find((x) => x.key === c) ??
+    (countryStats.get(c) || dealList.length ? summarise("country", c, countryName(c), [], dealList.length) : undefined);
   if (!summary) return undefined;
   return {
     summary,

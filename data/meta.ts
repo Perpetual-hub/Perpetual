@@ -11,6 +11,8 @@ export const changelog: { version: string; date: string; changes: string[] }[] =
     changes: [
       "Added global installed renewable capacity by technology, 2000 to 2025, from IRENA via Our World in Data.",
       "Added the US EIA International Energy Outlook 2023 projections of world renewable capacity to 2050, in three scenarios.",
+      "Added official IRENA capacity and generation statistics for 224 countries, 2000 to 2025, with a page for every country.",
+      "Added 102 real World Bank renewable energy financings (2015 to 2024) in 54 countries, each linked to its official project page.",
     ],
   },
   {

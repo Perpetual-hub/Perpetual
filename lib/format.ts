@@ -71,6 +71,7 @@ export const DEAL_TYPE_LABEL: Record<DealType, string> = {
   PPA: "PPA",
   IPO: "IPO",
   "fund close": "Fund Close",
+  "development finance": "Development Finance",
   "joint venture": "Joint Venture",
   refinancing: "Refinancing",
 };

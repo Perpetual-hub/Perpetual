@@ -12,6 +12,7 @@ export const DEAL_TYPES: DealType[] = [
   "fund close",
   "joint venture",
   "refinancing",
+  "development finance",
 ];
 export const DEAL_STATUSES: DealStatus[] = ["announced", "completed", "terminated"];
 export const PERIODS = [

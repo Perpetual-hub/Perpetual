@@ -189,13 +189,14 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
 function partyTitle(d: Deal, side: "buyers" | "sellers") {
   const t = d.type;
   if (side === "buyers") {
-    if (t === "project finance" || t === "refinancing") return "Lenders";
+    if (t === "project finance" || t === "refinancing" || t === "development finance") return "Lenders";
     if (t === "PPA") return "Offtaker";
     if (t === "fund close") return "Fund manager";
     if (t === "joint venture") return "Partners";
     if (t === "equity raise" || t === "IPO") return "Investors";
     return "Buyers";
   }
+  if (t === "development finance") return "Borrower";
   return t === "PPA" ? "Seller of power" : "Sellers";
 }
 

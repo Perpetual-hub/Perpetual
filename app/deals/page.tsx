@@ -8,7 +8,7 @@ import { formatDate } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Deal Tracker",
   description:
-    "Renewable energy M&A, project finance, equity raises, PPAs, IPOs and fund closes: who bought what, for how much, and who financed it.",
+    "Renewable energy M&A, project finance, development finance, equity raises, PPAs, IPOs and fund closes: who bought what, for how much, and who financed it.",
 };
 
 export default function DealsPage() {
@@ -16,7 +16,7 @@ export default function DealsPage() {
     <>
       <PageHeader
         title="Deal Tracker"
-        intro={`M&A, project finance, equity raises, PPAs, IPOs and fund closes, with values in their original currency and USD. Data compiled ${formatDate(DATA_AS_OF)}.`}
+        intro={`M&A, project finance, development finance, equity raises, PPAs, IPOs and fund closes, with values in their original currency and USD. Data compiled ${formatDate(DATA_AS_OF)}.`}
       />
       {/* Filters live in the URL and are read on the client, so the page stays static. */}
       <Suspense fallback={<div className="container-page py-10"><div className="skeleton h-96 rounded-xl" aria-label="Loading deals" /></div>}>

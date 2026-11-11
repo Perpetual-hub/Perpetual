@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SampleBadge } from "@/components/ui/Badge";
 import { ChartCard } from "@/components/area/AreaPage";
 import { AreaTable } from "@/components/charts/AreaTable";
 import { BarList } from "@/components/charts/BarList";
 import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
 import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
+import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import {
   AS_OF_YEAR,
   DATA_AS_OF,
+  countryStats,
   getCapacityOutlook,
-  getCountries,
   getGlobalCapacity,
   getRegions,
-  getStats,
   getTechCounts,
   getTimeline,
 } from "@/lib/data";
-import { formatDate, formatGW } from "@/lib/format";
+import { countryName, formatDate } from "@/lib/format";
 import { TECHNOLOGIES } from "@/lib/tech";
 
 export const metadata: Metadata = {
@@ -27,10 +28,18 @@ export const metadata: Metadata = {
 };
 
 export default function StatisticsPage() {
-  const stats = getStats();
   const counts = getTechCounts();
   const regions = getRegions();
-  const countries = getCountries();
+  const world = getGlobalCapacity().rows;
+  const worldNow = world[world.length - 1];
+  const worldFiveAgo = world.find((r) => r.year === worldNow.year - 5) ?? world[0];
+  const outlookRef = getCapacityOutlook().scenarios[0].rows.at(-1)!;
+  const countryRows = countryStats
+    .all()
+    .map((c) => ({ ...countryStats.snapshot(c), name: countryName(c.iso2) }))
+    .filter((r) => r.renewableMW > 0);
+  const genYears = countryRows.map((r) => r.generationYear).filter((y): y is number => y != null);
+  const generationYear = genYears.length ? Math.max(...genYears) : undefined;
   return (
     <div>
       <header className="border-b border-line">
@@ -55,10 +64,10 @@ export default function StatisticsPage() {
           </div>
           <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line">
             {[
-              ["Projects tracked", String(stats.projects)],
-              ["Total capacity", `${formatGW(stats.totalMW)} GW`],
-              ["Operating", `${formatGW(stats.operatingMW)} GW`],
-              ["In pipeline", `${formatGW(stats.pipelineMW)} GW`],
+              [`World renewable capacity, ${worldNow.year}`, `${Math.round(worldNow.total).toLocaleString("en-GB")} GW`],
+              [`Added since ${worldFiveAgo.year}`, `${Math.round(worldNow.total - worldFiveAgo.total).toLocaleString("en-GB")} GW`],
+              ["Countries covered", String(countryRows.length)],
+              [`EIA projection, ${outlookRef.year}`, `${Math.round(outlookRef.total).toLocaleString("en-GB")} GW`],
             ].map(([k, v]) => (
               <div key={k} className="bg-white p-5 md:p-6">
                 <dt className="text-xs font-medium text-muted">{k}</dt>
@@ -94,6 +103,31 @@ export default function StatisticsPage() {
           <CapacityOutlookChart outlook={getCapacityOutlook()} actual={getGlobalCapacity().rows} />
         </section>
 
+        <section aria-labelledby="countries-h">
+          <h2 id="countries-h" className="mb-2 text-2xl font-bold tracking-tight">
+            By Country
+          </h2>
+          <p className="mb-6 max-w-3xl leading-relaxed text-muted">
+            Official installed renewable capacity for every country IRENA reports on. Select a country for its full
+            history.
+          </p>
+          <CountryStatsTable rows={countryRows} year={countryStats.latestYear} generationYear={generationYear} />
+          <p className="mt-3 text-xs text-muted">
+            Source:{" "}
+            <a href={countryStats.source.url} target="_blank" rel="noopener" className="text-brand-blue underline underline-offset-2">
+              {countryStats.source.citation}
+            </a>
+            . {countryStats.source.licence}.
+          </p>
+        </section>
+
+        <div className="flex flex-wrap items-center gap-3 border-t border-line pt-14">
+          <h2 className="text-2xl font-bold tracking-tight">Tracked Projects</h2>
+          <SampleBadge />
+          <p className="w-full max-w-3xl leading-relaxed text-muted">
+            Capacity across the project records on Perpetual, by sector, year and region.
+          </p>
+        </div>
         <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
           <ChartCard title="Capacity by Sector" note="Click a bar to explore">
             <BarList
@@ -118,9 +152,9 @@ export default function StatisticsPage() {
         </div>
 
         <section aria-labelledby="regions-h">
-          <h2 id="regions-h" className="mb-5 text-2xl font-bold tracking-tight">
+          <h3 id="regions-h" className="mb-5 font-sans text-lg font-semibold text-ink">
             By Region
-          </h2>
+          </h3>
           <AreaTable
             rows={regions}
             hrefFor={(r) => `/regions/${r.key}`}
@@ -128,19 +162,6 @@ export default function StatisticsPage() {
           />
         </section>
 
-        <section aria-labelledby="countries-h">
-          <h2
-            id="countries-h"
-            className="mb-5 text-2xl font-bold tracking-tight"
-          >
-            By Country
-          </h2>
-          <AreaTable
-            rows={countries}
-            hrefFor={(c) => `/countries/${c.key}`}
-            nameHeader="Country"
-          />
-        </section>
       </div>
     </div>
   );

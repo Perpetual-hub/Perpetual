@@ -131,6 +131,7 @@ export const deal = z.object({
     "fund close",
     "joint venture",
     "refinancing",
+    "development finance",
   ]),
   status: z.enum(["announced", "completed", "terminated"]),
   title: z.string().min(1),
@@ -233,3 +234,52 @@ export const capacityOutlook = z.object({
     )
     .min(1),
 });
+
+const mwSeries = z.array(z.number().nonnegative());
+export const countryCapacityData = z
+  .object({
+    unit: z.object({ capacity: z.literal("MW"), generation: z.literal("GWh") }),
+    years: z.tuple([z.number().int(), z.number().int()]),
+    source: statSource,
+    countries: z
+      .array(
+        z.object({
+          iso2: z.string().regex(/^[A-Z]{2}$/),
+          name: z.string().min(1),
+          region: z.string().min(1),
+          capacityMW: z.partialRecord(
+            z.enum([
+              "solar",
+              "windOnshore",
+              "windOffshore",
+              "hydro",
+              "bioenergy",
+              "geothermal",
+              "marine",
+              "fossil",
+              "nuclear",
+              "pumpedStorage",
+              "otherNonRenewable",
+            ]),
+            mwSeries,
+          ),
+          generationGWh: z.object({
+            renewable: z.array(z.number().nonnegative().nullable()),
+            total: z.array(z.number().nonnegative().nullable()),
+          }),
+        }),
+      )
+      .min(1),
+  })
+  .superRefine((d, ctx) => {
+    const n = d.years[1] - d.years[0] + 1;
+    const seen = new Set<string>();
+    for (const c of d.countries) {
+      if (seen.has(c.iso2)) ctx.addIssue({ code: "custom", message: `duplicate country ${c.iso2}` });
+      seen.add(c.iso2);
+      for (const [k, v] of Object.entries(c.capacityMW))
+        if (v && v.length !== n) ctx.addIssue({ code: "custom", message: `${c.iso2}.${k}: expected ${n} years` });
+      if (c.generationGWh.total.length !== n || c.generationGWh.renewable.length !== n)
+        ctx.addIssue({ code: "custom", message: `${c.iso2}: generation must have ${n} years` });
+    }
+  });
