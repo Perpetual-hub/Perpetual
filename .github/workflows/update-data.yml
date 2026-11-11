@@ -17,6 +17,9 @@ on:
       model:
         description: "Claude model for extraction (claude-opus-5-5 or claude-haiku-5-5)"
         default: "claude-opus-5-5"
+      sources:
+        description: "Only read these sources, comma-separated (e.g. SolarQuarter,Asian Power,Eco-Business). Empty = all"
+        default: ""
 
 permissions:
   contents: write
@@ -62,7 +65,17 @@ jobs:
       - name: Energy news sites (Asia, Africa, Europe, Australia)
         run: |
           python3 scripts/collect-news-sitemaps.py .cache/news-candidates.json .cache/news-sitemaps ${{ inputs.months || 2 }}
-          python3 -c "import json; a=json.load(open('.cache/candidates.json')); b=json.load(open('.cache/news-candidates.json')); json.dump(sorted(a+b, key=lambda x: x.get('lastmod') or x.get('month') or '', reverse=True), open('.cache/all-candidates.json','w'))"
+          SOURCES="${{ inputs.sources }}" python3 -c "
+          import json, os
+          a = json.load(open('.cache/candidates.json'))
+          b = json.load(open('.cache/news-candidates.json'))
+          allc = sorted(a + b, key=lambda x: x.get('lastmod') or x.get('month') or '', reverse=True)
+          want = {s.strip().lower() for s in os.environ.get('SOURCES', '').split(',') if s.strip()}
+          if want:
+              allc = [c for c in allc if (c.get('publisher') or 'PR Newswire').lower() in want]
+          print(len(allc), 'candidates to read')
+          json.dump(allc, open('.cache/all-candidates.json', 'w'))
+          "
 
       - name: Extract deals from press releases and news
         if: ${{ env.ANTHROPIC_API_KEY != '' }}
