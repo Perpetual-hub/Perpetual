@@ -66,7 +66,11 @@ const projects = validate("data/projects.ts", S.project, rawProjects);
 // Sample deals plus real records imported from open sources (see scripts/).
 // PR Newswire publishes one release under several addresses (regional copies differ only in the
 // trailing number), so the same deal can arrive twice. Keep the first: hand-written beats extracted.
-const releaseKey = (d: Deal) => d.sources[0]?.url.replace(/-\d+\.html$/, "") ?? d.id;
+const releaseKey = (d: Deal) => {
+  const url = d.sources[0]?.url ?? "";
+  // Only PR Newswire copies are merged. Development-bank records can share one project page and still be separate loans.
+  return url.includes("prnewswire.com") ? url.replace(/-\d+\.html$/, "") : d.id;
+};
 const seenRelease = new Set<string>();
 const uniqueDeals = [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBankDeals, ...iatiDeals].filter((d) => {
   const k = releaseKey(d);
