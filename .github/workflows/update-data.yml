@@ -77,4 +77,5 @@ jobs:
           git add data
           git commit -m "Data update $(date -u +%Y-%m-%d)"
           git push -u origin "$branch"
-          gh pr create --title "Data update $(date -u +%Y-%m-%d)" --body "Automated data refresh: new deals and indicators. Review the diff before merging."
+          gh pr create --title "Data update $(date -u +%Y-%m-%d)" --body "Automated data refresh: new deals and indicators. Review the diff before merging." \
+            || echo "::warning::Could not open a pull request (allow it under Settings, Actions, General). The changes are on branch $branch."

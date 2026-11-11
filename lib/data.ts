@@ -64,7 +64,17 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeComp
 
 const projects = validate("data/projects.ts", S.project, rawProjects);
 // Sample deals plus real records imported from open sources (see scripts/).
-const deals = validate("data/deals*.ts", S.deal, [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBankDeals, ...iatiDeals]).sort(byDateDesc);
+// PR Newswire publishes one release under several addresses (regional copies differ only in the
+// trailing number), so the same deal can arrive twice. Keep the first: hand-written beats extracted.
+const releaseKey = (d: Deal) => d.sources[0]?.url.replace(/-\d+\.html$/, "") ?? d.id;
+const seenRelease = new Set<string>();
+const uniqueDeals = [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBankDeals, ...iatiDeals].filter((d) => {
+  const k = releaseKey(d);
+  if (seenRelease.has(k)) return false;
+  seenRelease.add(k);
+  return true;
+});
+const deals = validate("data/deals*.ts", S.deal, uniqueDeals).sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
 
 // Cross-file reference checks.
