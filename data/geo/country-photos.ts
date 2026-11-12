@@ -533,6 +533,15 @@ export const countryPhotos: Record<string, CountryPhoto> = {
   "artist": "john mcsporran from Trossachs, Scotland",
   "banner": true
  },
+ "DE": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/%C3%96tlingen_-_Panoramaansicht_klein_banner.jpg/3840px-%C3%96tlingen_-_Panoramaansicht_klein_banner.jpg",
+  "width": 8089,
+  "height": 1168,
+  "page": "https://commons.wikimedia.org/wiki/File:%C3%96tlingen_-_Panoramaansicht_klein_banner.jpg",
+  "license": "FAL",
+  "artist": "Taxiarchos228",
+  "banner": true
+ },
  "DG": {
   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Diego_Garcia_%28BIOT%29_banner.jpg/1920px-Diego_Garcia_%28BIOT%29_banner.jpg",
   "width": 2100,
@@ -991,6 +1000,15 @@ export const countryPhotos: Record<string, CountryPhoto> = {
   "license": "Public domain",
   "artist": "U.S. Navy photo by Journalist 1st Class Jeremy L. Wood",
   "banner": true
+ },
+ "IR": {
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Jamkaran_Mosque.jpg",
+  "width": 3745,
+  "height": 1500,
+  "page": "https://commons.wikimedia.org/wiki/File:Jamkaran_Mosque.jpg",
+  "license": "GFDL 1.2",
+  "artist": "Muhammad Mahdi Karim",
+  "banner": false
  },
  "IS": {
   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/2005-05-29_J%C3%B6kuls%C3%A1rl%C3%B3n_01.jpg/3840px-2005-05-29_J%C3%B6kuls%C3%A1rl%C3%B3n_01.jpg",
@@ -2080,6 +2098,15 @@ export const countryPhotos: Record<string, CountryPhoto> = {
   "license": "CC BY-SA 3.0",
   "artist": "TianyinLee",
   "banner": true
+ },
+ "TZ": {
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Inside_Ngorongoro_crater.jpg/3840px-Inside_Ngorongoro_crater.jpg",
+  "width": 6664,
+  "height": 1044,
+  "page": "https://commons.wikimedia.org/wiki/File:Inside_Ngorongoro_crater.jpg",
+  "license": "GFDL 1.2",
+  "artist": "Muhammad Mahdi Karim",
+  "banner": false
  },
  "UA": {
   "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Chernivtsi-banner.jpg/1920px-Chernivtsi-banner.jpg",

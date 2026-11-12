@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 UA = {"User-Agent": "PerpetualDataBot/0.1 (country photos; low volume)"}
-FREE = re.compile(r"^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD)", re.I)
+FREE = re.compile(r"^(CC BY(-SA)? [\d.]+|CC0|Public domain|PD|FAL|GFDL)", re.I)
 
 
 def get(url, tries=7):
