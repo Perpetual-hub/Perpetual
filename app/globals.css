@@ -16,6 +16,10 @@
   --line: #e3e8ef;
   --surface: #ffffff;
   --surface-2: #f6f8fb;
+  /* Editorial cards (no border) and the renewable accent used for headline numbers. */
+  --paper: #f3f5f0;
+  --accent: #2f8a4a;
+  --soft: #6b7887;
   --hero-bg: #061a33;
   --hero-ink: #e8eef6;
   --hero-muted: #9fb2c8;
@@ -48,6 +52,9 @@
   --color-line: var(--line);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-soft: var(--soft);
   --color-hero: var(--hero-bg);
   --color-hero-ink: var(--hero-ink);
   --color-hero-muted: var(--hero-muted);

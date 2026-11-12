@@ -20,10 +20,10 @@ export function SectionHeading({
   return (
     <div className="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
       <div className="max-w-2xl">
-        <h2 id={id} className="text-[1.75rem] leading-tight font-bold tracking-[-0.015em] md:text-[2.25rem]">
+        <h2 id={id} className="text-[1.6rem] leading-tight font-semibold tracking-[-0.02em] md:text-[2rem]">
           {title}
         </h2>
-        {description && <p className="mt-3 text-base leading-relaxed text-muted">{description}</p>}
+        {description && <p className="mt-3 text-base leading-relaxed text-soft">{description}</p>}
       </div>
       {href && (
         <Link

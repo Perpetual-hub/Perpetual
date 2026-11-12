@@ -5,6 +5,7 @@
 // Every seed file is validated with zod when this module first loads. Because
 // pages are prerendered during `next build`, a broken record fails the build
 // with a message naming the file, record and field.
+import { evaluatePolicy } from "./policy-eval";
 import { z } from "zod";
 import { deals as sampleDeals } from "@/data/deals";
 import { curatedDeals } from "@/data/deals-curated";
@@ -682,3 +683,20 @@ export function getTopInvestors(list: Deal[] = deals, n = 5): InvestorSummary[] 
 
 export { MILESTONE_LABEL } from "./milestones";
 export type { Milestone, MilestoneKind } from "./milestones";
+
+// ---------- PROFITS evaluation ----------
+
+/** PROFITS scores tested against IRENA capacity growth and deals on record (see lib/policy-eval.ts). */
+export function getPolicyEvaluation() {
+  const y1 = countryStats.latestYear;
+  const capacity = new Map<string, { before: number; now: number; fromYear: number; toYear: number }>();
+  for (const c of countryStats.all()) {
+    const rows = countryStats.series(c).rows;
+    const now = rows.find((r) => r.year === y1)?.total ?? 0;
+    const before = rows.find((r) => r.year === y1 - 5)?.total ?? 0;
+    capacity.set(c.iso2, { before: before * 1000, now: now * 1000, fromYear: y1 - 5, toYear: y1 });
+  }
+  const dealCount = new Map<string, number>();
+  for (const d of deals) for (const c of new Set(d.countries)) dealCount.set(c, (dealCount.get(c) ?? 0) + 1);
+  return evaluatePolicy({ capacity, deals: dealCount });
+}
