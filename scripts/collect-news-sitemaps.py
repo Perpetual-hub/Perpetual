@@ -89,7 +89,12 @@ def crawl(publisher, root, keep, seen, depth=0):
             if depth < 2:
                 crawl(publisher, loc, keep, seen, depth + 1)
             continue
-        if loc in seen or SKIP_SEGMENT.search(loc) or (mod and mod < SINCE):
+        if not mod:
+            # Some sites (Energy Global) give no date in the sitemap but carry it in the link: /DDMMYYYY/.
+            m = re.search(r"/(\d{2})(\d{2})(20\d{2})/", loc)
+            mod = f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else ""
+        if loc in seen or SKIP_SEGMENT.search(loc) or not mod or mod < SINCE:
+            # Undated links are skipped: without a date they would be read again every month.
             continue
         slug = "-" + re.sub(r"[^a-z0-9]+", "-", loc.rstrip("/").rsplit("/", 1)[-1].lower().rsplit(".", 1)[0]) + "-"
         if DEAL.search(slug) and RENEW.search(slug) and not NOISE.search(slug):
