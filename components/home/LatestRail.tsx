@@ -47,7 +47,7 @@ export function LatestRail({ items }: { items: RailItem[] }) {
       </ol>
       <div className="border-t border-hero-line px-4 pt-4 pb-6 md:px-8 lg:px-6">
         <Link href="/deals" className="group inline-flex items-center gap-1 text-sm font-medium text-brand-sky hover:text-white">
-          Open the deal tracker
+          Open the Deal Tracker
           <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
         </Link>
       </div>

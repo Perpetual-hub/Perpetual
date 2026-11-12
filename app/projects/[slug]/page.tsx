@@ -22,7 +22,10 @@ import type { Party, Project } from "@/lib/types";
 
 export function generateStaticParams() {
   // Cache Components needs at least one param: with no projects, prerender a 404 placeholder.
-  const list = getProjects().map((p) => ({ slug: p.slug }));
+  // Plants from the WRI database (about 14,000) render on first visit instead of at build time.
+  const list = getProjects()
+    .filter((p) => !p.id.startsWith("prj-g-"))
+    .map((p) => ({ slug: p.slug }));
   return list.length ? list : [{ slug: "none" }];
 }
 
@@ -50,6 +53,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
   if (!p) notFound();
   const tech = TECH_BY_ID[p.technology];
   const history = projectHistory(p);
+  const hasParties = !!(p.developer?.length || p.owners?.length || p.epc?.length || p.om?.length || p.offtake || p.financing?.debt?.length || p.financing?.equity?.length || p.financing?.instruments?.length);
   const owners = ownershipHistory(p);
   const stack = capitalStack(p);
   const bench = projectBenchmarks(p);
@@ -119,7 +123,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
                 ["Province / state", p.admin1],
                 ["Region", p.region],
                 ["Coordinates", p.locationPrecision === "country" ? "Not published" : <span key="c" className="tabular">{p.lat.toFixed(2)}, {p.lng.toFixed(2)}{p.locationPrecision === "area" ? " (approximate)" : ""}</span>],
-                ["Ownership type", OWNERSHIP_LABEL[p.ownership]],
+                ["Ownership type", p.ownership && OWNERSHIP_LABEL[p.ownership]],
                 ["Design life", p.designLifeYears && `${p.designLifeYears} years`],
                 [
                   "Total capex",
@@ -156,6 +160,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             </Section>
           )}
 
+          {hasParties && (
           <Section id="parties" title="Parties">
             <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
               <PartyBlock title="Developer" parties={p.developer} />
@@ -190,6 +195,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
               )}
             </div>
           </Section>
+          )}
 
           {bench.length > 0 && (
             <Section id="benchmarks" title="How It Compares">

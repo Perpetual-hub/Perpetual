@@ -14,6 +14,7 @@ import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { projects as rawProjects } from "@/data/projects";
 import { newsProjects } from "@/data/projects-news";
+import { gppdProjects } from "@/data/projects-gppd";
 import { research as rawResearch } from "@/data/research";
 import { capacityOutlook as rawCapacityOutlook } from "@/data/stats/capacity-outlook";
 import { countryCapacity as rawCountryCapacity } from "@/data/stats/country-capacity";
@@ -66,6 +67,7 @@ const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeComp
 const projects = [
   ...validate("data/projects.ts", S.project, rawProjects),
   ...validate("data/projects-news.json", S.project, newsProjects),
+  ...validate("data/projects-gppd.json", S.project, gppdProjects),
 ];
 // Sample deals plus real records imported from open sources (see scripts/).
 // PR Newswire publishes one release under several addresses (regional copies differ only in the
@@ -142,7 +144,7 @@ export function getProject(slug: string): Project | undefined {
 }
 
 export function getProjectById(id: string): Project | undefined {
-  return projects.find((p) => p.id === id);
+  return projectById.get(id);
 }
 
 /** A trimmed-down project shape for the map, so we ship less data to the browser. */
@@ -160,7 +162,7 @@ export interface MapPoint {
   lng: number;
   isSample: boolean;
   subType?: string;
-  ownership: Ownership;
+  ownership?: Ownership;
   developer?: string;
   cod?: string;
   codConfidence?: "confirmed" | "estimated";
@@ -294,15 +296,35 @@ export function getFeaturedDeal(): Deal | undefined {
   return deals.find((d) => d.featured) ?? deals[0];
 }
 
+let dealIndex: Map<string, Deal[]> | undefined;
+function dealsByProject(): Map<string, Deal[]> {
+  if (dealIndex) return dealIndex;
+  const m = new Map<string, Deal[]>();
+  const byId = new Map(deals.map((d) => [d.id, d]));
+  const add = (pid: string, d: Deal) => {
+    const l = m.get(pid) ?? [];
+    if (!l.includes(d)) l.push(d);
+    m.set(pid, l);
+  };
+  for (const d of deals) for (const pid of d.projectIds ?? []) add(pid, d);
+  for (const p of projects) for (const did of p.dealIds ?? []) { const d = byId.get(did); if (d) add(p.id, d); }
+  for (const l of m.values()) l.sort((a, b) => a.date.localeCompare(b.date));
+  dealIndex = m;
+  return m;
+}
+
 export function getDealsForProject(id: string): Deal[] {
-  const listed = new Set(projects.find((p) => p.id === id)?.dealIds ?? []);
-  return deals.filter((d) => d.projectIds?.includes(id) || listed.has(d.id)).sort((a, b) => a.date.localeCompare(b.date));
+  return dealsByProject().get(id) ?? [];
 }
 
 /** The project a deal is about, if any. */
 export function getProjectsForDeal(d: Deal): Project[] {
-  return projects.filter((p) => d.projectIds?.includes(p.id) || p.dealIds?.includes(d.id));
+  const out: Project[] = [];
+  for (const [pid, l] of dealsByProject()) if (l.includes(d)) { const p = projectById.get(pid); if (p) out.push(p); }
+  return out;
 }
+
+const projectById = new Map(projects.map((p) => [p.id, p]));
 
 // ---------- Stats ----------
 

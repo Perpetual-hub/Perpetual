@@ -137,7 +137,7 @@ export function Benchmarks({ items, techLabel }: { items: Benchmark[]; techLabel
       {items.map((b) => {
         const max = Math.max(b.value ?? 0, b.peerMedian ?? 0) || 1;
         return (
-          <li key={b.label + b.scope} className="bg-white p-5">
+          <li key={b.label + b.scope} className="bg-white p-5 sm:[&:last-child:nth-child(odd)]:col-span-2">
             <p className="text-sm font-semibold text-ink">
               {b.label} <span className="font-normal text-muted">vs {techLabel.toLowerCase()} projects {b.scope}</span>
             </p>

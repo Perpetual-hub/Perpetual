@@ -52,7 +52,7 @@ export function ProjectDrawer({ point, onClose }: { point: MapPoint | null; onCl
           ["Country", countryName(point.country)],
           ["Region", point.region],
           ["Developer", point.developer],
-          ["Ownership", OWNERSHIP_LABEL[point.ownership]],
+          ["Ownership", point.ownership && OWNERSHIP_LABEL[point.ownership]],
           [
             point.status === "operating" ? "Commercial operation" : "Expected operation",
             point.cod && (

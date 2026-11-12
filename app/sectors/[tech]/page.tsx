@@ -8,17 +8,17 @@ import { InvestorsCard } from "@/components/area/InvestorsCard";
 import { ChartCard, ListCard, ListRow } from "@/components/area/AreaPage";
 import { dealValue } from "@/components/cards/Cards";
 import { BarList } from "@/components/charts/BarList";
-import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
+import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
+
+const IRENA_TECHS: string[] = ["solar", "wind", "hydro", "bioenergy", "geothermal", "marine"];
 import { TechHero } from "@/components/tech/TechHero";
 import { TechSwitcher } from "@/components/tech/TechSwitcher";
 import { StatusBadge } from "@/components/ui/Badge";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import {
-  AS_OF_YEAR,
   countryStats,
   getGlobalCapacity,
   getTechProfile,
-  getTimeline,
   getTopInvestors,
   toMapPoint,
 } from "@/lib/data";
@@ -254,13 +254,11 @@ async function TechnologyContent({
               </ChartCard>
             </div>
 
-            <section className="rounded-[var(--radius)] border border-line p-6">
-              <CapacityTimeline
-                cells={getTimeline((p) => p.technology === tech)}
-                asOfYear={AS_OF_YEAR}
-                title="Capacity Additions by Year"
-              />
-            </section>
+            {IRENA_TECHS.includes(tech) && (
+              <section className="rounded-[var(--radius)] border border-line p-6">
+                <CapacityAdditionsChart series={getGlobalCapacity()} only={tech as "solar"} />
+              </section>
+            )}
 
             <section aria-labelledby="largest-h">
               <h2

@@ -32,6 +32,7 @@ function sortValue(p: MapPoint, k: Key): string | number {
 
 export function ProjectTable({ points }: { points: MapPoint[] }) {
   const [sort, setSort] = useState<{ key: Key; dir: "asc" | "desc" }>({ key: "capacityMW", dir: "desc" });
+  const [limit, setLimit] = useState(300);
   const rows = useMemo(() => {
     const out = [...points].sort((a, b) => {
       const x = sortValue(a, sort.key);
@@ -77,7 +78,7 @@ export function ProjectTable({ points }: { points: MapPoint[] }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-line">
-          {rows.map((p) => (
+          {rows.slice(0, limit).map((p) => (
             <tr key={p.id} className="transition-colors duration-100 hover:bg-surface-2">
               <th scope="row" className="max-w-64 px-4 py-3 text-left font-medium">
                 <Link href={`/projects/${p.slug}`} className="text-ink hover:text-brand-blue">
@@ -100,12 +101,19 @@ export function ProjectTable({ points }: { points: MapPoint[] }) {
                 {p.cod ? formatDate(p.cod) : "—"}
                 {p.codConfidence === "estimated" && <span className="ml-1 text-xs text-muted italic">est.</span>}
               </td>
-              <td className="px-4 py-3 whitespace-nowrap text-muted">{OWNERSHIP_LABEL[p.ownership]}</td>
+              <td className="px-4 py-3 whitespace-nowrap text-muted">{p.ownership ? OWNERSHIP_LABEL[p.ownership] : "—"}</td>
               <td className="px-4 py-3 whitespace-nowrap text-muted">{p.developer ?? "—"}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      {rows.length > limit && (
+        <div className="border-t border-line p-4 text-center">
+          <button type="button" onClick={() => setLimit((l) => l + 500)} className="rounded-[3px] border border-line px-4 py-2 text-sm font-medium text-ink hover:bg-surface-2">
+            Show more ({(rows.length - limit).toLocaleString("en-GB")} left)
+          </button>
+        </div>
+      )}
     </div>
   );
 }

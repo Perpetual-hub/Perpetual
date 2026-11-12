@@ -46,7 +46,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
           <nav aria-label="Breadcrumb" className="mb-6 text-sm">
             <Link href="/deals" className="inline-flex items-center gap-1 text-muted hover:text-brand-blue">
               <ArrowLeft className="size-3.5" aria-hidden />
-              Deal tracker
+              Deal Tracker
             </Link>
           </nav>
           <div className="flex flex-wrap items-center gap-2.5 text-sm">

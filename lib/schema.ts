@@ -74,7 +74,7 @@ export const project = z
     /** How exact the map position is: the site itself, a nearby town or district, or only the country. */
     locationPrecision: z.enum(["site", "area", "country"]).optional(),
     status: projectStatus,
-    ownership,
+    ownership: ownership.optional(),
     developer: z.array(party).optional(),
     owners: z.array(party).optional(),
     epc: z.array(party).optional(),

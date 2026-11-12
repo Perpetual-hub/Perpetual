@@ -84,6 +84,13 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
     };
   }, [filtered]);
 
+  const policyStats = useMemo(() => {
+    const sorted = [...ranked].sort((a, b) => a.rank - b.rank);
+    const sc = ranked.map((r) => r.score).sort((a, b) => a - b);
+    const m = sc.length ? (sc.length % 2 ? sc[(sc.length - 1) / 2] : (sc[sc.length / 2 - 1] + sc[sc.length / 2]) / 2) : 0;
+    return { top: sorted[0], median: m, flagged: ranked.filter((r) => r.dealBreakers.length > 0).length };
+  }, [ranked]);
+
   const onSelect = useCallback((p: MapPoint) => p.deal && router.push(p.deal.href), [router]);
   const onPolicySelect = useCallback((iso2: string, name: string) => setPolicyPick({ iso2, name }), []);
   const presetLabel = WEIGHT_PRESETS.find((p) => p.id === preset)!.label;
@@ -184,6 +191,15 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
           </div>
 
           {/* Stats strip */}
+          {mode === "policy" ? (
+            <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
+              <Stat label={`Top ranked, ${presetLabel.toLowerCase()} weights`} value={policyStats.top ? `${policyStats.top.name}` : "—"} />
+              <Stat label="Top score (1–5)" value={policyStats.top ? policyStats.top.score.toFixed(2) : "—"} />
+              <Stat label="Median score" value={policyStats.median ? policyStats.median.toFixed(2) : "—"} />
+              <Stat label="Countries with a deal-breaker" value={String(policyStats.flagged)} />
+              <Stat label="Countries scored" value={String(ranked.length)} />
+            </dl>
+          ) : (
           <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
             <Stat label={`Deals, last ${periodLabel}`} value={stats.deals.toLocaleString("en-GB")} />
             <Stat
@@ -194,6 +210,7 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
             <Stat label="Sectors" value={String(stats.sectors)} />
             <Stat label="Deals on record" value={totalDeals.toLocaleString("en-GB")} />
           </dl>
+          )}
         </div>
 
         {/* On wide screens the rail matches the globe column's height and scrolls inside it, so neither column leaves a gap. */}

@@ -2,14 +2,12 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { dealValue } from "@/components/cards/Cards";
 import { BarList } from "@/components/charts/BarList";
-import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
+import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
 import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
 import { TechTag } from "@/components/ui/TechTag";
 import {
-  AS_OF_YEAR,
   type AreaProfile,
   countryStats,
-  getTimeline,
   getTopInvestors,
   toMapPoint,
 } from "@/lib/data";
@@ -54,8 +52,6 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
     count: projects.filter((p) => p.technology === t.id).length,
     href: `/projects?${filterQuery}&tech=${t.id}`,
   }));
-  const ids = new Set(projects.map((p) => p.id));
-  const timeline = getTimeline((p) => ids.has(p.id));
   const top = [...projects]
     .sort((a, b) => (b.capacityMW ?? 0) - (a.capacityMW ?? 0))
     .slice(0, 8);
@@ -239,13 +235,11 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
               </ChartCard>
             </div>
 
-            <section className="rounded-[var(--radius)] border border-line p-6">
-              <CapacityTimeline
-                cells={timeline}
-                asOfYear={AS_OF_YEAR}
-                title="Capacity Additions by Year"
-              />
-            </section>
+            {official && (
+              <section className="rounded-[var(--radius)] border border-line p-6">
+                <CapacityAdditionsChart series={countryStats.series(official)} place={s.name} />
+              </section>
+            )}
 
             <section aria-labelledby="map-h">
               <div className="mb-4 flex items-baseline justify-between gap-4">

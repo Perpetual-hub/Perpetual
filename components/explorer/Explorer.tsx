@@ -131,7 +131,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
   const clearAll = () => push({});
 
   return (
-    <div className="flex flex-col lg:h-[calc(100svh-6.25rem)]">
+    <div className="flex flex-col lg:h-[calc(100svh-6.25rem)] lg:min-h-[980px]">
       {/* Title row */}
       <div className="container-page flex flex-wrap items-end gap-x-6 gap-y-3 pt-8 pb-5">
         <div className="mr-auto">
@@ -249,7 +249,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
               ]}
             />
           </div>
-          <div className={`relative min-h-0 lg:flex-1 ${mobilePane === "map" ? "h-[65vh]" : "hidden"} lg:block lg:h-auto`}>
+          <div className={`relative min-h-0 lg:flex-1 ${mobilePane === "map" ? "h-[75vh] min-h-[480px]" : "hidden"} lg:block lg:h-auto`}>
             <ProjectMapLazy
               points={filtered}
               theme="light"
@@ -323,9 +323,11 @@ export function Explorer({ points }: { points: MapPoint[] }) {
 
 function ResultsList({ points, onHover }: { points: MapPoint[]; onHover: (id?: string) => void }) {
   const sorted = useMemo(() => [...points].sort((a, b) => b.capacityMW - a.capacityMW), [points]);
+  const [limit, setLimit] = useState(150);
   return (
+    <>
     <ul className="divide-y divide-line" aria-label="Results">
-      {sorted.map((p) => {
+      {sorted.slice(0, limit).map((p) => {
         const t = TECH_BY_ID[p.technology];
         return (
           <li key={p.id} onMouseEnter={() => onHover(p.id)} onMouseLeave={() => onHover(undefined)}>
@@ -339,7 +341,7 @@ function ResultsList({ points, onHover }: { points: MapPoint[]; onHover: (id?: s
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold text-ink group-hover:text-brand-blue">{p.name}</span>
                 <span className="mt-0.5 block text-xs text-muted">
-                  {t.label} · {p.subType && p.subType.charAt(0).toUpperCase() + p.subType.slice(1)} · {countryName(p.country)}
+                  {[t.label, p.subType && p.subType.charAt(0).toUpperCase() + p.subType.slice(1), countryName(p.country)].filter(Boolean).join(" · ")}
                 </span>
                 <span className="mt-2 flex items-center gap-2">
                   <StatusBadge status={p.status} />
@@ -354,6 +356,14 @@ function ResultsList({ points, onHover }: { points: MapPoint[]; onHover: (id?: s
         );
       })}
     </ul>
+    {sorted.length > limit && (
+      <div className="border-t border-line p-4 text-center">
+        <button type="button" onClick={() => setLimit((l) => l + 300)} className="rounded-[3px] border border-line px-4 py-2 text-sm font-medium text-ink hover:bg-surface-2">
+          Show more ({(sorted.length - limit).toLocaleString("en-GB")} left)
+        </button>
+      </div>
+    )}
+    </>
   );
 }
 
@@ -374,7 +384,7 @@ function EmptyState({ onClear, noData }: { onClear: () => void; noData: boolean 
             Country statistics
           </Link>
           <Link href="/deals" className="rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-semibold text-ink hover:border-[#cdd6e2]">
-            Deal tracker
+            Deal Tracker
           </Link>
         </div>
       </div>

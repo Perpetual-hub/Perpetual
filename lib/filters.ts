@@ -26,7 +26,7 @@ export interface Filterable {
   status: ProjectStatus;
   country: string;
   region: string;
-  ownership: Ownership;
+  ownership?: Ownership;
   capacityMW?: number;
   cod?: string;
   instruments?: string[];
@@ -61,7 +61,7 @@ export function matchesFilters(p: Filterable, f: ProjectFilters): boolean {
   if (f.status?.length && !f.status.includes(p.status)) return false;
   if (f.country?.length && !f.country.includes(p.country)) return false;
   if (f.region?.length && !f.region.includes(p.region)) return false;
-  if (f.ownership?.length && !f.ownership.includes(p.ownership)) return false;
+  if (f.ownership?.length && (!p.ownership || !f.ownership.includes(p.ownership))) return false;
   if (f.minMW != null && (p.capacityMW ?? 0) < f.minMW) return false;
   if (f.maxMW != null && (p.capacityMW ?? 0) > f.maxMW) return false;
   const cod = p.cod ? Number(p.cod.slice(0, 4)) : undefined;

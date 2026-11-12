@@ -4,11 +4,10 @@ import { SampleBadge } from "@/components/ui/Badge";
 import { ChartCard } from "@/components/area/AreaPage";
 import { BarList } from "@/components/charts/BarList";
 import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
-import { CapacityTimeline } from "@/components/charts/CapacityTimeline";
+import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import {
-  AS_OF_YEAR,
   DATA_AS_OF,
   countryStats,
   getCapacityOutlook,
@@ -16,7 +15,6 @@ import {
   getProjects,
   getRegionStatsRows,
   getTechCounts,
-  getTimeline,
 } from "@/lib/data";
 import { countryName, formatDate } from "@/lib/format";
 import { TECHNOLOGIES } from "@/lib/tech";
@@ -153,11 +151,7 @@ export default function StatisticsPage() {
             />
           </ChartCard>
           <section className="rounded-[var(--radius)] border border-line p-6">
-            <CapacityTimeline
-              cells={getTimeline()}
-              asOfYear={AS_OF_YEAR}
-              title="Capacity Additions by Year"
-            />
+            <CapacityAdditionsChart series={getGlobalCapacity()} />
           </section>
         </div>
 

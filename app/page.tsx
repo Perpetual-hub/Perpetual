@@ -55,7 +55,7 @@ export default function Home() {
       {/* This week in deals */}
       <section className="container-page py-14 md:py-20" aria-labelledby="this-week">
         <Reveal>
-          <SectionHeading id="this-week" title="Recent Transactions" description="The latest acquisitions, financings, power purchase agreements and fund closes." href="/deals" linkLabel="Deal tracker" />
+          <SectionHeading id="this-week" title="Recent Transactions" description="The latest acquisitions, financings, power purchase agreements and fund closes." href="/deals" linkLabel="Deal Tracker" />
         </Reveal>
         <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-16">
           <Reveal>
