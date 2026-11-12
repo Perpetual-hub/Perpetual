@@ -236,18 +236,28 @@ for (const d of existing) {
   deals.push(d);
 }
 // The same deal is often reported by a company release and by news sites. Treat two records as one
-// when their titles share most of their meaningful words and they are dated within ten days.
-const words = (t) => new Set(t.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(" ").filter((w) => w.length > 2));
+// when their titles share most of their distinctive words (company and place names, not generic deal
+// vocabulary) and they are dated within ten days. Titles that both state figures must share one, so
+// two different PPAs signed by the same company in the same week are kept apart.
+const GENERIC = new Set(("signs signed sign secures secured secure closes closed close reaches reached financial financing finance " +
+  "loan loans debt equity invests investment invest acquires acquired acquire acquisition buys buy bought sells sold sale " +
+  "stake deal agreement agreements ppa ppas power purchase year long term solar wind battery storage bess energy renewable " +
+  "renewables project projects portfolio plant plants farm farms park parks hybrid green million billion with from for and " +
+  "the its into new first offshore onshore utility scale firm round clock").split(" "));
+const words = (t) => new Set(t.toLowerCase().replace(/[^a-z0-9 ]+/g, " ").split(" ").filter((w) => w.length > 2 && !GENERIC.has(w)));
+const figures = (t) => new Set((t.match(/\d[\d.,]*/g) ?? []).map((n) => n.replace(/[.,]$/, "")));
 const curatedAll = JSON.parse(curatedSrc.slice(curatedSrc.indexOf("= [") + 2, curatedSrc.lastIndexOf(";")));
-const known = [...curatedAll, ...existing].map((d) => ({ w: words(d.title), t: Date.parse(d.date) }));
+const known = [...curatedAll, ...existing].map((d) => ({ w: words(d.title), f: figures(d.title), t: Date.parse(d.date) }));
 const sameDeal = (d) => {
   const w = words(d.title);
+  const f = figures(d.title);
   const t = Date.parse(d.date);
   return known.some((k) => {
     if (Math.abs(k.t - t) > 10 * 86_400_000) return false;
+    if (f.size && k.f.size && ![...f].some((x) => k.f.has(x))) return false;
     let shared = 0;
     for (const x of w) if (k.w.has(x)) shared++;
-    return shared / Math.min(w.size, k.w.size) >= 0.6;
+    return shared >= 2 && shared / Math.min(w.size, k.w.size) >= 0.6;
   });
 };
 for (const x of results) {
@@ -255,7 +265,7 @@ for (const x of results) {
   if (!d) continue;
   const k = `${d.date}|${d.title.toLowerCase()}`;
   if (seenTitle.has(k) || seenId.has(d.id) || sameDeal(d)) continue;
-  known.push({ w: words(d.title), t: Date.parse(d.date) });
+  known.push({ w: words(d.title), f: figures(d.title), t: Date.parse(d.date) });
   seenId.add(d.id);
   seenTitle.add(k);
   deals.push(d);
