@@ -13,6 +13,7 @@ import { newsDeals } from "@/data/deals-news";
 import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { projects as rawProjects } from "@/data/projects";
+import { newsProjects } from "@/data/projects-news";
 import { research as rawResearch } from "@/data/research";
 import { capacityOutlook as rawCapacityOutlook } from "@/data/stats/capacity-outlook";
 import { countryCapacity as rawCountryCapacity } from "@/data/stats/country-capacity";
@@ -62,7 +63,10 @@ function validate<T>(file: string, schema: z.ZodType<T>, rows: unknown[]): T[] {
 
 const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeCompare(a.date);
 
-const projects = validate("data/projects.ts", S.project, rawProjects);
+const projects = [
+  ...validate("data/projects.ts", S.project, rawProjects),
+  ...validate("data/projects-news.json", S.project, newsProjects),
+];
 // Sample deals plus real records imported from open sources (see scripts/).
 // PR Newswire publishes one release under several addresses (regional copies differ only in the
 // trailing number), so the same deal can arrive twice. Keep the first: hand-written beats extracted.
@@ -291,7 +295,13 @@ export function getFeaturedDeal(): Deal | undefined {
 }
 
 export function getDealsForProject(id: string): Deal[] {
-  return deals.filter((d) => d.projectIds?.includes(id));
+  const listed = new Set(projects.find((p) => p.id === id)?.dealIds ?? []);
+  return deals.filter((d) => d.projectIds?.includes(id) || listed.has(d.id)).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/** The project a deal is about, if any. */
+export function getProjectsForDeal(d: Deal): Project[] {
+  return projects.filter((p) => d.projectIds?.includes(p.id) || p.dealIds?.includes(d.id));
 }
 
 // ---------- Stats ----------

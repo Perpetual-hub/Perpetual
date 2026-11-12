@@ -8,7 +8,7 @@ import { FactGrid, Section } from "@/components/project/Section";
 import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import { TechTag } from "@/components/ui/TechTag";
-import { getDeal, getDeals, getProjectById } from "@/lib/data";
+import { getDeal, getDeals, getProjectsForDeal } from "@/lib/data";
 import { DEAL_TYPE_LABEL, countryName, formatDate, formatMW, formatMoney, titleCase } from "@/lib/format";
 import type { Deal, Party } from "@/lib/types";
 
@@ -34,7 +34,7 @@ export default function DealPage({ params }: PageProps<"/deals/[slug]">) {
 async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["params"] }) {
   const d = getDeal((await params).slug);
   if (!d) notFound();
-  const projects = (d.projectIds ?? []).map(getProjectById).filter((p) => !!p);
+  const projects = getProjectsForDeal(d);
   const related = getDeals()
     .filter((x) => x.id !== d.id && x.technologies.some((t) => d.technologies.includes(t)))
     .slice(0, 4);

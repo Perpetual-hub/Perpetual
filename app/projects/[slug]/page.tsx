@@ -6,18 +6,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FactGrid, Section } from "@/components/project/Section";
 import { LocatorMap } from "@/components/project/LocatorMap";
-import { Timeline } from "@/components/project/Timeline";
+import { Benchmarks, CapitalStack, OwnershipHistory, ProjectHistory } from "@/components/project/Insights";
 import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
 import { TechTag } from "@/components/ui/TechTag";
-import { dealValue } from "@/components/cards/Cards";
 import {
-  getDealsForProject,
   getProject,
   getProjects,
   toMapPoint,
 } from "@/lib/data";
 import { OWNERSHIP_LABEL } from "@/lib/filters";
-import { countryName, formatDate, formatMW, formatMoney, DEAL_TYPE_LABEL, titleCase } from "@/lib/format";
+import { capitalStack, ownershipHistory, projectBenchmarks, projectHistory } from "@/lib/project-insights";
+import { countryName, formatDate, formatMW, formatMoney, titleCase } from "@/lib/format";
 import { TECH_BY_ID } from "@/lib/tech";
 import type { Party, Project } from "@/lib/types";
 
@@ -50,7 +49,10 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
   const p = getProject((await params).slug);
   if (!p) notFound();
   const tech = TECH_BY_ID[p.technology];
-  const deals = getDealsForProject(p.id);
+  const history = projectHistory(p);
+  const owners = ownershipHistory(p);
+  const stack = capitalStack(p);
+  const bench = projectBenchmarks(p);
   const capex = p.financing?.totalCapex;
 
   const capacity =
@@ -79,8 +81,8 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
           </div>
           <h1 className="mt-4 max-w-4xl text-3xl leading-[1.08] font-bold tracking-[-0.02em] md:text-5xl">{p.name}</h1>
           <p className="mt-3 text-lg text-muted">
-            {p.subType && sentence(p.subType)}
-            {p.admin1 && ` · ${p.admin1}`} ·{" "}
+            {[p.subType && sentence(p.subType), p.admin1].filter(Boolean).join(" · ")}
+            {(p.subType || p.admin1) && " · "}
             <Link href={`/countries/${p.country}`} className="text-ink underline decoration-line underline-offset-4 hover:text-brand-blue">
               {countryName(p.country)}
             </Link>
@@ -116,7 +118,7 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
                 ["Country", countryName(p.country)],
                 ["Province / state", p.admin1],
                 ["Region", p.region],
-                ["Coordinates", <span key="c" className="tabular">{p.lat.toFixed(2)}, {p.lng.toFixed(2)}</span>],
+                ["Coordinates", p.locationPrecision === "country" ? "Not published" : <span key="c" className="tabular">{p.lat.toFixed(2)}, {p.lng.toFixed(2)}{p.locationPrecision === "area" ? " (approximate)" : ""}</span>],
                 ["Ownership type", OWNERSHIP_LABEL[p.ownership]],
                 ["Design life", p.designLifeYears && `${p.designLifeYears} years`],
                 [
@@ -136,18 +138,23 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             />
           </Section>
 
-          <Section id="timeline" title="Timeline">
-            <Timeline
-              milestones={[
-                { label: "Announced", value: p.dates.announced },
-                { label: "Permits Granted", value: p.dates.permits },
-                { label: "Financial Close", value: p.financing?.financialClose },
-                { label: "Construction Start", value: p.dates.construction },
-                { label: "Commercial Operation (COD)", value: p.dates.cod },
-                { label: "Planned Decommissioning", value: p.dates.decommission },
-              ]}
-            />
-          </Section>
+          {history.length > 0 && (
+            <Section id="history" title="Project History">
+              <ProjectHistory events={history} />
+            </Section>
+          )}
+
+          {owners.length > 0 && (
+            <Section id="ownership" title="Ownership History">
+              <OwnershipHistory changes={owners} />
+            </Section>
+          )}
+
+          {stack.length > 0 && (
+            <Section id="capital" title="Capital Stack">
+              <CapitalStack layers={stack} />
+            </Section>
+          )}
 
           <Section id="parties" title="Parties">
             <div className="grid gap-x-10 gap-y-8 md:grid-cols-2">
@@ -184,13 +191,9 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
             </div>
           </Section>
 
-          {deals.length > 0 && (
-            <Section id="related" title="Deals">
-              <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
-                {deals.map((d) => (
-                  <RelatedRow key={d.id} href={`/deals/${d.slug}`} kicker={`Deal · ${DEAL_TYPE_LABEL[d.type]}`} date={d.date} title={d.title} extra={dealValue(d)} />
-                ))}
-              </ul>
+          {bench.length > 0 && (
+            <Section id="benchmarks" title="How It Compares">
+              <Benchmarks items={bench} techLabel={tech.label} />
             </Section>
           )}
 
@@ -199,7 +202,16 @@ async function ProjectPageContent({ params }: { params: PageProps<"/projects/[sl
 
         {/* Sidebar */}
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <LocatorMap point={toMapPoint(p)} />
+          <div>
+            <LocatorMap point={toMapPoint(p)} />
+            {p.locationPrecision && p.locationPrecision !== "site" && (
+              <p className="mt-2 text-xs leading-relaxed text-muted">
+                {p.locationPrecision === "area"
+                  ? "Approximate location: the pin marks the town or district named in the source, not the exact site."
+                  : "Approximate location: the source names only the country, so the pin marks the country."}
+              </p>
+            )}
+          </div>
           <Link
             href={`/projects?country=${p.country}`}
             className="group flex items-center justify-between rounded-[var(--radius)] border border-line px-4 py-3 text-sm font-medium hover:border-[#cdd6e2]"
@@ -276,23 +288,6 @@ function OwnersBlock({ owners }: { owners?: Party[] }) {
         ))}
       </ul>
     </div>
-  );
-}
-
-function RelatedRow({ href, kicker, date, title, extra }: { href: string; kicker: string; date: string; title: string; extra?: string }) {
-  return (
-    <li>
-      <Link href={href} className="group flex items-center gap-4 px-5 py-4 transition-colors hover:bg-surface-2">
-        <div className="min-w-0 flex-1">
-          <div className="text-xs text-muted">
-            <span className="font-semibold text-brand-blue">{kicker}</span> · {formatDate(date)}
-          </div>
-          <div className="mt-1 font-semibold text-ink group-hover:text-brand-blue">{title}</div>
-        </div>
-        {extra && <span className="tabular shrink-0 text-sm font-semibold text-ink">{extra}</span>}
-        <ArrowRight className="size-4 shrink-0 text-muted" aria-hidden />
-      </Link>
-    </li>
   );
 }
 

@@ -71,6 +71,8 @@ export const project = z
     admin1: z.string().optional(),
     lat: z.number().min(-90).max(90),
     lng: z.number().min(-180).max(180),
+    /** How exact the map position is: the site itself, a nearby town or district, or only the country. */
+    locationPrecision: z.enum(["site", "area", "country"]).optional(),
     status: projectStatus,
     ownership,
     developer: z.array(party).optional(),
@@ -93,6 +95,8 @@ export const project = z
         instruments: z.array(z.string()).optional(),
       })
       .optional(),
+    /** Deals about this project, for records generated from the deal tracker. */
+    dealIds: z.array(z.string()).optional(),
     dates: z.object({
       announced: dateValue.optional(),
       permits: dateValue.optional(),

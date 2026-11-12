@@ -1,0 +1,490 @@
+[
+ {
+  "id": "prj-n-bdac3467aa",
+  "slug": "acg-solar-and-battery-roofsol-in",
+  "name": "ACG solar and battery (Roofsol)",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 5,
+  "subType": "with battery storage",
+  "country": "IN",
+  "region": "Asia",
+  "lat": 19.567,
+  "lng": 76.4165,
+  "locationPrecision": "area",
+  "status": "financing",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "Roofsol Energy"
+   }
+  ],
+  "offtake": {
+   "offtaker": "Associated Capsules Group",
+   "type": "PPA"
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-08-26",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "Roofsol will build a 5 MWp solar plant with a 4 MWh battery in Maharashtra and sell its power to Associated Capsules Group, a maker of capsules and pharmaceutical packaging. It is Roofsol's first battery order from a commercial and industrial customer.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "Roofsol Energy Signs PPA with ACG for 5 MWp Solar and 4 MWh BESS Project in Maharashtra",
+    "url": "https://solarquarter.com/2026/08/26/roofsol-energy-signs-ppa-with-acg-for-5-mwp-solar-and-4-mwh-bess-project-in-maharashtra/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-c41cd6887bd7b07d"
+  ],
+  "lastUpdated": "2026-08-26",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-dfa04406dd",
+  "slug": "belagavi-wind-farm-blueleaf-in",
+  "name": "Belagavi wind farm (Blueleaf)",
+  "isSample": false,
+  "technology": "wind",
+  "capacityMW": 40,
+  "country": "IN",
+  "region": "Asia",
+  "lat": 16.1588,
+  "lng": 74.8889,
+  "locationPrecision": "area",
+  "status": "operating",
+  "ownership": "private",
+  "owners": [
+   {
+    "name": "Blueleaf Energy"
+   }
+  ],
+  "dates": {
+   "announced": {
+    "date": "2026-10-01",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The wind farm is in Belagavi district, Karnataka, and has eight years of operating history. It joins Blueleaf Energy's Indian portfolio as an operating asset. Neither the price nor the seller was disclosed.",
+  "sources": [
+   {
+    "publisher": "Asian Power",
+    "title": "Blueleaf Energy acquires 40MW wind farm in Karnataka",
+    "url": "https://asian-power.com/news/blueleaf-energy-acquires-40mw-wind-farm-in-karnataka",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-643462c7634a97cc"
+  ],
+  "lastUpdated": "2026-10-01",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-eeaf27b756",
+  "slug": "enersynk-500-mw-solar-zambia-zm",
+  "name": "EnerSynk 500 MW Solar (Zambia)",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 500,
+  "country": "ZM",
+  "region": "Africa",
+  "lat": -14.5189,
+  "lng": 27.559,
+  "locationPrecision": "country",
+  "status": "announced",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "EnerSynk Group"
+   }
+  ],
+  "offtake": {
+   "offtaker": "ZESCO",
+   "type": "PPA"
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-09-16",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "ZESCO, Zambia's state power utility, will buy the output of a 500 MW solar project from EnerSynk Group, a Hungarian climate infrastructure company, for 25 years. The site, cost and timetable were not disclosed in the announcement.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "ZESCO Signs 25-Year PPA For 500 MW Solar Project In Zambia",
+    "url": "https://solarquarter.com/2026/09/16/zesco-signs-25-year-ppa-for-500-mw-solar-project-in-zambia/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-cebde7b35946e08b"
+  ],
+  "lastUpdated": "2026-09-16",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-732df2e7fc",
+  "slug": "gedong-solar-my",
+  "name": "Gedong Solar",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 250,
+  "country": "MY",
+  "region": "Asia",
+  "lat": 1.2981,
+  "lng": 110.6784,
+  "locationPrecision": "area",
+  "status": "financing",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "reNIKOLA Gedong Solar (Sarawak)"
+   }
+  ],
+  "offtake": {
+   "offtaker": "Syarikat Sesco",
+   "type": "PPA"
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-09-21",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The plant will be built in Gedong, Simunjan District, Samarahan, Sarawak, with 250 MWac of export capacity and up to 363 MWp of panels. The buyer, Syarikat Sesco, is wholly owned by Sarawak Energy. The investment is about RM1 billion.",
+  "sources": [
+   {
+    "publisher": "Asian Power",
+    "title": "reNIKOLA signs 30-year PPA for 250MW solar project in Malaysia",
+    "url": "https://asian-power.com/news/renikola-signs-30-year-ppa-250mw-solar-project-in-malaysia",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-3754aa06373c5030"
+  ],
+  "lastUpdated": "2026-09-21",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-9b0af4a0fc",
+  "slug": "kilderry-solar-farm-ie",
+  "name": "Kilderry Solar Farm",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 40,
+  "country": "IE",
+  "region": "Europe",
+  "lat": 52.5687,
+  "lng": -7.189,
+  "locationPrecision": "area",
+  "status": "permitting",
+  "ownership": "private",
+  "owners": [
+   {
+    "name": "Elgin"
+   }
+  ],
+  "dates": {
+   "announced": {
+    "date": "2026-10-13",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "Kilderry is a 40 MWp solar project in County Kilkenny, close to several of Elgin's own development sites. Elgin, an independent power producer that builds and runs utility-scale solar and storage, bought it from developer BayWa r.e.",
+  "sources": [
+   {
+    "publisher": "Energy Global",
+    "title": "Elgin acquires Kilderry solar farm from BayWa r.e.",
+    "url": "https://www.energyglobal.com/solar/13102026/elgin-acquires-kilderry-solar-farm-from-baywa-re/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-96305d5683e7beee"
+  ],
+  "lastUpdated": "2026-10-13",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-22b58bf0bc",
+  "slug": "macchiareddu-solar-it",
+  "name": "Macchiareddu Solar",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 46.5,
+  "country": "IT",
+  "region": "Europe",
+  "lat": 39.2222,
+  "lng": 9.0561,
+  "locationPrecision": "site",
+  "admin1": "Sardinia",
+  "status": "operating",
+  "ownership": "private",
+  "owners": [
+   {
+    "name": "Sonnedix"
+   }
+  ],
+  "dates": {
+   "announced": {
+    "date": "2026-10-08",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "An operating 46.5 MW solar plant in the province of Cagliari, Sardinia. Sonnedix bought it in 2026 from a fund managed by EOS IM, together with the 7.5 MW Aprilia plant in Lazio.",
+  "sources": [
+   {
+    "publisher": "Energy Global",
+    "title": "Sonnedix acquires two solar photovoltaics assets in Italy totalling 54 MW",
+    "url": "https://www.energyglobal.com/solar/08102026/sonnedix-acquires-two-solar-photovoltaics-assets-in-italy-totalling-54-mw/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-1e104ecd1ef7b62c"
+  ],
+  "lastUpdated": "2026-10-08",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-e4665c8af7",
+  "slug": "ncrtc-jaulan-captive-solar-in",
+  "name": "NCRTC Jaulan Captive Solar",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 110,
+  "country": "IN",
+  "region": "Asia",
+  "lat": 27.1303,
+  "lng": 80.8597,
+  "locationPrecision": "area",
+  "status": "financing",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "NIRL NCRTC Renewables"
+   }
+  ],
+  "offtake": {
+   "offtaker": "National Capital Region Transport Corporation",
+   "type": "PPA"
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-09-02",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The 110 MW captive solar plant will be built at Jaulan, Uttar Pradesh, by NIRL NCRTC Renewables, a company linked to NLC India Renewables. It is estimated to cost about ₹450 crore, funded 80% debt and 20% equity, and is due within 24 months.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "NCRTC Signs PPA for 110 MW Captive Solar Plant to Power Delhi–Meerut Namo Bharat Corridor",
+    "url": "https://solarquarter.com/2026/09/02/ncrtc-signs-ppa-for-110-mw-captive-solar-plant-to-power-delhi-meerut-namo-bharat-corridor/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-b3dbf50688194409"
+  ],
+  "lastUpdated": "2026-09-02",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-0a65d6126c",
+  "slug": "neftchala-solar-pv-az",
+  "name": "Neftchala Solar PV",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 315,
+  "country": "AZ",
+  "region": "Eurasia",
+  "lat": 39.3791,
+  "lng": 49.2486,
+  "locationPrecision": "site",
+  "status": "construction",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "Masdar"
+   },
+   {
+    "name": "SOCAR Green"
+   }
+  ],
+  "financing": {
+   "financialClose": {
+    "date": "2026-09-16",
+    "confidence": "confirmed"
+   }
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-09-16",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The 315 MW plant is in Neftchala district and is co-developed with Azerbaijan's Ministry of Energy. Lenders are the AIIB, the EBRD and the ADB. It is expected to produce more than 686 million kWh a year. Masdar also signed an agreement with the Azerbaijan Green Energy Company to study expanding its 230 MW Garadagh plant by at least 350 MW with up to 200 MWh of batteries.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "Masdar and SOCAR Green Secure Financial Close for 315 MW Neftchala Solar Project in Azerbaijan",
+    "url": "https://solarquarter.com/2026/09/16/masdar-and-socar-green-secure-financial-close-for-315-mw-neftchala-solar-project-in-azerbaijan/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-8760230cc1b16455"
+  ],
+  "lastUpdated": "2026-09-16",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-493fb148e0",
+  "slug": "pedersore-bess-fi",
+  "name": "Pedersöre BESS",
+  "isSample": false,
+  "technology": "storage",
+  "capacityMW": 145,
+  "storageMWh": 290,
+  "country": "FI",
+  "region": "Multi-country",
+  "lat": 63.5408,
+  "lng": 23.0452,
+  "locationPrecision": "site",
+  "status": "financing",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "Ingrid Capacity"
+   }
+  ],
+  "owners": [
+   {
+    "name": "Mirova"
+   }
+  ],
+  "dates": {
+   "announced": {
+    "date": "2026-09-23",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The two batteries were developed by Ingrid Capacity: Pedersöre in Finland, 45 MW / 90 MWh and ready to build, which has an offtake agreement, and Vaggeryd in Sweden. Together they total 145 MW / 290 MWh. Mirova's €65 million is an equity investment.",
+  "sources": [
+   {
+    "publisher": "Energy Global",
+    "title": "Mirova invests €65 million in Nordic battery storage developed by Ingrid Capacity",
+    "url": "https://www.energyglobal.com/energy-storage/23092026/mirova-invests-65-million-in-nordic-battery-storage-developed-by-ingrid-capacity/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-98bdace8713661d4"
+  ],
+  "lastUpdated": "2026-09-23",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-915b577635",
+  "slug": "ras-shokeir-wind-eg",
+  "name": "Ras Shokeir Wind",
+  "isSample": false,
+  "technology": "wind",
+  "capacityMW": 1000,
+  "country": "EG",
+  "region": "Africa",
+  "lat": 24.6602,
+  "lng": 34.14,
+  "locationPrecision": "area",
+  "status": "financing",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "Infinity Power"
+   },
+   {
+    "name": "Hassan Allam Utilities Energy"
+   }
+  ],
+  "offtake": {
+   "offtaker": "Egyptian Electricity Transmission Company",
+   "type": "PPA"
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-09-02",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The Egyptian Electricity Transmission Company will buy the power from the 1 GW Ras Shokeir wind project in the Red Sea Governorate. The project company, Ras Shokeir Wind Energy Co., is owned by a consortium of Infinity Power and Hassan Allam Utilities Energy. The wind farm will be spread over about 143 km².",
+  "sources": [
+   {
+    "publisher": "Energy Global",
+    "title": "Infinity Power and Hassan Allam Utilities Energy sign PPA for Egyptian wind project",
+    "url": "https://www.energyglobal.com/wind/02092026/infinity-power-and-hassan-allam-utilities-energy-sign-ppa-for-egyptian-wind-project/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-05984ecc206c3367"
+  ],
+  "lastUpdated": "2026-09-02",
+  "dataVersion": "news-2026.11"
+ },
+ {
+  "id": "prj-n-b6542ee5b0",
+  "slug": "san-matias-solar-pv-sv",
+  "name": "San Matías Solar PV",
+  "isSample": false,
+  "technology": "solar",
+  "capacityMW": 11,
+  "country": "SV",
+  "region": "Central America and the Caribbean",
+  "lat": 13.8861,
+  "lng": -89.3165,
+  "locationPrecision": "area",
+  "status": "financing",
+  "ownership": "private",
+  "developer": [
+   {
+    "name": "Government of El Salvador"
+   }
+  ],
+  "financing": {
+   "debt": [
+    {
+     "name": "Kuwait Fund for Arab Economic Development",
+     "role": "Lender"
+    }
+   ]
+  },
+  "dates": {
+   "announced": {
+    "date": "2026-08-27",
+    "confidence": "confirmed"
+   }
+  },
+  "description": "The KWD 3 million (about US$9.6 million) loan from the Kuwait Fund goes to the Government of El Salvador. It funds an 11 MWp solar plant at Hacienda San Lorenzo in San Matías, north-west of San Salvador, on about 108,000 m² of land leased for 25 years. The plant should produce 20–25 GWh a year.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "Kuwait Fund Provides USD 9.6 Million Loan for 11 MW San Matías Solar Project in El Salvador",
+    "url": "https://solarquarter.com/2026/08/27/kuwait-fund-provides-usd-9-6-million-loan-for-11-mw-san-matias-solar-project-in-el-salvador/",
+    "retrievedAt": "2026-11-12"
+   }
+  ],
+  "dealIds": [
+   "news-d6b06abc9eeee1f6"
+  ],
+  "lastUpdated": "2026-08-27",
+  "dataVersion": "news-2026.11"
+ }
+]

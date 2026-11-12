@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Globe2, List, Map as MapIcon, Search, SlidersHorizontal, Table2, X } from "lucide-react";
+import { BarChart3, Download, Globe2, List, Map as MapIcon, Search, SlidersHorizontal, Table2, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
@@ -24,17 +24,18 @@ import { TECHNOLOGIES, TECH_BY_ID } from "@/lib/tech";
 import type { Ownership, ProjectStatus, Technology } from "@/lib/types";
 import { CheckboxList, RangeInputs, type Option } from "./FilterControls";
 import { FilterPopover } from "./Popover";
+import { PipelineView } from "./PipelineView";
 import { ProjectTable } from "./ProjectTable";
 import { downloadProjectsCSV } from "./csv";
 
-type View = "map" | "table";
+type View = "map" | "table" | "pipeline";
 
 export function Explorer({ points }: { points: MapPoint[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const sp = useSearchParams();
   const filters = useMemo(() => parseFilters(sp), [sp]);
-  const view: View = sp.get("view") === "table" ? "table" : "map";
+  const view: View = sp.get("view") === "table" ? "table" : sp.get("view") === "pipeline" ? "pipeline" : "map";
   const projection = sp.get("proj") === "globe" ? "globe" : "mercator";
   const [selected, setSelected] = useState<MapPoint | null>(null);
   const [hovered, setHovered] = useState<string | undefined>();
@@ -47,7 +48,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
 
   const push = (next: ProjectFilters, extra: { view?: View; proj?: string } = {}) => {
     const q = filtersToQuery(next, {
-      view: (extra.view ?? view) === "table" ? "table" : undefined,
+      view: (extra.view ?? view) === "map" ? undefined : (extra.view ?? view),
       proj: (extra.proj ?? projection) === "globe" ? "globe" : undefined,
     });
     router.replace(q ? `${pathname}?${q}` : pathname, { scroll: false });
@@ -149,6 +150,7 @@ export function Explorer({ points }: { points: MapPoint[] }) {
             options={[
               { id: "map", label: "Map", icon: MapIcon },
               { id: "table", label: "Table", icon: Table2 },
+              { id: "pipeline", label: "Pipeline", icon: BarChart3 },
             ]}
           />
           <button
@@ -225,6 +227,10 @@ export function Explorer({ points }: { points: MapPoint[] }) {
       {/* Results */}
       {filtered.length === 0 ? (
         <EmptyState onClear={clearAll} noData={points.length === 0} />
+      ) : view === "pipeline" ? (
+        <div className="min-h-0 flex-1 overflow-auto">
+          <PipelineView points={filtered} />
+        </div>
       ) : view === "table" ? (
         <div className="container-page min-h-0 flex-1 overflow-auto py-6">
           <ProjectTable points={filtered} />
