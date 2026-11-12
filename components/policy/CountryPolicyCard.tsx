@@ -37,7 +37,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
     <section aria-labelledby="profits-h" className="border-t-2 border-brand-navy">
       <div className="flex flex-wrap items-baseline justify-between gap-3 pt-6 pb-6">
         <div>
-          <h2 id="profits-h" className="text-2xl font-bold tracking-tight">
+          <h2 id="profits-h" className="text-2xl font-semibold tracking-[-0.02em]">
             Policy Assessment
           </h2>
           <p className="mt-1 text-sm text-muted">How investable {name} is for renewable energy, scored with PROFITS.</p>

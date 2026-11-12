@@ -72,7 +72,7 @@ export function PolicyPanel({
         <div className="flex items-start justify-between gap-4 border-b border-line px-6 pt-6 pb-5">
           <div>
             <p className="text-xs font-semibold text-brand-blue">PROFITS policy score</p>
-            <h2 id="policy-title" className="mt-1 text-2xl font-bold tracking-tight">
+            <h2 id="policy-title" className="mt-1 text-2xl font-semibold tracking-[-0.02em]">
               {entry?.name ?? name}
             </h2>
           </div>

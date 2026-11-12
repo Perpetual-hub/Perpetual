@@ -335,7 +335,7 @@ function Stat({ label, value, unit }: { label: string; value: string; unit?: str
   return (
     <div className="text-center">
       <dt className="text-[11px] leading-tight font-medium text-hero-muted">{label}</dt>
-      <dd className="tabular mt-1.5 font-display text-2xl font-bold tracking-tight text-white md:text-[1.75rem]">
+      <dd className="tabular mt-1.5 font-display text-2xl font-semibold tracking-[-0.02em] text-white md:text-[1.75rem]">
         {value}
         {unit && <span className="ml-1 text-sm font-semibold text-hero-muted">{unit}</span>}
       </dd>

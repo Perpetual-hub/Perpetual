@@ -5,6 +5,7 @@ import { FeatureDealCard, dealValue } from "@/components/cards/Cards";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { HomeHero } from "@/components/home/HomeHero";
 import { LatestRail, type RailItem } from "@/components/home/LatestRail";
+import { RenewablesGlance } from "@/components/home/RenewablesGlance";
 import { TechGrid } from "@/components/home/TechGrid";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -14,6 +15,8 @@ import {
   getCountryStatsRows,
   getDeals,
   getFeaturedDeal,
+  getGlobalCapacity,
+  getProjects,
   getDealPoints,
   getRegionStatsRows,
   getSectorSummary,
@@ -51,6 +54,8 @@ export default function Home() {
         totalDeals={deals.length}
         rail={<LatestRail items={rail} />}
       />
+
+      <RenewablesGlance series={getGlobalCapacity()} plants={getProjects().length} />
 
       {/* This week in deals */}
       <section className="container-page py-14 md:py-20" aria-labelledby="this-week">

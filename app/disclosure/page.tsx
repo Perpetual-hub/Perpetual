@@ -73,11 +73,11 @@ export default function DisclosurePage() {
             title="Coverage"
             lead="Perpetual tracks renewable energy projects, the transactions that fund or change hands over them, and how investable each country's policies are."
           >
-            <div className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {TECHNOLOGIES.map((t) => {
                 const Icon = t.icon;
                 return (
-                  <div key={t.id} className="bg-white p-5">
+                  <div key={t.id} className="rounded-[var(--radius)] bg-paper p-5">
                     <div className="flex items-center gap-2">
                       <Icon className="size-4" style={{ color: t.hex }} aria-hidden />
                       <h3 className="font-sans text-sm font-semibold text-ink">{t.label}</h3>
@@ -122,7 +122,7 @@ export default function DisclosurePage() {
               </Card>
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <div className="flex gap-4 rounded-[var(--radius)] border border-line p-5">
+              <div className="flex gap-4 rounded-[var(--radius)] bg-paper p-5">
                 <span className="mt-1 size-4 shrink-0 rounded-full border-2 border-brand-blue bg-brand-blue" aria-hidden />
                 <div>
                   <h3 className="font-sans text-sm font-semibold text-ink">Confirmed Date</h3>
@@ -131,7 +131,7 @@ export default function DisclosurePage() {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 rounded-[var(--radius)] border border-line p-5">
+              <div className="flex gap-4 rounded-[var(--radius)] bg-paper p-5">
                 <span className="mt-1 size-4 shrink-0 rounded-full border-2 border-[#9aabbf] bg-white" aria-hidden />
                 <div>
                   <h3 className="font-sans text-sm font-semibold text-ink">Estimated Date</h3>
@@ -195,7 +195,7 @@ export default function DisclosurePage() {
 
           {/* Limitations */}
           <Block id="limitations" title="Limitations">
-            <ol className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line md:grid-cols-2">
+            <ol className="grid gap-3 md:grid-cols-2">
               {[
                 ["Uneven Coverage", "Some countries and sectors publish far more than others."],
                 ["Pipeline Is Not a Forecast", "Many announced projects are never built."],
@@ -204,7 +204,7 @@ export default function DisclosurePage() {
                 ["Undisclosed Values", "Deal values are often private. We never estimate one and present it as fact."],
                 ["Policy Can Change Quickly", "Scores reflect the assessment date shown on each country."],
               ].map(([t, d], i) => (
-                <li key={t} className="flex gap-4 bg-white p-5">
+                <li key={t} className="flex gap-4 rounded-[var(--radius)] bg-paper p-5">
                   <span className="tabular font-display text-lg font-bold text-brand-blue">{String(i + 1).padStart(2, "0")}</span>
                   <div>
                     <h3 className="font-sans text-sm font-semibold text-ink">{t}</h3>
@@ -287,7 +287,7 @@ function Block({ id, title, lead, children }: { id: string; title: string; lead?
 
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-[var(--radius)] border border-line p-5">
+    <div className="rounded-[var(--radius)] bg-paper p-5">
       <h3 className="font-sans text-sm font-semibold text-ink">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-muted">{children}</p>
     </div>

@@ -229,11 +229,11 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
           <>
             {/* Charts */}
             <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
-              <section className="rounded-[var(--radius)] border border-line p-6">
+              <section className="rounded-[var(--radius)] bg-paper p-6">
                 <h2 className="mb-4 font-sans text-base font-semibold text-ink">Disclosed Deal Value by Quarter</h2>
                 <DealValueChart deals={filtered} />
               </section>
-              <section className="rounded-[var(--radius)] border border-line p-6">
+              <section className="rounded-[var(--radius)] bg-paper p-6">
                 <div className="mb-4 flex items-baseline justify-between">
                   <h2 className="font-sans text-base font-semibold text-ink">Deals by Type</h2>
                   <span className="text-xs text-muted">Click a bar to filter</span>
@@ -252,12 +252,12 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
 
             {investors.length > 0 && (
               <section aria-labelledby="inv-h">
-                <h2 id="inv-h" className="mb-4 text-xl font-bold tracking-tight">
+                <h2 id="inv-h" className="mb-4 text-xl font-semibold tracking-[-0.02em]">
                   Most Active Investors and Lenders
                 </h2>
-                <ol className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+                <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {investors.map((x, i) => (
-                    <li key={x.name} className="flex items-center gap-3 bg-white px-5 py-4">
+                    <li key={x.name} className="flex items-center gap-3 rounded-[var(--radius)] bg-paper px-5 py-4">
                       <span className="tabular w-5 text-sm text-muted">{i + 1}</span>
                       <span className="min-w-0 flex-1">
                         <span className="block truncate font-semibold text-ink">{x.name}</span>
@@ -322,6 +322,7 @@ function valueText(d: Deal) {
 
 function DealTable({ deals }: { deals: Deal[] }) {
   const [sort, setSort] = useState<{ key: SortKey; dir: "asc" | "desc" }>({ key: "date", dir: "desc" });
+  const [limit, setLimit] = useState(50);
   const val = (d: Deal, k: SortKey): string | number =>
     k === "date" ? d.date : k === "title" ? d.title : k === "type" ? DEAL_TYPE_LABEL[d.type] : k === "value" ? (d.value?.disclosed ? (d.value.usd ?? 0) : -1) : (d.capacityMW ?? -1);
   const rows = [...deals].sort((a, b) => {
@@ -347,6 +348,7 @@ function DealTable({ deals }: { deals: Deal[] }) {
     );
   };
   return (
+    <>
     <div className="relative overflow-x-auto rounded-[var(--radius)] border border-line">
       <table className="w-full min-w-[1000px] text-sm">
         <caption className="sr-only">Deals matching the current filters. Column headers sort the table.</caption>
@@ -366,7 +368,7 @@ function DealTable({ deals }: { deals: Deal[] }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-line">
-          {rows.map((d) => (
+          {rows.slice(0, limit).map((d) => (
             <tr key={d.id} className="hover:bg-surface-2">
               <td className="tabular px-4 py-3 whitespace-nowrap text-muted">{formatDate(d.date)}</td>
               <th scope="row" className="max-w-md px-4 py-3 text-left font-medium">
@@ -402,14 +404,18 @@ function DealTable({ deals }: { deals: Deal[] }) {
         </tbody>
       </table>
     </div>
+      <ShowMore shown={Math.min(limit, rows.length)} total={rows.length} onMore={() => setLimit((l) => l + 200)} />
+    </>
   );
 }
 
 function DealCards({ deals }: { deals: Deal[] }) {
+  const [limit, setLimit] = useState(60);
   return (
-    <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {deals.map((d) => (
-        <li key={d.id} className="group relative flex flex-col rounded-[var(--radius)] border border-line bg-white p-5 transition-[border-color,box-shadow] duration-200 hover:border-[#cdd6e2] hover:shadow-[0_8px_24px_-14px_rgba(11,27,46,0.22)]">
+    <>
+    <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {deals.slice(0, limit).map((d) => (
+        <li key={d.id} className="group relative flex flex-col rounded-[var(--radius)] bg-paper p-5 transition-colors duration-200 hover:bg-[#e9ede5]">
           <div className="flex items-center gap-2 text-xs text-muted">
             <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[d.type]}</span>
             <span>{formatDate(d.date)}</span>
@@ -449,6 +455,8 @@ function DealCards({ deals }: { deals: Deal[] }) {
         </li>
       ))}
     </ul>
+    <ShowMore shown={Math.min(limit, deals.length)} total={deals.length} onMore={() => setLimit((l) => l + 120)} />
+    </>
   );
 }
 
@@ -471,4 +479,18 @@ function downloadDealsCSV(deals: Deal[]) {
   a.click();
   a.remove();
   URL.revokeObjectURL(url);
+}
+
+function ShowMore({ shown, total, onMore }: { shown: number; total: number; onMore: () => void }) {
+  if (shown >= total) return null;
+  return (
+    <div className="mt-8 flex flex-col items-center gap-2">
+      <p className="text-sm text-soft">
+        Showing {shown.toLocaleString("en-GB")} of {total.toLocaleString("en-GB")} deals
+      </p>
+      <button type="button" onClick={onMore} className="rounded-[var(--radius)] bg-ink px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-navy">
+        Show more
+      </button>
+    </div>
+  );
 }

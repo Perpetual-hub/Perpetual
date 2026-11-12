@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SampleBadge } from "@/components/ui/Badge";
 import { ChartCard } from "@/components/area/AreaPage";
 import { BarList } from "@/components/charts/BarList";
 import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
@@ -77,8 +76,8 @@ export default function StatisticsPage() {
       </header>
 
       <div className="container-page space-y-16 py-12">
-        <section aria-labelledby="global-h" className="rounded-[var(--radius)] border border-line p-6 md:p-8">
-          <h2 id="global-h" className="text-2xl font-bold tracking-tight">
+        <section aria-labelledby="global-h" className="rounded-[var(--radius)] bg-paper p-6 md:p-8">
+          <h2 id="global-h" className="text-2xl font-semibold tracking-[-0.02em]">
             Global Renewable Capacity
           </h2>
           <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -88,8 +87,8 @@ export default function StatisticsPage() {
           <GlobalCapacityChart series={getGlobalCapacity()} />
         </section>
 
-        <section aria-labelledby="outlook-h" className="rounded-[var(--radius)] border border-line p-6 md:p-8">
-          <h2 id="outlook-h" className="text-2xl font-bold tracking-tight">
+        <section aria-labelledby="outlook-h" className="rounded-[var(--radius)] bg-paper p-6 md:p-8">
+          <h2 id="outlook-h" className="text-2xl font-semibold tracking-[-0.02em]">
             Capacity Outlook to {getCapacityOutlook().scenarios[0].rows.at(-1)?.year}
           </h2>
           <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -100,7 +99,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="regions-h">
-          <h2 id="regions-h" className="mb-2 text-2xl font-bold tracking-tight">
+          <h2 id="regions-h" className="mb-2 text-2xl font-semibold tracking-[-0.02em]">
             By Region
           </h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -110,7 +109,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="countries-h">
-          <h2 id="countries-h" className="mb-2 text-2xl font-bold tracking-tight">
+          <h2 id="countries-h" className="mb-2 text-2xl font-semibold tracking-[-0.02em]">
             By Country
           </h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -130,8 +129,7 @@ export default function StatisticsPage() {
         {getProjects().length > 0 && (
           <>
         <div className="flex flex-wrap items-center gap-3 border-t border-line pt-14">
-          <h2 className="text-2xl font-bold tracking-tight">Tracked Projects</h2>
-          <SampleBadge />
+          <h2 className="text-2xl font-semibold tracking-[-0.02em]">Tracked Projects</h2>
           <p className="w-full max-w-3xl leading-relaxed text-muted">
             Capacity across the project records on Perpetual, by sector, year and region.
           </p>
@@ -150,7 +148,7 @@ export default function StatisticsPage() {
               }))}
             />
           </ChartCard>
-          <section className="rounded-[var(--radius)] border border-line p-6">
+          <section className="rounded-[var(--radius)] bg-paper p-6">
             <CapacityAdditionsChart series={getGlobalCapacity()} />
           </section>
         </div>

@@ -161,11 +161,11 @@ async function TechnologyContent({
           <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
             <section
               aria-labelledby="world-h"
-              className="rounded-[var(--radius)] border border-line p-6 md:p-8"
+              className="rounded-[var(--radius)] bg-paper p-6 md:p-8"
             >
               <h2
                 id="world-h"
-                className="mb-6 text-2xl font-bold tracking-tight"
+                className="mb-6 text-2xl font-semibold tracking-[-0.02em]"
               >
                 World Installed Capacity
               </h2>
@@ -199,7 +199,7 @@ async function TechnologyContent({
           <>
             <section aria-labelledby="map-h">
               <div className="mb-4 flex items-baseline justify-between gap-4">
-                <h2 id="map-h" className="text-xl font-bold tracking-tight">
+                <h2 id="map-h" className="text-xl font-semibold tracking-[-0.02em]">
                   Project Map
                 </h2>
                 <Link
@@ -255,7 +255,7 @@ async function TechnologyContent({
             </div>
 
             {IRENA_TECHS.includes(tech) && (
-              <section className="rounded-[var(--radius)] border border-line p-6">
+              <section className="rounded-[var(--radius)] bg-paper p-6">
                 <CapacityAdditionsChart series={getGlobalCapacity()} only={tech as "solar"} />
               </section>
             )}
@@ -263,7 +263,7 @@ async function TechnologyContent({
             <section aria-labelledby="largest-h">
               <h2
                 id="largest-h"
-                className="mb-5 text-xl font-bold tracking-tight"
+                className="mb-5 text-xl font-semibold tracking-[-0.02em]"
               >
                 Largest {t.label} Projects
               </h2>

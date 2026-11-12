@@ -31,15 +31,15 @@ export function PipelineView({ points }: { points: MapPoint[] }) {
       </h2>
 
       {/* Stage funnel */}
-      <ol className="mt-8 grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line sm:grid-cols-5">
+      <ol className="mt-8 grid gap-3 sm:grid-cols-5">
         {STAGES.map((s, i) => (
-          <li key={s} className="bg-white p-4">
+          <li key={s} className="rounded-[var(--radius)] bg-paper p-4">
             <p className="text-xs text-muted">
               {i + 1}. {STATUS_LABEL[s]}
             </p>
             <p className="tabular mt-1 font-display text-2xl font-bold text-brand-navy">{fmt(mw(total[s]))}</p>
             <p className="tabular text-xs text-muted">{total[s].length} projects</p>
-            <div className="mt-3 h-1.5 bg-surface-2" aria-hidden>
+            <div className="mt-3 h-1.5 bg-white" aria-hidden>
               <div className="h-full bg-brand-navy" style={{ width: `${(mw(total[s]) / maxStage) * 100}%` }} />
             </div>
           </li>

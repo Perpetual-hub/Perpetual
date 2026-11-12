@@ -5,12 +5,12 @@ import type { Technology } from "@/lib/types";
 
 export function TechGrid({ counts }: { counts: Record<Technology, { deals: number; worldMW?: number }> }) {
   return (
-    <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line md:grid-cols-4">
+    <ul className="grid grid-cols-2 gap-3 md:grid-cols-4">
       {TECHNOLOGIES.map((t) => {
         const Icon = t.icon;
         const c = counts[t.id];
         return (
-          <li key={t.id} className="bg-white">
+          <li key={t.id} className="overflow-hidden rounded-[var(--radius)] bg-paper">
             <Link
               href={`/sectors/${t.id}`}
               className="group relative flex h-full flex-col p-5 transition-colors duration-200 hover:bg-surface-2 md:p-6"

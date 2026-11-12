@@ -177,9 +177,9 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
         {official && (
           <section
             aria-labelledby="official-h"
-            className="rounded-[var(--radius)] border border-line p-6 md:p-8"
+            className="rounded-[var(--radius)] bg-paper p-6 md:p-8"
           >
-            <h2 id="official-h" className="text-2xl font-bold tracking-tight">
+            <h2 id="official-h" className="text-2xl font-semibold tracking-[-0.02em]">
               Installed Renewable Capacity
             </h2>
             <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -196,7 +196,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
         {memberRows.length > 0 && (
           <section aria-labelledby="countries-h">
-            <h2 id="countries-h" className="mb-2 text-2xl font-bold tracking-tight">
+            <h2 id="countries-h" className="mb-2 text-2xl font-semibold tracking-[-0.02em]">
               Countries in {s.name}
             </h2>
             <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -210,7 +210,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
           <>
             {official && (
               <div className="flex flex-wrap items-center gap-3 border-t border-line pt-12">
-                <h2 className="text-2xl font-bold tracking-tight">Tracked Projects</h2>
+                <h2 className="text-2xl font-semibold tracking-[-0.02em]">Tracked Projects</h2>
                 {projects.every((p) => p.isSample) && <SampleBadge />}
               </div>
             )}
@@ -236,14 +236,14 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             </div>
 
             {official && (
-              <section className="rounded-[var(--radius)] border border-line p-6">
+              <section className="rounded-[var(--radius)] bg-paper p-6">
                 <CapacityAdditionsChart series={countryStats.series(official)} place={s.name} />
               </section>
             )}
 
             <section aria-labelledby="map-h">
               <div className="mb-4 flex items-baseline justify-between gap-4">
-                <h2 id="map-h" className="text-xl font-bold tracking-tight">
+                <h2 id="map-h" className="text-xl font-semibold tracking-[-0.02em]">
                   Project Map
                 </h2>
                 <Link
@@ -263,7 +263,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             <section aria-labelledby="largest-h">
               <h2
                 id="largest-h"
-                className="mb-5 text-xl font-bold tracking-tight"
+                className="mb-5 text-xl font-semibold tracking-[-0.02em]"
               >
                 Largest Projects
               </h2>
@@ -352,7 +352,7 @@ export function ChartCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-[var(--radius)] border border-line p-6">
+    <section className="rounded-[var(--radius)] bg-paper p-6">
       <div className="mb-5 flex items-baseline justify-between gap-4">
         <h2 className="font-sans text-base font-semibold text-ink">{title}</h2>
         {note && <span className="text-xs text-muted">{note}</span>}
@@ -376,7 +376,7 @@ export function ListCard({
   return (
     <section>
       <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="text-xl font-bold tracking-tight">{title}</h2>
+        <h2 className="text-xl font-semibold tracking-[-0.02em]">{title}</h2>
         <Link
           href={href}
           className="text-sm font-medium text-brand-blue hover:underline"

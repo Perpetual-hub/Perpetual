@@ -2,7 +2,7 @@ export function Section({ id, title, children, aside }: { id: string; title: str
   return (
     <section aria-labelledby={id} className="border-t border-line pt-8">
       <div className="mb-5 flex items-baseline justify-between gap-4">
-        <h2 id={id} className="text-xl font-bold tracking-tight">
+        <h2 id={id} className="text-xl font-semibold tracking-[-0.02em]">
           {title}
         </h2>
         {aside}

@@ -133,11 +133,11 @@ function fmt(v: number, unit: Benchmark["unit"]) {
 /** The project beside the median of comparable plants, as a pair of bars. */
 export function Benchmarks({ items, techLabel }: { items: Benchmark[]; techLabel: string }) {
   return (
-    <ul className="grid gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line sm:grid-cols-2">
+    <ul className="grid gap-3 sm:grid-cols-2">
       {items.map((b) => {
         const max = Math.max(b.value ?? 0, b.peerMedian ?? 0) || 1;
         return (
-          <li key={b.label + b.scope} className="bg-white p-5 sm:[&:last-child:nth-child(odd)]:col-span-2">
+          <li key={b.label + b.scope} className="rounded-[var(--radius)] bg-paper p-5 sm:[&:last-child:nth-child(odd)]:col-span-2">
             <p className="text-sm font-semibold text-ink">
               {b.label} <span className="font-normal text-muted">vs {techLabel.toLowerCase()} projects {b.scope}</span>
             </p>
@@ -152,7 +152,7 @@ export function Benchmarks({ items, techLabel }: { items: Benchmark[]; techLabel
                   <dt className="text-ink">This project</dt>
                   <dd className="tabular font-semibold text-ink">{fmt(b.value ?? 0, b.unit)}</dd>
                 </div>
-                <div className="mt-1 h-2 bg-surface-2" aria-hidden>
+                <div className="mt-1 h-2 bg-white" aria-hidden>
                   <div className="h-full bg-brand-blue" style={{ width: `${((b.value ?? 0) / max) * 100}%` }} />
                 </div>
               </div>
@@ -161,7 +161,7 @@ export function Benchmarks({ items, techLabel }: { items: Benchmark[]; techLabel
                   <dt className="text-muted">Median of {b.peers} peers</dt>
                   <dd className="tabular text-muted">{fmt(b.peerMedian ?? 0, b.unit)}</dd>
                 </div>
-                <div className="mt-1 h-2 bg-surface-2" aria-hidden>
+                <div className="mt-1 h-2 bg-white" aria-hidden>
                   <div className="h-full bg-[#9aabbf]" style={{ width: `${((b.peerMedian ?? 0) / max) * 100}%` }} />
                 </div>
               </div>

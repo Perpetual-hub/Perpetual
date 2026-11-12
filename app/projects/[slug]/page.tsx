@@ -247,7 +247,7 @@ function HeadStat({ label, value, note }: { label: string; value: string; note?:
   return (
     <div>
       <dt className="text-xs font-medium text-muted">{label}</dt>
-      <dd className="tabular mt-1 font-display text-2xl font-bold tracking-tight text-brand-navy">
+      <dd className="tabular mt-1 font-display text-2xl font-semibold tracking-[-0.02em] text-brand-navy">
         {value}
         {note && <span className="ml-1.5 align-middle text-xs font-medium text-muted italic">{note}</span>}
       </dd>

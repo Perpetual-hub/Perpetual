@@ -64,7 +64,7 @@ export function CapacityAdditionsChart({
     <div>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h2 className="text-xl font-bold tracking-tight text-ink">{title}</h2>
+          <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">{title}</h2>
           <p className="mt-1 text-sm text-muted">
             Net capacity added in {place} each year{only ? `, ${TECH_BY_ID[only].label.toLowerCase()}` : ""}
           </p>
