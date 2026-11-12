@@ -1,16 +1,16 @@
 name: Update data
 
-# Daily: new deals from press releases and development lenders, plus refreshed
+# Monthly, on the 1st: last month's deals from press releases, news and development lenders, plus refreshed
 # PROFITS indicators. Opens a pull request so every change is reviewed before it
 # goes live. Statistics (IRENA, EIA) update yearly and are refreshed by hand.
 on:
   schedule:
-    - cron: "17 5 * * *"
+    - cron: "17 5 1 * *"
   workflow_dispatch:
     inputs:
       months:
-        description: "How many months of press releases and news to look back (2 for daily, 60 for the five-year catch-up)"
-        default: "2"
+        description: "How many months of press releases and news to look back (1 for the monthly run; never earlier than the three-year window)"
+        default: "1"
       max_releases:
         description: "Most new articles to read in this run (caps the Claude API cost)"
         default: "300"
@@ -61,16 +61,20 @@ jobs:
         run: node scripts/fetch-worldbank-deals.mjs
 
       - name: Press releases
-        run: python3 scripts/collect-deal-news.py .cache/candidates.json .cache/prn ${{ inputs.months || 2 }}
+        run: python3 scripts/collect-deal-news.py .cache/candidates.json .cache/prn ${{ inputs.months || 1 }}
 
       - name: Energy news sites (Asia, Africa, Europe, Australia)
         run: |
-          python3 scripts/collect-news-sitemaps.py .cache/news-candidates.json .cache/news-sitemaps ${{ inputs.months || 2 }}
+          python3 scripts/collect-news-sitemaps.py .cache/news-candidates.json .cache/news-sitemaps ${{ inputs.months || 1 }}
           SOURCES="${{ inputs.sources }}" python3 -c "
           import json, os
           a = json.load(open('.cache/candidates.json'))
           b = json.load(open('.cache/news-candidates.json'))
           allc = sorted(a + b, key=lambda x: x.get('lastmod') or x.get('month') or '', reverse=True)
+          # Deals are shown for three calendar years (e.g. 2024 to 2026), so older articles are never read or billed.
+          import datetime
+          start = f'{datetime.date.today().year - 2}-01'
+          allc = [c for c in allc if (c.get('lastmod') or c.get('month') or '9999') >= start]
           want = {s.strip().lower() for s in os.environ.get('SOURCES', '').split(',') if s.strip()}
           if want:
               allc = [c for c in allc if (c.get('publisher') or 'PR Newswire').lower() in want]
