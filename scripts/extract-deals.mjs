@@ -181,11 +181,12 @@ function toDeal(x) {
   };
 }
 
-// Releases already written by hand are not re-extracted.
+// Releases already written by hand, or already turned into a published deal, are not read (or billed) again.
 const curatedSrc = readFileSync(new URL("../data/deals-curated.ts", import.meta.url), "utf8");
 // PR Newswire regional copies of one release differ only in the trailing number.
 const releaseKey = (u) => u.replace(/-\d+\.html$/, "");
-const curatedUrls = new Set([...curatedSrc.matchAll(/"url": "([^"]+)"/g)].map((m) => releaseKey(m[1])));
+const publishedSrc = curatedSrc + (existsSync(new URL("../data/deals-news.json", import.meta.url)) ? readFileSync(new URL("../data/deals-news.json", import.meta.url), "utf8") : "");
+const curatedUrls = new Set([...publishedSrc.matchAll(/"url": "([^"]+)"/g)].map((m) => releaseKey(m[1])));
 const candidates = JSON.parse(readFileSync(candidatesPath, "utf8")).filter((c, i, all) => !curatedUrls.has(releaseKey(c.url)) && all.findIndex((o) => releaseKey(o.url) === releaseKey(c.url)) === i);
 const results = [];
 // MAX_RELEASES caps how many new releases one run reads (newest first), which caps its cost.
