@@ -1,129 +1,193 @@
 "use client";
 
-import { ArrowRight, X } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 import { PILLARS, WEIGHT_PRESETS, type PillarId } from "@/data/policy";
 
 /**
- * PROFITS as an acronym band, in the spirit of consulting frameworks (7-S, RAPID): one colour,
- * strong letters, thin rules and plain text, so the whole framework reads at a glance.
- * Selecting a column opens its full detail underneath.
+ * PROFITS as one interactive exhibit, in the manner of a consulting report: a numbered caption,
+ * a statement headline, a pillar list whose bars show each pillar's share of the final score for
+ * the chosen deal type, and a detail panel for the selected pillar. Sentence case throughout.
  */
 export function PillarSpine() {
-  const [open, setOpen] = useState<PillarId | null>(null);
-  const pillar = PILLARS.find((p) => p.id === open);
+  const [active, setActive] = useState<PillarId>("P");
+  const [preset, setPreset] = useState(WEIGHT_PRESETS[0].id);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const weights = WEIGHT_PRESETS.find((w) => w.id === preset)!;
+  const total = Object.values(weights.weights).reduce((a, b) => a + b, 0);
+  const share = (id: PillarId) => (weights.weights[id] / total) * 100;
+  const maxShare = Math.max(...PILLARS.map((p) => share(p.id)));
+  const pillar = PILLARS.find((p) => p.id === active)!;
+  const index = PILLARS.findIndex((p) => p.id === active);
+
+  // Arrow keys move between pillars, as in any tab list.
+  const onKey = (e: KeyboardEvent<HTMLButtonElement>, i: number) => {
+    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    let next: number | undefined;
+    if (step) next = (i + step + PILLARS.length) % PILLARS.length;
+    if (e.key === "Home") next = 0;
+    if (e.key === "End") next = PILLARS.length - 1;
+    if (next === undefined) return;
+    e.preventDefault();
+    setActive(PILLARS[next].id);
+    tabs.current[next]?.focus();
+  };
 
   return (
-    <div>
-      <div className="border-t-2 border-brand-navy">
-        <ol className="grid divide-y divide-line border-b border-line md:grid-cols-7 md:divide-x md:divide-y-0">
-          {PILLARS.map((p) => {
-            const active = open === p.id;
+    <figure className="m-0">
+      <figcaption className="max-w-3xl">
+        <p className="text-sm font-semibold text-brand-blue">Exhibit 1</p>
+        <p className="mt-2 font-display text-2xl leading-snug font-bold tracking-tight text-ink md:text-[1.75rem]">
+          Seven pillars decide whether a country can host a bankable renewable energy project.
+        </p>
+        <p className="mt-2 text-sm leading-relaxed text-muted">
+          Share of the final score held by each pillar. Choose a deal type to re-weight it, and a pillar to see what sits behind it.
+        </p>
+      </figcaption>
+
+      {/* Deal type */}
+      <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-ink/80 pt-4">
+        <span className="text-sm text-muted" id="preset-label">
+          Deal type
+        </span>
+        <div role="radiogroup" aria-labelledby="preset-label" className="inline-flex rounded-[var(--radius)] border border-line p-0.5">
+          {WEIGHT_PRESETS.map((w) => (
+            <button
+              key={w.id}
+              type="button"
+              role="radio"
+              aria-checked={preset === w.id}
+              onClick={() => setPreset(w.id)}
+              className={`rounded-[3px] px-3 py-1.5 text-sm transition-colors ${
+                preset === w.id ? "bg-brand-navy font-semibold text-white" : "text-ink/75 hover:bg-surface-2"
+              }`}
+            >
+              {w.label}
+            </button>
+          ))}
+        </div>
+        <p className="text-sm text-muted md:ml-2">{weights.description}</p>
+      </div>
+
+      <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-12">
+        {/* Pillar list with share-of-score bars */}
+        <div role="tablist" aria-orientation="vertical" aria-label="PROFITS pillars" className="border-t border-line">
+          {PILLARS.map((p, i) => {
+            const on = p.id === active;
+            const s = share(p.id);
             return (
-              <li key={p.id} className="relative">
-                <button
-                  type="button"
-                  aria-expanded={active}
-                  aria-controls="pillar-detail"
-                  onClick={() => setOpen(active ? null : p.id)}
-                  className={`group grid h-full w-full grid-cols-[3.5rem_minmax(0,1fr)] gap-x-4 px-1 py-6 text-left transition-colors duration-150 md:flex md:flex-col md:justify-start md:px-5 md:py-7 ${
-                    active ? "bg-surface-2" : "hover:bg-surface-2/70"
-                  }`}
-                >
-                  <span
-                    aria-hidden
-                    className={`absolute inset-x-0 -top-0.5 hidden h-1 bg-brand-blue transition-opacity md:block ${active ? "opacity-100" : "opacity-0 group-hover:opacity-60"}`}
-                  />
-                  <span className="font-display text-5xl leading-none font-extrabold tracking-tight text-brand-navy md:text-6xl">
-                    {p.id}
+              <button
+                key={p.id}
+                ref={(el) => {
+                  tabs.current[i] = el;
+                }}
+                type="button"
+                role="tab"
+                id={`pillar-tab-${p.id}`}
+                aria-selected={on}
+                aria-controls="pillar-panel"
+                tabIndex={on ? 0 : -1}
+                onClick={() => {
+                  setActive(p.id);
+                  // On narrow screens the panel sits below the list, so bring it into view.
+                  if (window.matchMedia("(max-width: 1023px)").matches)
+                    requestAnimationFrame(() => document.getElementById("pillar-panel")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+                }}
+                onKeyDown={(e) => onKey(e, i)}
+                className={`group relative grid w-full grid-cols-[2.25rem_minmax(0,1fr)_3.25rem] items-center gap-x-3 border-b border-line py-3 pr-1 pl-3 text-left transition-colors ${
+                  on ? "bg-surface-2" : "hover:bg-surface-2/60"
+                }`}
+              >
+                <span
+                  aria-hidden
+                  className={`absolute inset-y-0 left-0 w-[3px] bg-brand-blue transition-opacity ${on ? "opacity-100" : "opacity-0"}`}
+                />
+                <span className={`font-display text-2xl leading-none font-extrabold ${on ? "text-brand-blue" : "text-brand-navy"}`}>
+                  {p.id}
+                </span>
+                <span className="min-w-0">
+                  <span className={`block text-sm leading-tight ${on ? "font-semibold text-ink" : "font-medium text-ink/85"}`}>{p.name}</span>
+                  <span className="mt-2 block h-1.5 bg-line/70" aria-hidden>
+                    <span
+                      className={`block h-full transition-[width] duration-500 ease-out ${s === maxShare && total !== 7 ? "bg-brand-blue" : "bg-brand-navy/70"}`}
+                      style={{ width: `${(s / 30) * 100}%` }}
+                    />
                   </span>
-                  <span className="md:mt-5 md:block">
-                    <span className="block text-[0.95rem] leading-snug font-semibold text-ink md:min-h-[2.6rem]">{p.name}</span>
-                    <span className="mt-1.5 block text-sm leading-snug text-muted md:min-h-[5.4rem]">{p.question}</span>
-                    <span className="mt-4 block border-t border-line pt-3 text-[10px] font-semibold tracking-[0.12em] text-muted uppercase">
-                      What we measure
-                    </span>
-                    <span className="mt-2 block space-y-1">
-                      {p.measures.map((m) => (
-                        <span key={m} className="flex gap-2 text-[13px] leading-snug text-ink/80">
-                          <span aria-hidden className="text-brand-blue">–</span>
-                          {m}
-                        </span>
-                      ))}
-                    </span>
-                    <span className="sr-only">{active ? "Hide details" : "Show details"}</span>
-                  </span>
-                </button>
-              </li>
+                </span>
+                <span className="tabular text-right text-sm font-semibold text-ink">
+                  {Math.round(s)}%<span className="sr-only"> of the score</span>
+                </span>
+              </button>
             );
           })}
-        </ol>
-      </div>
+          <p className="mt-3 text-xs leading-relaxed text-muted">
+            Each pillar is scored 1 to 5. The final score is the weighted average, so it is also 1 to 5.
+          </p>
+        </div>
 
-      {/* How the seven combine */}
-      <div className="mt-6 flex flex-col items-start gap-3 rounded-[var(--radius)] bg-brand-navy px-6 py-5 text-white md:flex-row md:items-center md:gap-6">
-        <p className="text-sm font-semibold">7 pillar scores, each 1 to 5</p>
-        <ArrowRight className="hidden size-4 text-brand-sky md:block" aria-hidden />
-        <p className="text-sm font-semibold">× weights for your deal type</p>
-        <ArrowRight className="hidden size-4 text-brand-sky md:block" aria-hidden />
-        <p className="text-sm font-semibold">= PROFITS score, 1 to 5</p>
-        <p className="text-xs text-white/70 md:ml-auto">Select a pillar above for its full detail.</p>
-      </div>
-
-      <div id="pillar-detail" aria-live="polite">
-        {pillar && (
-          <div className="anim-enter-down mt-6 border-t-2 border-brand-navy bg-surface-2">
-            <div className="grid gap-10 p-6 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:p-8">
-              <div>
-                <div className="flex items-baseline gap-4">
-                  <span className="font-display text-6xl leading-none font-extrabold text-brand-navy">{pillar.id}</span>
-                  <div>
-                    <h3 className="text-2xl font-bold tracking-tight">{pillar.name}</h3>
-                    <p className="mt-1 leading-relaxed text-muted">{pillar.question}</p>
-                  </div>
-                </div>
-                <h4 className="mt-8 text-[10px] font-semibold tracking-[0.12em] text-muted uppercase">What an investor checks</h4>
-                <ul className="mt-3 divide-y divide-line border-y border-line text-sm text-ink/85">
-                  {pillar.checks.map((c) => (
-                    <li key={c} className="py-2.5">
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-[10px] font-semibold tracking-[0.12em] text-muted uppercase">How we score it today</h4>
-                <ul className="mt-3 divide-y divide-line border-y border-line text-sm text-ink/85">
-                  {pillar.measures.map((m) => (
-                    <li key={m} className="py-2.5">
-                      {m}
-                    </li>
-                  ))}
-                </ul>
-                <h4 className="mt-8 text-[10px] font-semibold tracking-[0.12em] text-muted uppercase">Weight by deal type</h4>
-                <dl className="mt-3 grid grid-cols-3 divide-x divide-line border-y border-line">
-                  {WEIGHT_PRESETS.map((w) => (
-                    <div key={w.id} className="px-3 py-3 first:pl-0">
-                      <dt className="text-xs leading-tight text-muted">{w.label}</dt>
-                      <dd className="tabular mt-1 font-display text-2xl font-bold text-brand-navy">×{w.weights[pillar.id]}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            </div>
-            <div className="border-t border-line px-6 py-3 md:px-8">
-              <button
-                type="button"
-                onClick={() => setOpen(null)}
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-blue hover:underline"
-              >
-                <X className="size-4" aria-hidden />
-                Close
-              </button>
+        {/* Detail panel */}
+        <div id="pillar-panel" role="tabpanel" aria-labelledby={`pillar-tab-${pillar.id}`} key={pillar.id} className="anim-enter-down scroll-mt-24">
+          <div className="flex items-start gap-5">
+            <span aria-hidden className="font-display text-[4.5rem] leading-[0.8] font-extrabold text-brand-navy">
+              {pillar.id}
+            </span>
+            <div>
+              <p className="text-sm text-muted">
+                Pillar {index + 1} of 7 · {pillar.name}
+              </p>
+              <h3 className="mt-1 font-display text-xl leading-snug font-bold tracking-tight text-ink md:text-2xl">{pillar.thesis}</h3>
             </div>
           </div>
-        )}
+          <p className="mt-5 max-w-2xl leading-relaxed text-ink/80">{pillar.why}</p>
+
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <div>
+              <h4 className="border-b border-ink/80 pb-2 text-sm font-semibold text-ink">In the score today</h4>
+              <ol className="mt-1 divide-y divide-line">
+                {pillar.measures.map((m, i) => (
+                  <li key={m} className="flex gap-3 py-2.5 text-sm text-ink/85">
+                    <span className="tabular w-5 shrink-0 font-semibold text-brand-blue">{String(i + 1).padStart(2, "0")}</span>
+                    {m}
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <h4 className="border-b border-ink/80 pb-2 text-sm font-semibold text-ink">What an investor checks</h4>
+              <ul className="mt-1 divide-y divide-line">
+                {pillar.checks.map((c) => (
+                  <li key={c} className="py-2.5 text-sm text-ink/85">
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h4 className="border-b border-ink/80 pb-2 text-sm font-semibold text-ink">Weight by deal type</h4>
+            <dl className="mt-1 grid grid-cols-3 divide-x divide-line">
+              {WEIGHT_PRESETS.map((w) => {
+                const t = Object.values(w.weights).reduce((a, b) => a + b, 0);
+                return (
+                  <div key={w.id} className={`py-3 pr-3 pl-3 first:pl-0 ${w.id === preset ? "" : "opacity-60"}`}>
+                    <dt className="text-xs leading-tight text-muted">{w.label}</dt>
+                    <dd className="mt-1">
+                      <span className="tabular font-display text-2xl font-bold text-brand-navy">×{w.weights[pillar.id]}</span>
+                      <span className="tabular block text-xs text-muted sm:ml-2 sm:inline">{Math.round((w.weights[pillar.id] / t) * 100)}% of score</span>
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <p className="mt-8 border-t border-line pt-3 text-xs leading-relaxed text-muted">
+        Score = sum of (pillar score × weight) ÷ sum of weights. Source: Perpetual analysis; indicator sources are listed on the
+        Disclosure page.
+      </p>
+    </figure>
   );
 }

@@ -55,7 +55,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
           <div className="grid border-y border-line md:grid-cols-[260px_minmax(0,1fr)]">
             {/* Overall score */}
             <div className="border-b border-line py-6 md:border-r md:border-b-0 md:pr-8">
-              <p className="text-[10px] font-semibold tracking-[0.12em] text-muted uppercase">PROFITS score</p>
+              <p className="text-xs font-medium text-muted">PROFITS score</p>
               <p className="tabular mt-2 font-display text-6xl leading-none font-extrabold text-brand-navy">
                 {weightedScore(c.scores, preset.weights).toFixed(1)}
                 <span className="ml-1 text-xl font-semibold text-muted">/ 5</span>

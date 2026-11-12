@@ -5,7 +5,7 @@ import { SampleBadge } from "@/components/ui/Badge";
 import { PillarSpine } from "@/components/policy/PillarSpine";
 import { PolicyRanking } from "@/components/policy/PolicyRanking";
 import { PageHeader } from "@/components/prose/Prose";
-import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS } from "@/data/policy";
+import { DEAL_BREAKERS } from "@/data/policy";
 import { countryName } from "@/lib/format";
 import { getPolicyRows } from "@/lib/policy";
 
@@ -21,76 +21,15 @@ export default function PolicyPage() {
     <>
       <PageHeader
         title="Policy Assessment"
-        intro="PROFITS looks at a country the way an investor would: seven questions, each scored 1 to 5, then weighted for the kind of deal you are doing. First the framework, then the results."
+        intro="PROFITS rates each country the way an investor would: seven pillars, each scored 1 to 5, weighted for the kind of deal you are doing. The framework comes first, then the results."
       />
       <div className="container-page space-y-16 py-10 md:py-14">
         <section aria-labelledby="pillars-h">
           <SectionHead id="pillars-h" title="The PROFITS Framework">
-            Seven questions an investor asks before putting money into a country&rsquo;s renewable energy. A country can
-            want renewables and still be hard to invest in, so each question is scored on its own.
+            A country can want renewables and still be hard to invest in, so each pillar is scored on its own before the
+            seven are combined.
           </SectionHead>
           <PillarSpine />
-        </section>
-
-        <section aria-labelledby="weights-h">
-          <SectionHead id="weights-h" title="Weights by Deal Type">
-            Weights are relative: a pillar weighted 2 counts twice as much as one weighted 1. The weighted score is the sum of each
-            pillar score times its weight, divided by the sum of the weights.
-          </SectionHead>
-          {/* Focusable so keyboard users can scroll it sideways on small screens. */}
-          <div
-            tabIndex={0}
-            role="region"
-            aria-label="Weights table (scrolls sideways)"
-            className="relative overflow-x-auto rounded-[var(--radius)] border border-line"
-          >
-            <table className="w-full min-w-[760px] table-fixed text-sm">
-              <thead className="bg-surface-2">
-                <tr className="border-b border-line text-left">
-                  <th scope="col" className="w-[37%] px-5 py-3 text-xs font-semibold text-muted">
-                    Preset
-                  </th>
-                  {PILLARS.map((p) => (
-                    <th key={p.id} scope="col" className="w-[9%] px-1 py-3 text-center align-bottom">
-                      <span className="block font-display text-base font-bold text-brand-blue">{p.id}</span>
-                      <span className="mt-0.5 block text-[11px] leading-tight font-medium text-muted">{p.name.split(" & ")[0]}</span>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-line">
-                {WEIGHT_PRESETS.map((w) => {
-                  const max = Math.max(...Object.values(w.weights));
-                  const flat = Object.values(w.weights).every((v) => v === max);
-                  return (
-                    <tr key={w.id} className="align-middle">
-                      <th scope="row" className="px-5 py-4 text-left align-top font-normal">
-                        <span className="block font-semibold text-ink">{w.label}</span>
-                        <span className="mt-1 block max-w-sm text-xs leading-relaxed text-muted">{w.description}</span>
-                      </th>
-                      {PILLARS.map((p) => {
-                        const v = w.weights[p.id];
-                        const top = !flat && v === max;
-                        return (
-                          <td key={p.id} className="px-2 py-4 text-center">
-                            <span
-                              className={`tabular inline-flex h-8 min-w-12 items-center justify-center rounded-[var(--radius)] px-2 ${
-                                top ? "bg-brand-navy font-semibold text-white" : "text-ink"
-                              }`}
-                            >
-                              {v}
-                              <span className="sr-only">{top ? " (highest)" : ""}</span>
-                            </span>
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-3 text-xs text-muted">Shaded cells mark the most heavily weighted pillars for each preset.</p>
         </section>
 
         <section aria-labelledby="breakers-h">

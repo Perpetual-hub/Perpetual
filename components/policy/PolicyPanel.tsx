@@ -149,7 +149,7 @@ export function PolicyPanel({
                         <div className="h-full rounded-r-[4px] bg-brand-navy" style={{ width: `${(v / 5) * 100}%` }} />
                       </div>
                       <p className="mt-1 ml-[1.375rem] text-xs text-muted">
-                        {p.question}
+                        {p.thesis}
                         {weights[p.id] !== 1 && (
                           <span className="ml-1 font-medium text-ink">
                             Weight ×{weights[p.id]}

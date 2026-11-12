@@ -9,7 +9,8 @@ export const PILLARS = [
     id: "P",
     name: "Political & Policy",
     measures: ["Renewable target in law", "New renewable policies", "Political stability"],
-    question: "Does the government actually want renewables, and will that last?",
+    thesis: "Lasting government commitment to renewables, written into law.",
+    why: "Targets only matter if they survive a change of government. Investors look for commitments in law, a steady flow of new policy, and no history of changing terms after projects are built.",
     checks: [
       "Renewable targets (NDC, national power plan)",
       "Whether targets are in law or just stated",
@@ -22,7 +23,8 @@ export const PILLARS = [
     id: "R",
     name: "Regulatory & Legal",
     measures: ["Support schemes (FiT, auctions, certificates)", "Regulatory quality", "Rule of law"],
-    question: "Can you build, own and get paid under clear rules?",
+    thesis: "Clear rules to build, own and get paid, and contracts that hold.",
+    why: "A project is only as good as the contract behind it. This pillar covers how power is procured, how long permits take, who may own assets, and whether disputes can go to a neutral forum.",
     checks: [
       "PPA framework (FiT, auctions, direct corporate PPAs)",
       "Permitting time",
@@ -36,7 +38,8 @@ export const PILLARS = [
     id: "O",
     name: "Offtake & Market",
     measures: ["Power demand growth", "Economic growth"],
-    question: "Who buys the power, and can they pay?",
+    thesis: "Growing demand and buyers who can pay for the power.",
+    why: "Revenue depends on the buyer. Fast-growing demand helps, but the credit strength of the state utility and the room for corporate buyers to sign their own contracts decide whether the cash arrives.",
     checks: [
       "Power demand growth",
       "Credit strength of the state utility",
@@ -49,7 +52,8 @@ export const PILLARS = [
     id: "F",
     name: "Financial & Macro",
     measures: ["Incentives for renewables", "Inflation", "Currency stability", "Interest rates"],
-    question: "Can the project be financed, and does the money hold its value?",
+    thesis: "Affordable capital and a currency that holds its value.",
+    why: "Renewables are paid for upfront and earn back slowly, so the cost of money drives the tariff. Inflation, exchange-rate swings and access to development and green finance all move the numbers.",
     checks: [
       "Sovereign credit rating",
       "Currency risk and convertibility",
@@ -63,7 +67,8 @@ export const PILLARS = [
     id: "I",
     name: "Infrastructure & Implementation",
     measures: ["Renewable share of power", "Grid losses", "Electricity access", "Build-out speed"],
-    question: "Can the grid take the power, and can projects actually get built and run?",
+    thesis: "A grid that can take the power and a supply chain that can build it.",
+    why: "Good sun and wind are not enough without grid capacity, timely connections and local contractors. Losses on the network and slow build-out are early warnings of curtailment and delay.",
     checks: [
       "Solar and wind resource quality",
       "Grid capacity and curtailment",
@@ -76,7 +81,8 @@ export const PILLARS = [
     id: "T",
     name: "Track Record & Transactions",
     measures: ["Installed capacity", "Capacity added", "Deals on record"],
-    question: "Has anyone already made money here?",
+    thesis: "Proof that investors have built, financed and sold assets here before.",
+    why: "A record of completed projects, refinancings and exits is the strongest evidence that a market works. It shortens due diligence and lowers the cost of capital for the next deal.",
     checks: [
       "Capacity installed so far",
       "Projects finished vs announced",
@@ -89,7 +95,8 @@ export const PILLARS = [
     id: "S",
     name: "Social & Environmental",
     measures: ["Voice and accountability", "Control of corruption"],
-    question: "Will local people and the wider environment accept the projects?",
+    thesis: "Local acceptance and responsible environmental practice.",
+    why: "Projects need a social licence as well as a permit. Land disputes, opaque decisions and public anger over power prices can stall construction long after financial close.",
     checks: [
       "Community acceptance",
       "Land acquisition disputes",
