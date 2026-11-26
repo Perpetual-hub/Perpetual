@@ -20,7 +20,7 @@ const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"], weight: [
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "Perpetual — All Things Renewables",
+    default: "Perpetual · All Things Renewables",
     template: "%s · Perpetual",
   },
   description:

@@ -1,5 +1,4 @@
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { PillLink } from "@/components/home/Chapter";
 
 /** Section title row: plain heading, optional one-line description, optional link on the right. */
 export function SectionHeading({
@@ -18,22 +17,14 @@ export function SectionHeading({
   eyebrow?: string;
 }) {
   return (
-    <div className="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
-      <div className="max-w-2xl">
-        <h2 id={id} className="text-[1.6rem] leading-tight font-semibold tracking-[-0.02em] md:text-[2rem]">
+    <div className="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 border-t border-line pt-8">
+      <div className="max-w-3xl">
+        <h2 id={id} className="font-display text-[2.1rem] leading-[1.05] font-light tracking-[-0.035em] text-[#1d2a22] sm:text-[2.6rem] lg:text-[3.2rem]">
           {title}
         </h2>
-        {description && <p className="mt-3 text-base leading-relaxed text-soft">{description}</p>}
+        {description && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-soft">{description}</p>}
       </div>
-      {href && (
-        <Link
-          href={href}
-          className="group inline-flex shrink-0 items-center gap-1.5 border-b border-brand-blue/30 pb-0.5 text-sm font-semibold text-brand-blue hover:border-brand-blue"
-        >
-          {linkLabel ?? "View all"}
-          <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden />
-        </Link>
-      )}
+      {href && <PillLink href={href}>{linkLabel ?? "View all"}</PillLink>}
     </div>
   );
 }

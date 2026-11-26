@@ -106,7 +106,7 @@ export function Header({
             {techOpen && (
                 <div
                   id="tech-panel"
-                  className="anim-enter-down absolute top-full left-0 mt-2 w-[540px] rounded-xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(11,27,46,0.18)]"
+                  className="anim-enter-down absolute top-full left-0 mt-2 w-[540px] rounded-xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(20,30,22,0.18)]"
                 >
                   <ul className="grid grid-cols-2 gap-0.5">
                     {TECHNOLOGIES.map((t) => {

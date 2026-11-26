@@ -99,7 +99,7 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
   return (
     <section className="on-dark relative bg-hero text-hero-ink" aria-labelledby="hero-title">
       <h1 id="hero-title" className="sr-only">
-        Perpetual: the latest renewable energy deals around the world, and how investable each country is
+        Perpetual tracks the latest renewable energy deals around the world, and how investable each country is
       </h1>
       {/* Same centred grid as the header, so every edge lines up at any width. */}
       <div className="container-page grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
@@ -335,7 +335,7 @@ function Stat({ label, value, unit }: { label: string; value: string; unit?: str
   return (
     <div className="text-center">
       <dt className="text-[11px] leading-tight font-medium text-hero-muted">{label}</dt>
-      <dd className="tabular mt-1.5 font-display text-2xl font-semibold tracking-[-0.02em] text-white md:text-[1.75rem]">
+      <dd className="tabular mt-1.5 font-display font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem] text-white md:text-[1.75rem]">
         {value}
         {unit && <span className="ml-1 text-sm font-semibold text-hero-muted">{unit}</span>}
       </dd>

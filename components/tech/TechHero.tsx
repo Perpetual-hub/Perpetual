@@ -41,12 +41,11 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
             className="absolute inset-0 -z-10"
             style={{
               background:
-                "linear-gradient(90deg, rgba(6,26,51,0.9) 0%, rgba(6,26,51,0.72) 40%, rgba(6,26,51,0.18) 100%), linear-gradient(0deg, rgba(6,26,51,0.5) 0%, rgba(6,26,51,0) 40%)",
+                "linear-gradient(90deg, rgba(14,22,17,0.92) 0%, rgba(14,22,17,0.72) 42%, rgba(14,22,17,0.22) 100%), linear-gradient(0deg, rgba(14,22,17,0.55) 0%, rgba(14,22,17,0) 45%)",
             }}
           />
         </>
       )}
-      <span className="absolute inset-x-0 top-0 h-[3px]" style={{ background: t.hex }} aria-hidden />
 
       <div
         className={`container-page grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end ${
@@ -56,23 +55,23 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
         <div>
           <div className="flex items-center gap-3">
             <span
-              className={`flex size-12 items-center justify-center rounded-xl border ${dark ? "border-white/20 bg-white/10 backdrop-blur-sm" : "border-line bg-white"}`}
+              className={`flex size-10 items-center justify-center rounded-full border ${dark ? "border-white/20 bg-white/10 backdrop-blur-sm" : "border-line bg-white"}`}
               aria-hidden
             >
-              <Icon className="size-6" style={{ color: dark ? "#fff" : t.hex }} />
+              <Icon className="size-5" style={{ color: dark ? "#fff" : t.hex }} />
             </span>
-            <p className={`text-xs font-semibold ${dark ? "text-hero-muted" : "text-muted"}`}>Sector</p>
+            <p className={`text-[11px] font-semibold tracking-[0.16em] uppercase ${dark ? "text-hero-ink" : "text-ink"}`}>Sector</p>
           </div>
-          <h1 className={`mt-5 text-4xl font-bold tracking-[-0.025em] md:text-6xl ${dark ? "text-white" : ""}`}>{t.label}</h1>
-          <p className={`mt-5 max-w-[60ch] text-lg leading-relaxed ${dark ? "text-[#d5e0ec]" : "text-ink/80"}`}>{t.explainer}</p>
+          <h1 className={`mt-6 font-display text-[3.2rem] leading-[0.95] font-light tracking-[-0.045em] sm:text-[4.5rem] lg:text-[6.5rem] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>{t.label}</h1>
+          <p className={`mt-5 max-w-[60ch] text-lg leading-relaxed ${dark ? "text-hero-ink/85" : "text-ink/80"}`}>{t.explainer}</p>
         </div>
-        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line shadow-[0_12px_40px_-20px_rgba(0,0,0,0.5)]">
+        <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-white/15 bg-white/10 backdrop-blur-md">
           {stats.map((s) => (
-            <div key={s.label} className="bg-white px-5 py-4">
-              <dt className="text-xs font-medium text-muted">{s.label}</dt>
-              <dd className="tabular mt-1 font-display text-3xl font-bold tracking-tight text-brand-navy">
+            <div key={s.label} className={`px-5 py-4 ${dark ? "bg-[#16211b]/60" : "bg-white"}`}>
+              <dt className={`text-xs ${dark ? "text-hero-muted" : "text-muted"}`}>{s.label}</dt>
+              <dd className={`tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>
                 {s.value}
-                {s.unit && <span className="ml-1 text-base font-semibold text-muted">{s.unit}</span>}
+                {s.unit && <span className={`ml-1 text-base ${dark ? "text-hero-muted" : "text-muted"}`}>{s.unit}</span>}
               </dd>
             </div>
           ))}
@@ -81,7 +80,7 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
 
       {photo?.credit && (
         <p className="absolute right-4 bottom-2 max-w-[70%] truncate text-right text-[10px] text-white/70 md:right-8">
-          Photo:{" "}
+          Photo by{" "}
           {photo.sourceUrl ? (
             <a href={photo.sourceUrl} target="_blank" rel="noopener" className="underline-offset-2 hover:text-white hover:underline">
               {photo.credit}

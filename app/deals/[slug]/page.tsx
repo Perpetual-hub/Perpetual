@@ -1,4 +1,5 @@
-import { ArrowLeft, ArrowRight, ExternalLink, Flag } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Flag } from "lucide-react";
+import Image from "next/image";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -11,6 +12,8 @@ import { TechTag } from "@/components/ui/TechTag";
 import { getDeal, getDeals } from "@/lib/data";
 import { DEAL_TYPE_LABEL, countryName, formatDate, formatMW, formatMoney, titleCase } from "@/lib/format";
 import type { Deal, Party } from "@/lib/types";
+import { TECH_BY_ID } from "@/lib/tech";
+import { TECH_PHOTOS } from "@/lib/tech-photos";
 
 export function generateStaticParams() {
   return getDeals().map((d) => ({ slug: d.slug }));
@@ -34,41 +37,60 @@ export default function DealPage({ params }: PageProps<"/deals/[slug]">) {
 async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["params"] }) {
   const d = getDeal((await params).slug);
   if (!d) notFound();
+  const photo = TECH_PHOTOS[d.technologies[0]];
   const related = getDeals()
     .filter((x) => x.id !== d.id && x.technologies.some((t) => d.technologies.includes(t)))
     .slice(0, 4);
 
   return (
     <article>
-      <header className="border-b border-line">
-        <div className="container-page pt-10 pb-12 md:pt-14 md:pb-14">
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm">
-            <Link href="/deals" className="inline-flex items-center gap-1 text-muted hover:text-brand-blue">
+      <header className="on-dark relative isolate overflow-hidden bg-hero text-hero-ink">
+        {photo && (
+          <Image src={photo.src} alt="" fill priority sizes="100vw" quality={75} className="-z-20 object-cover" style={{ objectPosition: photo.position ?? "center" }} />
+        )}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(14,22,17,0.94) 0%, rgba(14,22,17,0.82) 50%, rgba(14,22,17,0.45) 100%), linear-gradient(0deg, rgba(14,22,17,0.6) 0%, rgba(14,22,17,0) 50%)",
+          }}
+        />
+        <div className="container-page pt-10 pb-14 md:pt-14 md:pb-20">
+          <nav aria-label="Breadcrumb" className="mb-10 text-sm">
+            <Link href="/deals" className="inline-flex items-center gap-1 text-hero-muted hover:text-hero-ink">
               <ArrowLeft className="size-3.5" aria-hidden />
               Deal Tracker
             </Link>
           </nav>
-          <div className="flex flex-wrap items-center gap-2.5 text-sm">
-            <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[d.type]}</span>
-            <span className="text-muted">{formatDate(d.date)}</span>
+          <div className="flex flex-wrap items-center gap-2.5 text-[11px] font-semibold tracking-[0.14em] uppercase">
+            <span className="flex items-center gap-2.5 text-hero-ink">
+              <span className="size-1.5 rounded-full bg-current" aria-hidden />
+              {DEAL_TYPE_LABEL[d.type]}
+            </span>
+            <span className="text-hero-muted">{formatDate(d.date)}</span>
             <DealStatusBadge status={d.status} />
             {d.isSample && <SampleBadge />}
           </div>
-          <h1 className="mt-4 max-w-4xl text-3xl leading-[1.1] font-bold tracking-[-0.02em] md:text-[2.75rem]">{d.title}</h1>
-          <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/80">{d.summary}</p>
+          <h1 className="mt-6 max-w-5xl font-display text-[2.2rem] leading-[1.04] font-light tracking-[-0.035em] text-hero-ink sm:text-[3rem] lg:text-[3.8rem]">
+            {d.title}
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-hero-ink/85">{d.summary}</p>
           {d.sources[0] && !d.sources[0].url.startsWith("#") && (
             <a
               href={d.sources[0].url}
               target="_blank"
               rel="noopener"
-              className="mt-5 inline-flex items-center gap-1.5 rounded-[var(--radius)] bg-ink px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-navy"
+              className="group mt-8 inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 py-1.5 pr-1.5 pl-4 text-sm font-medium text-hero-ink backdrop-blur hover:bg-white/15"
             >
               Read the news
-              <span className="font-normal text-white/70">· {d.sources[0].publisher}</span>
-              <ExternalLink className="size-3.5" aria-hidden />
+              <span className="text-hero-muted">{d.sources[0].publisher}</span>
+              <span className="grid size-7 place-items-center rounded-full bg-hero-ink text-[#1d2a22] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
+                <ArrowUpRight className="size-3.5" />
+              </span>
             </a>
           )}
-          <dl className="mt-8 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
+          <dl className="mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-white/15 bg-white/10 backdrop-blur-md sm:grid-cols-4">
             <HeadStat label="Value" value={d.value?.disclosed ? formatMoney(d.value.amount, d.value.currency) : "Undisclosed"} />
             {d.value?.disclosed && d.value.usd && d.value.currency !== "USD" && (
               <HeadStat label="In USD" value={formatMoney(d.value.usd, "USD")} note={d.value.fxDate && `FX of ${formatDate(d.value.fxDate)}`} />
@@ -77,6 +99,15 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             {d.capacityMW != null && <HeadStat label="Capacity" value={formatMW(d.capacityMW)} />}
           </dl>
         </div>
+        {photo?.credit && (
+          <p className="absolute right-4 bottom-3 text-[11px] text-white/55 md:right-8 [&_a]:underline [&_a]:underline-offset-2">
+            Photo of {TECH_BY_ID[d.technologies[0]].label.toLowerCase()} by{" "}
+            <a href={photo.sourceUrl} target="_blank" rel="noreferrer">
+              {photo.credit}
+            </a>
+            {photo.license && <>, {photo.license}</>}
+          </p>
+        )}
       </header>
 
       <div className="container-page grid gap-12 py-12 lg:grid-cols-[minmax(0,1fr)_340px]">
@@ -156,7 +187,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             </ol>
             <Link
               href={`/corrections?record=${d.id}`}
-              className="mt-6 inline-flex items-center gap-1.5 rounded-lg border border-line px-3.5 py-2 text-sm font-medium text-ink hover:border-[#cdd6e2]"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-lg border border-line px-3.5 py-2 text-sm font-medium text-ink hover:border-[#c3c5b8]"
             >
               <Flag className="size-3.5" aria-hidden />
               Report a correction
@@ -165,11 +196,11 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <h2 className="font-sans text-sm font-semibold text-ink">Related Deals</h2>
+          <h2 className="font-display text-2xl font-light tracking-[-0.02em] text-[#1d2a22]">Related deals</h2>
           <ul className="space-y-3">
             {related.map((x) => (
               <li key={x.id}>
-                <Link href={`/deals/${x.slug}`} className="group block rounded-[var(--radius)] border border-line px-4 py-3 hover:border-[#cdd6e2]">
+                <Link href={`/deals/${x.slug}`} className="group block rounded-[var(--radius)] border border-line bg-white/50 px-4 py-3 hover:border-[#c3c5b8] hover:bg-white">
                   <div className="text-xs text-muted">
                     <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[x.type]}</span> · {formatDate(x.date)}
                   </div>
@@ -225,10 +256,10 @@ function PartyList({ title, parties }: { title: string; parties?: Party[] }) {
 
 function HeadStat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div>
-      <dt className="text-xs font-medium text-muted">{label}</dt>
-      <dd className="tabular mt-1 font-display text-2xl font-semibold tracking-[-0.02em] text-brand-navy">{value}</dd>
-      {note && <dd className="text-xs text-muted">{note}</dd>}
+    <div className="bg-[#16211b]/60 px-5 py-4">
+      <dt className="text-xs text-hero-muted">{label}</dt>
+      <dd className="tabular mt-1 font-display text-2xl font-light tracking-[-0.02em] text-hero-ink">{value}</dd>
+      {note && <dd className="text-xs text-hero-muted">{note}</dd>}
     </div>
   );
 }

@@ -51,7 +51,7 @@ export function FilterPopover({
         className={`inline-flex h-9 items-center gap-1.5 rounded-lg border px-3 text-sm transition-colors duration-150 ${
           active
             ? "border-brand-blue/40 bg-[#eef5fc] text-brand-navy"
-            : "border-line bg-white text-ink hover:border-[#cdd6e2]"
+            : "border-line bg-white text-ink hover:border-[#c3c5b8]"
         }`}
       >
         <span className="font-medium">{label}</span>
@@ -63,7 +63,7 @@ export function FilterPopover({
           id={id}
           role="dialog"
           aria-label={`${label} filter`}
-          className={`absolute top-full z-30 mt-2 w-72 rounded-xl border border-line bg-white p-3 shadow-[0_12px_32px_-12px_rgba(11,27,46,0.22)] ${
+          className={`absolute top-full z-30 mt-2 w-72 rounded-xl border border-line bg-white p-3 shadow-[0_12px_32px_-12px_rgba(20,30,22,0.22)] ${
             align === "right" ? "right-0" : "left-0"
           }`}
         >

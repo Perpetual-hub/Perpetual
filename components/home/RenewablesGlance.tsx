@@ -1,5 +1,6 @@
 // The state of renewables in one band, from IRENA's world totals: what was added last year, what it
 // was made of, and how the total has grown. Every figure is computed from the published series.
+import { plainText } from "@/lib/plain-text";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MetricBar, SourceNote, StepGlyph } from "@/components/editorial/Editorial";
@@ -28,11 +29,11 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
       <ChapterHead label={`The state of renewables, ${now.year}`} n={1} of={6} />
       <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:items-end">
         <Display id="glance-h">
-          {gw(added)} added<span className="text-[#7d8a72]"> in {now.year}.</span>
+          {gw(added)} of new renewable power<span className="text-[#7d8a72]"> in {now.year}.</span>
         </Display>
         <p className="max-w-md text-lg leading-relaxed text-[#4f5a4c] lg:justify-self-end">
           The world added {gw(added)} of renewable power capacity in {now.year}, {Math.round(solarShare * 100)}% of it solar. That is{" "}
-          {Math.round((added / addedPrev - 1) * 100)}% more than in {prev.year}; installed capacity has grown {growth.toFixed(1)} times in ten
+          {Math.round((added / addedPrev - 1) * 100)}% more than in {prev.year}, and installed capacity has grown {growth.toFixed(1)} times in ten
           years, to {gw(now.total)}.
         </p>
       </div>
@@ -40,7 +41,7 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
         <Card>
           <StepGlyph n={1} tone="accent" />
           <p className="mt-4 text-[13px] text-soft">Added in {now.year}</p>
-          <p className="tabular mt-1 font-display text-[2.6rem] leading-none font-semibold tracking-[-0.02em] text-accent">{gw(added)}</p>
+          <p className="tabular mt-1 font-display text-[2.6rem] leading-none font-light tracking-[-0.03em] text-accent">{gw(added)}</p>
           <div className="mt-6 space-y-3">
             {parts.slice(0, 4).map((p) => (
               <MetricBar key={p.k} label={TECH_BY_ID[p.k].label} value={p.v} display={gw(p.v)} max={parts[0].v} highlight={p.k === parts[0].k} />
@@ -50,7 +51,7 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
         <Card>
           <StepGlyph n={2} tone="accent" />
           <p className="mt-4 text-[13px] text-soft">Installed worldwide</p>
-          <p className="tabular mt-1 font-display text-[2.6rem] leading-none font-semibold tracking-[-0.02em] text-accent">{gw(now.total)}</p>
+          <p className="tabular mt-1 font-display text-[2.6rem] leading-none font-light tracking-[-0.03em] text-accent">{gw(now.total)}</p>
           <div className="mt-6 flex h-[132px] items-end gap-[3px]" role="img" aria-label={`Installed renewable capacity from ${ten.year} to ${now.year}`}>
             {r.filter((x) => x.year >= ten.year).map((x) => (
               <span key={x.year} title={`${x.year}: ${gw(x.total)}`} className={`flex-1 ${x.year === now.year ? "bg-accent" : "bg-[#c9cfc6]"}`} style={{ height: `${(x.total / now.total) * 100}%` }} />
@@ -81,7 +82,7 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
         </Card>
       </ol>
       <SourceNote>
-        <a href={series.source.url}>{series.source.citation}</a>.
+        <a href={series.source.url}>{plainText(series.source.citation)}</a>.
       </SourceNote>
       </div>
     </section>

@@ -82,7 +82,7 @@ export const TECHNOLOGIES: TechMeta[] = [
     icon: FlaskConical,
     short: "Green hydrogen from renewable-powered electrolysers.",
     explainer:
-      "We only track green hydrogen: hydrogen made by splitting water in an electrolyser that runs on renewable power. Capacity is the electrolyser's power input in MW. Where known, we also show output in tonnes per year.",
+      "We only track green hydrogen, meaning hydrogen made by splitting water in an electrolyser that runs on renewable power. Capacity is the electrolyser's power input in MW. Where known, we also show output in tonnes per year.",
   },
   {
     id: "bioenergy",

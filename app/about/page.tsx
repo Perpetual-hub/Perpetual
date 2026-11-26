@@ -1,3 +1,4 @@
+import { HERO_PHOTOS } from "@/lib/hero-photos";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader, Prose } from "@/components/prose/Prose";
@@ -5,15 +6,17 @@ import { DATA_VERSION } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "What Perpetual is: an open record of renewable energy deals, policy and statistics.",
+  description: "Perpetual is an open record of renewable energy deals, policy and statistics.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        title="About Perpetual"
-        intro="Perpetual follows the money behind the energy transition: what is being built, where, who is financing it, and which countries make it easiest to invest."
+        photo={HERO_PHOTOS.about}
+        eyebrow="About Perpetual"
+        title="Following the money behind clean energy"
+        intro="Perpetual follows the money behind the energy transition. We show what is being built and where, who is financing it, and which countries make it easiest to invest."
       />
       <div className="container-page py-12">
         <Prose>

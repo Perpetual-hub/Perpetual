@@ -1,5 +1,6 @@
 "use client";
 
+import { plainText } from "@/lib/plain-text";
 import { useId, useState } from "react";
 import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from "recharts";
 import { TECH_BY_ID } from "@/lib/tech";
@@ -87,7 +88,7 @@ export function GlobalCapacityChart({ series, place = "the world" }: { series: C
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-sm text-muted">Installed renewable capacity, {last.year}</p>
-          <p className="tabular font-display text-4xl font-bold tracking-tight text-brand-navy">
+          <p className="tabular font-display text-4xl font-light tracking-[-0.03em] text-[#1d2a22]">
             {fmt(last.total)} <span className="text-lg font-semibold text-muted">{unit}</span>
           </p>
           {firstNonZero.year < last.year && (
@@ -205,9 +206,9 @@ export function GlobalCapacityChart({ series, place = "the world" }: { series: C
       )}
 
       <p className="mt-4 text-xs leading-relaxed text-muted">
-        Source:{" "}
+        Data from{" "}
         <a href={source.url} target="_blank" rel="noopener" className="text-brand-blue underline underline-offset-2">
-          {source.citation}
+          {plainText(source.citation)}
         </a>
         . {source.licence}. Hydropower excludes pumped storage, matching IRENA&rsquo;s renewables total.
         {source.lastUpdated

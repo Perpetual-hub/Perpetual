@@ -5,7 +5,7 @@ import { DEAL_TYPE_LABEL, formatDate, formatMW, formatMoney } from "@/lib/format
 import type { Deal } from "@/lib/types";
 
 const cardBase =
-  "group relative flex h-full flex-col rounded-[var(--radius)] border border-line bg-white transition-[border-color,box-shadow] duration-200 hover:border-[#cdd6e2] hover:shadow-[0_8px_24px_-14px_rgba(11,27,46,0.22)]";
+  "group relative flex h-full flex-col rounded-[var(--radius)] border border-line bg-white transition-[border-color,box-shadow] duration-200 hover:border-[#c3c5b8] hover:shadow-[0_8px_24px_-14px_rgba(20,30,22,0.22)]";
 
 function Meta({ children }: { children: React.ReactNode }) {
   return <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted">{children}</div>;
@@ -29,7 +29,7 @@ export function FeatureDealCard({ deal }: { deal: Deal }) {
         </Meta>
         <dl className="mt-6 grid grid-cols-3 gap-4">
           <BigStat label="Value" value={value ?? "Undisclosed"} />
-          <BigStat label="Stake" value={deal.stakePct ? `${deal.stakePct}%` : "—"} />
+          <BigStat label="Stake" value={deal.stakePct ? `${deal.stakePct}%` : "Undisclosed"} />
           <BigStat label="Capacity" value={formatMW(deal.capacityMW)} />
         </dl>
       </div>

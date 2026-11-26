@@ -1,5 +1,6 @@
 "use client";
 
+import { plainText } from "@/lib/plain-text";
 import { useId, useState } from "react";
 import { Bar, BarChart, CartesianGrid, ReferenceLine, Tooltip, XAxis, YAxis } from "recharts";
 import { TECH_BY_ID } from "@/lib/tech";
@@ -64,7 +65,7 @@ export function CapacityAdditionsChart({
     <div>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">{title}</h2>
+          <h2 className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22]">{title}</h2>
           <p className="mt-1 text-sm text-muted">
             Net capacity added in {place} each year{only ? `, ${TECH_BY_ID[only].label.toLowerCase()}` : ""}
           </p>
@@ -86,7 +87,7 @@ export function CapacityAdditionsChart({
       </div>
 
       <p className="mt-4 text-sm text-muted">
-        <span className="tabular font-display text-3xl font-bold tracking-tight text-brand-navy">
+        <span className="tabular font-display text-3xl font-light tracking-[-0.03em] text-[#1d2a22]">
           {fmt(last.total)} {unit}
         </span>{" "}
         added in {last.year}
@@ -196,9 +197,9 @@ export function CapacityAdditionsChart({
       )}
 
       <p className="mt-3 text-xs text-muted">
-        Source:{" "}
+        Data from{" "}
         <a href={series.source.url} className="underline decoration-line underline-offset-2 hover:text-ink" target="_blank" rel="noreferrer">
-          {series.source.citation ?? series.source.publisher}
+          {plainText(series.source.citation ?? series.source.publisher)}
         </a>
         . Net additions are the year-on-year change in installed capacity, so retirements reduce them.
       </p>

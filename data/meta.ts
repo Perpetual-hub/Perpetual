@@ -10,7 +10,7 @@ export const changelog: { version: string; date: string; changes: string[] }[] =
     date: "2026-11-26",
     changes: [
       "47 new deals from 9 to 26 November 2026, found across press-release wires, energy news sites and lenders' own announcements. Each deal page links to the news it came from.",
-      "Deals are now kept for a rolling five years; older records are deleted automatically every day.",
+      "Deals are now kept for a rolling five years, and older records are deleted automatically every day.",
       "Removed the Projects section.",
     ],
   },
@@ -45,7 +45,7 @@ export const changelog: { version: string; date: string; changes: string[] }[] =
     version: "2026.11.1",
     date: "2026-11-11",
     changes: [
-      "Refocused on deals and investment: news items removed.",
+      "Refocused on deals and investment, with news items removed.",
       "Added 20 sample deals (45 in total) and recent milestones to 17 sample projects.",
       "Added PROFITS policy scores for 40 countries (illustrative placeholders).",
     ],

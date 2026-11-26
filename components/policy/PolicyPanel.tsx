@@ -61,7 +61,7 @@ export function PolicyPanel({
 
   return (
     <>
-      <div className="anim-fade-in fixed inset-0 z-50 bg-[#061a33]/30" onClick={onClose} aria-hidden />
+      <div className="anim-fade-in fixed inset-0 z-50 bg-[#0f1813]/30" onClick={onClose} aria-hidden />
       <div
         ref={panelRef}
         role="dialog"
@@ -72,7 +72,7 @@ export function PolicyPanel({
         <div className="flex items-start justify-between gap-4 border-b border-line px-6 pt-6 pb-5">
           <div>
             <p className="text-xs font-semibold text-brand-blue">PROFITS policy score</p>
-            <h2 id="policy-title" className="mt-1 text-2xl font-semibold tracking-[-0.02em]">
+            <h2 id="policy-title" className="mt-1 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
               {entry?.name ?? name}
             </h2>
           </div>
@@ -169,7 +169,7 @@ export function PolicyPanel({
           {entry && (
             <Link
               href={`/countries/${entry.country}`}
-              className="flex-1 rounded-lg border border-line px-4 py-3 text-center text-sm font-semibold text-ink hover:border-[#cdd6e2]"
+              className="flex-1 rounded-lg border border-line px-4 py-3 text-center text-sm font-semibold text-ink hover:border-[#c3c5b8]"
             >
               Country profile
             </Link>

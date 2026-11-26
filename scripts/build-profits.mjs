@@ -322,7 +322,7 @@ function reasonFor(ind, shown, year, better) {
   const when = year ? ` (${year})` : "";
   if (ind.src === "wgi") return `${label} is better than in ${better}% of countries${when}.`;
   const unit = /\(MW\)/.test(ind.name) ? " MW" : /\(%|\(% of/.test(ind.name) ? "%" : "";
-  return `${label}: ${shown}${unit}${when}, better than ${better}% of countries.`;
+  return `${label} at ${shown}${unit}${when}, better than ${better}% of countries.`;
 }
 
 // ----- percentile scoring -----

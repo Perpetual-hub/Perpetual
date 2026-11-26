@@ -1,4 +1,7 @@
+import { plainText } from "@/lib/plain-text";
 import type { Metadata } from "next";
+import { HeroStats, PageHero } from "@/components/ui/PageHero";
+import { HERO_PHOTOS } from "@/lib/hero-photos";
 import Link from "next/link";
 import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
 import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
@@ -32,46 +35,34 @@ export default function StatisticsPage() {
   const generationYear = genYears.length ? Math.max(...genYears) : undefined;
   return (
     <div>
-      <header className="border-b border-line">
-        <div className="container-page grid grid-cols-[minmax(0,1fr)] gap-10 pt-16 pb-12 md:pt-24 md:pb-16 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:items-end lg:gap-16">
-          <div>
-            <h1 className="max-w-4xl text-[2.5rem] leading-[1.05] font-bold tracking-[-0.025em] md:text-[3.5rem]">
-              Statistics
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-              Capacity statistics are compiled from open public datasets, such
-              as those published by the International Energy Agency (IEA) and
-              the International Renewable Energy Agency (IRENA), and each figure
-              is credited to its source. Data compiled {formatDate(DATA_AS_OF)}.{" "}
-              <Link
-                href="/disclosure#sources"
-                className="text-brand-blue underline underline-offset-2"
-              >
-                Sources and methods
-              </Link>
-            </p>
-          </div>
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius)] border border-line bg-line">
-            {[
-              [`World renewable capacity, ${worldNow.year}`, `${Math.round(worldNow.total).toLocaleString("en-GB")} GW`],
-              [`Added since ${worldFiveAgo.year}`, `${Math.round(worldNow.total - worldFiveAgo.total).toLocaleString("en-GB")} GW`],
-              ["Countries covered", String(countryRows.length)],
-              [`EIA projection, ${outlookRef.year}`, `${Math.round(outlookRef.total).toLocaleString("en-GB")} GW`],
-            ].map(([k, v]) => (
-              <div key={k} className="bg-white p-5 md:p-6">
-                <dt className="text-xs font-medium text-muted">{k}</dt>
-                <dd className="tabular mt-1 font-display text-3xl font-bold tracking-tight text-brand-navy">
-                  {v}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </header>
+      <PageHero
+        photo={HERO_PHOTOS.statistics}
+        eyebrow="Statistics"
+        title="Renewable power by the numbers"
+        lede={
+          <>
+            Official capacity statistics from IRENA and the US Energy Information Administration, for every region, country and
+            sector. Each figure is credited to its source. Data compiled {formatDate(DATA_AS_OF)}.{" "}
+            <Link href="/disclosure#sources" className="underline underline-offset-2">
+              Sources and methods
+            </Link>
+          </>
+        }
+        aside={
+          <HeroStats
+            stats={[
+              { label: `World renewable capacity, ${worldNow.year}`, value: Math.round(worldNow.total).toLocaleString("en-GB"), unit: "GW" },
+              { label: `Added since ${worldFiveAgo.year}`, value: Math.round(worldNow.total - worldFiveAgo.total).toLocaleString("en-GB"), unit: "GW" },
+              { label: "Countries covered", value: String(countryRows.length) },
+              { label: `EIA projection, ${outlookRef.year}`, value: Math.round(outlookRef.total).toLocaleString("en-GB"), unit: "GW" },
+            ]}
+          />
+        }
+      />
 
       <div className="container-page space-y-16 py-12">
         <section aria-labelledby="global-h" className="rounded-[var(--radius)] bg-paper p-6 md:p-8">
-          <h2 id="global-h" className="text-2xl font-semibold tracking-[-0.02em]">
+          <h2 id="global-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
             Global Renewable Capacity
           </h2>
           <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -82,7 +73,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="outlook-h" className="rounded-[var(--radius)] bg-paper p-6 md:p-8">
-          <h2 id="outlook-h" className="text-2xl font-semibold tracking-[-0.02em]">
+          <h2 id="outlook-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
             Capacity Outlook to {getCapacityOutlook().scenarios[0].rows.at(-1)?.year}
           </h2>
           <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -93,7 +84,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="regions-h">
-          <h2 id="regions-h" className="mb-2 text-2xl font-semibold tracking-[-0.02em]">
+          <h2 id="regions-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
             By Region
           </h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -103,7 +94,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="countries-h">
-          <h2 id="countries-h" className="mb-2 text-2xl font-semibold tracking-[-0.02em]">
+          <h2 id="countries-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
             By Country
           </h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -112,11 +103,11 @@ export default function StatisticsPage() {
           </p>
           <CountryStatsTable rows={countryRows} year={countryStats.latestYear} generationYear={generationYear} />
           <p className="mt-3 text-xs text-muted">
-            Source:{" "}
+            Data from{" "}
             <a href={countryStats.source.url} target="_blank" rel="noopener" className="text-brand-blue underline underline-offset-2">
-              {countryStats.source.citation}
+              {plainText(countryStats.source.citation).replace(/\.+$/, "")}
             </a>
-            . {countryStats.source.licence}.
+            . {plainText(countryStats.source.licence)}.
           </p>
         </section>
 

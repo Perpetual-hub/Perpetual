@@ -1,20 +1,49 @@
+import { PageHero } from "@/components/ui/PageHero";
+import type { HeroPhoto } from "@/lib/hero-photos";
+
 /** Long-form reading layout: ~70 characters per line, calm vertical rhythm. */
 export function Prose({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="max-w-[70ch] text-[1.0625rem] leading-[1.75] text-ink/90 [&_a]:font-medium [&_a]:text-brand-blue [&_a]:underline-offset-2 hover:[&_a]:underline [&_dd]:mb-4 [&_dd]:text-ink/80 [&_dt]:font-semibold [&_dt]:text-ink [&_h2]:mt-14 [&_h2]:mb-4 [&_h2]:scroll-mt-28 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h3]:mt-8 [&_h3]:mb-2 [&_h3]:font-sans [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-ink [&_li]:mt-1.5 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mt-4 [&_strong]:font-semibold [&_strong]:text-ink [&_ul]:list-disc [&_ul]:pl-6"
+      className="max-w-[70ch] text-[1.0625rem] leading-[1.75] text-ink/90 [&_a]:font-medium [&_a]:text-brand-blue [&_a]:underline-offset-2 hover:[&_a]:underline [&_dd]:mb-4 [&_dd]:text-ink/80 [&_dt]:font-semibold [&_dt]:text-ink [&_h2]:mt-16 [&_h2]:mb-4 [&_h2]:scroll-mt-28 [&_h2]:border-t [&_h2]:border-line [&_h2]:pt-8 [&_h2]:text-[2rem] [&_h2]:leading-tight [&_h2]:font-light [&_h2]:tracking-[-0.03em] [&_h2]:text-[#1d2a22] [&_h3]:mt-8 [&_h3]:mb-2 [&_h3]:font-sans [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:text-ink [&_li]:mt-1.5 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mt-4 [&_strong]:font-semibold [&_strong]:text-ink [&_ul]:list-disc [&_ul]:pl-6"
     >
       {children}
     </div>
   );
 }
 
-export function PageHeader({ eyebrow, title, intro, children }: { eyebrow?: string; title: string; intro?: React.ReactNode; children?: React.ReactNode }) {
+/** Page header. With a photo it becomes the landing-style photo hero; without, a light paper header. */
+export function PageHeader({
+  eyebrow,
+  title,
+  intro,
+  children,
+  photo,
+  aside,
+}: {
+  eyebrow?: string;
+  title: string;
+  intro?: React.ReactNode;
+  children?: React.ReactNode;
+  photo?: HeroPhoto;
+  aside?: React.ReactNode;
+}) {
+  if (photo)
+    return (
+      <PageHero photo={photo} eyebrow={eyebrow ?? title} title={title} lede={intro} aside={aside}>
+        {children}
+      </PageHero>
+    );
   return (
     <header>
       <div className="container-page pt-16 pb-10 md:pt-24 md:pb-14">
-        {eyebrow && <p className="mb-3 text-[13px] text-soft">{eyebrow}</p>}
-        <h1 className="max-w-4xl text-[2.25rem] leading-[1.08] font-semibold tracking-[-0.025em] md:text-[3rem]">{title}</h1>
+        {eyebrow && (
+          <p className="mb-6 flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase">
+            <span className="size-1.5 rounded-full bg-current" aria-hidden />
+            {eyebrow}
+          </p>
+        )}
+        <h1 className="max-w-4xl font-display text-[2.6rem] leading-[1] font-light tracking-[-0.04em] text-[#1d2a22] sm:text-[3.4rem] lg:text-[4.6rem]">{title}</h1>
         {intro && <p className="mt-6 max-w-[46rem] text-lg leading-relaxed text-soft">{intro}</p>}
         {children}
       </div>

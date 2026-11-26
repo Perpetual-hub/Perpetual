@@ -73,7 +73,7 @@ export default function Home() {
         labelledBy="record-h"
         credit={
           <>
-            Photo: {windPhoto.credit},{" "}
+            Photo by {windPhoto.credit},{" "}
             <a href={windPhoto.sourceUrl} target="_blank" rel="noreferrer">
               {windPhoto.license}
             </a>
@@ -83,8 +83,8 @@ export default function Home() {
         <div className="container-page grid gap-10 py-24 md:py-32 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:items-center">
           <div>
             <p className="text-[11px] font-semibold tracking-[0.16em] text-[var(--home-forest-muted)] uppercase">The deal record</p>
-            <Display id="record-h" tone="photo" size="xl" className="mt-5">
-              Follow the money.
+            <Display id="record-h" tone="photo" className="mt-5">
+              Every renewable deal, in one place.
             </Display>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-[var(--home-forest-ink)]/85">
               {deals.length.toLocaleString("en-GB")} renewable energy deals from the last five years, across {dealCountries} countries. Each one
@@ -128,7 +128,7 @@ export default function Home() {
           <ChapterHead label="Recent Transactions" n={2} of={6} />
           <Reveal>
             <div className="mt-10 mb-12 flex flex-wrap items-end justify-between gap-6 lg:mt-14">
-              <Display id="this-week">The latest deals.</Display>
+              <Display id="this-week">Latest renewable energy deals.</Display>
               <PillLink href="/deals">Deal Tracker</PillLink>
             </div>
           </Reveal>
@@ -160,7 +160,7 @@ export default function Home() {
           <ChapterHead label="Investors and Markets" n={3} of={6} />
           <Reveal>
             <div className="mt-10 mb-12 flex flex-wrap items-end justify-between gap-6 lg:mt-14">
-              <Display id="markets">Who builds, who pays.</Display>
+              <Display id="markets">Top investors and leading countries.</Display>
               <PillLink href="/statistics">Statistics</PillLink>
             </div>
           </Reveal>
@@ -171,7 +171,7 @@ export default function Home() {
             <Reveal>
               <section>
                 <div className="mb-4 flex items-baseline justify-between">
-                  <h3 className="font-sans text-lg font-semibold text-ink">Renewable Capacity Leaders</h3>
+                  <h3 className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">Renewable Capacity Leaders</h3>
                   <Link href="/statistics#countries-h" className="text-sm font-medium text-[#2f6b45] hover:underline">
                     All countries
                   </Link>
@@ -192,7 +192,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ol>
-                <p className="mt-3 text-xs text-muted">Installed renewable capacity, {countryStats.latestYear}. Source: IRENA.</p>
+                <p className="mt-3 text-xs text-muted">Installed renewable capacity in {countryStats.latestYear}, from IRENA.</p>
               </section>
             </Reveal>
           </div>
@@ -205,7 +205,7 @@ export default function Home() {
           <ChapterHead label="Capacity by Region" n={4} of={6} />
           <Reveal>
             <div className="mt-10 mb-12 flex flex-wrap items-end justify-between gap-6 lg:mt-14">
-              <Display id="regions">Where the power is.</Display>
+              <Display id="regions">Renewable capacity by region.</Display>
               <p className="max-w-sm text-[15px] leading-relaxed text-[#4f5a4c]">
                 Installed renewable capacity in each region, {countryStats.latestYear}, from official IRENA statistics.
               </p>
@@ -224,7 +224,7 @@ export default function Home() {
           <Reveal>
             <div className="mt-10 mb-12 flex flex-wrap items-end justify-between gap-6 lg:mt-14">
               <Display id="techs" tone="forest">
-                Eight ways to power the world.
+                Explore the eight renewable sectors.
               </Display>
               <p className="max-w-xs text-[15px] leading-relaxed text-[var(--home-forest-muted)]">
                 World installed capacity from IRENA, and the deals on record in each sector.
@@ -243,7 +243,7 @@ export default function Home() {
           <ChapterHead label="Data Integrity" n={6} of={6} />
           <div className="mt-10 grid gap-12 lg:mt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
             <Reveal>
-              <Display id="sources-promise">Every figure, traceable.</Display>
+              <Display id="sources-promise">Every number has a source.</Display>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-[#4f5a4c]">
                 Each deal and score lists its sources and the date they were checked, so every figure can be traced to where it was published.
               </p>

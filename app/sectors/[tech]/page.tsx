@@ -1,3 +1,4 @@
+import { plainText } from "@/lib/plain-text";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
@@ -36,7 +37,7 @@ export async function generateMetadata({
   if (!isTechnology(tech)) return {};
   const t = TECH_BY_ID[tech];
   return {
-    title: `${t.label} Sector: Capacity, Deals and Investors`,
+    title: `${t.label} Capacity, Deals and Investors`,
     description: `${t.label}: world installed capacity from official IRENA statistics, leading countries, ${getTechProfile(tech).deals.length} deals on record and the most active investors and lenders.`,
   };
 }
@@ -152,7 +153,7 @@ async function TechnologyContent({
             >
               <h2
                 id="world-h"
-                className="mb-6 text-2xl font-semibold tracking-[-0.02em]"
+                className="mb-6 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]"
               >
                 World Installed Capacity
               </h2>
@@ -176,7 +177,7 @@ async function TechnologyContent({
                 }))}
               />
               <p className="mt-4 text-xs text-muted">
-                Source: {countryStats.source.citation}
+                Data from {plainText(countryStats.source.citation)}
               </p>
             </ChartCard>
           </div>

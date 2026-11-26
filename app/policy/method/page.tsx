@@ -1,25 +1,25 @@
+import { plainText } from "@/lib/plain-text";
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   EditorialSection,
-  Eyebrow,
-  Lede,
   MetricBar,
   MetricCard,
   Paper,
   SourceNote,
   StepCard,
-  Statement,
 } from "@/components/editorial/Editorial";
 import { PillarSpine } from "@/components/policy/PillarSpine";
+import { PageHero } from "@/components/ui/PageHero";
+import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS, type PillarId } from "@/data/policy";
 import { countryStats, getPolicyEvaluation } from "@/lib/data";
 import { countryName } from "@/lib/format";
 import { getPolicyRows, rankPolicies } from "@/lib/policy";
 
 export const metadata: Metadata = {
-  title: "PROFITS: Method & Evaluation",
+  title: "PROFITS Method and Evaluation",
   description:
     "How Perpetual scores each country's renewable investment climate across seven pillars, and how the scores compare with five years of real capacity growth and deal flow.",
 };
@@ -40,18 +40,14 @@ export default function PolicyMethodPage() {
   const top = rankPolicies(rows, WEIGHT_PRESETS[0].weights)[0];
 
   return (
-    <div className="container-page pb-24">
-      <header className="max-w-[56rem] pt-16 md:pt-24">
-        <Eyebrow>Method &amp; Evaluation</Eyebrow>
-        <Statement as="h1" className="mt-3">
-          How Perpetual scores a country&rsquo;s renewable investment climate
-        </Statement>
-        <Lede className="mt-6">
-          PROFITS rates every country the way an investor would: seven pillars, each scored 1 to 5 from published data,
-          then weighted for the kind of deal being done. Here is how a score is built, and how the scores compare with what
-          actually happened over the last five years.
-        </Lede>
-      </header>
+    <div>
+      <PageHero
+        photo={HERO_PHOTOS.method}
+        eyebrow="Method and Evaluation"
+        title="How we score each country"
+        lede="PROFITS rates every country the way an investor would. It uses seven pillars, each scored 1 to 5 from published data, then weighted for the kind of deal being done. Here is how a score is built, and how the scores compare with what actually happened over the last five years."
+      />
+      <div className="container-page pb-24">
 
       <EditorialSection
         id="build-h"
@@ -83,7 +79,7 @@ export default function PolicyMethodPage() {
             label="Pillar scoring"
             title="Score each pillar on its own."
             figure={top && <PillarBars scores={top.scores} />}
-            caption={top ? `Example: ${top.name}, currently first with equal weights.` : undefined}
+            caption={top ? `Shown here for ${top.name}, currently first with equal weights.` : undefined}
           >
             Indicators are converted to a 1 to 5 scale and averaged within their pillar. A weak grid cannot be hidden by a
             strong policy target.
@@ -93,7 +89,7 @@ export default function PolicyMethodPage() {
             label="Weighting"
             title="Weight for the deal being done."
             figure={<PresetBars />}
-            caption="Weights are relative; each country's score is their weighted average."
+            caption="Weights are relative. Each country's score is the weighted average of its pillars."
           >
             A utility-scale developer cares most about regulation, offtake and finance. A rooftop deal lives or dies on its
             buyer. The same pillar scores give a different ranking for each.
@@ -115,7 +111,7 @@ export default function PolicyMethodPage() {
           {DEAL_BREAKERS.map((d, i) => (
             <Paper as="li" key={d.id}>
               <p className="text-[13px] text-soft">Deal-breaker {i + 1}</p>
-              <h3 className="mt-1.5 font-display text-lg font-semibold text-ink">{d.title}</h3>
+              <h3 className="mt-1.5 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{d.title}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-ink/85">{d.label}.</p>
             </Paper>
           ))}
@@ -156,7 +152,7 @@ export default function PolicyMethodPage() {
               title="Deals per country"
               description="Median number of deals on record per country."
               value={fmtN(ev.deals.topMedian)}
-              meaning={`A typical top-fifth country has ${fmtN(ev.deals.topMedian)} deals on record; a typical bottom-fifth country has ${fmtN(ev.deals.bottomMedian)}.`}
+              meaning={`A typical country in the top fifth has ${fmtN(ev.deals.topMedian)} deals on record, against ${fmtN(ev.deals.bottomMedian)} for a typical country in the bottom fifth.`}
             >
               <MetricBar label="Top fifth by PROFITS score" value={ev.deals.topMedian} display={fmtN(ev.deals.topMedian)} max={ev.deals.topMedian || 1} highlight />
               <MetricBar label="Bottom fifth by PROFITS score" value={ev.deals.bottomMedian} display={fmtN(ev.deals.bottomMedian)} max={ev.deals.topMedian || 1} />
@@ -165,14 +161,14 @@ export default function PolicyMethodPage() {
               title="Rank agreement"
               description="Spearman correlation between a country's PROFITS rank and its outcome rank. 1 would be identical order, 0 no relation."
               value={ev.deals.rho.toFixed(2)}
-              meaning="A clear but moderate link. Scores point in the right direction; they are not a forecast."
+              meaning="A clear but moderate link. Scores point in the right direction, but they are not a forecast."
             >
               <MetricBar label="PROFITS score vs deals on record" value={ev.deals.rho} display={ev.deals.rho.toFixed(2)} max={1} highlight />
               <MetricBar label="PROFITS score vs capacity growth" value={ev.growth.rho} display={ev.growth.rho.toFixed(2)} max={1} />
             </MetricCard>
           </div>
           <SourceNote>
-            <a href={countryStats.source.url}>{countryStats.source.citation}</a>; Perpetual deal record. Fifths contain{" "}
+            <a href={countryStats.source.url}>{plainText(countryStats.source.citation).replace(/\.+$/, "")}</a> and the Perpetual deal record. Fifths contain{" "}
             {ev.growth.quintileSize} countries each.
           </SourceNote>
           <div className="mt-8 max-w-[46rem] space-y-4 text-[17px] leading-relaxed text-ink">
@@ -198,6 +194,7 @@ export default function PolicyMethodPage() {
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
         </Link>
       </EditorialSection>
+      </div>
     </div>
   );
 }

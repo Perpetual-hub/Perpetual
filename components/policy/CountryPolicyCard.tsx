@@ -1,3 +1,4 @@
+import { plainText } from "@/lib/plain-text";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { DEAL_BREAKERS, PILLARS, WEIGHT_PRESETS } from "@/data/policy";
@@ -17,7 +18,7 @@ function Fold({ title, count, children }: { title: string; count?: number; child
   return (
     <details className="group border-b border-line">
       <summary className="flex cursor-pointer list-none items-center gap-3 py-4 [&::-webkit-details-marker]:hidden">
-        <span className="font-sans text-base font-semibold text-ink">{title}</span>
+        <span className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</span>
         {count != null && <span className="tabular rounded-full bg-surface-2 px-2 py-0.5 text-xs text-muted">{count}</span>}
         <ChevronDown className="ml-auto size-5 text-muted transition-transform duration-200 group-open:rotate-180" aria-hidden />
       </summary>
@@ -37,7 +38,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
     <section aria-labelledby="profits-h" className="border-t-2 border-brand-navy">
       <div className="flex flex-wrap items-baseline justify-between gap-3 pt-6 pb-6">
         <div>
-          <h2 id="profits-h" className="text-2xl font-semibold tracking-[-0.02em]">
+          <h2 id="profits-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
             Policy Assessment
           </h2>
           <p className="mt-1 text-sm text-muted">How investable {name} is for renewable energy, scored with PROFITS.</p>
@@ -105,7 +106,9 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
             <Fold title="Behind the Scores">
               <div className="divide-y divide-line border-y border-line">
                 {PILLARS.map((p) => {
-                  const reasons = (c.indicators?.[p.id] ?? []).map((i) => i.reason).filter(Boolean);
+                  const reasons = (c.indicators?.[p.id] ?? [])
+                    .map((i) => i.reason && plainText(i.reason.replace(/^([^:]+): /, "$1 at ")))
+                    .filter(Boolean);
                   if (!reasons.length) return null;
                   return (
                     <div key={p.id} className="grid gap-3 py-4 md:grid-cols-[15rem_minmax(0,1fr)] md:gap-8">
@@ -137,17 +140,17 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
                     <span className="tabular text-muted">{pol.year ?? "—"}</span>
                     {pol.url ? (
                       <a href={pol.url} target="_blank" rel="noopener" className="font-medium text-ink underline-offset-2 hover:text-brand-blue hover:underline">
-                        {pol.title}
+                        {plainText(pol.title)}
                       </a>
                     ) : (
-                      <span className="font-medium text-ink">{pol.title}</span>
+                      <span className="font-medium text-ink">{plainText(pol.title)}</span>
                     )}
                     <span className="text-xs text-muted sm:text-right">{pol.instrument}</span>
                   </li>
                 ))}
               </ul>
               <p className="mt-3 text-xs text-muted">
-                Source: Climate Policy Database 2025 (NewClimate Institute, Wageningen University and PBL, CC BY 4.0), which
+                Data from the Climate Policy Database 2025 (NewClimate Institute, Wageningen University and PBL, CC BY 4.0), which
                 includes policies from the IEA Policies Hub.
               </p>
             </Fold>

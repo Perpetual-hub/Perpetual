@@ -11,6 +11,7 @@ import { deals as sampleDeals } from "@/data/deals";
 import { curatedDeals } from "@/data/deals-curated";
 import { iatiDeals } from "@/data/deals-iati";
 import { newsDeals } from "@/data/deals-news";
+import { plainText, plainTitle } from "@/lib/plain-text";
 import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
 import { research as rawResearch } from "@/data/research";
@@ -79,7 +80,15 @@ const uniqueDeals = [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBank
   seenRelease.add(k);
   return true;
 });
-const deals = validate("data/deals*.ts", S.deal, uniqueDeals).sort(byDateDesc);
+const deals = validate("data/deals*.ts", S.deal, uniqueDeals)
+  .map((d) => ({
+    ...d,
+    title: plainTitle(d.title),
+    summary: plainText(d.summary),
+    details: plainText(d.details),
+    context: plainText(d.context),
+  }))
+  .sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
 
 export { DATA_AS_OF, DATA_VERSION, changelog };

@@ -1,6 +1,6 @@
 import { OG_SIZE, ogImage } from "@/lib/og";
 
-export const alt = "Perpetual: follow the money behind renewable energy";
+export const alt = "Perpetual follows the money behind renewable energy";
 export const size = OG_SIZE;
 export const contentType = "image/png";
 

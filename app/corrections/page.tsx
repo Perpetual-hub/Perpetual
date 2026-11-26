@@ -1,3 +1,4 @@
+import { HERO_PHOTOS } from "@/lib/hero-photos";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CorrectionForm } from "@/components/prose/CorrectionForm";
@@ -11,12 +12,14 @@ export const metadata: Metadata = {
 
 export default function CorrectionsPage() {
   const records = [
-    ...getDeals().map((d) => ({ id: d.id, label: `Deal: ${d.title}` })),
+    ...getDeals().map((d) => ({ id: d.id, label: `${d.title} (deal)` })),
   ];
   return (
     <>
       <PageHeader
-        title="Report a Correction"
+        photo={HERO_PHOTOS.corrections}
+        eyebrow="Report a Correction"
+        title="Help us get it right"
         intro="Every fact on Perpetual should be traceable and right. If something is wrong or out of date, tell us what it should say and where you found it."
       />
       <div className="container-page grid gap-12 py-12 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)]">
@@ -25,11 +28,11 @@ export default function CorrectionsPage() {
           <CorrectionForm records={records} />
         </Suspense>
         <aside className="h-fit rounded-[var(--radius)] border border-line bg-surface-2 p-6 text-sm leading-relaxed text-muted">
-          <h2 className="font-sans text-base font-semibold text-ink">Review Process</h2>
+          <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">Review Process</h2>
           <ol className="mt-3 list-decimal space-y-2 pl-5">
             <li>We check your report against the source you give, and others.</li>
             <li>If it holds up, we update the record and its &ldquo;last updated&rdquo; date.</li>
-            <li>The change is listed in the methodology changelog.</li>
+            <li>The change is listed in the data changelog.</li>
           </ol>
           <p className="mt-4">
             The form is not connected yet, so nothing is sent. Please don&rsquo;t include personal data beyond an

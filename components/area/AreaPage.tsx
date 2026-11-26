@@ -1,3 +1,4 @@
+import { plainText } from "@/lib/plain-text";
 import Link from "next/link";
 import { dealValue } from "@/components/cards/Cards";
 import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
@@ -8,6 +9,7 @@ import {
 } from "@/lib/data";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { countryPhotos } from "@/data/geo/country-photos";
+import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import { regionSlug } from "@/lib/filters";
 import {
@@ -23,7 +25,11 @@ import { InvestorsCard } from "./InvestorsCard";
 export function AreaPage({ profile }: { profile: AreaProfile }) {
   const { summary: s, deals } = profile;
   const regionInfo = s.kind === "region" ? countryStats.region(s.key) : undefined;
-  const photo = s.kind === "country" ? countryPhotos[s.key] : undefined;
+  const regionPhoto = HERO_PHOTOS.regions;
+  const photo =
+    s.kind === "country"
+      ? countryPhotos[s.key]
+      : { url: regionPhoto.src, page: regionPhoto.sourceUrl, artist: regionPhoto.credit, license: regionPhoto.license };
   const official =
     s.kind === "country" ? countryStats.get(s.key) : regionInfo ? countryStats.aggregate(regionInfo) : undefined;
   const memberRows = regionInfo
@@ -42,15 +48,15 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
   return (
     <div>
-      <header className={photo ? "relative isolate overflow-hidden bg-brand-navy text-white" : "border-b border-line"}>
+      <header className={photo ? "on-dark relative isolate overflow-hidden bg-hero text-white" : "border-b border-line"}>
         {photo && (
           <>
             {/* Background image, so a photo that fails to load leaves the plain navy band rather than a broken icon. */}
             <div aria-hidden className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: `url("${photo.url}")` }} />
-            <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-[#061a33]/95 via-[#061a33]/60 to-[#061a33]/25" />
+            <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(14,22,17,0.9)_0%,rgba(14,22,17,0.6)_50%,rgba(14,22,17,0.25)_100%),linear-gradient(0deg,rgba(14,22,17,0.8)_0%,rgba(14,22,17,0)_60%)]" />
           </>
         )}
-        <div className={`container-page pt-10 pb-12 md:pt-14 md:pb-14 ${photo ? "md:pt-40 md:pb-12" : ""}`}>
+        <div className={`container-page pt-10 pb-12 md:pt-14 md:pb-14 ${photo ? "md:pt-32 md:pb-14" : ""}`}>
           <nav
             aria-label="Breadcrumb"
             className={`mb-6 flex flex-wrap gap-1.5 text-sm ${photo ? "text-white/80" : "text-muted"}`}
@@ -70,10 +76,11 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
               </>
             )}
           </nav>
-          <p className={`text-xs font-semibold ${photo ? "text-brand-sky" : "text-brand-blue"}`}>
+          <p className={`flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] uppercase ${photo ? "text-hero-ink" : "text-ink"}`}>
+            <span className="size-1.5 rounded-full bg-current" aria-hidden />
             {s.kind === "country" ? "Country profile" : "Region profile"}
           </p>
-          <h1 className={`mt-2 text-4xl font-bold tracking-[-0.02em] md:text-6xl ${photo ? "text-white" : ""}`}>
+          <h1 className={`mt-5 font-display text-[2.9rem] leading-[0.98] font-light tracking-[-0.04em] sm:text-[4rem] lg:text-[5.4rem] ${photo ? "text-hero-ink" : "text-[#1d2a22]"}`}>
             {s.name}
           </h1>
           {snap ? (
@@ -105,12 +112,12 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
           )}
           {snap && (
             <p className={`mt-6 text-xs ${photo ? "text-white/70" : "text-muted"}`}>
-              Source: {countryStats.source.citation}
+              Data from {plainText(countryStats.source.citation)}
             </p>
           )}
           {photo && (
             <p className="mt-2 text-[11px] text-white/60">
-              Photo:{" "}
+              Photo by{" "}
               <a href={photo.page} target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-white">
                 {photo.artist || "Wikimedia Commons"}
               </a>
@@ -130,7 +137,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             aria-labelledby="official-h"
             className="rounded-[var(--radius)] bg-paper p-6 md:p-8"
           >
-            <h2 id="official-h" className="text-2xl font-semibold tracking-[-0.02em]">
+            <h2 id="official-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
               Installed Renewable Capacity
             </h2>
             <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -147,7 +154,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
         {memberRows.length > 0 && (
           <section aria-labelledby="countries-h">
-            <h2 id="countries-h" className="mb-2 text-2xl font-semibold tracking-[-0.02em]">
+            <h2 id="countries-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
               Countries in {s.name}
             </h2>
             <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -203,7 +210,7 @@ function Stat({
   return (
     <div>
       <dt className={`text-xs font-medium ${dark ? "text-white/75" : "text-muted"}`}>{label}</dt>
-      <dd className={`tabular mt-1 font-display text-3xl font-bold tracking-tight ${dark ? "text-white" : "text-brand-navy"}`}>
+      <dd className={`tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>
         {value}
         {unit && (
           <span className={`ml-1 text-base font-semibold ${dark ? "text-white/70" : "text-muted"}`}>
@@ -227,7 +234,7 @@ export function ChartCard({
   return (
     <section className="rounded-[var(--radius)] bg-paper p-6">
       <div className="mb-5 flex items-baseline justify-between gap-4">
-        <h2 className="font-sans text-base font-semibold text-ink">{title}</h2>
+        <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h2>
         {note && <span className="text-xs text-muted">{note}</span>}
       </div>
       {children}
@@ -249,7 +256,7 @@ export function ListCard({
   return (
     <section>
       <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="text-xl font-semibold tracking-[-0.02em]">{title}</h2>
+        <h2 className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22]">{title}</h2>
         <Link
           href={href}
           className="text-sm font-medium text-brand-blue hover:underline"

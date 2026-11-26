@@ -5,7 +5,12 @@ import type { ReactNode } from "react";
 
 /** Small label above a page or section title. */
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="text-[13px] text-soft">{children}</p>;
+  return (
+    <p className="flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase">
+      <span className="size-1.5 rounded-full bg-current" aria-hidden />
+      {children}
+    </p>
+  );
 }
 
 /** A statement heading; `quiet` is appended in grey, like a closing thought. */
@@ -24,14 +29,14 @@ export function Statement({
 }) {
   const size =
     Tag === "h1"
-      ? "text-[2rem] leading-[1.1] md:text-[2.75rem]"
+      ? "text-[2.6rem] leading-[1] sm:text-[3.4rem] lg:text-[4.6rem]"
       : Tag === "h2"
-        ? "text-[1.6rem] leading-[1.15] md:text-[2rem]"
-        : "text-xl leading-snug";
+        ? "text-[2.1rem] leading-[1.05] sm:text-[2.6rem] lg:text-[3.2rem]"
+        : "text-2xl leading-snug";
   return (
-    <Tag id={id} className={`font-display font-semibold tracking-[-0.02em] text-ink ${size} ${className}`}>
+    <Tag id={id} className={`font-display font-light tracking-[-0.035em] text-[#1d2a22] ${size} ${className}`}>
       {children}
-      {quiet && <span className="text-soft"> {quiet}</span>}
+      {quiet && <span className="text-[#7d8a72]"> {quiet}</span>}
     </Tag>
   );
 }
@@ -56,7 +61,7 @@ export function EditorialSection({
   children?: ReactNode;
 }) {
   return (
-    <section aria-labelledby={id} className="pt-20 md:pt-28">
+    <section aria-labelledby={id} className="mt-20 border-t border-line pt-10 md:mt-28 md:pt-14">
       <Statement id={id} quiet={quiet}>
         {title}
       </Statement>
@@ -104,7 +109,7 @@ export function StepCard({
       <p className="mt-4 text-[13px] text-soft">
         {n}. {label}
       </p>
-      <h3 className="mt-1.5 font-display text-xl font-semibold tracking-[-0.01em] text-ink">{title}</h3>
+      <h3 className="mt-1.5 font-display text-2xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h3>
       <div className="mt-3 text-[15px] leading-relaxed text-ink/85">{children}</div>
       {figure && <div className="mt-6 flex-1">{figure}</div>}
       {caption && <p className="mt-5 text-[13px] text-soft">{caption}</p>}
@@ -145,20 +150,21 @@ export function MetricCard({
     <Paper as="article" className="flex flex-col">
       <div className="flex items-start justify-between gap-6">
         <div>
-          <h3 className="font-display text-xl font-semibold tracking-[-0.01em] text-ink">{title}</h3>
+          <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h3>
           <p className="mt-1 text-[15px] leading-snug text-soft">{description}</p>
         </div>
-        <p className="tabular font-display text-[2.6rem] leading-none font-semibold tracking-[-0.02em] text-accent">{value}</p>
+        <p className="tabular font-display text-[2.6rem] leading-none font-light tracking-[-0.03em] text-accent">{value}</p>
       </div>
       <div className="mt-6 flex-1 space-y-4">{children}</div>
       <p className="mt-6 border-t border-[#dfe3dc] pt-4 text-[15px] text-ink">
-        What this means: <span className="text-soft">{meaning}</span>
+        <span className="block text-[11px] font-semibold tracking-[0.14em] text-ink uppercase">What this means</span>
+        <span className="mt-1.5 block text-soft">{meaning}</span>
       </p>
     </Paper>
   );
 }
 
-/** "Source:" line under a figure. */
+/** "Data from" line under a figure. */
 export function SourceNote({ children }: { children: ReactNode }) {
-  return <p className="mt-3 text-[13px] text-soft [&_a]:underline [&_a]:decoration-line [&_a]:underline-offset-2 hover:[&_a]:text-ink">Source: {children}</p>;
+  return <p className="mt-3 text-[13px] text-soft [&_a]:underline [&_a]:decoration-line [&_a]:underline-offset-2 hover:[&_a]:text-ink">Data from {children}</p>;
 }

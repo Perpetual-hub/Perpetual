@@ -1,3 +1,5 @@
+import { HeroStats } from "@/components/ui/PageHero";
+import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { ArrowRight, Building2, FileSearch, Landmark } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -9,7 +11,7 @@ import { TECHNOLOGIES } from "@/lib/tech";
 export const metadata: Metadata = {
   title: "Disclosure",
   description:
-    "How Perpetual's data works: coverage, definitions, sources, the PROFITS policy framework, how numbers are handled, limitations, corrections and the data changelog.",
+    "How Perpetual's data works, covering definitions, sources, the PROFITS policy framework, how numbers are handled, limitations, corrections and the data changelog.",
 };
 
 const TOC = [
@@ -31,21 +33,22 @@ export default function DisclosurePage() {
 
   return (
     <>
-      <PageHeader title="Disclosure" intro="Where every figure on Perpetual comes from, how it is defined and checked, and where its limits are.">
-        <dl className="mt-10 grid max-w-3xl grid-cols-2 gap-6 border-t border-line pt-6 sm:grid-cols-4">
-          {[
-            ["Data version", DATA_VERSION],
-            ["Compiled", formatDate(DATA_AS_OF)],
-            ["Countries", String(countryStats.all().length)],
-            ["Deals", String(dealCount)],
-          ].map(([k, v]) => (
-            <div key={k}>
-              <dt className="text-xs text-muted">{k}</dt>
-              <dd className="tabular mt-1 text-lg font-semibold text-ink">{v}</dd>
-            </div>
-          ))}
-        </dl>
-      </PageHeader>
+      <PageHeader
+        photo={HERO_PHOTOS.disclosure}
+        eyebrow="Disclosure"
+        title="How our data works"
+        intro="Where every figure on Perpetual comes from, how it is defined and checked, and where its limits are."
+        aside={
+          <HeroStats
+            stats={[
+              { label: "Data version", value: DATA_VERSION },
+              { label: "Compiled", value: formatDate(DATA_AS_OF) },
+              { label: "Countries", value: String(countryStats.all().length) },
+              { label: "Deals", value: dealCount.toLocaleString("en-GB") },
+            ]}
+          />
+        }
+      />
 
       <div className="container-page grid gap-16 py-16 lg:grid-cols-[200px_minmax(0,1fr)] lg:gap-20">
         <Toc items={TOC} />
@@ -78,7 +81,7 @@ export default function DisclosurePage() {
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               <Card title="What Counts as a Deal">
-                A transaction tied to renewable assets or companies: M&amp;A, project finance, equity raises, power purchase agreements,
+                A transaction tied to renewable assets or companies, such as M&amp;A, project finance, equity raises, power purchase agreements,
                 IPOs, fund closes, joint ventures and refinancings. We record parties, stake, value (if disclosed), capacity and the
                 assets involved, with a link to the news or release it came from.
               </Card>
@@ -91,7 +94,7 @@ export default function DisclosurePage() {
               <Card title="Commercial Operation (COD)">The date a project starts selling its output under normal operating conditions.</Card>
               <Card title="Financial Close">The date all financing agreements are signed and the first funds can be drawn.</Card>
               <Card title="AC and DC Capacity">
-                Panels produce DC, and inverters convert it to AC. DC is usually 10–30% higher. We record AC where possible and label the basis.
+                Panels produce DC, and inverters convert it to AC. DC is usually 10 to 30% higher. We record AC where possible and label the basis.
               </Card>
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -197,7 +200,7 @@ export default function DisclosurePage() {
               ].map(([t, d], i) => (
                 <li key={t} className="border-t-2 border-brand-navy pt-4">
                   <span className="tabular text-xs font-semibold text-muted">Step {i + 1}</span>
-                  <h3 className="mt-1 font-sans text-base font-semibold text-ink">{t}</h3>
+                  <h3 className="mt-1 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{t}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">{d}</p>
                 </li>
               ))}
@@ -278,7 +281,7 @@ function Feature({
   return (
     <div className="border-t border-line pt-5">
       <Icon className="size-5 text-brand-blue" aria-hidden />
-      <h3 className="mt-3 font-sans text-base font-semibold text-ink">{title}</h3>
+      <h3 className="mt-3 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{children}</p>
     </div>
   );

@@ -66,7 +66,7 @@ export function BarList({
             const r = on ? (payload?.[0]?.payload as BarRow | undefined) : undefined;
             if (!r) return null;
             return (
-              <div className="rounded-lg border border-line bg-white px-3 py-2 text-xs shadow-[0_8px_24px_-12px_rgba(11,27,46,0.25)]">
+              <div className="rounded-lg border border-line bg-white px-3 py-2 text-xs shadow-[0_8px_24px_-12px_rgba(20,30,22,0.25)]">
                 <div className="font-semibold text-ink">{r.label}</div>
                 <div className="tabular mt-0.5 text-ink">{format(r.value)}</div>
                 {r.count != null && (

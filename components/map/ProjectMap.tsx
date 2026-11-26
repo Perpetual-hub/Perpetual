@@ -55,7 +55,7 @@ function fallbackStyle(theme: MapTheme): StyleSpecification {
     version: 8,
     sources: {},
     layers: [
-      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#041330" : LIGHT.water } },
+      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#0b1a22" : LIGHT.water } },
     ],
   };
 }
@@ -92,29 +92,51 @@ function pulseRadius(k: number): ExpressionSpecification {
   ];
 }
 
+/**
+ * Hero globe imagery: NASA Blue Marble (shaded relief and bathymetry) from NASA GIBS. NASA imagery
+ * is in the public domain; the attribution is a courtesy. Darkened a little so the deals stand out.
+ */
+const EARTH_TILES =
+  "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default/GoogleMapsCompatible_Level8/{z}/{y}/{x}.jpeg";
+const EARTH_PAINT = {
+  projects: { "raster-brightness-max": 0.78, "raster-saturation": -0.05, "raster-contrast": 0.08 },
+  policy: { "raster-brightness-max": 0.42, "raster-saturation": -0.6, "raster-contrast": 0 },
+};
+
+function addEarth(map: MlMap, policy: boolean) {
+  map.addSource("earth", {
+    type: "raster",
+    tiles: [EARTH_TILES],
+    tileSize: 256,
+    maxzoom: 8,
+    attribution: '<a href="https://earthobservatory.nasa.gov/features/BlueMarble" target="_blank" rel="noreferrer">NASA Blue Marble</a>',
+  });
+  // Straight above the background, under every vector layer.
+  const layers = map.getStyle().layers ?? [];
+  const firstAbove = layers.find((l) => l.type !== "background")?.id;
+  map.addLayer({ id: "earth", type: "raster", source: "earth", paint: EARTH_PAINT[policy ? "policy" : "projects"] }, firstAbove);
+  // The imagery replaces the vector land, water and landcover fills; keep only faint borders.
+  for (const l of layers) {
+    if (l.type === "fill" || l.type === "fill-extrusion") map.setLayoutProperty(l.id, "visibility", "none");
+    else if (l.type === "line" && (!/boundary|admin/.test(l.id) || /state/.test(l.id))) map.setLayoutProperty(l.id, "visibility", "none");
+    else if (l.type === "line") map.setPaintProperty(l.id, "line-color", "rgba(242,240,225,0.28)");
+  }
+}
+
+function setEarth(map: MlMap, policy: boolean) {
+  if (!map.getLayer("earth")) return;
+  for (const [k, v] of Object.entries(EARTH_PAINT[policy ? "policy" : "projects"])) map.setPaintProperty("earth", k as "raster-contrast", v);
+}
+
 /** Land colours on the hero globe: a touch of green normally; neutral slate under the policy heatmap. */
 const LAND = { projects: "#1d5550", vegetation: "#226352", policy: "#24364f" };
 
 /** Flat (light) maps: blue sea, soft green land, so the map reads as a map rather than grey on white. */
-const LIGHT = { water: "#a9d3f0", land: "#eef4e2", vegetation: "#d4e8c2", border: "#7f9bb8", label: "#24405e" };
+const LIGHT = { water: "#b7d5df", land: "#f1f0e6", vegetation: "#d4e8c2", border: "#8f9a88", label: "#2a3a2e" };
 
 /** True when the basemap tiles loaded (not the offline fallback, whose background is the ocean). */
 function hasTiles(map: MlMap) {
   return Object.values(map.getStyle().sources ?? {}).some((src) => src.type === "vector");
-}
-
-function setLand(map: MlMap, color: string) {
-  if (map.getLayer("land-fill")) map.setPaintProperty("land-fill", "fill-color", color);
-  const tiles = hasTiles(map);
-  for (const layer of map.getStyle().layers ?? []) {
-    try {
-      if (layer.type === "background" && tiles) map.setPaintProperty(layer.id, "background-color", color);
-      else if (layer.type === "fill" && /landcover|landuse|park|wood|grass/.test(layer.id))
-        map.setPaintProperty(layer.id, "fill-color", color === LAND.policy ? color : LAND.vegetation);
-    } catch {
-      // Unknown layer shape: leave it.
-    }
-  }
 }
 
 /** Zoom at which the globe's diameter is about `px` pixels (measured for MapLibre's globe). */
@@ -300,12 +322,14 @@ export default function ProjectMap({
       map.setProjection({ type: projection });
       if (dark) tintDarkBasemap(map, vivid);
       else tintLightBasemap(map);
-      if (vivid) hideBasemapLabels(map);
-      else applyEnglishLabels(map);
+      if (vivid) {
+        hideBasemapLabels(map);
+        addEarth(map, isChoropleth(modeRef.current));
+      } else applyEnglishLabels(map);
       map.setSky({
         "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0],
-        "sky-color": dark ? "#061a33" : "#ffffff",
-        "horizon-color": dark ? (vivid ? "#3d8ee0" : "#1b4a7a") : "#dbe7f3",
+        "sky-color": dark ? "#0f1813" : "#ffffff",
+        "horizon-color": dark ? (vivid ? "#8cc4e6" : "#2c4a3a") : "#e4e9df",
       } as never);
 
       const hasGlyphs = Boolean(map.getStyle().glyphs);
@@ -314,7 +338,7 @@ export default function ProjectMap({
 
       // --- Policy heatmap: country fills (data loaded on first use) ---
       map.addSource("policy", { type: "geojson", data: { type: "FeatureCollection", features: [] }, promoteId: "iso2" });
-      if (vivid || (!dark && !hasTiles(map))) {
+      if (!dark && !hasTiles(map)) {
         // Our own land layer (same outlines), so continents read clearly even if tiles are slow.
         map.addLayer({
           id: "land-fill",
@@ -342,7 +366,7 @@ export default function ProjectMap({
         source: "policy",
         layout: { visibility: visible("policy") },
         paint: {
-          "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "#f5b000", "rgba(6,26,51,0.9)"],
+          "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "#f5b000", "rgba(15,24,19,0.9)"],
           "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 0.6],
         },
       });
@@ -390,7 +414,7 @@ export default function ProjectMap({
             "text-font": ["Noto Sans Bold"],
             "text-allow-overlap": true,
           },
-          paint: { "text-color": dark ? "#ffffff" : "#083b6e" },
+          paint: { "text-color": dark ? "#ffffff" : "#1d2a22" },
         });
       }
       if (vivid) {
@@ -432,7 +456,7 @@ export default function ProjectMap({
             "case",
             ["boolean", ["feature-state", "selected"], false],
             "#f5b000",
-            vivid ? "rgba(255,255,255,0.9)" : dark ? "#061a33" : "#ffffff",
+            vivid ? "rgba(255,255,255,0.9)" : dark ? "#0f1813" : "#ffffff",
           ],
           "circle-stroke-width": [
             "case",
@@ -458,7 +482,7 @@ export default function ProjectMap({
             "case",
             ["boolean", ["feature-state", "hover"], false],
             "#f5b000",
-            dark ? "rgba(232,238,246,0.75)" : "#0b5cad",
+            dark ? "rgba(242,240,225,0.75)" : "#2f6b45",
           ],
           "circle-stroke-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 1],
           "circle-radius": countryRadius,
@@ -475,7 +499,7 @@ export default function ProjectMap({
             "text-size": 10,
             "text-font": ["Noto Sans Bold"],
           },
-          paint: { "text-color": dark ? "#ffffff" : "#083b6e" },
+          paint: { "text-color": dark ? "#ffffff" : "#1d2a22" },
         });
       }
       setReady(true);
@@ -671,7 +695,7 @@ export default function ProjectMap({
     set(["policy-fill", "policy-line"], isChoropleth(mode));
     set(["policy-flag"], mode === "policy");
     if (map.getLayer("policy-fill")) map.setPaintProperty("policy-fill", "fill-color", fillExpr(mode));
-    if (vivid) setLand(map, isChoropleth(mode) ? LAND.policy : LAND.projects);
+    if (vivid) setEarth(map, isChoropleth(mode));
     setHover(null);
     if (isChoropleth(mode) && !geoRef.current) {
       fetch("/geo/countries.json")
@@ -804,8 +828,8 @@ function Tooltip({ hover, theme, mode }: { hover: Hover; theme: MapTheme; mode: 
  * and coastlines so the globe reads as a lit planet rather than a flat disc.
  */
 function tintDarkBasemap(map: MlMap, vivid = false) {
-  const land = vivid ? LAND.projects : "#0d2c52";
-  const water = vivid ? "#041330" : "#071d3a";
+  const land = vivid ? LAND.projects : "#1a2a20";
+  const water = vivid ? "#0b1a22" : "#0c1a14";
   const tiles = hasTiles(map);
   for (const layer of map.getStyle().layers ?? []) {
     try {
