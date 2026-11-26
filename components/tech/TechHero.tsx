@@ -60,7 +60,7 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
             >
               <Icon className="size-5" style={{ color: dark ? "#fff" : t.hex }} />
             </span>
-            <p className={`text-[11px] font-semibold tracking-[0.16em] uppercase ${dark ? "text-hero-ink" : "text-ink"}`}>Sector</p>
+            <p className={`text-sm ${dark ? "text-hero-ink/75" : "text-soft"}`}>Sector</p>
           </div>
           <h1 className={`mt-6 font-display text-[3.2rem] leading-[0.95] font-light tracking-[-0.045em] sm:text-[4.5rem] lg:text-[6.5rem] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>{t.label}</h1>
           <p className={`mt-5 max-w-[60ch] text-lg leading-relaxed ${dark ? "text-hero-ink/85" : "text-ink/80"}`}>{t.explainer}</p>

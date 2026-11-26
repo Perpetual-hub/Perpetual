@@ -63,11 +63,8 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
               Deal Tracker
             </Link>
           </nav>
-          <div className="flex flex-wrap items-center gap-2.5 text-[11px] font-semibold tracking-[0.14em] uppercase">
-            <span className="flex items-center gap-2.5 text-hero-ink">
-              <span className="size-1.5 rounded-full bg-current" aria-hidden />
-              {DEAL_TYPE_LABEL[d.type]}
-            </span>
+          <div className="flex flex-wrap items-center gap-3 text-sm">
+            <span className="font-medium text-hero-ink">{DEAL_TYPE_LABEL[d.type]}</span>
             <span className="text-hero-muted">{formatDate(d.date)}</span>
             <DealStatusBadge status={d.status} />
             {d.isSample && <SampleBadge />}

@@ -76,8 +76,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
               </>
             )}
           </nav>
-          <p className={`flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] uppercase ${photo ? "text-hero-ink" : "text-ink"}`}>
-            <span className="size-1.5 rounded-full bg-current" aria-hidden />
+          <p className={`text-sm ${photo ? "text-hero-ink/75" : "text-soft"}`}>
             {s.kind === "country" ? "Country profile" : "Region profile"}
           </p>
           <h1 className={`mt-5 font-display text-[2.9rem] leading-[0.98] font-light tracking-[-0.04em] sm:text-[4rem] lg:text-[5.4rem] ${photo ? "text-hero-ink" : "text-[#1d2a22]"}`}>

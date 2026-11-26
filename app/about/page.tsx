@@ -14,7 +14,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         photo={HERO_PHOTOS.about}
-        eyebrow="About Perpetual"
+        eyebrow="About"
         title="Following the money behind clean energy"
         intro="Perpetual follows the money behind the energy transition. We show what is being built and where, who is financing it, and which countries make it easiest to invest."
       />

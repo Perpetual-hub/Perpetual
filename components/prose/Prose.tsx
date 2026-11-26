@@ -38,10 +38,7 @@ export function PageHeader({
     <header>
       <div className="container-page pt-16 pb-10 md:pt-24 md:pb-14">
         {eyebrow && (
-          <p className="mb-6 flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase">
-            <span className="size-1.5 rounded-full bg-current" aria-hidden />
-            {eyebrow}
-          </p>
+          <p className="mb-4 text-sm text-soft">{eyebrow}</p>
         )}
         <h1 className="max-w-4xl font-display text-[2.6rem] leading-[1] font-light tracking-[-0.04em] text-[#1d2a22] sm:text-[3.4rem] lg:text-[4.6rem]">{title}</h1>
         {intro && <p className="mt-6 max-w-[46rem] text-lg leading-relaxed text-soft">{intro}</p>}

@@ -173,8 +173,8 @@ export function PillarSpine() {
                   <div key={w.id} className={`py-3 pr-3 pl-3 first:pl-0 ${w.id === preset ? "" : "opacity-60"}`}>
                     <dt className="text-xs leading-tight text-muted">{w.label}</dt>
                     <dd className="mt-1">
-                      <span className="tabular font-display text-2xl font-bold text-brand-navy">×{w.weights[pillar.id]}</span>
-                      <span className="tabular block text-xs text-muted sm:ml-2 sm:inline">{Math.round((w.weights[pillar.id] / t) * 100)}% of score</span>
+                      <span className="tabular font-display text-2xl font-light text-[#1d2a22]">{Math.round((w.weights[pillar.id] / t) * 100)}%</span>
+                      <span className="block text-xs text-muted">of the score</span>
                     </dd>
                   </div>
                 );
@@ -185,7 +185,7 @@ export function PillarSpine() {
       </div>
 
       <p className="mt-8 border-t border-line pt-3 text-xs leading-relaxed text-muted">
-        Score = sum of (pillar score × weight) ÷ sum of weights. Perpetual analysis, with the indicator sources listed on the
+        Each country&rsquo;s score is the weighted average of its seven pillar scores. Perpetual analysis, with the indicator sources listed on the
         Disclosure page.
       </p>
     </figure>

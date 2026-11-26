@@ -27,22 +27,19 @@ export default function PolicyPage() {
         title="Where renewable investment is best supported"
         lede={`PROFITS scores ${rows.length} countries on seven pillars, from political commitment to social licence. Choose a deal type to re-weight the ranking, and open a country to see the evidence behind each pillar.`}
         aside={
-          <Link
-            href="/policy/method"
-            className="group block rounded-[16px] border border-white/15 bg-[#16211b]/60 p-6 backdrop-blur-md transition-colors hover:border-white/30 lg:justify-self-end lg:max-w-sm"
-          >
-            <p className="text-[11px] font-semibold tracking-[0.16em] text-hero-muted uppercase">Method and Evaluation</p>
-            <p className="mt-3 font-display text-2xl font-light tracking-[-0.02em] text-hero-ink">How the scores are built and tested</p>
-            {ev && (
-              <p className="mt-3 text-sm leading-relaxed text-hero-ink/80">
-                Top scoring countries grew renewables by{" "}
-                <span className="tabular text-brand-sky">{Math.round(ev.growth.topMedian * 100)}%</span> from {ev.fromYear} to{" "}
-                {ev.toYear}, against {Math.round(ev.growth.bottomMedian * 100)}% for the lowest.
-              </p>
-            )}
-            <span className="mt-5 inline-flex items-center gap-3 text-sm font-medium text-hero-ink">
+          <Link href="/policy/method" className="group flex flex-wrap items-center justify-between gap-4">
+            <span className="max-w-3xl">
+              <span className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">How the scores are built and tested.</span>
+              {ev && (
+                <span className="ml-2 text-[15px] text-soft">
+                  Top scoring countries grew renewables by <span className="tabular text-accent">{Math.round(ev.growth.topMedian * 100)}%</span> from{" "}
+                  {ev.fromYear} to {ev.toYear}, against {Math.round(ev.growth.bottomMedian * 100)}% for the lowest.
+                </span>
+              )}
+            </span>
+            <span className="inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#1d2a22] group-hover:bg-white">
               Read the method
-              <span className="grid size-7 place-items-center rounded-full bg-hero-ink text-[#1d2a22] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
+              <span className="grid size-7 place-items-center rounded-full bg-[#1d2a22] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
                 <ArrowUpRight className="size-3.5" />
               </span>
             </span>

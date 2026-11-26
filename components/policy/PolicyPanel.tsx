@@ -150,11 +150,8 @@ export function PolicyPanel({
                       </div>
                       <p className="mt-1 ml-[1.375rem] text-xs text-muted">
                         {p.thesis}
-                        {weights[p.id] !== 1 && (
-                          <span className="ml-1 font-medium text-ink">
-                            Weight ×{weights[p.id]}
-                            {weights[p.id] === maxW ? " (highest)" : ""}
-                          </span>
+                        {weights[p.id] === maxW && Object.values(weights).some((w) => w !== maxW) && (
+                          <span className="ml-1 font-medium text-ink">Counts most for this deal type.</span>
                         )}
                       </p>
                     </li>

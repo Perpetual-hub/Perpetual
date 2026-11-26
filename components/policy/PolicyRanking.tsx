@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { PILLARS, WEIGHT_PRESETS, type PillarId } from "@/data/policy";
 import { rampColor } from "@/lib/policy-colors";
 import { rankPolicies } from "@/lib/policy-score";
+import { weightNote } from "@/lib/weight-note";
 
 interface Row {
   country: string;
@@ -80,7 +81,9 @@ export function PolicyRanking({ rows }: { rows: Row[] }) {
             </button>
           ))}
         </div>
-        <span className="text-sm text-soft">{p.description}</span>
+        <p className="w-full text-sm text-soft md:w-auto">
+          {p.description} {weightNote(p.weights)}
+        </p>
       </div>
       <div className="relative overflow-x-auto">
         <table className="w-full min-w-[860px] text-sm">
@@ -101,13 +104,12 @@ export function PolicyRanking({ rows }: { rows: Row[] }) {
                 >
                   <button
                     type="button"
-                    title={`${pl.name}${p.weights[pl.id] !== 1 ? ` (weight ×${p.weights[pl.id]})` : ""}`}
+                    title={pl.name}
                     onClick={() => setSort((s) => (s.key === pl.id ? { key: pl.id, dir: s.dir === "asc" ? "desc" : "asc" } : { key: pl.id, dir: "desc" }))}
                     className={`inline-flex flex-col items-center hover:text-ink ${sort.key === pl.id ? "text-ink" : ""}`}
                   >
                     <span className="font-bold">{pl.id}</span>
                     <span className="sr-only">{pl.name}</span>
-                    {p.weights[pl.id] !== 1 && <span className="tabular text-[10px]">×{p.weights[pl.id]}</span>}
                   </button>
                 </th>
               ))}

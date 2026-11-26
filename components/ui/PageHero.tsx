@@ -3,9 +3,8 @@ import type { ReactNode } from "react";
 import type { HeroPhoto } from "@/lib/hero-photos";
 
 /**
- * Page header in the landing-page style: a full-bleed licensed photograph under a deep forest
- * wash, a small dotted label, a large light headline and a short lede. The photo credit sits in
- * the corner, as the licence requires.
+ * Page header: the page name set very large across the bottom, a photograph card overlapping it,
+ * and the headline with a short lede at the top right. Stats or a link card sit underneath.
  */
 export function PageHero({
   photo,
@@ -16,76 +15,73 @@ export function PageHero({
   aside,
 }: {
   photo: HeroPhoto;
+  /** The page name, shown very large. */
   eyebrow: string;
+  /** The headline, shown at the top right. */
   title: ReactNode;
   lede?: ReactNode;
-  /** Shown under the lede (buttons, stats). */
+  /** Shown under the lede (buttons, links). */
   children?: ReactNode;
-  /** Shown on the right on wide screens (a glass card, a stat grid). */
+  /** Shown in a row under the name (a stat strip, a link card). */
   aside?: ReactNode;
 }) {
+  // Size the name to the viewport so long and short names both fill the width without wrapping.
+  const size = `min(13rem, ${Math.round(170 / Math.max(eyebrow.length, 5))}vw)`;
   return (
-    <header className="on-dark relative isolate overflow-hidden bg-hero text-hero-ink">
-      <Image
-        src={photo.src}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        quality={80}
-        className="-z-20 object-cover"
-        style={{ objectPosition: photo.position ?? "center" }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(14,22,17,0.92) 0%, rgba(14,22,17,0.74) 45%, rgba(14,22,17,0.3) 100%), linear-gradient(0deg, rgba(14,22,17,0.55) 0%, rgba(14,22,17,0) 45%)",
-        }}
-      />
-      <div
-        className={`container-page grid grid-cols-[minmax(0,1fr)] gap-10 pt-20 pb-20 md:pt-28 md:pb-24 ${
-          aside ? "lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end" : ""
-        }`}
-      >
-        <div>
-          <p className="flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] text-hero-ink uppercase">
-            <span className="size-1.5 rounded-full bg-current" aria-hidden />
-            {eyebrow}
-          </p>
-          <h1 className="mt-6 max-w-[16ch] font-display text-[2.9rem] leading-[0.98] font-light tracking-[-0.04em] text-hero-ink sm:text-[4rem] lg:text-[5.4rem]">
-            {title}
-          </h1>
-          {lede && <p className="mt-6 max-w-xl text-lg leading-relaxed text-hero-ink/85">{lede}</p>}
-          {children && <div className="mt-8">{children}</div>}
+    <header className="relative overflow-hidden border-b border-line bg-[var(--home-paper)]">
+      <div className="container-page pt-10 md:pt-14">
+        <div className="grid gap-6 md:min-h-[15rem] md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
+          <div className="hidden md:block" />
+          <div className="pp-hero-copy">
+            <p className="font-display text-[1.6rem] leading-[1.15] font-light tracking-[-0.025em] text-[#1d2a22] md:text-[1.9rem]">{title}</p>
+            {lede && <p className="mt-4 text-[15px] leading-relaxed text-soft">{lede}</p>}
+            {children && <div className="mt-6">{children}</div>}
+          </div>
         </div>
-        {aside}
+
+        <div className="relative mt-10 md:mt-6">
+          <figure className="pp-hero-photo relative z-0 ml-auto w-[44vw] max-w-[300px] md:absolute md:bottom-[35%] md:left-[36%] md:ml-0 md:w-[17vw]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[10px]">
+              <Image src={photo.src} alt="" fill priority sizes="(min-width: 768px) 22vw, 34vw" className="object-cover" style={{ objectPosition: photo.position ?? "center" }} />
+            </div>
+          </figure>
+          <h1
+            className="pp-hero-name relative z-10 -mt-[10vw] font-display md:mt-0 leading-[0.82] font-light tracking-[-0.055em] text-[#1d2a22]"
+            style={{ fontSize: size }}
+          >
+            {eyebrow}
+          </h1>
+        </div>
+        <p className="mt-4 pb-5 text-right text-[11px] text-soft [&_a]:underline [&_a]:underline-offset-2">
+          Photo by{" "}
+          <a href={photo.sourceUrl} target="_blank" rel="noreferrer">
+            {photo.credit}
+          </a>
+          ,{" "}
+          <a href={photo.licenseUrl} target="_blank" rel="noreferrer license">
+            {photo.license}
+          </a>
+        </p>
       </div>
-      <p className="absolute right-4 bottom-3 text-[11px] text-white/55 md:right-8 [&_a]:underline [&_a]:underline-offset-2">
-        Photo by{" "}
-        <a href={photo.sourceUrl} target="_blank" rel="noreferrer">
-          {photo.credit}
-        </a>
-        ,{" "}
-        <a href={photo.licenseUrl} target="_blank" rel="noreferrer license">
-          {photo.license}
-        </a>
-      </p>
+      {aside && (
+        <div className="border-t border-line">
+          <div className="container-page py-6">{aside}</div>
+        </div>
+      )}
     </header>
   );
 }
 
-/** Frosted stat grid for the right side of a PageHero. */
+/** Stat strip for under a PageHero: equal columns, one baseline, thin dividers. */
 export function HeroStats({ stats }: { stats: { label: string; value: string; unit?: string }[] }) {
   return (
-    <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-white/15 bg-white/10 backdrop-blur-md">
+    <dl className="grid grid-cols-2 gap-y-6 md:grid-cols-4 md:divide-x md:divide-line">
       {stats.map((s) => (
-        <div key={s.label} className="bg-[#16211b]/60 px-5 py-4">
-          <dt className="text-xs text-hero-muted">{s.label}</dt>
-          <dd className="tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] text-hero-ink">
+        <div key={s.label} className="md:px-6 md:first:pl-0">
+          <dt className="text-[13px] text-soft">{s.label}</dt>
+          <dd className="tabular mt-1.5 font-display text-[2rem] leading-none font-light tracking-[-0.03em] text-[#1d2a22]">
             {s.value}
-            {s.unit && <span className="ml-1 text-base text-hero-muted">{s.unit}</span>}
+            {s.unit && <span className="ml-1.5 text-base text-soft">{s.unit}</span>}
           </dd>
         </div>
       ))}

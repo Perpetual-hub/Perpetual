@@ -6,10 +6,7 @@ import type { ReactNode } from "react";
 /** Small label above a page or section title. */
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] text-ink uppercase">
-      <span className="size-1.5 rounded-full bg-current" aria-hidden />
-      {children}
-    </p>
+    <p className="text-sm text-soft">{children}</p>
   );
 }
 
@@ -157,7 +154,7 @@ export function MetricCard({
       </div>
       <div className="mt-6 flex-1 space-y-4">{children}</div>
       <p className="mt-6 border-t border-[#dfe3dc] pt-4 text-[15px] text-ink">
-        <span className="block text-[11px] font-semibold tracking-[0.14em] text-ink uppercase">What this means</span>
+        <span className="block text-sm font-medium text-ink">What this means</span>
         <span className="mt-1.5 block text-soft">{meaning}</span>
       </p>
     </Paper>

@@ -43,7 +43,7 @@ export default function PolicyMethodPage() {
     <div>
       <PageHero
         photo={HERO_PHOTOS.method}
-        eyebrow="Method and Evaluation"
+        eyebrow="Method"
         title="How we score each country"
         lede="PROFITS rates every country the way an investor would. It uses seven pillars, each scored 1 to 5 from published data, then weighted for the kind of deal being done. Here is how a score is built, and how the scores compare with what actually happened over the last five years."
       />

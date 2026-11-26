@@ -98,9 +98,9 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
 
   return (
     <section className="on-dark relative bg-hero text-hero-ink" aria-labelledby="hero-title">
-      <h1 id="hero-title" className="sr-only">
+      <h2 id="hero-title" className="sr-only">
         Perpetual tracks the latest renewable energy deals around the world, and how investable each country is
-      </h1>
+      </h2>
       {/* Same centred grid as the header, so every edge lines up at any width. */}
       <div className="container-page grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
         <div className="flex min-w-0 flex-col">

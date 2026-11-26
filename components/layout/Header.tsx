@@ -1,10 +1,11 @@
 "use client";
 
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { TECHNOLOGIES } from "@/lib/tech";
+import { SiteMenu } from "./SiteMenu";
 import type { Technology } from "@/lib/types";
 
 // The palette (Fuse.js + index) is only downloaded the first time search is opened.
@@ -69,26 +70,17 @@ export function Header({
     };
   }, [techOpen]);
 
-  // Lock scroll behind the mobile menu.
-  useEffect(() => {
-    document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
-    if (!mobileOpen) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileOpen(false);
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [mobileOpen]);
-
   const linkCls =
-    "rounded-md px-2.5 py-1.5 text-sm font-medium text-ink/80 transition-colors duration-150 hover:bg-surface-2 hover:text-ink";
+    "rounded-full px-3.5 py-1.5 text-sm font-medium text-ink/75 transition-colors duration-150 hover:bg-white hover:text-ink";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur-sm supports-[backdrop-filter]:bg-white/85">
+    <header className="sticky top-0 z-40 border-b border-line/70 bg-[var(--home-paper)]/90 backdrop-blur-md">
       <div className="container-page flex h-16 items-center gap-6">
         <Link href="/" className="shrink-0" onClick={() => setMobileOpen(false)}>
           {logo}
         </Link>
 
-        <nav aria-label="Main" className="hidden flex-1 items-center gap-0.5 lg:flex">
+        <nav aria-label="Sections" className="hidden flex-1 items-center justify-center gap-0.5 lg:flex">
           <Link href={NAV[0].href} className={linkCls}>
             {NAV[0].label}
           </Link>
@@ -106,7 +98,7 @@ export function Header({
             {techOpen && (
                 <div
                   id="tech-panel"
-                  className="anim-enter-down absolute top-full left-0 mt-2 w-[540px] rounded-xl border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(20,30,22,0.18)]"
+                  className="anim-enter-down absolute top-full left-1/2 mt-3 w-[540px] -translate-x-1/2 rounded-[16px] border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(20,30,22,0.18)]"
                 >
                   <ul className="grid grid-cols-2 gap-0.5">
                     {TECHNOLOGIES.map((t) => {
@@ -156,83 +148,27 @@ export function Header({
             onClick={() => setSearchOpen(true)}
             aria-label="Search (Command K)"
             aria-keyshortcuts="Meta+K Control+K"
-            className="hidden h-9 w-56 items-center gap-2 rounded-lg border border-line bg-surface-2 px-3 text-sm text-muted transition-colors duration-150 hover:border-[#cfd7e2] md:flex"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-line text-ink transition-colors hover:bg-white"
           >
             <Search className="size-4" aria-hidden />
-            <span className="flex-1 text-left">Search</span>
-            <kbd className="rounded border border-line bg-white px-1.5 font-sans text-[11px] text-muted">⌘K</kbd>
           </button>
           <button
             type="button"
-            onClick={() => setSearchOpen(true)}
-            aria-label="Search"
-            className="rounded-md p-2 text-ink md:hidden"
-          >
-            <Search className="size-5" aria-hidden />
-          </button>
-          <button
-            type="button"
-            className="-mr-2 rounded-md p-2 text-ink lg:hidden"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMobileOpen((o) => !o)}
+            aria-controls="site-menu"
+            onClick={() => setMobileOpen(true)}
+            className="inline-flex h-10 items-center gap-2.5 rounded-full bg-[#1d2a22] pr-3.5 pl-4 text-sm font-medium text-[var(--home-paper)] transition-colors hover:bg-black"
           >
-            {mobileOpen ? <X className="size-5" aria-hidden /> : <Menu className="size-5" aria-hidden />}
+            Menu
+            <span className="flex w-4 flex-col gap-[3px]" aria-hidden>
+              <span className="h-px w-full bg-current" />
+              <span className="h-px w-full bg-current" />
+            </span>
           </button>
         </div>
       </div>
-
-      {mobileOpen && (
-          <nav
-            id="mobile-menu"
-            aria-label="Main"
-            className="anim-fade-in fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto bg-white lg:hidden"
-          >
-            <div className="container-page py-6">
-              <ul className="divide-y divide-line border-y border-line">
-                {NAV.slice(0, 1).map((n) => (
-                  <MobileLink key={n.href} {...n} onClick={() => setMobileOpen(false)} />
-                ))}
-              </ul>
-              <p className="mt-8 mb-3 text-xs font-semibold text-muted">Sectors</p>
-              <ul className="grid grid-cols-2 gap-2">
-                {TECHNOLOGIES.map((t) => {
-                  const Icon = t.icon;
-                  return (
-                    <li key={t.id}>
-                      <Link
-                        href={`/sectors/${t.id}`}
-                        onClick={() => setMobileOpen(false)}
-                        className="flex items-center gap-2.5 rounded-lg border border-line px-3 py-3 text-sm font-medium"
-                      >
-                        <Icon className="size-4" style={{ color: t.hex }} aria-hidden />
-                        {t.label}
-                        <span className="tabular ml-auto text-xs text-muted">{techCounts[t.id].deals} deals</span>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-              <ul className="mt-8 divide-y divide-line border-y border-line">
-                {NAV.slice(1).map((n) => (
-                  <MobileLink key={n.href} {...n} onClick={() => setMobileOpen(false)} />
-                ))}
-              </ul>
-            </div>
-          </nav>
-        )}
+      <SiteMenu open={mobileOpen} onClose={() => setMobileOpen(false)} onSearch={() => setSearchOpen(true)} />
       <SearchLauncher open={searchOpen} onOpenChange={setSearchOpen} />
     </header>
-  );
-}
-
-function MobileLink({ href, label, onClick }: { href: string; label: string; onClick: () => void }) {
-  return (
-    <li>
-      <Link href={href} onClick={onClick} className="block py-4 font-display text-xl font-semibold text-brand-navy">
-        {label}
-      </Link>
-    </li>
   );
 }

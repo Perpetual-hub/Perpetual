@@ -3,6 +3,7 @@ import { Inter, Nunito, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Logo } from "@/components/layout/Logo";
+import { INTRO_SCRIPT, Intro } from "@/components/motion/Intro";
 import { getSectorSummary } from "@/lib/data";
 import "./globals.css";
 
@@ -35,10 +36,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     // suppressHydrationWarning: the inline script below adds a `js` class before hydration.
     <html lang="en" className={`${inter.variable} ${jakarta.variable} ${nunito.variable} h-full`} suppressHydrationWarning>
       <head>
-        {/* Marks JS as available so scroll-reveal styles only hide content when they can show it again. */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        {/* Marks JS as available, and plays the intro once per session. */}
+        <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
       </head>
       <body className="flex min-h-full flex-col">
+        <Intro />
         <a
           href="#main"
           className="sr-only z-50 rounded-md bg-brand-navy px-4 py-2 text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

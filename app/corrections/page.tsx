@@ -18,7 +18,7 @@ export default function CorrectionsPage() {
     <>
       <PageHeader
         photo={HERO_PHOTOS.corrections}
-        eyebrow="Report a Correction"
+        eyebrow="Corrections"
         title="Help us get it right"
         intro="Every fact on Perpetual should be traceable and right. If something is wrong or out of date, tell us what it should say and where you found it."
       />
