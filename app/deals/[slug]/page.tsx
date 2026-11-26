@@ -38,6 +38,14 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
   const d = getDeal((await params).slug);
   if (!d) notFound();
   const photo = TECH_PHOTOS[d.technologies[0]];
+  const headStats: { label: string; value: string; note?: string }[] = [
+    { label: "Value", value: d.value?.disclosed ? formatMoney(d.value.amount, d.value.currency) : "Undisclosed" },
+    ...(d.value?.disclosed && d.value.usd && d.value.currency !== "USD"
+      ? [{ label: "In USD", value: formatMoney(d.value.usd, "USD"), note: d.value.fxDate ? `FX of ${formatDate(d.value.fxDate)}` : undefined }]
+      : []),
+    ...(d.stakePct != null ? [{ label: "Stake", value: `${d.stakePct}%` }] : []),
+    ...(d.capacityMW != null ? [{ label: "Capacity", value: formatMW(d.capacityMW) }] : []),
+  ];
   const related = getDeals()
     .filter((x) => x.id !== d.id && x.technologies.some((t) => d.technologies.includes(t)))
     .slice(0, 4);
@@ -87,13 +95,14 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
               </span>
             </a>
           )}
-          <dl className="mt-10 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-white/15 bg-white/10 backdrop-blur-md sm:grid-cols-4">
-            <HeadStat label="Value" value={d.value?.disclosed ? formatMoney(d.value.amount, d.value.currency) : "Undisclosed"} />
-            {d.value?.disclosed && d.value.usd && d.value.currency !== "USD" && (
-              <HeadStat label="In USD" value={formatMoney(d.value.usd, "USD")} note={d.value.fxDate && `FX of ${formatDate(d.value.fxDate)}`} />
-            )}
-            {d.stakePct != null && <HeadStat label="Stake" value={`${d.stakePct}%`} />}
-            {d.capacityMW != null && <HeadStat label="Capacity" value={formatMW(d.capacityMW)} />}
+          {/* One column per figure the deal discloses, so the bar is never padded with empty space. */}
+          <dl
+            className="mt-10 grid w-full max-w-4xl [grid-template-columns:repeat(var(--n-sm),minmax(0,1fr))] gap-px overflow-hidden rounded-[16px] border border-white/15 bg-white/10 backdrop-blur-md sm:w-fit sm:[grid-template-columns:repeat(var(--n),minmax(0,1fr))] max-sm:[&>div:last-child:nth-child(odd)]:col-span-full"
+            style={{ "--n": headStats.length, "--n-sm": Math.min(headStats.length, 2) } as React.CSSProperties}
+          >
+            {headStats.map((h) => (
+              <HeadStat key={h.label} {...h} />
+            ))}
           </dl>
         </div>
         {photo?.credit && (
@@ -253,7 +262,7 @@ function PartyList({ title, parties }: { title: string; parties?: Party[] }) {
 
 function HeadStat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div className="bg-[#083b6e]/60 px-5 py-4">
+    <div className="min-w-[11rem] bg-[#083b6e]/60 px-6 py-4">
       <dt className="text-xs text-hero-muted">{label}</dt>
       <dd className="tabular mt-1 font-display text-2xl font-light tracking-[-0.02em] text-hero-ink">{value}</dd>
       {note && <dd className="text-xs text-hero-muted">{note}</dd>}
