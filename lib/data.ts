@@ -21,6 +21,7 @@ import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "./format"
 import type { Milestone } from "./milestones";
 import { centroids } from "@/data/geo/centroids";
 import { makeCountryStats } from "./country-stats";
+import { windowStart } from "./window";
 import * as S from "./schema";
 import type {
   CapacityOutlook,
@@ -69,8 +70,8 @@ const releaseKey = (d: Deal) => {
   return url.includes("prnewswire.com") ? url.replace(/-\d+\.html$/, "") : d.id;
 };
 const seenRelease = new Set<string>();
-/** First day of the rolling three-year deal window (set in next.config.ts at build time). */
-export const DEALS_FROM = process.env.DEALS_FROM ?? `${Number(DATA_AS_OF.slice(0, 4)) - 2}-01-01`;
+/** First day of the rolling five-year deal window (set in next.config.ts at build time). */
+export const DEALS_FROM = process.env.DEALS_FROM ?? windowStart();
 const uniqueDeals = [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBankDeals, ...iatiDeals].filter((d) => {
   if (d.date < DEALS_FROM) return false;
   const k = releaseKey(d);

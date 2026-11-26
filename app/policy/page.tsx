@@ -103,7 +103,7 @@ const REFERENCES: [string, string][] = [
   ["World Bank WGI", "Political stability, government effectiveness, regulatory quality, rule of law, voice and accountability, control of corruption (pillars P, R and S)"],
   ["World Bank WDI", "GDP growth, inflation, exchange rates, lending rates, electricity access and grid losses (pillars O, F and I)"],
   ["IRENA statistics", "Installed renewable capacity, growth and electricity generation (pillars O, I and T)"],
-  ["Perpetual deal record", "Renewable financings recorded since 2021 (pillar T)"],
+  ["Perpetual deal record", "Renewable financings recorded in the last five years (pillar T)"],
   ["World Bank RISE, BNEF Climatescope, EY RECAI", "Cross-checks when a country receives a researched score"],
   ["Rating agencies and grid operators", "Sovereign credit, utility credit, curtailment and connection queues for researched scores"],
 ];

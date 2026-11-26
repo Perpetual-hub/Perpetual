@@ -29,7 +29,7 @@ const SOURCES = [
   ["World Bank WGI", "Stability, regulatory quality, rule of law"],
   ["World Bank WDI", "Growth, inflation, lending rates, grid losses"],
   ["IRENA", "Installed capacity and generation"],
-  ["Perpetual deal record", "Financings since 2021"],
+  ["Perpetual deal record", "Financings in the last five years"],
 ] as const;
 
 const pct = (v: number) => `${v >= 0 ? "+" : ""}${Math.round(v * 100)}%`;
@@ -145,7 +145,7 @@ export default function PolicyMethodPage() {
             </MetricCard>
             <MetricCard
               title="Deal flow"
-              description="Share of countries with at least one renewable deal on record since 2021."
+              description="Share of countries with at least one renewable deal on record in the last five years."
               value={`${Math.round(ev.anyDeal.top * 100)}%`}
               meaning="Capital is already finding the countries that score well, though not only them."
             >

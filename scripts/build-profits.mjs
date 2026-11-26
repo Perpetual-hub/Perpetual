@@ -119,7 +119,9 @@ const genTotal = (c) => {
   return pts;
 };
 const dealCount = new Map();
-for (const d of deals) if (d.date >= "2021-01-01") for (const c of d.countries) dealCount.set(c, (dealCount.get(c) ?? 0) + 1);
+const now = new Date();
+const WINDOW_FROM = new Date(Date.UTC(now.getUTCFullYear() - 5, now.getUTCMonth(), now.getUTCDate())).toISOString().slice(0, 10);
+for (const d of deals) if (d.date >= WINDOW_FROM) for (const c of d.countries) dealCount.set(c, (dealCount.get(c) ?? 0) + 1);
 
 /** Each indicator returns, per country, { value, year, label } or nothing. `higher` = higher is better. */
 const INDICATORS = {
@@ -275,7 +277,7 @@ const INDICATORS = {
     },
     {
       id: "deals",
-      name: "Renewable financings on record since 2021",
+      name: "Renewable financings on record in the last five years",
       src: "deals",
       higher: true,
       calc: (c) => ({ value: dealCount.get(c.iso2) ?? 0, year: Number(new Date().getFullYear()) }),

@@ -1,12 +1,13 @@
 import type { NextConfig } from "next";
+import { windowStart } from "./lib/window";
 
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   env: {
-    // Deals are shown for a rolling three calendar years, fixed when the site is built:
-    // in 2026 that is 2024 to 2026; from January 2027 it becomes 2025 to 2027.
-    DEALS_FROM: `${new Date().getFullYear() - 2}-01-01`,
+    // Deals are shown for a rolling five years, counted back from the day the site is built.
+    // The daily prune workflow deletes older records and its commit triggers a fresh build.
+    DEALS_FROM: windowStart(),
   },
   // "Technologies" were renamed "Sectors": keep old links working.
   async redirects() {

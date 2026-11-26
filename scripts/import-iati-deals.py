@@ -6,7 +6,7 @@ in the IATI standard, as real deal records: data/deals-iati.ts.
 Each lender publishes its own IATI files under an open licence (listed below and
 on the IATI Registry). We keep activities with a renewable energy sector code
 (OECD DAC 2321x-2327x) making up at least 25% of the activity, with a financing
-commitment dated 2015 or later. Summaries are generated from the structured
+commitment dated in the last five years. Summaries are generated from the structured
 fields in our own words, and every record links to the lender's project page or
 the IATI record. Needs no API key.
 """
@@ -23,7 +23,10 @@ ROOT = Path(__file__).resolve().parent.parent
 CACHE = Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / ".cache/iati")
 CACHE.mkdir(parents=True, exist_ok=True)
 UA = "PerpetualDataBot/0.1 (open data import)"
-FROM = "2015-01-01"
+# Rolling five-year window, as on the site (lib/window.ts).
+import datetime as _dt
+_t = _dt.date.today()
+FROM = _t.replace(year=_t.year - 5, day=min(_t.day, 28) if _t.month == 2 else _t.day).isoformat()
 MIN_SHARE = 25.0
 
 # Registry organisation -> display name and licence as stated on the IATI Registry.

@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       months:
-        description: "How many months of press releases and news to look back (1 for the monthly run; never earlier than the three-year window)"
+        description: "How many months of press releases and news to look back (1 for the monthly run; never earlier than the five-year window)"
         default: "1"
       max_releases:
         description: "Most new articles to read in this run (caps the Claude API cost)"
@@ -71,9 +71,9 @@ jobs:
           a = json.load(open('.cache/candidates.json'))
           b = json.load(open('.cache/news-candidates.json'))
           allc = sorted(a + b, key=lambda x: x.get('lastmod') or x.get('month') or '', reverse=True)
-          # Deals are shown for three calendar years (e.g. 2024 to 2026), so older articles are never read or billed.
+          # Deals are kept for a rolling five years, so older articles are never read or billed.
           import datetime
-          start = f'{datetime.date.today().year - 2}-01'
+          start = f'{datetime.date.today().year - 5}-{datetime.date.today().month:02d}'
           allc = [c for c in allc if (c.get('lastmod') or c.get('month') or '9999') >= start]
           want = {s.strip().lower() for s in os.environ.get('SOURCES', '').split(',') if s.strip()}
           if want:

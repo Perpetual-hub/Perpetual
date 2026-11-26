@@ -4,14 +4,16 @@
 //   node scripts/fetch-worldbank-deals.mjs
 //
 // Source: World Bank Projects & Operations API (open data, CC BY 4.0). Keeps
-// energy projects approved since 2015 where renewable energy sectors make up
+// energy projects approved in the last five years where renewable energy sectors make up
 // at least 25% of the project's sector allocation. Every record links to the
 // project's official World Bank page. Summaries are written from the
 // structured fields, not copied from World Bank text.
 import { writeFileSync } from "node:fs";
 
 const UA = "PerpetualDataBot/0.1 (open data import)";
-const FROM = "2015-01-01";
+// Rolling five-year window, as on the site (lib/window.ts).
+const today = new Date();
+const FROM = new Date(Date.UTC(today.getUTCFullYear() - 5, today.getUTCMonth(), today.getUTCDate())).toISOString().slice(0, 10);
 const MIN_SHARE = 25;
 const FIELDS = [
   "id", "project_name", "countryshortname", "countrycode", "regionname", "boardapprovaldate",
