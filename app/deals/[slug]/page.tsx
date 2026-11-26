@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Flag } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink, Flag } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -56,6 +56,18 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
           </div>
           <h1 className="mt-4 max-w-4xl text-3xl leading-[1.1] font-bold tracking-[-0.02em] md:text-[2.75rem]">{d.title}</h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-ink/80">{d.summary}</p>
+          {d.sources[0] && !d.sources[0].url.startsWith("#") && (
+            <a
+              href={d.sources[0].url}
+              target="_blank"
+              rel="noopener"
+              className="mt-5 inline-flex items-center gap-1.5 rounded-[var(--radius)] bg-ink px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-navy"
+            >
+              Read the news
+              <span className="font-normal text-white/70">· {d.sources[0].publisher}</span>
+              <ExternalLink className="size-3.5" aria-hidden />
+            </a>
+          )}
           <dl className="mt-8 grid max-w-4xl grid-cols-2 gap-6 sm:grid-cols-4">
             <HeadStat label="Value" value={d.value?.disclosed ? formatMoney(d.value.amount, d.value.currency) : "Undisclosed"} />
             {d.value?.disclosed && d.value.usd && d.value.currency !== "USD" && (

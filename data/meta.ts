@@ -1,10 +1,19 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.4";
+export const DATA_VERSION = "2026.11.5";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
-export const DATA_AS_OF = "2026-11-11";
+export const DATA_AS_OF = "2026-11-26";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.5",
+    date: "2026-11-26",
+    changes: [
+      "47 new deals from 9 to 26 November 2026, found across press-release wires, energy news sites and lenders' own announcements. Each deal page links to the news it came from.",
+      "Deals are now kept for a rolling five years; older records are deleted automatically every day.",
+      "Removed the Projects section.",
+    ],
+  },
   {
     version: "2026.11.4",
     date: "2026-11-11",

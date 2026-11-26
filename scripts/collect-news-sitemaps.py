@@ -34,6 +34,12 @@ SITES = [
     ("Clean Energy Wire", "https://www.cleanenergywire.org/sitemap.xml"),
     ("Africa Energy", "https://www.africa-energy.com/sitemap.xml"),
     ("Energy Global", "https://www.energyglobal.com/sitemap.xml"),
+    ("Mercom India", "https://www.mercomindia.com/sitemap.xml"),
+    ("PV Tech", "https://www.pv-tech.org/sitemap_index.xml"),
+    ("Saur Energy", "https://www.saurenergy.com/news-sitemap.xml"),
+    ("Renewable Energy World", "https://www.renewableenergyworld.com/sitemap_index.xml"),
+    ("ESG Today", "https://www.esgtoday.com/sitemap_index.xml"),
+    ("Energy Capital & Power", "https://energycapitalpower.com/sitemap_index.xml"),
 ]
 
 DEAL = re.compile(
