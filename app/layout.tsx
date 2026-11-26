@@ -10,7 +10,7 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "sw
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["300", "400", "700", "800"],
   display: "swap",
 });
 // Nunito is the logo wordmark face (see components/layout/Logo.tsx).

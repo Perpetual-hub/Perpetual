@@ -300,7 +300,8 @@ export default function ProjectMap({
       map.setProjection({ type: projection });
       if (dark) tintDarkBasemap(map, vivid);
       else tintLightBasemap(map);
-      applyEnglishLabels(map);
+      if (vivid) hideBasemapLabels(map);
+      else applyEnglishLabels(map);
       map.setSky({
         "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0],
         "sky-color": dark ? "#061a33" : "#ffffff",
@@ -835,6 +836,13 @@ function tintLightBasemap(map: MlMap) {
     } catch {
       // Unknown layer shape: leave it as the style defines it.
     }
+  }
+}
+
+/** Home globe: no country, city or road names, so the planet and the deals read cleanly. */
+function hideBasemapLabels(map: MlMap) {
+  for (const layer of map.getStyle().layers ?? []) {
+    if (layer.type === "symbol") map.setLayoutProperty(layer.id, "visibility", "none");
   }
 }
 

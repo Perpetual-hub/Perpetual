@@ -226,3 +226,41 @@ p {
   background-size:
     320px 320px, 260px 260px, 410px 410px, 300px 300px, 360px 360px, 280px 280px, 230px 230px, 390px 390px, 100% 100%;
 }
+
+/* ---------- Landing page: paper and forest chapters ---------- */
+:root {
+  --home-paper: #f3f2ea;
+  --home-forest: #16211b;
+  --home-forest-ink: #f2f0e1;
+  --home-forest-muted: #b9c2ad;
+  --home-rule: #cfd1c4;
+}
+.home-paper {
+  background: var(--home-paper);
+}
+.home-forest {
+  background: var(--home-forest);
+  color: var(--home-forest-ink);
+}
+/* Thin vertical rails at the edges of the content column, as in an editorial spread. */
+.home-rails {
+  position: relative;
+}
+.home-rails::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: min(100%, 1440px);
+  transform: translateX(-50%);
+  border-inline: 1px solid rgb(0 0 0 / 0.07);
+}
+.home-forest.home-rails::before {
+  border-color: rgb(255 255 255 / 0.08);
+}
+@media (width < 64rem) {
+  .home-rails::before {
+    display: none;
+  }
+}

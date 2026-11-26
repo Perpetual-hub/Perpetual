@@ -20,10 +20,10 @@ export function dealValue(d: Deal): string | undefined {
 export function FeatureDealCard({ deal }: { deal: Deal }) {
   const value = dealValue(deal);
   return (
-    <article className={`${cardBase} overflow-hidden`}>
-      <div className="border-b border-line bg-surface-2 px-7 pt-7 pb-6">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[14px] border border-[var(--home-rule)] bg-white/70 transition-colors hover:bg-white">
+      <div className="border-b border-[var(--home-rule)] px-7 pt-7 pb-6">
         <Meta>
-          <span className="font-semibold text-brand-blue">Featured Deal</span>
+          <span className="font-semibold text-[#2f6b45]">Featured Deal</span>
           <span>{formatDate(deal.date)}</span>
           {deal.isSample && <SampleBadge />}
         </Meta>
@@ -40,7 +40,7 @@ export function FeatureDealCard({ deal }: { deal: Deal }) {
           ))}
           <span className="text-xs text-muted">{DEAL_TYPE_LABEL[deal.type]}</span>
         </div>
-        <h3 className="text-xl leading-snug font-bold tracking-tight md:text-2xl">
+        <h3 className="font-display text-2xl leading-snug font-light tracking-[-0.02em] text-[#1d2a22] md:text-[1.75rem]">
           <Link href={`/deals/${deal.slug}`} className="after:absolute after:inset-0">
             {deal.title}
           </Link>
@@ -55,7 +55,7 @@ function BigStat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <dt className="text-xs font-medium text-muted">{label}</dt>
-      <dd className="tabular mt-1 font-display text-lg font-bold tracking-tight text-brand-navy md:text-xl">{value}</dd>
+      <dd className="tabular mt-1 font-display text-lg font-bold tracking-tight text-[#1d2a22] md:text-xl">{value}</dd>
     </div>
   );
 }

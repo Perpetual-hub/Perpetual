@@ -2,7 +2,9 @@
 // was made of, and how the total has grown. Every figure is computed from the published series.
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { Lede, MetricBar, Paper, SourceNote, StepGlyph, Statement } from "@/components/editorial/Editorial";
+import { MetricBar, SourceNote, StepGlyph } from "@/components/editorial/Editorial";
+import { ChapterHead, Display } from "@/components/home/Chapter";
+import type { ReactNode } from "react";
 import { TECH_BY_ID } from "@/lib/tech";
 import type { CapacitySeries } from "@/lib/types";
 
@@ -21,17 +23,21 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
   const growth = now.total / ten.total;
 
   return (
-    <section aria-labelledby="glance-h" className="container-page pt-16 pb-6 md:pt-24">
-      <p className="text-[13px] text-soft">The state of renewables, {now.year}</p>
-      <Statement id="glance-h" className="mt-3 max-w-[54rem]" quiet={`${Math.round(solarShare * 100)}% of it was solar.`}>
-        The world added {gw(added)} of renewable power capacity in {now.year}.
-      </Statement>
-      <Lede className="mt-5">
-        That is {Math.round((added / addedPrev - 1) * 100)}% more than in {prev.year}. Installed renewable capacity has grown{" "}
-        {growth.toFixed(1)} times in ten years, to {gw(now.total)}.
-      </Lede>
-      <ol className="mt-10 grid gap-3 lg:grid-cols-3">
-        <Paper as="li">
+    <section aria-labelledby="glance-h" className="home-paper home-rails">
+      <div className="container-page pt-14 pb-16 md:pt-20 md:pb-24">
+      <ChapterHead label={`The state of renewables, ${now.year}`} n={1} of={6} />
+      <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:items-end">
+        <Display id="glance-h">
+          {gw(added)} added<span className="text-[#7d8a72]"> in {now.year}.</span>
+        </Display>
+        <p className="max-w-md text-lg leading-relaxed text-[#4f5a4c] lg:justify-self-end">
+          The world added {gw(added)} of renewable power capacity in {now.year}, {Math.round(solarShare * 100)}% of it solar. That is{" "}
+          {Math.round((added / addedPrev - 1) * 100)}% more than in {prev.year}; installed capacity has grown {growth.toFixed(1)} times in ten
+          years, to {gw(now.total)}.
+        </p>
+      </div>
+      <ol className="mt-12 grid gap-3 lg:grid-cols-3">
+        <Card>
           <StepGlyph n={1} tone="accent" />
           <p className="mt-4 text-[13px] text-soft">Added in {now.year}</p>
           <p className="tabular mt-1 font-display text-[2.6rem] leading-none font-semibold tracking-[-0.02em] text-accent">{gw(added)}</p>
@@ -40,8 +46,8 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
               <MetricBar key={p.k} label={TECH_BY_ID[p.k].label} value={p.v} display={gw(p.v)} max={parts[0].v} highlight={p.k === parts[0].k} />
             ))}
           </div>
-        </Paper>
-        <Paper as="li">
+        </Card>
+        <Card>
           <StepGlyph n={2} tone="accent" />
           <p className="mt-4 text-[13px] text-soft">Installed worldwide</p>
           <p className="tabular mt-1 font-display text-[2.6rem] leading-none font-semibold tracking-[-0.02em] text-accent">{gw(now.total)}</p>
@@ -54,8 +60,8 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
             <span>{ten.year}</span>
             <span>{now.year}</span>
           </p>
-        </Paper>
-        <Paper as="li" className="flex flex-col">
+        </Card>
+        <Card className="flex flex-col">
           <StepGlyph n={3} tone="accent" />
           <p className="mt-4 text-[13px] text-soft">Where to go next</p>
           <ul className="mt-3 flex-1 divide-y divide-[#dfe3dc]">
@@ -72,11 +78,16 @@ export function RenewablesGlance({ series }: { series: CapacitySeries }) {
               </li>
             ))}
           </ul>
-        </Paper>
+        </Card>
       </ol>
       <SourceNote>
         <a href={series.source.url}>{series.source.citation}</a>.
       </SourceNote>
+      </div>
     </section>
   );
+}
+
+function Card({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <li className={`rounded-[14px] border border-[var(--home-rule)] bg-white/55 p-6 md:p-7 ${className}`}>{children}</li>;
 }
