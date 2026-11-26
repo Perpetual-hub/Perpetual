@@ -31,7 +31,6 @@ function SearchLauncher({ open, onOpenChange }: { open: boolean; onOpenChange: (
 export type TechCounts = Record<Technology, { deals: number; worldMW?: number }>;
 
 const NAV = [
-  { href: "/projects", label: "Projects" },
   { href: "/deals", label: "Deals" },
   { href: "/policy", label: "Policy" },
   { href: "/statistics", label: "Statistics" },

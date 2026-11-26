@@ -5,8 +5,8 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
 import { BarList } from "@/components/charts/BarList";
-import { CheckboxList, type Option } from "@/components/explorer/FilterControls";
-import { FilterPopover } from "@/components/explorer/Popover";
+import { CheckboxList, type Option } from "@/components/ui/FilterControls";
+import { FilterPopover } from "@/components/ui/Popover";
 import { SampleBadge } from "@/components/ui/Badge";
 import { TechTag } from "@/components/ui/TechTag";
 import {

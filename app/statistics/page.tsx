@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChartCard } from "@/components/area/AreaPage";
-import { BarList } from "@/components/charts/BarList";
 import { CapacityOutlookChart } from "@/components/charts/CapacityOutlookChart";
 import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
@@ -11,12 +9,9 @@ import {
   countryStats,
   getCapacityOutlook,
   getGlobalCapacity,
-  getProjects,
   getRegionStatsRows,
-  getTechCounts,
 } from "@/lib/data";
 import { countryName, formatDate } from "@/lib/format";
-import { TECHNOLOGIES } from "@/lib/tech";
 
 export const metadata: Metadata = {
   title: "Statistics",
@@ -25,7 +20,6 @@ export const metadata: Metadata = {
 };
 
 export default function StatisticsPage() {
-  const counts = getTechCounts();
   const world = getGlobalCapacity().rows;
   const worldNow = world[world.length - 1];
   const worldFiveAgo = world.find((r) => r.year === worldNow.year - 5) ?? world[0];
@@ -126,35 +120,9 @@ export default function StatisticsPage() {
           </p>
         </section>
 
-        {getProjects().length > 0 && (
-          <>
-        <div className="flex flex-wrap items-center gap-3 border-t border-line pt-14">
-          <h2 className="text-2xl font-semibold tracking-[-0.02em]">Tracked Projects</h2>
-          <p className="w-full max-w-3xl leading-relaxed text-muted">
-            Capacity across the project records on Perpetual, by sector, year and region.
-          </p>
-        </div>
-        <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
-          <ChartCard title="Capacity by Sector" note="Click a bar to explore">
-            <BarList
-              caption="Total tracked capacity by sector"
-              rows={TECHNOLOGIES.map((t) => ({
-                key: t.id,
-                label: t.label,
-                value: counts[t.id].totalMW,
-                color: t.hex,
-                count: counts[t.id].projects,
-                href: `/sectors/${t.id}`,
-              }))}
-            />
-          </ChartCard>
-          <section className="rounded-[var(--radius)] bg-paper p-6">
-            <CapacityAdditionsChart series={getGlobalCapacity()} />
-          </section>
-        </div>
-
-          </>
-        )}
+        <section className="rounded-[var(--radius)] bg-paper p-6">
+          <CapacityAdditionsChart series={getGlobalCapacity()} />
+        </section>
 
       </div>
     </div>

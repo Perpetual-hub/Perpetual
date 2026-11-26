@@ -5,7 +5,7 @@ import { DATA_VERSION } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "What Perpetual is: an open map and record of renewable energy projects, deals and policy.",
+  description: "What Perpetual is: an open record of renewable energy deals, policy and statistics.",
 };
 
 export default function AboutPage() {
@@ -33,14 +33,10 @@ export default function AboutPage() {
           <h2 id="what">Coverage</h2>
           <ul>
             <li>
-              <Link href="/projects">Explore projects</Link> on a map or in a table, filter by sector, status, country, capacity,
-              ownership or financing, and download any view as CSV.
-            </li>
-            <li>
               See <Link href="/statistics">statistics</Link> by region, country and sector, including what is expected to come
               online in coming years.
             </li>
-            <li>Follow the deals, financings and investors behind the projects, and compare how investable each country&rsquo;s policies are.</li>
+            <li>Follow renewable deals, financings and investors, and compare how investable each country&rsquo;s policies are.</li>
           </ul>
 
           <h2 id="principles">Principles</h2>

@@ -16,7 +16,6 @@ import {
   getDeals,
   getFeaturedDeal,
   getGlobalCapacity,
-  getProjects,
   getDealPoints,
   getRegionStatsRows,
   getSectorSummary,
@@ -55,7 +54,7 @@ export default function Home() {
         rail={<LatestRail items={rail} />}
       />
 
-      <RenewablesGlance series={getGlobalCapacity()} plants={getProjects().length} />
+      <RenewablesGlance series={getGlobalCapacity()} />
 
       {/* This week in deals */}
       <section className="container-page py-14 md:py-20" aria-labelledby="this-week">
@@ -147,7 +146,7 @@ export default function Home() {
       <section className="border-b border-line" aria-labelledby="techs">
         <div className="container-page py-14 md:py-20">
           <Reveal>
-            <SectionHeading id="techs" title="Sectors" description="World installed capacity and the deals on record in each sector." href="/projects" linkLabel="Project explorer" />
+            <SectionHeading id="techs" title="Sectors" description="World installed capacity and the deals on record in each sector." href="/statistics" linkLabel="Statistics" />
           </Reveal>
           <Reveal>
             <TechGrid counts={getSectorSummary()} />

@@ -15,6 +15,9 @@ const nextConfig: NextConfig = {
       { source: "/technologies", destination: "/statistics", permanent: true },
       // "Methodology" was renamed "Disclosure".
       { source: "/methodology", destination: "/disclosure", permanent: true },
+      // The Projects section was removed: send old links to the deal tracker.
+      { source: "/projects", destination: "/deals", permanent: true },
+      { source: "/projects/:slug*", destination: "/deals", permanent: true },
     ];
   },
   partialPrefetching: true,

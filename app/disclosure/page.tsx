@@ -2,11 +2,9 @@ import { ArrowRight, Building2, FileSearch, Landmark } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHeader, Toc } from "@/components/prose/Prose";
-import { StatusBadge } from "@/components/ui/Badge";
 import { DATA_AS_OF, DATA_VERSION, changelog, countryStats, getDeals } from "@/lib/data";
 import { formatDate } from "@/lib/format";
 import { TECHNOLOGIES } from "@/lib/tech";
-import type { ProjectStatus } from "@/lib/types";
 
 export const metadata: Metadata = {
   title: "Disclosure",
@@ -26,15 +24,6 @@ const TOC = [
   { id: "legal", label: "Legal" },
 ];
 
-const STATUSES: [ProjectStatus, string][] = [
-  ["announced", "Publicly named by a developer or government. No permits yet."],
-  ["permitting", "Seeking or securing key permits: environmental, land and grid connection."],
-  ["financing", "Permits largely in place, with debt and equity being raised. Not yet at financial close."],
-  ["construction", "Financial close reached, or physical work has started on site."],
-  ["operating", "Commercial operation reached and selling power or product."],
-  ["decommissioned", "Stopped operating permanently."],
-  ["cancelled", "Stopped by the developer or an authority before operating."],
-];
 
 
 export default function DisclosurePage() {
@@ -71,7 +60,7 @@ export default function DisclosurePage() {
           <Block
             id="coverage"
             title="Coverage"
-            lead="Perpetual tracks renewable energy projects, the transactions that fund or change hands over them, and how investable each country's policies are."
+            lead="Perpetual tracks renewable energy deals, official capacity statistics, and how investable each country's policies are."
           >
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {TECHNOLOGIES.map((t) => {
@@ -88,33 +77,17 @@ export default function DisclosurePage() {
               })}
             </div>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <Card title="What Counts as a Project">
-                One power plant, storage facility or hydrogen plant at one site, in one main sector, built or proposed by an identifiable
-                developer. Phases with separate owners or financing are separate projects, and hybrid sites are split by sector and linked
-                through their deals.
-              </Card>
               <Card title="What Counts as a Deal">
                 A transaction tied to renewable assets or companies: M&amp;A, project finance, equity raises, power purchase agreements,
                 IPOs, fund closes, joint ventures and refinancings. We record parties, stake, value (if disclosed), capacity and the
-                projects involved.
+                assets involved, with a link to the news or release it came from.
               </Card>
             </div>
           </Block>
 
           {/* Definitions */}
           <Block id="definitions" title="Definitions">
-            <h3 className="mb-3 font-sans text-base font-semibold text-ink">Project Status</h3>
-            <Table head={["Status", "Meaning"]}>
-              {STATUSES.map(([s, d]) => (
-                <tr key={s}>
-                  <td className="w-48 px-5 py-3.5 align-top">
-                    <StatusBadge status={s} />
-                  </td>
-                  <td className="px-5 py-3.5 text-sm text-ink/85">{d}</td>
-                </tr>
-              ))}
-            </Table>
-            <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3">
               <Card title="Commercial Operation (COD)">The date a project starts selling its output under normal operating conditions.</Card>
               <Card title="Financial Close">The date all financing agreements are signed and the first funds can be drawn.</Card>
               <Card title="AC and DC Capacity">
@@ -198,7 +171,6 @@ export default function DisclosurePage() {
             <ol className="grid gap-3 md:grid-cols-2">
               {[
                 ["Uneven Coverage", "Some countries and sectors publish far more than others."],
-                ["Pipeline Is Not a Forecast", "Many announced projects are never built."],
                 ["Delays", "Estimated dates often slip, sometimes by years."],
                 ["Conflicting Sources", "We record the most authoritative one and note the disagreement."],
                 ["Undisclosed Values", "Deal values are often private. We never estimate one and present it as fact."],

@@ -13,16 +13,12 @@ import { iatiDeals } from "@/data/deals-iati";
 import { newsDeals } from "@/data/deals-news";
 import { worldBankDeals } from "@/data/deals-worldbank";
 import { DATA_AS_OF, DATA_VERSION, changelog } from "@/data/meta";
-import { projects as rawProjects } from "@/data/projects";
-import { newsProjects } from "@/data/projects-news";
-import { gppdProjects } from "@/data/projects-gppd";
 import { research as rawResearch } from "@/data/research";
 import { capacityOutlook as rawCapacityOutlook } from "@/data/stats/capacity-outlook";
 import { countryCapacity as rawCountryCapacity } from "@/data/stats/country-capacity";
 import { globalCapacity as rawGlobalCapacity } from "@/data/stats/global-capacity";
-import { PIPELINE_STATUSES, matchesFilters, regionSlug, type ProjectFilters } from "./filters";
 import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "./format";
-import type { Milestone, MilestoneKind } from "./milestones";
+import type { Milestone } from "./milestones";
 import { centroids } from "@/data/geo/centroids";
 import { makeCountryStats } from "./country-stats";
 import * as S from "./schema";
@@ -31,7 +27,6 @@ import type {
   CapacitySeries,
   Deal,
   Ownership,
-  Project,
   ProjectStatus,
   ResearchItem,
   Technology,
@@ -65,11 +60,6 @@ function validate<T>(file: string, schema: z.ZodType<T>, rows: unknown[]): T[] {
 
 const byDateDesc = <T extends { date: string }>(a: T, b: T) => b.date.localeCompare(a.date);
 
-const projects = [
-  ...validate("data/projects.ts", S.project, rawProjects),
-  ...validate("data/projects-news.json", S.project, newsProjects),
-  ...validate("data/projects-gppd.json", S.project, gppdProjects),
-];
 // Sample deals plus real records imported from open sources (see scripts/).
 // PR Newswire publishes one release under several addresses (regional copies differ only in the
 // trailing number), so the same deal can arrive twice. Keep the first: hand-written beats extracted.
@@ -90,15 +80,6 @@ const uniqueDeals = [...sampleDeals, ...curatedDeals, ...newsDeals, ...worldBank
 });
 const deals = validate("data/deals*.ts", S.deal, uniqueDeals).sort(byDateDesc);
 const research = validate("data/research.ts", S.researchItem, rawResearch).sort(byDateDesc);
-
-// Cross-file reference checks.
-{
-  const projectIds = new Set(projects.map((p) => p.id));
-  const bad: string[] = [];
-  for (const d of deals)
-    for (const id of d.projectIds ?? []) if (!projectIds.has(id)) bad.push(`deals › ${d.id} › unknown project ${id}`);
-  if (bad.length) throw new Error(`\n\nPerpetual seed data has broken references:\n  ${bad.join("\n  ")}\n`);
-}
 
 export { DATA_AS_OF, DATA_VERSION, changelog };
 
@@ -132,23 +113,7 @@ export function getGlobalCapacity(): CapacitySeries {
   return globalCapacity;
 }
 
-// ---------- Projects ----------
-
-export type { ProjectFilters };
-
-export function getProjects(filters: ProjectFilters = {}): Project[] {
-  return projects.filter((p) => matchesFilters(toMapPoint(p), filters));
-}
-
-export function getProject(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
-}
-
-export function getProjectById(id: string): Project | undefined {
-  return projectById.get(id);
-}
-
-/** A trimmed-down project shape for the map, so we ship less data to the browser. */
+/** A point on the globe: one deal, placed in its country. */
 export interface MapPoint {
   id: string;
   slug: string;
@@ -176,51 +141,6 @@ export interface MapPoint {
 }
 
 
-/** Latest confirmed milestone up to the dataset date (estimated dates never count). */
-export function latestMilestone(p: Project, asOf = DATA_AS_OF): Milestone | undefined {
-  const c: [MilestoneKind, Project["dates"]["announced"]][] = [
-    ["announced", p.dates.announced],
-    ["permits", p.dates.permits],
-    ["financing", p.financing?.financialClose],
-    ["construction", p.dates.construction],
-    ["operating", p.dates.cod],
-  ];
-  return c
-    .filter(([, v]) => v && v.confidence === "confirmed" && v.date <= asOf)
-    .map(([kind, v]) => ({ kind, date: v!.date }))
-    .sort((a, b) => b.date.localeCompare(a.date))[0];
-}
-
-export function toMapPoint(p: Project): MapPoint {
-  return {
-    id: p.id,
-    slug: p.slug,
-    name: p.name,
-    technology: p.technology,
-    capacityMW: p.capacityMW ?? 0,
-    storageMWh: p.storageMWh,
-    country: p.country,
-    region: p.region,
-    status: p.status,
-    lat: p.lat,
-    lng: p.lng,
-    isSample: p.isSample,
-    subType: p.subType,
-    ownership: p.ownership,
-    developer: p.developer?.[0]?.name,
-    cod: p.dates.cod?.date,
-    codConfidence: p.dates.cod?.confidence,
-    admin1: p.admin1,
-    instruments: p.financing?.instruments,
-    milestone: latestMilestone(p),
-  };
-}
-
-export function getMapPoints(filters?: ProjectFilters): MapPoint[] {
-  return getProjects(filters).map(toMapPoint);
-}
-
-/** Projects that reached a confirmed milestone in the `days` before the dataset date. */
 /**
  * Deals from the last `days` days as globe points: one per deal, placed near the centre of its
  * (first) country with a small fixed offset so deals in one country don't sit on top of each other.
@@ -267,13 +187,6 @@ function formatCompact(n: number): string {
   return n >= 1e9 ? `${(n / 1e9).toLocaleString("en", { maximumFractionDigits: 2 })}bn` : `${Math.round(n / 1e6).toLocaleString("en")}m`;
 }
 
-export function getRecentMilestonePoints(days = 30): MapPoint[] {
-  return projects
-    .map(toMapPoint)
-    .filter((p) => p.milestone && daysBetween(p.milestone.date, DATA_AS_OF) <= days)
-    .sort((a, b) => b.milestone!.date.localeCompare(a.milestone!.date));
-}
-
 // ---------- Deals and research ----------
 
 export function getDeals(): Deal[] {
@@ -295,72 +208,6 @@ export function getLatest(n: number) {
 
 export function getFeaturedDeal(): Deal | undefined {
   return deals.find((d) => d.featured) ?? deals[0];
-}
-
-let dealIndex: Map<string, Deal[]> | undefined;
-function dealsByProject(): Map<string, Deal[]> {
-  if (dealIndex) return dealIndex;
-  const m = new Map<string, Deal[]>();
-  const byId = new Map(deals.map((d) => [d.id, d]));
-  const add = (pid: string, d: Deal) => {
-    const l = m.get(pid) ?? [];
-    if (!l.includes(d)) l.push(d);
-    m.set(pid, l);
-  };
-  for (const d of deals) for (const pid of d.projectIds ?? []) add(pid, d);
-  for (const p of projects) for (const did of p.dealIds ?? []) { const d = byId.get(did); if (d) add(p.id, d); }
-  for (const l of m.values()) l.sort((a, b) => a.date.localeCompare(b.date));
-  dealIndex = m;
-  return m;
-}
-
-export function getDealsForProject(id: string): Deal[] {
-  return dealsByProject().get(id) ?? [];
-}
-
-/** The project a deal is about, if any. */
-export function getProjectsForDeal(d: Deal): Project[] {
-  const out: Project[] = [];
-  for (const [pid, l] of dealsByProject()) if (l.includes(d)) { const p = projectById.get(pid); if (p) out.push(p); }
-  return out;
-}
-
-const projectById = new Map(projects.map((p) => [p.id, p]));
-
-// ---------- Stats ----------
-
-export interface Stats {
-  projects: number;
-  totalMW: number;
-  operatingMW: number;
-  pipelineMW: number;
-  dealsLast30Days: number;
-}
-
-export function getStats(tech?: Technology): Stats {
-  const list = tech ? projects.filter((p) => p.technology === tech) : projects;
-  const sum = (xs: Project[]) => xs.reduce((s, p) => s + (p.capacityMW ?? 0), 0);
-  const dealList = tech ? deals.filter((d) => d.technologies.includes(tech)) : deals;
-  return {
-    projects: list.length,
-    totalMW: sum(list),
-    operatingMW: sum(list.filter((p) => p.status === "operating")),
-    pipelineMW: sum(list.filter((p) => PIPELINE_STATUSES.includes(p.status))),
-    dealsLast30Days: dealList.filter((d) => {
-      const age = daysBetween(d.date, DATA_AS_OF);
-      return age >= 0 && age <= 30;
-    }).length,
-  };
-}
-
-export function getTechCounts(): Record<Technology, { projects: number; totalMW: number }> {
-  const out = {} as Record<Technology, { projects: number; totalMW: number }>;
-  for (const t of S.technology.options) out[t] = { projects: 0, totalMW: 0 };
-  for (const p of projects) {
-    out[p.technology].projects += 1;
-    out[p.technology].totalMW += p.capacityMW ?? 0;
-  }
-  return out;
 }
 
 export interface SectorSummary {
@@ -388,78 +235,24 @@ export interface AreaSummary {
   key: string;
   name: string;
   region?: string;
-  projects: number;
-  totalMW: number;
-  operatingMW: number;
-  pipelineMW: number;
-  byTech: Record<Technology, number>;
   countries: number;
   deals: number;
 }
 
-function summarise(kind: AreaSummary["kind"], key: string, name: string, list: Project[], dealCount: number): AreaSummary {
-  const byTech = Object.fromEntries(S.technology.options.map((t) => [t, 0])) as Record<Technology, number>;
-  for (const p of list) byTech[p.technology] += p.capacityMW ?? 0;
-  const sum = (xs: Project[]) => xs.reduce((s, p) => s + (p.capacityMW ?? 0), 0);
-  return {
-    kind,
-    key,
-    name,
-    region: kind === "country" ? list[0]?.region : undefined,
-    projects: list.length,
-    totalMW: sum(list),
-    operatingMW: sum(list.filter((p) => p.status === "operating")),
-    pipelineMW: sum(list.filter((p) => PIPELINE_STATUSES.includes(p.status))),
-    byTech,
-    countries: new Set(list.map((p) => p.country)).size,
-    deals: dealCount,
-  };
-}
-
-const byMWDesc = (a: AreaSummary, b: AreaSummary) => b.totalMW - a.totalMW;
-
-export function getCountries(): AreaSummary[] {
-  const codes = [...new Set(projects.map((p) => p.country))];
-  return codes
-    .map((c) =>
-      summarise(
-        "country",
-        c,
-        countryName(c),
-        projects.filter((p) => p.country === c),
-        deals.filter((d) => d.countries.includes(c)).length,
-      ),
-    )
-    .sort(byMWDesc);
-}
-
-export function getRegions(): AreaSummary[] {
-  const names = [...new Set(projects.map((p) => p.region))];
-  return names
-    .map((r) =>
-      summarise(
-        "region",
-        regionSlug(r),
-        r,
-        projects.filter((p) => p.region === r),
-        deals.filter((d) => d.region === r).length,
-      ),
-    )
-    .sort(byMWDesc);
+function summarise(kind: AreaSummary["kind"], key: string, name: string, dealCount: number): AreaSummary {
+  return { kind, key, name, countries: 0, deals: dealCount };
 }
 
 export interface AreaProfile {
   summary: AreaSummary;
-  projects: Project[];
   deals: Deal[];
   /** For regions: the countries inside it. */
   countries: AreaSummary[];
 }
 
-/** Every country with a page: official statistics, projects or deals. */
+/** Every country with a page: official statistics or deals. */
 export function getAllCountryCodes(): string[] {
   const codes = new Set(countryStats.all().map((c) => c.iso2));
-  for (const p of projects) codes.add(p.country);
   for (const d of deals) for (const c of d.countries) codes.add(c);
   return [...codes].sort();
 }
@@ -467,17 +260,10 @@ export function getAllCountryCodes(): string[] {
 export function getCountryProfile(code: string): AreaProfile | undefined {
   const c = code.toUpperCase();
   const dealList = deals.filter((d) => d.countries.includes(c));
-  const summary =
-    getCountries().find((x) => x.key === c) ??
-    (countryStats.get(c) || dealList.length ? summarise("country", c, countryName(c), [], dealList.length) : undefined);
-  if (!summary) return undefined;
-  summary.region = countryStats.regionOf(c) ?? summary.region;
-  return {
-    summary,
-    projects: projects.filter((p) => p.country === c),
-    deals: deals.filter((d) => d.countries.includes(c)),
-    countries: [],
-  };
+  if (!countryStats.get(c) && !dealList.length) return undefined;
+  const summary = summarise("country", c, countryName(c), dealList.length);
+  summary.region = countryStats.regionOf(c) ?? dealList[0]?.region;
+  return { summary, deals: dealList, countries: [] };
 }
 
 /** Latest official figures for every country, for ranking tables. */
@@ -502,97 +288,45 @@ export function getRegionProfile(slug: string): AreaProfile | undefined {
   const region = countryStats.region(slug);
   if (!region) return undefined;
   const codes = new Set(region.countries);
-  const inRegion = projects.filter((p) => codes.has(p.country));
   const dealList = deals.filter((d) => d.countries.some((c) => codes.has(c)));
-  const summary = summarise("region", slug, region.name, inRegion, dealList.length);
+  const summary = summarise("region", slug, region.name, dealList.length);
   summary.countries = region.countries.length;
-  return { summary, projects: inRegion, deals: dealList, countries: getCountries().filter((c) => codes.has(c.key)) };
+  const countries = region.countries.map((c) => {
+    const n = deals.filter((d) => d.countries.includes(c)).length;
+    return { ...summarise("country", c, countryName(c), n), region: region.name };
+  });
+  return { summary, deals: dealList, countries };
 }
 
 // ---------- Technologies ----------
 
 export interface TechProfile {
   tech: Technology;
-  stats: Stats & { countries: number };
-  projects: Project[];
   deals: Deal[];
-  byStatus: { status: ProjectStatus; mw: number; count: number }[];
-  byRegion: { region: string; mw: number; count: number }[];
-  codByYear: { year: number; confirmed: number; estimated: number }[];
+  /** Deals in the last 30 days. */
+  dealsLast30Days: number;
+  /** Countries with at least one deal in this sector. */
+  countries: number;
 }
 
 export function getTechProfile(tech: Technology): TechProfile {
-  const list = projects.filter((p) => p.technology === tech);
-  const group = <K extends string>(key: (p: Project) => K) => {
-    const m = new Map<K, { mw: number; count: number }>();
-    for (const p of list) {
-      const g = m.get(key(p)) ?? { mw: 0, count: 0 };
-      g.mw += p.capacityMW ?? 0;
-      g.count += 1;
-      m.set(key(p), g);
-    }
-    return m;
-  };
-  const statuses = group((p) => p.status);
-  const regions = group((p) => p.region);
-  const years = list.filter((p) => p.dates.cod).map((p) => Number(p.dates.cod!.date.slice(0, 4)));
-  const codByYear: TechProfile["codByYear"] = [];
-  if (years.length) {
-    for (let y = Math.min(...years); y <= Math.max(...years); y++) {
-      const inYear = list.filter((p) => p.dates.cod?.date.startsWith(String(y)));
-      codByYear.push({
-        year: y,
-        confirmed: inYear.filter((p) => p.dates.cod!.confidence === "confirmed").length,
-        estimated: inYear.filter((p) => p.dates.cod!.confidence === "estimated").length,
-      });
-    }
-  }
+  const list = deals.filter((d) => d.technologies.includes(tech));
   return {
     tech,
-    stats: { ...getStats(tech), countries: new Set(list.map((p) => p.country)).size },
-    projects: list,
-    deals: deals.filter((d) => d.technologies.includes(tech)),
-    byStatus: [...statuses].map(([status, v]) => ({ status, ...v })),
-    byRegion: [...regions].map(([region, v]) => ({ region, ...v })).sort((a, b) => b.mw - a.mw),
-    codByYear,
+    deals: list,
+    dealsLast30Days: list.filter((d) => {
+      const age = daysBetween(d.date, DATA_AS_OF);
+      return age >= 0 && age <= 30;
+    }).length,
+    countries: new Set(list.flatMap((d) => d.countries)).size,
   };
-}
-
-// ---------- Capacity timeline (historical vs forecast) ----------
-
-/**
- * One cell of the capacity timeline: projects of one technology reaching commercial operation
- * in one year. `forecast` is true when the COD is estimated (not yet confirmed), so the chart
- * can show historical and forecast capacity differently.
- */
-export interface TimelineCell {
-  year: number;
-  tech: Technology;
-  forecast: boolean;
-  mw: number;
-  n: number;
-}
-
-export function getTimeline(filter: (p: Project) => boolean = () => true): TimelineCell[] {
-  const m = new Map<string, TimelineCell>();
-  for (const p of projects) {
-    if (!filter(p) || !p.dates.cod || p.status === "cancelled") continue;
-    const year = Number(p.dates.cod.date.slice(0, 4));
-    const forecast = p.dates.cod.confidence === "estimated";
-    const key = `${year}|${p.technology}|${forecast}`;
-    const c = m.get(key) ?? { year, tech: p.technology, forecast, mw: 0, n: 0 };
-    c.mw += p.capacityMW ?? 0;
-    c.n += 1;
-    m.set(key, c);
-  }
-  return [...m.values()].sort((a, b) => a.year - b.year);
 }
 
 export const AS_OF_YEAR = Number(DATA_AS_OF.slice(0, 4));
 
 // ---------- Search index (⌘K) ----------
 
-export type SearchType = "project" | "technology" | "country" | "region" | "deal" | "page";
+export type SearchType = "technology" | "country" | "region" | "deal" | "page";
 
 export interface SearchEntry {
   type: SearchType;
@@ -607,14 +341,6 @@ export interface SearchEntry {
 export function getSearchIndex(): SearchEntry[] {
   const techLabel = (t: Technology) => t.charAt(0).toUpperCase() + t.slice(1);
   return [
-    ...projects.map((p) => ({
-      type: "project" as const,
-      title: p.name,
-      subtitle: `${techLabel(p.technology)} · ${p.capacityMW ?? "?"} MW · ${countryName(p.country)}`,
-      href: `/projects/${p.slug}`,
-      keywords: [p.subType, p.admin1, p.region, countryName(p.country), ...(p.developer ?? []).map((d) => d.name), ...(p.owners ?? []).map((o) => o.name)].join(" "),
-      tech: p.technology,
-    })),
     ...S.technology.options.map((t) => ({
       type: "technology" as const,
       title: techLabel(t),
@@ -623,18 +349,18 @@ export function getSearchIndex(): SearchEntry[] {
       keywords: t,
       tech: t,
     })),
-    ...getCountries().map((c) => ({
+    ...countryStats.all().map((c) => ({
       type: "country" as const,
-      title: c.name,
-      subtitle: `${c.projects} projects · ${c.region}`,
-      href: `/countries/${c.key}`,
-      keywords: c.key,
+      title: countryName(c.iso2),
+      subtitle: `Country · ${countryStats.regionOf(c.iso2) ?? ""}`,
+      href: `/countries/${c.iso2}`,
+      keywords: c.iso2,
     })),
-    ...getRegions().map((r) => ({
+    ...countryStats.regions().map((r) => ({
       type: "region" as const,
       title: r.name,
-      subtitle: `${r.projects} projects · ${r.countries} countries`,
-      href: `/regions/${r.key}`,
+      subtitle: `Region · ${r.countries.length} countries`,
+      href: `/regions/${r.slug}`,
       keywords: "region",
     })),
     ...deals.map((d) => ({
@@ -646,8 +372,7 @@ export function getSearchIndex(): SearchEntry[] {
       tech: d.technologies[0],
     })),
     ...[
-      { title: "Project explorer", href: "/projects" },
-      { title: "Deal tracker", href: "/deals" },
+      { title: "Deal Tracker", href: "/deals" },
       { title: "Policy map (PROFITS)", href: "/policy" },
       { title: "Statistics", href: "/statistics" },
       { title: "Disclosure", href: "/disclosure" },

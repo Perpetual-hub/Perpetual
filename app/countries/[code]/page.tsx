@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AreaPage } from "@/components/area/AreaPage";
 import { countryStats, getAllCountryCodes, getCountryProfile } from "@/lib/data";
-import { formatGW } from "@/lib/format";
 
 export function generateStaticParams() {
   return getAllCountryCodes().map((code) => ({ code }));
@@ -17,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/countries/[code]"
     title: `${p.summary.name}: Renewable Energy Statistics`,
     description: countryStats.get(p.summary.key)
       ? `Installed renewable capacity in ${p.summary.name} by technology, from official IRENA statistics, with deals and policy.`
-      : `${p.summary.projects} renewable projects and ${formatGW(p.summary.totalMW)} GW tracked in ${p.summary.name}, with deals and policy.`,
+      : `${p.summary.deals} renewable energy deals in ${p.summary.name}, with policy scores.`,
   };
 }
 

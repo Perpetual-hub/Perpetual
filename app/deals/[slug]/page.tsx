@@ -4,11 +4,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { DealStatusBadge } from "@/components/deals/DealBadges";
-import { FactGrid, Section } from "@/components/project/Section";
-import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
+import { FactGrid, Section } from "@/components/ui/Section";
+import { SampleBadge } from "@/components/ui/Badge";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import { TechTag } from "@/components/ui/TechTag";
-import { getDeal, getDeals, getProjectsForDeal } from "@/lib/data";
+import { getDeal, getDeals } from "@/lib/data";
 import { DEAL_TYPE_LABEL, countryName, formatDate, formatMW, formatMoney, titleCase } from "@/lib/format";
 import type { Deal, Party } from "@/lib/types";
 
@@ -34,7 +34,6 @@ export default function DealPage({ params }: PageProps<"/deals/[slug]">) {
 async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["params"] }) {
   const d = getDeal((await params).slug);
   if (!d) notFound();
-  const projects = getProjectsForDeal(d);
   const related = getDeals()
     .filter((x) => x.id !== d.id && x.technologies.some((t) => d.technologies.includes(t)))
     .slice(0, 4);
@@ -122,26 +121,6 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             </div>
           </Section>
 
-          {projects.length > 0 && (
-            <Section id="projects" title="Associated Projects">
-              <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
-                {projects.map((p) => (
-                  <li key={p.id}>
-                    <Link href={`/projects/${p.slug}`} className="group flex flex-wrap items-center gap-x-4 gap-y-2 px-5 py-4 hover:bg-surface-2">
-                      <span className="min-w-0 flex-1 basis-full sm:basis-0">
-                        <span className="block font-semibold text-ink group-hover:text-brand-blue">{p.name}</span>
-                        <span className="block text-xs text-muted">{countryName(p.country)}</span>
-                      </span>
-                      <TechTag tech={p.technology} />
-                      <StatusBadge status={p.status} />
-                      <span className="tabular ml-auto w-20 text-right text-sm font-semibold">{formatMW(p.capacityMW)}</span>
-                      <ArrowRight className="size-4 text-muted" aria-hidden />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          )}
 
           <Section id="sources" title="Sources">
             <ol className="space-y-3">

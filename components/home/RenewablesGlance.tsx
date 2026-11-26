@@ -9,7 +9,7 @@ import type { CapacitySeries } from "@/lib/types";
 const KEYS = ["solar", "wind", "hydro", "bioenergy", "geothermal"] as const;
 const gw = (v: number) => `${Math.round(v).toLocaleString("en-GB")} GW`;
 
-export function RenewablesGlance({ series, plants }: { series: CapacitySeries; plants: number }) {
+export function RenewablesGlance({ series }: { series: CapacitySeries }) {
   const r = series.rows;
   const now = r[r.length - 1];
   const prev = r[r.length - 2];
@@ -60,7 +60,6 @@ export function RenewablesGlance({ series, plants }: { series: CapacitySeries; p
           <p className="mt-4 text-[13px] text-soft">Where to go next</p>
           <ul className="mt-3 flex-1 divide-y divide-[#dfe3dc]">
             {[
-              ["/projects", `Explore ${plants.toLocaleString("en-GB")} plants on the map`],
               ["/deals", "Follow the deals financing them"],
               ["/policy", "See which countries support them best"],
               ["/statistics", "Read the official statistics"],

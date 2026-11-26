@@ -1,60 +1,27 @@
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { dealValue } from "@/components/cards/Cards";
-import { BarList } from "@/components/charts/BarList";
 import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsChart";
-import { SampleBadge, StatusBadge } from "@/components/ui/Badge";
-import { TechTag } from "@/components/ui/TechTag";
 import {
   type AreaProfile,
   countryStats,
   getTopInvestors,
-  toMapPoint,
 } from "@/lib/data";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { countryPhotos } from "@/data/geo/country-photos";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
-import { STATUSES, regionSlug } from "@/lib/filters";
+import { regionSlug } from "@/lib/filters";
 import {
-  STATUS_LABEL,
   countryName,
   formatDate,
   formatGW,
-  formatMW,
   DEAL_TYPE_LABEL,
 } from "@/lib/format";
-import { TECHNOLOGIES } from "@/lib/tech";
 import { CountryPolicyCard } from "@/components/policy/CountryPolicyCard";
 import { InvestorsCard } from "./InvestorsCard";
-import { AreaMap } from "./AreaMap";
 
 /** Shared template for country and region statistics pages. */
 export function AreaPage({ profile }: { profile: AreaProfile }) {
-  const { summary: s, projects, deals } = profile;
-  const filterQuery =
-    s.kind === "country"
-      ? `country=${s.key}`
-      : `region=${encodeURIComponent(s.name)}`;
-  const byStatus = STATUSES.map((st) => ({
-    key: st,
-    label: STATUS_LABEL[st],
-    value: projects
-      .filter((p) => p.status === st)
-      .reduce((x, p) => x + (p.capacityMW ?? 0), 0),
-    count: projects.filter((p) => p.status === st).length,
-    href: `/projects?${filterQuery}&status=${st}`,
-  })).filter((r) => r.value > 0);
-  const byTech = TECHNOLOGIES.filter((t) => s.byTech[t.id] > 0).map((t) => ({
-    key: t.id,
-    label: t.label,
-    value: s.byTech[t.id],
-    color: t.hex,
-    count: projects.filter((p) => p.technology === t.id).length,
-    href: `/projects?${filterQuery}&tech=${t.id}`,
-  }));
-  const top = [...projects]
-    .sort((a, b) => (b.capacityMW ?? 0) - (a.capacityMW ?? 0))
-    .slice(0, 8);
+  const { summary: s, deals } = profile;
   const regionInfo = s.kind === "region" ? countryStats.region(s.key) : undefined;
   const photo = s.kind === "country" ? countryPhotos[s.key] : undefined;
   const official =
@@ -133,22 +100,6 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             </dl>
           ) : (
             <dl className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
-              <Stat dark={!!photo} label="Projects tracked" value={String(s.projects)} />
-              <Stat dark={!!photo}
-                label="Total capacity"
-                value={formatGW(s.totalMW)}
-                unit="GW"
-              />
-              <Stat dark={!!photo}
-                label="Operating"
-                value={formatGW(s.operatingMW)}
-                unit="GW"
-              />
-              <Stat dark={!!photo}
-                label="In pipeline"
-                value={formatGW(s.pipelineMW)}
-                unit="GW"
-              />
               <Stat dark={!!photo} label="Deals tracked" value={String(s.deals)} />
             </dl>
           )}
@@ -206,91 +157,13 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
           </section>
         )}
 
-        {projects.length > 0 && (
-          <>
-            {official && (
-              <div className="flex flex-wrap items-center gap-3 border-t border-line pt-12">
-                <h2 className="text-2xl font-semibold tracking-[-0.02em]">Tracked Projects</h2>
-                {projects.every((p) => p.isSample) && <SampleBadge />}
-              </div>
-            )}
-            <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
-              <ChartCard
-                title="Capacity by Sector"
-                note="Click a bar to explore"
-              >
-                <BarList
-                  rows={byTech}
-                  caption={`Capacity by sector in ${s.name}`}
-                />
-              </ChartCard>
-              <ChartCard
-                title="Capacity by Status"
-                note="Click a bar to explore"
-              >
-                <BarList
-                  rows={byStatus}
-                  caption={`Capacity by project status in ${s.name}`}
-                />
-              </ChartCard>
-            </div>
-
-            {official && (
-              <section className="rounded-[var(--radius)] bg-paper p-6">
-                <CapacityAdditionsChart series={countryStats.series(official)} place={s.name} />
-              </section>
-            )}
-
-            <section aria-labelledby="map-h">
-              <div className="mb-4 flex items-baseline justify-between gap-4">
-                <h2 id="map-h" className="text-xl font-semibold tracking-[-0.02em]">
-                  Project Map
-                </h2>
-                <Link
-                  href={`/projects?${filterQuery}`}
-                  className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue"
-                >
-                  Open in explorer
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </Link>
-              </div>
-              <AreaMap points={projects.map(toMapPoint)} label={s.name} />
-            </section>
-
-            <section aria-labelledby="largest-h">
-              <h2
-                id="largest-h"
-                className="mb-5 text-xl font-semibold tracking-[-0.02em]"
-              >
-                Largest Projects
-              </h2>
-              <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
-                {top.map((p) => (
-                  <li key={p.id}>
-                    <Link
-                      href={`/projects/${p.slug}`}
-                      className="group flex flex-wrap items-center gap-x-4 gap-y-2 px-5 py-3.5 hover:bg-surface-2"
-                    >
-                      <span className="min-w-0 flex-1 basis-full font-semibold text-ink group-hover:text-brand-blue sm:basis-0">
-                        {p.name}
-                      </span>
-                      <TechTag tech={p.technology} />
-                      <StatusBadge status={p.status} />
-                      <span className="tabular ml-auto w-20 text-right text-sm font-semibold">
-                        {formatMW(p.capacityMW)}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          </>
+        {official && (
+          <section className="rounded-[var(--radius)] bg-paper p-6">
+            <CapacityAdditionsChart series={countryStats.series(official)} place={s.name} />
+          </section>
         )}
 
-        {(deals.length > 0 || projects.length > 0) && (
+        {deals.length > 0 && (
           <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">
             <ListCard
               title="Latest Deals"

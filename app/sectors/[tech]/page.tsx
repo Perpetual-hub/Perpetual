@@ -1,9 +1,6 @@
-import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { AreaMap } from "@/components/area/AreaMap";
 import { InvestorsCard } from "@/components/area/InvestorsCard";
 import { ChartCard, ListCard, ListRow } from "@/components/area/AreaPage";
 import { dealValue } from "@/components/cards/Cards";
@@ -13,22 +10,17 @@ import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsCha
 const IRENA_TECHS: string[] = ["solar", "wind", "hydro", "bioenergy", "geothermal", "marine"];
 import { TechHero } from "@/components/tech/TechHero";
 import { TechSwitcher } from "@/components/tech/TechSwitcher";
-import { StatusBadge } from "@/components/ui/Badge";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import {
   countryStats,
   getGlobalCapacity,
   getTechProfile,
   getTopInvestors,
-  toMapPoint,
 } from "@/lib/data";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import type { CapacityRow, CapacitySeries } from "@/lib/types";
-import { regionSlug } from "@/lib/filters";
 import {
-  STATUS_LABEL,
   countryName,
-  formatMW,
   DEAL_TYPE_LABEL,
 } from "@/lib/format";
 import { TECHNOLOGIES, TECH_BY_ID, isTechnology } from "@/lib/tech";
@@ -69,11 +61,6 @@ async function TechnologyContent({
   if (!isTechnology(tech)) notFound();
   const t = TECH_BY_ID[tech];
   const prof = getTechProfile(tech);
-  const { stats } = prof;
-  const largest = [...prof.projects]
-    .sort((a, b) => (b.capacityMW ?? 0) - (a.capacityMW ?? 0))
-    .slice(0, 6);
-  const hasProjects = prof.projects.length > 0;
 
   // Official world figures (IRENA) where IRENA reports this sector.
   const world = getGlobalCapacity();
@@ -151,7 +138,7 @@ async function TechnologyContent({
                 { label: "Deals on record", value: String(prof.deals.length) },
                 { label: "Countries with deals", value: String(dealCountries) },
                 { label: "Investors and lenders", value: String(lenders) },
-                { label: "Projects tracked", value: String(stats.projects) },
+                { label: "Deals in the last 30 days", value: String(prof.dealsLast30Days) },
               ]
         }
       />
@@ -195,128 +182,10 @@ async function TechnologyContent({
           </div>
         )}
 
-        {hasProjects && (
-          <>
-            <section aria-labelledby="map-h">
-              <div className="mb-4 flex items-baseline justify-between gap-4">
-                <h2 id="map-h" className="text-xl font-semibold tracking-[-0.02em]">
-                  Project Map
-                </h2>
-                <Link
-                  href={`/projects?tech=${tech}`}
-                  className="group inline-flex items-center gap-1 text-sm font-medium text-brand-blue"
-                >
-                  Open in explorer
-                  <ArrowRight
-                    className="size-4 transition-transform group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
-                </Link>
-              </div>
-              <AreaMap
-                points={prof.projects.map(toMapPoint)}
-                label={`${t.label} projects`}
-              />
-            </section>
-
-            <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-2">
-              <ChartCard
-                title="Capacity by Status"
-                note="Click a bar to explore"
-              >
-                <BarList
-                  caption={`${t.label} capacity by project status`}
-                  rows={prof.byStatus.map((s) => ({
-                    key: s.status,
-                    label: STATUS_LABEL[s.status],
-                    value: s.mw,
-                    color: t.hex,
-                    count: s.count,
-                    href: `/projects?tech=${tech}&status=${s.status}`,
-                  }))}
-                />
-              </ChartCard>
-              <ChartCard
-                title="Capacity by Region"
-                note="Click a bar to explore"
-              >
-                <BarList
-                  caption={`${t.label} capacity by region`}
-                  rows={prof.byRegion.map((r) => ({
-                    key: r.region,
-                    label: r.region,
-                    value: r.mw,
-                    color: t.hex,
-                    count: r.count,
-                    href: `/projects?tech=${tech}&region=${encodeURIComponent(r.region)}`,
-                  }))}
-                />
-              </ChartCard>
-            </div>
-
-            {IRENA_TECHS.includes(tech) && (
-              <section className="rounded-[var(--radius)] bg-paper p-6">
-                <CapacityAdditionsChart series={getGlobalCapacity()} only={tech as "solar"} />
-              </section>
-            )}
-
-            <section aria-labelledby="largest-h">
-              <h2
-                id="largest-h"
-                className="mb-5 text-xl font-semibold tracking-[-0.02em]"
-              >
-                Largest {t.label} Projects
-              </h2>
-              <ul className="divide-y divide-line rounded-[var(--radius)] border border-line">
-                {largest.map((p) => (
-                  <li key={p.id}>
-                    <Link
-                      href={`/projects/${p.slug}`}
-                      className="group flex flex-wrap items-center gap-x-4 gap-y-2 px-5 py-3.5 hover:bg-surface-2"
-                    >
-                      <span className="min-w-0 flex-1 basis-full sm:basis-0">
-                        <span className="block font-semibold text-ink group-hover:text-brand-blue">
-                          {p.name}
-                        </span>
-                        <span className="block text-xs text-muted">
-                          {p.subType &&
-                            p.subType.charAt(0).toUpperCase() +
-                              p.subType.slice(1)}{" "}
-                          ·{" "}
-                          <span className="text-muted">
-                            {countryName(p.country)}, <span>{p.region}</span>
-                          </span>
-                        </span>
-                      </span>
-                      <StatusBadge status={p.status} />
-                      <span className="tabular ml-auto w-24 text-right text-sm font-semibold">
-                        {formatMW(p.capacityMW)}
-                        {p.storageMWh && (
-                          <span className="block text-xs font-normal text-muted">
-                            {p.storageMWh.toLocaleString("en")} MWh
-                          </span>
-                        )}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 text-sm text-muted">
-                Strongest regions:{" "}
-                {prof.byRegion.slice(0, 3).map((r, i) => (
-                  <span key={r.region}>
-                    {i > 0 && ", "}
-                    <Link
-                      href={`/regions/${regionSlug(r.region)}`}
-                      className="text-brand-blue underline underline-offset-2"
-                    >
-                      {r.region}
-                    </Link>
-                  </span>
-                ))}
-              </p>
-            </section>
-          </>
+        {IRENA_TECHS.includes(tech) && (
+          <section className="rounded-[var(--radius)] bg-paper p-6">
+            <CapacityAdditionsChart series={getGlobalCapacity()} only={tech as "solar"} />
+          </section>
         )}
 
         <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-2">

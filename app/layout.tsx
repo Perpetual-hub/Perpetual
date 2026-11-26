@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · Perpetual",
   },
   description:
-    "Renewable energy deals, new projects and how investable each country is, with a source behind every fact.",
+    "Renewable energy deals, official capacity statistics and how investable each country is, with a source behind every fact.",
   openGraph: { siteName: "Perpetual", type: "website" },
 };
 
