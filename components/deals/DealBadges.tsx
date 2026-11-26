@@ -3,7 +3,7 @@ import type { DealStatus } from "@/lib/types";
 
 // Same palette as project status badges (components/ui/Badge.tsx).
 const STYLE: Record<DealStatus, { box: string; dot: string }> = {
-  announced: { box: "border-brand-blue/30 bg-[#eef3ea] text-brand-blue", dot: "bg-brand-blue" },
+  announced: { box: "border-brand-blue/30 bg-[#eaf2fb] text-brand-blue", dot: "bg-brand-blue" },
   completed: { box: "border-brand-green/40 bg-[#eef8f0] text-[#1f6e30]", dot: "bg-brand-green" },
   terminated: { box: "border-[#c2362b]/40 bg-[#fdf0ef] text-[#a8261c]", dot: "bg-[#c2362b]" },
 };

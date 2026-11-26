@@ -41,7 +41,7 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
             className="absolute inset-0 -z-10"
             style={{
               background:
-                "linear-gradient(90deg, rgba(14,22,17,0.92) 0%, rgba(14,22,17,0.72) 42%, rgba(14,22,17,0.22) 100%), linear-gradient(0deg, rgba(14,22,17,0.55) 0%, rgba(14,22,17,0) 45%)",
+                "linear-gradient(90deg, rgba(6,26,51,0.92) 0%, rgba(6,26,51,0.72) 42%, rgba(6,26,51,0.22) 100%), linear-gradient(0deg, rgba(6,26,51,0.55) 0%, rgba(6,26,51,0) 45%)",
             }}
           />
         </>
@@ -62,14 +62,14 @@ export function TechHero({ t, stats }: { t: TechMeta; stats: Stat[] }) {
             </span>
             <p className={`text-sm ${dark ? "text-hero-ink/75" : "text-soft"}`}>Sector</p>
           </div>
-          <h1 className={`mt-6 font-display text-[3.2rem] leading-[0.95] font-light tracking-[-0.045em] sm:text-[4.5rem] lg:text-[6.5rem] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>{t.label}</h1>
+          <h1 className={`mt-6 font-display text-[3.2rem] leading-[0.95] font-light tracking-[-0.045em] sm:text-[4.5rem] lg:text-[6.5rem] ${dark ? "text-hero-ink" : "text-[#0b1f3a]"}`}>{t.label}</h1>
           <p className={`mt-5 max-w-[60ch] text-lg leading-relaxed ${dark ? "text-hero-ink/85" : "text-ink/80"}`}>{t.explainer}</p>
         </div>
         <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-[16px] border border-white/15 bg-white/10 backdrop-blur-md">
           {stats.map((s) => (
-            <div key={s.label} className={`px-5 py-4 ${dark ? "bg-[#16211b]/60" : "bg-white"}`}>
+            <div key={s.label} className={`px-5 py-4 ${dark ? "bg-[#083b6e]/60" : "bg-white"}`}>
               <dt className={`text-xs ${dark ? "text-hero-muted" : "text-muted"}`}>{s.label}</dt>
-              <dd className={`tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>
+              <dd className={`tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] ${dark ? "text-hero-ink" : "text-[#0b1f3a]"}`}>
                 {s.value}
                 {s.unit && <span className={`ml-1 text-base ${dark ? "text-hero-muted" : "text-muted"}`}>{s.unit}</span>}
               </dd>

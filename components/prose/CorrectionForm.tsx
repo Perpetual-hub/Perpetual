@@ -42,7 +42,7 @@ export function CorrectionForm({ records }: { records: RecordOption[] }) {
     return (
       <div role="status" className="rounded-[var(--radius)] border border-line bg-surface-2 p-8">
         <CheckCircle2 className="size-7 text-brand-green" aria-hidden />
-        <h2 className="mt-4 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">Thank You</h2>
+        <h2 className="mt-4 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">Thank You</h2>
         <p className="mt-2 max-w-prose leading-relaxed text-muted">
           For now, correction reports are <strong className="text-ink">not sent or stored yet</strong>: the form shows how
           reporting will work. Once it is connected, we aim to review each report and log accepted changes in the methodology
@@ -51,7 +51,7 @@ export function CorrectionForm({ records }: { records: RecordOption[] }) {
         <button
           type="button"
           onClick={() => setSent(false)}
-          className="mt-6 rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-medium hover:border-[#c3c5b8]"
+          className="mt-6 rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-medium hover:border-[#c9d4e2]"
         >
           Report another correction
         </button>

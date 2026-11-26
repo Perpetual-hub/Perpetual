@@ -17,7 +17,7 @@ export function InvestorsCard({
   return (
     <section>
       <div className="mb-4 flex items-baseline justify-between">
-        <H className={level === 3 ? "font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]" : "font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22]"}>{title}</H>
+        <H className={level === 3 ? "font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]" : "font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]"}>{title}</H>
         <Link href="/deals" className="text-sm font-medium text-brand-blue hover:underline">
           All deals
         </Link>

@@ -153,7 +153,7 @@ async function TechnologyContent({
             >
               <h2
                 id="world-h"
-                className="mb-6 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]"
+                className="mb-6 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]"
               >
                 World Installed Capacity
               </h2>

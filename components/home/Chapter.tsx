@@ -17,7 +17,7 @@ export function Display({
   size?: "lg" | "xl";
   className?: string;
 }) {
-  const color = tone === "paper" ? "text-[#1d2a22]" : "text-[var(--home-forest-ink)]";
+  const color = tone === "paper" ? "text-[#0b1f3a]" : "text-[var(--home-forest-ink)]";
   const scale =
     size === "xl"
       ? "text-[3.2rem] sm:text-[4.5rem] lg:text-[6.5rem]"
@@ -38,13 +38,13 @@ export function PillLink({ href, children, tone = "paper" }: { href: string; chi
       className={`group inline-flex items-center gap-3 rounded-full border py-1.5 pr-1.5 pl-4 text-sm font-medium transition-colors ${
         dark
           ? "border-white/20 bg-white/10 text-[var(--home-forest-ink)] backdrop-blur hover:bg-white/15"
-          : "border-[var(--home-rule)] bg-white/60 text-[#1d2a22] hover:bg-white"
+          : "border-[var(--home-rule)] bg-white/60 text-[#0b1f3a] hover:bg-white"
       }`}
     >
       {children}
       <span
         className={`grid size-7 place-items-center rounded-full transition-transform duration-200 group-hover:rotate-45 ${
-          dark ? "bg-[var(--home-forest-ink)] text-[#1d2a22]" : "bg-[#1d2a22] text-[var(--home-paper)]"
+          dark ? "bg-[var(--home-forest-ink)] text-[#0b1f3a]" : "bg-[#0b1f3a] text-[var(--home-paper)]"
         }`}
         aria-hidden
       >

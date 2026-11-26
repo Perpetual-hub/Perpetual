@@ -98,7 +98,7 @@ export function Header({
             {techOpen && (
                 <div
                   id="tech-panel"
-                  className="anim-enter-down absolute top-full left-1/2 mt-3 w-[540px] -translate-x-1/2 rounded-[16px] border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(20,30,22,0.18)]"
+                  className="anim-enter-down absolute top-full left-1/2 mt-3 w-[540px] -translate-x-1/2 rounded-[16px] border border-line bg-white p-2 shadow-[0_12px_32px_-12px_rgba(11,27,46,0.18)]"
                 >
                   <ul className="grid grid-cols-2 gap-0.5">
                     {TECHNOLOGIES.map((t) => {
@@ -157,7 +157,7 @@ export function Header({
             aria-expanded={mobileOpen}
             aria-controls="site-menu"
             onClick={() => setMobileOpen(true)}
-            className="inline-flex h-10 items-center gap-2.5 rounded-full bg-[#1d2a22] pr-3.5 pl-4 text-sm font-medium text-[var(--home-paper)] transition-colors hover:bg-black"
+            className="inline-flex h-10 items-center gap-2.5 rounded-full bg-[#0b1f3a] pr-3.5 pl-4 text-sm font-medium text-[var(--home-paper)] transition-colors hover:bg-black"
           >
             Menu
             <span className="flex w-4 flex-col gap-[3px]" aria-hidden>

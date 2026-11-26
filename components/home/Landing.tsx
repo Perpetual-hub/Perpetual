@@ -11,7 +11,7 @@ import { TECHNOLOGIES } from "@/lib/tech";
 import { TECH_PHOTOS } from "@/lib/tech-photos";
 import type { Technology } from "@/lib/types";
 
-const INK = "#1d2a22";
+const INK = "#0b1f3a";
 
 /** Rounded pill link with a round arrow badge. */
 export function Pill({ href, children, tone = "light" }: { href: string; children: ReactNode; tone?: "light" | "dark" }) {
@@ -20,13 +20,13 @@ export function Pill({ href, children, tone = "light" }: { href: string; childre
     <Link
       href={href}
       className={`group inline-flex items-center gap-3 rounded-full border py-1.5 pr-1.5 pl-4 text-sm font-medium transition-colors ${
-        dark ? "border-white/25 bg-white/10 text-[var(--home-forest-ink)] hover:bg-white/20" : "border-line bg-white/60 text-[#1d2a22] hover:bg-white"
+        dark ? "border-white/25 bg-white/10 text-[var(--home-forest-ink)] hover:bg-white/20" : "border-line bg-white/60 text-[#0b1f3a] hover:bg-white"
       }`}
     >
       {children}
       <span
         className={`grid size-7 place-items-center rounded-full transition-transform duration-200 group-hover:rotate-45 ${
-          dark ? "bg-[var(--home-forest-ink)] text-[#1d2a22]" : "bg-[#1d2a22] text-[var(--home-paper)]"
+          dark ? "bg-[var(--home-forest-ink)] text-[#0b1f3a]" : "bg-[#0b1f3a] text-[var(--home-paper)]"
         }`}
         aria-hidden
       >
@@ -55,7 +55,7 @@ export function OpeningHero() {
   return (
     <section aria-labelledby="home-h" className="on-dark relative isolate flex min-h-[calc(100svh-4rem)] flex-col overflow-hidden bg-hero text-hero-ink">
       <Image src={photo.src} alt="" fill priority sizes="100vw" quality={80} className="pp-kenburns -z-20 object-cover" style={{ objectPosition: photo.position }} />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(14,22,17,0.15)_0%,rgba(14,22,17,0.35)_55%,rgba(14,22,17,0.8)_100%)]" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,26,51,0.15)_0%,rgba(6,26,51,0.35)_55%,rgba(6,26,51,0.8)_100%)]" />
       <div className="container-page flex flex-1 flex-col justify-end pb-10 md:pb-14">
         <h1 id="home-h" className="text-hero-ink font-display text-[clamp(2.8rem,8.6vw,8.6rem)] leading-[0.92] font-light tracking-[-0.05em]">
           <span className="pp-line block" style={{ animationDelay: "0.15s" }}>
@@ -80,44 +80,44 @@ export function OpeningHero() {
   );
 }
 
-/* 2. Mission: photographs drift past a slowly turning mark as the reader scrolls. */
-const COLLAGE: { src: string; x: string; y: string; w: number; d: number }[] = [
-  { src: TECH_PHOTOS.solar!.src, x: "4%", y: "8%", w: 190, d: 120 },
-  { src: HERO_PHOTOS.policy.src, x: "22%", y: "2%", w: 120, d: 60 },
-  { src: TECH_PHOTOS.hydro!.src, x: "78%", y: "6%", w: 210, d: 160 },
-  { src: HERO_PHOTOS.method.src, x: "62%", y: "20%", w: 110, d: 40 },
-  { src: TECH_PHOTOS.storage!.src, x: "8%", y: "62%", w: 150, d: 90 },
-  { src: TECH_PHOTOS.geothermal!.src, x: "28%", y: "80%", w: 130, d: 150 },
-  { src: HERO_PHOTOS.statistics.src, x: "70%", y: "70%", w: 200, d: 110 },
-  { src: TECH_PHOTOS.marine!.src, x: "88%", y: "46%", w: 120, d: 70 },
-  { src: TECH_PHOTOS.wind!.src, x: "50%", y: "88%", w: 140, d: 130 },
-];
+/* 2. Mission: the mark turns slowly above one sentence, with two rows of photographs drifting in
+   opposite directions underneath. The rows pause on hover and stand still for reduced motion. */
+const ROW_A = [TECH_PHOTOS.solar!, HERO_PHOTOS.deals, TECH_PHOTOS.hydro!, HERO_PHOTOS.method, TECH_PHOTOS.storage!, HERO_PHOTOS.statistics];
+const ROW_B = [TECH_PHOTOS.wind!, HERO_PHOTOS.policy, TECH_PHOTOS.geothermal!, HERO_PHOTOS.about, TECH_PHOTOS.marine!, HERO_PHOTOS.disclosure, TECH_PHOTOS.bioenergy!];
+
+function PhotoRow({ photos, reverse = false }: { photos: { src: string; position?: string }[]; reverse?: boolean }) {
+  const all = [...photos, ...photos];
+  return (
+    <div className="pp-marquee overflow-hidden">
+      <ul className={`pp-marquee-track flex w-max gap-4 pr-4 ${reverse ? "pp-marquee-reverse" : ""}`}>
+        {all.map((p, i) => (
+          <li key={i} className="relative h-40 w-60 shrink-0 overflow-hidden rounded-[12px] md:h-52 md:w-80">
+            <Image src={p.src} alt="" fill sizes="320px" className="object-cover" style={{ objectPosition: p.position ?? "center" }} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function Mission({ deals, countries }: { deals: number; countries: number }) {
   return (
-    <section id="mission" aria-labelledby="mission-h" className="relative overflow-hidden bg-[var(--home-paper)]">
-      <div aria-hidden className="absolute inset-0 hidden md:block">
-        {COLLAGE.map((c) => (
-          <div
-            key={c.src + c.x}
-            className="pp-float absolute overflow-hidden rounded-[6px]"
-            style={{ left: c.x, top: c.y, width: c.w, aspectRatio: "4 / 3", ["--d" as string]: c.d }}
-          >
-            <Image src={c.src} alt="" fill sizes="220px" className="object-cover" />
-          </div>
-        ))}
-      </div>
-      <div className="relative container-page flex min-h-[110svh] flex-col items-center justify-center py-28 text-center">
-        <span className="pp-slow-spin mb-12 block opacity-90">
-          <Mark size={120} />
+    <section id="mission" aria-labelledby="mission-h" className="overflow-hidden bg-[var(--home-paper)] pb-24 md:pb-32">
+      <div className="container-page flex flex-col items-center pt-24 pb-16 text-center md:pt-32 md:pb-20">
+        <span className="pp-slow-spin mb-10 block">
+          <Mark size={104} />
         </span>
-        <h2 id="mission-h" className="pp-reveal max-w-[22ch] font-display text-[clamp(1.9rem,3.6vw,3.2rem)] leading-[1.12] font-light tracking-[-0.03em] text-[#1d2a22]">
+        <h2 id="mission-h" className="pp-reveal max-w-[22ch] font-display text-[clamp(1.9rem,3.6vw,3.2rem)] leading-[1.12] font-light tracking-[-0.03em] text-[#0b1f3a]">
           Perpetual is an open record of the deals, policies and statistics shaping renewable energy.
         </h2>
         <p className="pp-reveal mt-6 max-w-xl text-lg leading-relaxed text-soft">
           {deals.toLocaleString("en-GB")} deals across {countries} countries from the last five years, each linked to the news or filing it
           came from.
         </p>
+      </div>
+      <div aria-hidden className="space-y-4">
+        <PhotoRow photos={ROW_A} />
+        <PhotoRow photos={ROW_B} reverse />
       </div>
     </section>
   );
@@ -156,13 +156,13 @@ export function KeyFigures({
   return (
     <section aria-labelledby="figures-h" className="border-t border-line bg-[var(--home-paper)]">
       <div className="container-page py-20 md:py-28">
-        <h2 id="figures-h" className="max-w-3xl font-display text-[clamp(2rem,4vw,3.4rem)] leading-[1.05] font-light tracking-[-0.035em] text-[#1d2a22]">
+        <h2 id="figures-h" className="max-w-3xl font-display text-[clamp(2rem,4vw,3.4rem)] leading-[1.05] font-light tracking-[-0.035em] text-[#0b1f3a]">
           {record ? `The world added more renewable power in ${year} than in any year before.` : `How much renewable power the world added in ${year}.`}
         </h2>
-        <dl className="mt-14 grid grid-cols-1 border-t border-[#1d2a22] sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mt-14 grid grid-cols-1 border-t border-[#0b1f3a] sm:grid-cols-2 lg:grid-cols-4">
           {figures.map((f, i) => (
             <div key={f.label} className={`border-b border-line py-8 sm:pr-8 lg:border-b-0 ${i > 0 ? "lg:border-l lg:pl-8" : ""} ${i % 2 === 1 ? "sm:border-l sm:pl-8 lg:pl-8" : ""}`}>
-              <dd className="tabular font-display text-[clamp(3rem,5vw,4.6rem)] leading-none font-light tracking-[-0.045em] text-[#1d2a22]">
+              <dd className="tabular font-display text-[clamp(3rem,5vw,4.6rem)] leading-none font-light tracking-[-0.045em] text-[#0b1f3a]">
                 {f.value}
                 {f.unit && <span className="ml-2 text-[0.4em] tracking-normal text-soft">{f.unit}</span>}
               </dd>
@@ -218,14 +218,14 @@ export function MapIntro() {
 /* 5. What Perpetual does: three cards that stack as the reader scrolls. */
 export function StackedCards({ cards }: { cards: { n: string; title: string; body: string; href: string; cta: string; photo: string; tone: "paper" | "green" | "forest"; extra: ReactNode }[] }) {
   const tones = {
-    paper: { bg: "bg-[#fbfaf4]", ink: "text-[#1d2a22]", soft: "text-soft", pill: "light" as const },
-    green: { bg: "bg-[#2f7a4b]", ink: "text-white", soft: "text-white/80", pill: "dark" as const },
+    paper: { bg: "bg-[#fbfcfe]", ink: "text-[#0b1f3a]", soft: "text-soft", pill: "light" as const },
+    green: { bg: "bg-[#0b5cad]", ink: "text-white", soft: "text-white/80", pill: "dark" as const },
     forest: { bg: "bg-[var(--home-forest)]", ink: "text-[var(--home-forest-ink)]", soft: "text-[var(--home-forest-muted)]", pill: "dark" as const },
   };
   return (
     <section aria-labelledby="what-h" className="bg-[var(--home-paper)] pt-20 md:pt-28">
       <div className="container-page">
-        <h2 id="what-h" className="max-w-[20ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#1d2a22]">
+        <h2 id="what-h" className="max-w-[20ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
           Three ways to read the market.
         </h2>
       </div>
@@ -292,7 +292,7 @@ export function SectorPanels({ counts }: { counts: Record<Technology, { deals: n
                     style={{ objectPosition: photo.position }}
                   />
                 )}
-                <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(14,22,17,0.78)_0%,rgba(14,22,17,0.15)_45%,rgba(14,22,17,0.1)_100%)]" />
+                <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(6,26,51,0.78)_0%,rgba(6,26,51,0.15)_45%,rgba(6,26,51,0.1)_100%)]" />
                 <div className="container-page flex flex-wrap items-start justify-between gap-6 pt-8">
                   <div>
                     <span className="tabular text-sm text-hero-ink/70">{String(i + 1).padStart(2, "0")} / 08</span>
@@ -303,7 +303,7 @@ export function SectorPanels({ counts }: { counts: Record<Technology, { deals: n
                       {c.worldMW != null && <>{gw(c.worldMW)} installed · </>}
                       {c.deals.toLocaleString("en-GB")} {c.deals === 1 ? "deal" : "deals"}
                     </span>
-                    <span className="grid size-11 place-items-center rounded-full bg-hero-ink text-[#1d2a22] transition-transform duration-300 group-hover:rotate-45" aria-hidden>
+                    <span className="grid size-11 place-items-center rounded-full bg-hero-ink text-[#0b1f3a] transition-transform duration-300 group-hover:rotate-45" aria-hidden>
                       <ArrowUpRight className="size-5" />
                     </span>
                   </div>
@@ -328,7 +328,7 @@ export function Closing() {
   return (
     <section aria-labelledby="close-h" className="bg-[var(--home-paper)]">
       <div className="container-page grid gap-10 py-24 md:py-32 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end">
-        <h2 id="close-h" className="font-display text-[clamp(2.6rem,6vw,5.6rem)] leading-[0.95] font-light tracking-[-0.045em] text-[#1d2a22]">
+        <h2 id="close-h" className="font-display text-[clamp(2.6rem,6vw,5.6rem)] leading-[0.95] font-light tracking-[-0.045em] text-[#0b1f3a]">
           Every number has a source.
         </h2>
         <div>

@@ -63,7 +63,7 @@ export function DealValueChart({ deals }: { deals: Deal[] }) {
             const items = payload.filter((p) => Number(p.value) > 0);
             const total = items.reduce((s, p) => s + Number(p.value), 0);
             return (
-              <div className="min-w-44 rounded-lg border border-line bg-white px-3 py-2.5 text-xs shadow-[0_8px_24px_-12px_rgba(20,30,22,0.25)]">
+              <div className="min-w-44 rounded-lg border border-line bg-white px-3 py-2.5 text-xs shadow-[0_8px_24px_-12px_rgba(11,27,46,0.25)]">
                 <div className="mb-1.5 font-semibold text-ink">{label}</div>
                 {items.length === 0 && <div className="text-muted">No disclosed value</div>}
                 <ul className="space-y-1">

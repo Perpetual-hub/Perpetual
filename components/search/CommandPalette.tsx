@@ -110,7 +110,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
 
   return (
     <div className="fixed inset-0 z-[60] flex items-start justify-center px-4 pt-[12vh]" role="presentation">
-      <div className="absolute inset-0 bg-[#0f1813]/40" onClick={close} aria-hidden />
+      <div className="absolute inset-0 bg-[#061a33]/40" onClick={close} aria-hidden />
       <div
         role="dialog"
         aria-modal="true"

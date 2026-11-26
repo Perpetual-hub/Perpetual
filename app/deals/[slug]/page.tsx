@@ -53,7 +53,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "linear-gradient(90deg, rgba(14,22,17,0.94) 0%, rgba(14,22,17,0.82) 50%, rgba(14,22,17,0.45) 100%), linear-gradient(0deg, rgba(14,22,17,0.6) 0%, rgba(14,22,17,0) 50%)",
+              "linear-gradient(90deg, rgba(6,26,51,0.94) 0%, rgba(6,26,51,0.82) 50%, rgba(6,26,51,0.45) 100%), linear-gradient(0deg, rgba(6,26,51,0.6) 0%, rgba(6,26,51,0) 50%)",
           }}
         />
         <div className="container-page pt-10 pb-14 md:pt-14 md:pb-20">
@@ -82,7 +82,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             >
               Read the news
               <span className="text-hero-muted">{d.sources[0].publisher}</span>
-              <span className="grid size-7 place-items-center rounded-full bg-hero-ink text-[#1d2a22] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
+              <span className="grid size-7 place-items-center rounded-full bg-hero-ink text-[#0b1f3a] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
                 <ArrowUpRight className="size-3.5" />
               </span>
             </a>
@@ -184,7 +184,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
             </ol>
             <Link
               href={`/corrections?record=${d.id}`}
-              className="mt-6 inline-flex items-center gap-1.5 rounded-lg border border-line px-3.5 py-2 text-sm font-medium text-ink hover:border-[#c3c5b8]"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-lg border border-line px-3.5 py-2 text-sm font-medium text-ink hover:border-[#c9d4e2]"
             >
               <Flag className="size-3.5" aria-hidden />
               Report a correction
@@ -193,11 +193,11 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <h2 className="font-display text-2xl font-light tracking-[-0.02em] text-[#1d2a22]">Related deals</h2>
+          <h2 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">Related deals</h2>
           <ul className="space-y-3">
             {related.map((x) => (
               <li key={x.id}>
-                <Link href={`/deals/${x.slug}`} className="group block rounded-[var(--radius)] border border-line bg-white/50 px-4 py-3 hover:border-[#c3c5b8] hover:bg-white">
+                <Link href={`/deals/${x.slug}`} className="group block rounded-[var(--radius)] border border-line bg-white/50 px-4 py-3 hover:border-[#c9d4e2] hover:bg-white">
                   <div className="text-xs text-muted">
                     <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[x.type]}</span> · {formatDate(x.date)}
                   </div>
@@ -253,7 +253,7 @@ function PartyList({ title, parties }: { title: string; parties?: Party[] }) {
 
 function HeadStat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div className="bg-[#16211b]/60 px-5 py-4">
+    <div className="bg-[#083b6e]/60 px-5 py-4">
       <dt className="text-xs text-hero-muted">{label}</dt>
       <dd className="tabular mt-1 font-display text-2xl font-light tracking-[-0.02em] text-hero-ink">{value}</dd>
       {note && <dd className="text-xs text-hero-muted">{note}</dd>}

@@ -29,7 +29,7 @@ export default function PolicyPage() {
         aside={
           <Link href="/policy/method" className="group flex flex-wrap items-center justify-between gap-4">
             <span className="max-w-3xl">
-              <span className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">How the scores are built and tested.</span>
+              <span className="font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">How the scores are built and tested.</span>
               {ev && (
                 <span className="ml-2 text-[15px] text-soft">
                   Top scoring countries grew renewables by <span className="tabular text-accent">{Math.round(ev.growth.topMedian * 100)}%</span> from{" "}
@@ -37,9 +37,9 @@ export default function PolicyPage() {
                 </span>
               )}
             </span>
-            <span className="inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#1d2a22] group-hover:bg-white">
+            <span className="inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#0b1f3a] group-hover:bg-white">
               Read the method
-              <span className="grid size-7 place-items-center rounded-full bg-[#1d2a22] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
+              <span className="grid size-7 place-items-center rounded-full bg-[#0b1f3a] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
                 <ArrowUpRight className="size-3.5" />
               </span>
             </span>
@@ -63,10 +63,10 @@ export default function PolicyPage() {
             </div>
             <Link
               href="/#policy"
-              className="group inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#1d2a22] hover:bg-white"
+              className="group inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#0b1f3a] hover:bg-white"
             >
               See it on the globe
-              <span className="grid size-7 place-items-center rounded-full bg-[#1d2a22] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
+              <span className="grid size-7 place-items-center rounded-full bg-[#0b1f3a] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
                 <ArrowUpRight className="size-3.5" />
               </span>
             </Link>

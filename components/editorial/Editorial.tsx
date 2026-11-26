@@ -31,9 +31,9 @@ export function Statement({
         ? "text-[2.1rem] leading-[1.05] sm:text-[2.6rem] lg:text-[3.2rem]"
         : "text-2xl leading-snug";
   return (
-    <Tag id={id} className={`font-display font-light tracking-[-0.035em] text-[#1d2a22] ${size} ${className}`}>
+    <Tag id={id} className={`font-display font-light tracking-[-0.035em] text-[#0b1f3a] ${size} ${className}`}>
       {children}
-      {quiet && <span className="text-[#7d8a72]"> {quiet}</span>}
+      {quiet && <span className="text-[#6b819c]"> {quiet}</span>}
     </Tag>
   );
 }
@@ -106,7 +106,7 @@ export function StepCard({
       <p className="mt-4 text-[13px] text-soft">
         {n}. {label}
       </p>
-      <h3 className="mt-1.5 font-display text-2xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h3>
+      <h3 className="mt-1.5 font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">{title}</h3>
       <div className="mt-3 text-[15px] leading-relaxed text-ink/85">{children}</div>
       {figure && <div className="mt-6 flex-1">{figure}</div>}
       {caption && <p className="mt-5 text-[13px] text-soft">{caption}</p>}
@@ -123,7 +123,7 @@ export function MetricBar({ label, value, display, max, highlight }: { label: st
         <span className={`tabular ${highlight ? "text-accent" : ""}`}>{display}</span>
       </div>
       <div className="mt-1.5 h-2.5 bg-white" aria-hidden>
-        <div className={`h-full ${highlight ? "bg-accent" : "bg-[#c9cfc6]"}`} style={{ width: `${Math.max(1.5, (value / (max || 1)) * 100)}%` }} />
+        <div className={`h-full ${highlight ? "bg-accent" : "bg-[#c8d4e3]"}`} style={{ width: `${Math.max(1.5, (value / (max || 1)) * 100)}%` }} />
       </div>
     </div>
   );
@@ -147,13 +147,13 @@ export function MetricCard({
     <Paper as="article" className="flex flex-col">
       <div className="flex items-start justify-between gap-6">
         <div>
-          <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h3>
+          <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">{title}</h3>
           <p className="mt-1 text-[15px] leading-snug text-soft">{description}</p>
         </div>
         <p className="tabular font-display text-[2.6rem] leading-none font-light tracking-[-0.03em] text-accent">{value}</p>
       </div>
       <div className="mt-6 flex-1 space-y-4">{children}</div>
-      <p className="mt-6 border-t border-[#dfe3dc] pt-4 text-[15px] text-ink">
+      <p className="mt-6 border-t border-[#e1e7ef] pt-4 text-[15px] text-ink">
         <span className="block text-sm font-medium text-ink">What this means</span>
         <span className="mt-1.5 block text-soft">{meaning}</span>
       </p>

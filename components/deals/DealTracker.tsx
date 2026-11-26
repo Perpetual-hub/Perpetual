@@ -126,7 +126,7 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
         ].map(([k, v]) => (
           <div key={k}>
             <dt className="text-xs font-medium text-muted">{k}</dt>
-            <dd className="tabular mt-1 font-display text-3xl font-light tracking-[-0.03em] text-[#1d2a22]">{v}</dd>
+            <dd className="tabular mt-1 font-display text-3xl font-light tracking-[-0.03em] text-[#0b1f3a]">{v}</dd>
           </div>
         ))}
       </dl>
@@ -207,7 +207,7 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
               type="button"
               onClick={() => downloadDealsCSV(filtered)}
               disabled={!filtered.length}
-              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-sm font-medium hover:border-[#c3c5b8] disabled:opacity-50"
+              className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-line bg-white px-3 text-sm font-medium hover:border-[#c9d4e2] disabled:opacity-50"
             >
               <Download className="size-4" aria-hidden />
               CSV
@@ -230,12 +230,12 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
             {/* Charts */}
             <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
               <section className="rounded-[var(--radius)] bg-paper p-6">
-                <h2 className="mb-4 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">Disclosed Deal Value by Quarter</h2>
+                <h2 className="mb-4 font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">Disclosed Deal Value by Quarter</h2>
                 <DealValueChart deals={filtered} />
               </section>
               <section className="rounded-[var(--radius)] bg-paper p-6">
                 <div className="mb-4 flex items-baseline justify-between">
-                  <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">Deals by Type</h2>
+                  <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">Deals by Type</h2>
                   <span className="text-xs text-muted">Click a bar to filter</span>
                 </div>
                 <BarList rows={byType} caption="Number of deals by type" format={(v) => `${v} deal${v === 1 ? "" : "s"}`} countLabel="deals" />
@@ -252,7 +252,7 @@ export function DealTracker({ deals, asOf }: { deals: Deal[]; asOf: string }) {
 
             {investors.length > 0 && (
               <section aria-labelledby="inv-h">
-                <h2 id="inv-h" className="mb-4 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22]">
+                <h2 id="inv-h" className="mb-4 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
                   Most Active Investors and Lenders
                 </h2>
                 <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -415,7 +415,7 @@ function DealCards({ deals }: { deals: Deal[] }) {
     <>
     <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {deals.slice(0, limit).map((d) => (
-        <li key={d.id} className="group relative flex flex-col rounded-[var(--radius)] bg-paper p-5 transition-colors duration-200 hover:bg-[#e9ede5]">
+        <li key={d.id} className="group relative flex flex-col rounded-[var(--radius)] bg-paper p-5 transition-colors duration-200 hover:bg-[#e8eef6]">
           <div className="flex items-center gap-2 text-xs text-muted">
             <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[d.type]}</span>
             <span>{formatDate(d.date)}</span>

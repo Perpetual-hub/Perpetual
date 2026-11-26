@@ -160,7 +160,7 @@ export function CountryStatsTable({
         <button
           type="button"
           onClick={() => setAll((v) => !v)}
-          className="mt-4 rounded-lg border border-line bg-white px-4 py-2 text-sm font-medium hover:border-[#c3c5b8]"
+          className="mt-4 rounded-lg border border-line bg-white px-4 py-2 text-sm font-medium hover:border-[#c9d4e2]"
         >
           {all ? `Show top ${pageSize}` : `Show all ${sorted.length} ${noun === "region" ? "regions" : "countries"}`}
         </button>

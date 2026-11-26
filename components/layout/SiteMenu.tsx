@@ -40,7 +40,7 @@ export function SiteMenu({ open, onClose, onSearch }: { open: boolean; onClose: 
     <div id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" className="pp-menu on-dark fixed inset-0 z-[60] overflow-y-auto bg-[var(--home-forest)] text-[var(--home-forest-ink)]">
       <div className="container-page flex h-16 items-center justify-between">
         <Link href="/" onClick={onClose} className="flex items-center gap-3">
-          <MarkOnDark size={36} bg="#16211b" />
+          <MarkOnDark size={36} bg="#083b6e" />
           <span className="font-wordmark text-2xl font-extrabold tracking-[-0.03em]">perpetual</span>
         </Link>
         <div className="flex items-center gap-2">
@@ -59,7 +59,7 @@ export function SiteMenu({ open, onClose, onSearch }: { open: boolean; onClose: 
             ref={closeRef}
             type="button"
             onClick={onClose}
-            className="inline-flex h-10 items-center gap-2 rounded-full bg-[var(--home-forest-ink)] px-4 text-sm font-medium text-[#1d2a22]"
+            className="inline-flex h-10 items-center gap-2 rounded-full bg-[var(--home-forest-ink)] px-4 text-sm font-medium text-[#0b1f3a]"
           >
             Close
             <X className="size-4" aria-hidden />

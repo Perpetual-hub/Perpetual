@@ -26,33 +26,31 @@ export function PageHero({
   aside?: ReactNode;
 }) {
   // Size the name to the viewport so long and short names both fill the width without wrapping.
-  const size = `min(13rem, ${Math.round(170 / Math.max(eyebrow.length, 5))}vw)`;
+  const size = `min(12rem, ${Math.round(165 / Math.max(eyebrow.length, 6))}vw)`;
   return (
     <header className="relative overflow-hidden border-b border-line bg-[var(--home-paper)]">
-      <div className="container-page pt-10 md:pt-14">
-        <div className="grid gap-6 md:min-h-[15rem] md:grid-cols-[minmax(0,1fr)_minmax(0,26rem)]">
-          <div className="hidden md:block" />
-          <div className="pp-hero-copy">
-            <p className="font-display text-[1.6rem] leading-[1.15] font-light tracking-[-0.025em] text-[#1d2a22] md:text-[1.9rem]">{title}</p>
-            {lede && <p className="mt-4 text-[15px] leading-relaxed text-soft">{lede}</p>}
-            {children && <div className="mt-6">{children}</div>}
-          </div>
+      <div className="container-page relative pt-10 md:pt-14">
+        {/* Copy on the left; on wide screens the photograph sits top right, behind the name's upper edge. */}
+        <div className="pp-hero-copy max-w-[30rem] md:min-h-[17rem] lg:min-h-[19rem]">
+          <p className="font-display text-[1.6rem] leading-[1.15] font-light tracking-[-0.025em] text-[#0b1f3a] md:text-[2rem]">{title}</p>
+          {lede && <p className="mt-4 text-[15px] leading-relaxed text-soft">{lede}</p>}
+          {children && <div className="mt-6">{children}</div>}
         </div>
 
-        <div className="relative mt-10 md:mt-6">
-          <figure className="pp-hero-photo relative z-0 ml-auto w-[44vw] max-w-[300px] md:absolute md:bottom-[35%] md:left-[36%] md:ml-0 md:w-[17vw]">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[10px]">
-              <Image src={photo.src} alt="" fill priority sizes="(min-width: 768px) 22vw, 34vw" className="object-cover" style={{ objectPosition: photo.position ?? "center" }} />
+        <div className="relative mt-8 md:mt-0">
+          <figure className="pp-hero-photo relative z-0 md:absolute md:right-0 md:bottom-[46%] md:w-[46%] lg:w-[44%]">
+            <div className="relative aspect-[16/10] overflow-hidden rounded-[12px]">
+              <Image src={photo.src} alt="" fill priority sizes="(min-width: 768px) 46vw, 100vw" className="object-cover" style={{ objectPosition: photo.position ?? "center" }} />
             </div>
           </figure>
           <h1
-            className="pp-hero-name relative z-10 -mt-[10vw] font-display md:mt-0 leading-[0.82] font-light tracking-[-0.055em] text-[#1d2a22]"
+            className="pp-hero-name relative z-10 -mt-[0.32em] text-right font-display leading-[0.8] font-light tracking-[-0.055em] text-[#0b1f3a] md:mt-0"
             style={{ fontSize: size }}
           >
             {eyebrow}
           </h1>
         </div>
-        <p className="mt-4 pb-5 text-right text-[11px] text-soft [&_a]:underline [&_a]:underline-offset-2">
+        <p className="mt-5 pb-5 text-[11px] text-soft [&_a]:underline [&_a]:underline-offset-2">
           Photo by{" "}
           <a href={photo.sourceUrl} target="_blank" rel="noreferrer">
             {photo.credit}
@@ -79,7 +77,7 @@ export function HeroStats({ stats }: { stats: { label: string; value: string; un
       {stats.map((s) => (
         <div key={s.label} className="md:px-6 md:first:pl-0">
           <dt className="text-[13px] text-soft">{s.label}</dt>
-          <dd className="tabular mt-1.5 font-display text-[2rem] leading-none font-light tracking-[-0.03em] text-[#1d2a22]">
+          <dd className="tabular mt-1.5 font-display text-[2rem] leading-none font-light tracking-[-0.03em] text-[#0b1f3a]">
             {s.value}
             {s.unit && <span className="ml-1.5 text-base text-soft">{s.unit}</span>}
           </dd>

@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: { siteName: "Perpetual", type: "website" },
 };
 
-export const viewport: Viewport = { themeColor: "#ffffff" };
+export const viewport: Viewport = { themeColor: "#f5f7fa" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

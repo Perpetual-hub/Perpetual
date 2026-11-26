@@ -122,3 +122,25 @@ export function MarkOnDark({ size = 40, bg = BRAND_DARK.tile }: { size?: number;
     </svg>
   );
 }
+
+/**
+ * Line drawing of the mark (the three blades and hub as outlines), for large decorative use on a
+ * coloured surface, such as the page-change curtain.
+ */
+export function MarkOutline({ size = 240, color = "#FFFFFF", strokeWidth = 2.2 }: { size?: number; color?: string; strokeWidth?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" aria-hidden fill="none" stroke={color} strokeWidth={strokeWidth} strokeLinejoin="round" strokeLinecap="round">
+      <g>
+        <polygon points="53,56 67,56 76,13 44,13" />
+        <circle cx="76" cy="12" r="9" />
+      </g>
+      <g transform="rotate(120 60 60)">
+        <path d="M53 56 C44 36 48 12 64 4 C76 16 74 40 67 56 Z" />
+      </g>
+      <g transform="rotate(240 60 60)">
+        <path d="M60 56 C55 46 45 36 45 25 A15 15 0 0 1 75 25 C75 36 65 46 60 56 Z" />
+      </g>
+      <circle cx="60" cy="60" r="11" />
+    </svg>
+  );
+}

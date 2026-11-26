@@ -55,7 +55,7 @@ function fallbackStyle(theme: MapTheme): StyleSpecification {
     version: 8,
     sources: {},
     layers: [
-      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#0b1a22" : LIGHT.water } },
+      { id: "background", type: "background", paint: { "background-color": theme === "dark" ? "#041330" : LIGHT.water } },
     ],
   };
 }
@@ -119,7 +119,7 @@ function addEarth(map: MlMap, policy: boolean) {
   for (const l of layers) {
     if (l.type === "fill" || l.type === "fill-extrusion") map.setLayoutProperty(l.id, "visibility", "none");
     else if (l.type === "line" && (!/boundary|admin/.test(l.id) || /state/.test(l.id))) map.setLayoutProperty(l.id, "visibility", "none");
-    else if (l.type === "line") map.setPaintProperty(l.id, "line-color", "rgba(242,240,225,0.28)");
+    else if (l.type === "line") map.setPaintProperty(l.id, "line-color", "rgba(238,244,251,0.28)");
   }
 }
 
@@ -132,7 +132,7 @@ function setEarth(map: MlMap, policy: boolean) {
 const LAND = { projects: "#1d5550", vegetation: "#226352", policy: "#24364f" };
 
 /** Flat (light) maps: blue sea, soft green land, so the map reads as a map rather than grey on white. */
-const LIGHT = { water: "#b7d5df", land: "#f1f0e6", vegetation: "#d4e8c2", border: "#8f9a88", label: "#2a3a2e" };
+const LIGHT = { water: "#a9d3f0", land: "#eef4e2", vegetation: "#d4e8c2", border: "#7f9bb8", label: "#24405e" };
 
 /** True when the basemap tiles loaded (not the offline fallback, whose background is the ocean). */
 function hasTiles(map: MlMap) {
@@ -328,8 +328,8 @@ export default function ProjectMap({
       } else applyEnglishLabels(map);
       map.setSky({
         "atmosphere-blend": ["interpolate", ["linear"], ["zoom"], 0, 1, 5, 1, 7, 0],
-        "sky-color": dark ? "#0f1813" : "#ffffff",
-        "horizon-color": dark ? (vivid ? "#8cc4e6" : "#2c4a3a") : "#e4e9df",
+        "sky-color": dark ? "#061a33" : "#ffffff",
+        "horizon-color": dark ? (vivid ? "#8cc4e6" : "#1b4a7a") : "#e3eaf3",
       } as never);
 
       const hasGlyphs = Boolean(map.getStyle().glyphs);
@@ -366,7 +366,7 @@ export default function ProjectMap({
         source: "policy",
         layout: { visibility: visible("policy") },
         paint: {
-          "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "#f5b000", "rgba(15,24,19,0.9)"],
+          "line-color": ["case", ["boolean", ["feature-state", "hover"], false], "#f5b000", "rgba(6,26,51,0.9)"],
           "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 0.6],
         },
       });
@@ -414,7 +414,7 @@ export default function ProjectMap({
             "text-font": ["Noto Sans Bold"],
             "text-allow-overlap": true,
           },
-          paint: { "text-color": dark ? "#ffffff" : "#1d2a22" },
+          paint: { "text-color": dark ? "#ffffff" : "#0b1f3a" },
         });
       }
       if (vivid) {
@@ -456,7 +456,7 @@ export default function ProjectMap({
             "case",
             ["boolean", ["feature-state", "selected"], false],
             "#f5b000",
-            vivid ? "rgba(255,255,255,0.9)" : dark ? "#0f1813" : "#ffffff",
+            vivid ? "rgba(255,255,255,0.9)" : dark ? "#061a33" : "#ffffff",
           ],
           "circle-stroke-width": [
             "case",
@@ -482,7 +482,7 @@ export default function ProjectMap({
             "case",
             ["boolean", ["feature-state", "hover"], false],
             "#f5b000",
-            dark ? "rgba(242,240,225,0.75)" : "#2f6b45",
+            dark ? "rgba(238,244,251,0.75)" : "#0b5cad",
           ],
           "circle-stroke-width": ["case", ["boolean", ["feature-state", "hover"], false], 2, 1],
           "circle-radius": countryRadius,
@@ -499,7 +499,7 @@ export default function ProjectMap({
             "text-size": 10,
             "text-font": ["Noto Sans Bold"],
           },
-          paint: { "text-color": dark ? "#ffffff" : "#1d2a22" },
+          paint: { "text-color": dark ? "#ffffff" : "#0b1f3a" },
         });
       }
       setReady(true);
@@ -828,8 +828,8 @@ function Tooltip({ hover, theme, mode }: { hover: Hover; theme: MapTheme; mode: 
  * and coastlines so the globe reads as a lit planet rather than a flat disc.
  */
 function tintDarkBasemap(map: MlMap, vivid = false) {
-  const land = vivid ? LAND.projects : "#1a2a20";
-  const water = vivid ? "#0b1a22" : "#0c1a14";
+  const land = vivid ? LAND.projects : "#0d2c52";
+  const water = vivid ? "#041330" : "#071d3a";
   const tiles = hasTiles(map);
   for (const layer of map.getStyle().layers ?? []) {
     try {

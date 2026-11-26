@@ -62,7 +62,7 @@ export default function StatisticsPage() {
 
       <div className="container-page space-y-16 py-12">
         <section aria-labelledby="global-h" className="rounded-[var(--radius)] bg-paper p-6 md:p-8">
-          <h2 id="global-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+          <h2 id="global-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
             Global Renewable Capacity
           </h2>
           <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -73,7 +73,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="outlook-h" className="rounded-[var(--radius)] bg-paper p-6 md:p-8">
-          <h2 id="outlook-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+          <h2 id="outlook-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
             Capacity Outlook to {getCapacityOutlook().scenarios[0].rows.at(-1)?.year}
           </h2>
           <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -84,7 +84,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="regions-h">
-          <h2 id="regions-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+          <h2 id="regions-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
             By Region
           </h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -94,7 +94,7 @@ export default function StatisticsPage() {
         </section>
 
         <section aria-labelledby="countries-h">
-          <h2 id="countries-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+          <h2 id="countries-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
             By Country
           </h2>
           <p className="mb-6 max-w-3xl leading-relaxed text-muted">

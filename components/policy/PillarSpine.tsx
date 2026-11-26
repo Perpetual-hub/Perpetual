@@ -37,7 +37,7 @@ export function PillarSpine() {
     <figure className="m-0">
       <figcaption className="max-w-3xl">
         <p className="text-sm font-semibold text-brand-blue">Exhibit 1</p>
-        <p className="mt-2 font-display text-2xl leading-snug font-light tracking-[-0.02em] text-[#1d2a22] md:text-[1.75rem]">
+        <p className="mt-2 font-display text-2xl leading-snug font-light tracking-[-0.02em] text-[#0b1f3a] md:text-[1.75rem]">
           Seven pillars decide whether a country can host a bankable renewable energy project.
         </p>
         <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -135,7 +135,7 @@ export function PillarSpine() {
               <p className="text-sm text-muted">
                 Pillar {index + 1} of 7 · {pillar.name}
               </p>
-              <h3 className="mt-1 font-display text-xl leading-snug font-light tracking-[-0.02em] text-[#1d2a22] md:text-2xl">{pillar.thesis}</h3>
+              <h3 className="mt-1 font-display text-xl leading-snug font-light tracking-[-0.02em] text-[#0b1f3a] md:text-2xl">{pillar.thesis}</h3>
             </div>
           </div>
           <p className="mt-5 max-w-2xl leading-relaxed text-ink/80">{pillar.why}</p>
@@ -173,7 +173,7 @@ export function PillarSpine() {
                   <div key={w.id} className={`py-3 pr-3 pl-3 first:pl-0 ${w.id === preset ? "" : "opacity-60"}`}>
                     <dt className="text-xs leading-tight text-muted">{w.label}</dt>
                     <dd className="mt-1">
-                      <span className="tabular font-display text-2xl font-light text-[#1d2a22]">{Math.round((w.weights[pillar.id] / t) * 100)}%</span>
+                      <span className="tabular font-display text-2xl font-light text-[#0b1f3a]">{Math.round((w.weights[pillar.id] / t) * 100)}%</span>
                       <span className="block text-xs text-muted">of the score</span>
                     </dd>
                   </div>

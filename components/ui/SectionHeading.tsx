@@ -19,7 +19,7 @@ export function SectionHeading({
   return (
     <div className="mb-10 flex flex-wrap items-end justify-between gap-x-8 gap-y-4 border-t border-line pt-8">
       <div className="max-w-3xl">
-        <h2 id={id} className="font-display text-[2.1rem] leading-[1.05] font-light tracking-[-0.035em] text-[#1d2a22] sm:text-[2.6rem] lg:text-[3.2rem]">
+        <h2 id={id} className="font-display text-[2.1rem] leading-[1.05] font-light tracking-[-0.035em] text-[#0b1f3a] sm:text-[2.6rem] lg:text-[3.2rem]">
           {title}
         </h2>
         {description && <p className="mt-4 max-w-2xl text-lg leading-relaxed text-soft">{description}</p>}

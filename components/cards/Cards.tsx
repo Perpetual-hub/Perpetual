@@ -5,7 +5,7 @@ import { DEAL_TYPE_LABEL, formatDate, formatMW, formatMoney } from "@/lib/format
 import type { Deal } from "@/lib/types";
 
 const cardBase =
-  "group relative flex h-full flex-col rounded-[var(--radius)] border border-line bg-white transition-[border-color,box-shadow] duration-200 hover:border-[#c3c5b8] hover:shadow-[0_8px_24px_-14px_rgba(20,30,22,0.22)]";
+  "group relative flex h-full flex-col rounded-[var(--radius)] border border-line bg-white transition-[border-color,box-shadow] duration-200 hover:border-[#c9d4e2] hover:shadow-[0_8px_24px_-14px_rgba(11,27,46,0.22)]";
 
 function Meta({ children }: { children: React.ReactNode }) {
   return <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs text-muted">{children}</div>;
@@ -23,7 +23,7 @@ export function FeatureDealCard({ deal }: { deal: Deal }) {
     <article className="group relative flex h-full flex-col overflow-hidden rounded-[14px] border border-[var(--home-rule)] bg-white/70 transition-colors hover:bg-white">
       <div className="border-b border-[var(--home-rule)] px-7 pt-7 pb-6">
         <Meta>
-          <span className="font-semibold text-[#2f6b45]">Featured Deal</span>
+          <span className="font-semibold text-[#0b5cad]">Featured Deal</span>
           <span>{formatDate(deal.date)}</span>
           {deal.isSample && <SampleBadge />}
         </Meta>
@@ -40,7 +40,7 @@ export function FeatureDealCard({ deal }: { deal: Deal }) {
           ))}
           <span className="text-xs text-muted">{DEAL_TYPE_LABEL[deal.type]}</span>
         </div>
-        <h3 className="font-display text-2xl leading-snug font-light tracking-[-0.02em] text-[#1d2a22] md:text-[1.75rem]">
+        <h3 className="font-display text-2xl leading-snug font-light tracking-[-0.02em] text-[#0b1f3a] md:text-[1.75rem]">
           <Link href={`/deals/${deal.slug}`} className="after:absolute after:inset-0">
             {deal.title}
           </Link>
@@ -55,7 +55,7 @@ function BigStat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <dt className="text-xs font-medium text-muted">{label}</dt>
-      <dd className="tabular mt-1 font-display text-lg font-bold tracking-tight text-[#1d2a22] md:text-xl">{value}</dd>
+      <dd className="tabular mt-1 font-display text-lg font-bold tracking-tight text-[#0b1f3a] md:text-xl">{value}</dd>
     </div>
   );
 }

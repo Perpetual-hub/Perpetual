@@ -160,7 +160,7 @@ export default function Home() {
       <section aria-labelledby="latest-h" className="relative z-10 bg-[var(--home-paper)]">
         <div className="container-page py-20 md:py-28">
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-            <h2 id="latest-h" className="max-w-[16ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#1d2a22]">
+            <h2 id="latest-h" className="max-w-[16ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
               Latest renewable energy deals.
             </h2>
             <Pill href="/deals">All deals</Pill>
@@ -171,14 +171,14 @@ export default function Home() {
               {moreDeals.map((d, i) => (
                 <li key={d.id}>
                   <Link href={`/deals/${d.slug}`} className="group grid grid-cols-[2rem_minmax(0,1fr)_auto] gap-x-4 gap-y-1 py-5">
-                    <span className="row-span-2 pt-0.5 font-display text-sm text-[#8a9483]" aria-hidden>
+                    <span className="row-span-2 pt-0.5 font-display text-sm text-[#8396ae]" aria-hidden>
                       {ROMAN[i]}
                     </span>
                     <span className="text-xs text-soft">
                       <span className="font-semibold text-brand-blue">{DEAL_TYPE_LABEL[d.type]}</span> · {formatDate(d.date)}
                     </span>
                     <span className="tabular row-span-2 self-center text-right text-sm font-semibold text-ink">{dealValue(d) ?? "Undisclosed"}</span>
-                    <span className="text-lg leading-snug text-[#1d2a22] group-hover:text-brand-blue">{d.title}</span>
+                    <span className="text-lg leading-snug text-[#0b1f3a] group-hover:text-brand-blue">{d.title}</span>
                   </Link>
                 </li>
               ))}

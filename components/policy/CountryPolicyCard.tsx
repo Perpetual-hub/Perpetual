@@ -18,7 +18,7 @@ function Fold({ title, count, children }: { title: string; count?: number; child
   return (
     <details className="group border-b border-line">
       <summary className="flex cursor-pointer list-none items-center gap-3 py-4 [&::-webkit-details-marker]:hidden">
-        <span className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</span>
+        <span className="font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">{title}</span>
         {count != null && <span className="tabular rounded-full bg-surface-2 px-2 py-0.5 text-xs text-muted">{count}</span>}
         <ChevronDown className="ml-auto size-5 text-muted transition-transform duration-200 group-open:rotate-180" aria-hidden />
       </summary>
@@ -38,7 +38,7 @@ export function CountryPolicyCard({ code, name }: { code: string; name: string }
     <section aria-labelledby="profits-h" className="border-t-2 border-brand-navy">
       <div className="flex flex-wrap items-baseline justify-between gap-3 pt-6 pb-6">
         <div>
-          <h2 id="profits-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+          <h2 id="profits-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
             Policy Assessment
           </h2>
           <p className="mt-1 text-sm text-muted">How investable {name} is for renewable energy, scored with PROFITS.</p>

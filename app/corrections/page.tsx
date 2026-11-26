@@ -28,7 +28,7 @@ export default function CorrectionsPage() {
           <CorrectionForm records={records} />
         </Suspense>
         <aside className="h-fit rounded-[var(--radius)] border border-line bg-surface-2 p-6 text-sm leading-relaxed text-muted">
-          <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">Review Process</h2>
+          <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">Review Process</h2>
           <ol className="mt-3 list-decimal space-y-2 pl-5">
             <li>We check your report against the source you give, and others.</li>
             <li>If it holds up, we update the record and its &ldquo;last updated&rdquo; date.</li>

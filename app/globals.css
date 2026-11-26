@@ -5,25 +5,25 @@
    later only needs to redefine these variables.
    ------------------------------------------------------------------ */
 :root {
-  /* Forest palette, shared with the landing page. Names kept so every component follows. */
-  --brand-blue: #2f6b45;
-  --brand-navy: #1d2a22;
-  --brand-sky: #a9cf94;
+  /* Logo palette: Perpetual blue, navy and sky, with the logo green and sun as accents. */
+  --brand-blue: #0b5cad;
+  --brand-navy: #083b6e;
+  --brand-sky: #5aa9e6;
   --brand-green: #34a04a;
   --brand-sun: #f5b000;
 
-  --ink: #1b241e;
-  --muted: #5f685c;
-  --line: #dcddd2;
-  --surface: #f3f2ea;
-  --surface-2: #ebeae0;
+  --ink: #0b1b2e;
+  --muted: #56667c;
+  --line: #dfe5ee;
+  --surface: #f5f7fa;
+  --surface-2: #eaf0f6;
   /* Editorial cards (no border) and the renewable accent used for headline numbers. */
-  --paper: #fbfaf4;
-  --accent: #2f7a4b;
-  --soft: #6a7365;
-  --hero-bg: #0f1813;
-  --hero-ink: #f2f0e1;
-  --hero-muted: #b9c2ad;
+  --paper: #fbfcfe;
+  --accent: #0b5cad;
+  --soft: #5f6f85;
+  --hero-bg: #061a33;
+  --hero-ink: #eef4fb;
+  --hero-muted: #a9c0da;
   --hero-line: rgba(255, 255, 255, 0.12);
 
   /* Technology colours: Solar, Wind and Hydro are fixed by the logo.
@@ -134,7 +134,7 @@ p {
   }
 }
 .skeleton {
-  background: linear-gradient(90deg, var(--surface-2) 25%, #f4f3ec 50%, var(--surface-2) 75%);
+  background: linear-gradient(90deg, var(--surface-2) 25%, #f2f5f9 50%, var(--surface-2) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.6s linear infinite;
 }
@@ -145,7 +145,7 @@ p {
   font-size: 11px;
 }
 .map-dark .maplibregl-ctrl-attrib {
-  background: rgba(15, 24, 19, 0.7) !important;
+  background: rgba(6, 26, 51, 0.7) !important;
   color: var(--hero-muted);
 }
 .map-dark .maplibregl-ctrl-attrib,
@@ -159,7 +159,7 @@ p {
   filter: invert(1);
 }
 .map-dark .maplibregl-ctrl-group {
-  background: rgba(15, 24, 19, 0.85);
+  background: rgba(6, 26, 51, 0.85);
   border: 1px solid var(--hero-line);
   box-shadow: none;
 }
@@ -223,18 +223,18 @@ p {
     radial-gradient(1.5px 1.5px at 88% 64%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
     radial-gradient(1px 1px at 6% 52%, rgba(255, 255, 255, 0.35) 50%, transparent 51%),
     radial-gradient(1px 1px at 52% 46%, rgba(255, 255, 255, 0.25) 50%, transparent 51%),
-    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(120, 170, 120, 0.14), transparent 70%);
+    radial-gradient(ellipse 60% 55% at 50% 50%, rgba(61, 142, 224, 0.14), transparent 70%);
   background-size:
     320px 320px, 260px 260px, 410px 410px, 300px 300px, 360px 360px, 280px 280px, 230px 230px, 390px 390px, 100% 100%;
 }
 
-/* ---------- Landing page: paper and forest chapters ---------- */
+/* ---------- Landing page surfaces (names kept from the first version; values follow the logo palette) ---------- */
 :root {
-  --home-paper: #f3f2ea;
-  --home-forest: #16211b;
-  --home-forest-ink: #f2f0e1;
-  --home-forest-muted: #b9c2ad;
-  --home-rule: #cfd1c4;
+  --home-paper: #f5f7fa;
+  --home-forest: #083b6e;
+  --home-forest-ink: #eef4fb;
+  --home-forest-muted: #a9c0da;
+  --home-rule: #d3dce8;
 }
 .home-paper {
   background: var(--home-paper);
@@ -292,13 +292,16 @@ html.intro-seen .pp-intro {
   z-index: 90;
   display: grid;
   place-items: center;
-  background: var(--home-forest);
+  background: var(--brand-blue);
   pointer-events: none;
-  animation: pp-lift 0.75s cubic-bezier(0.7, 0, 0.2, 1) 0.35s forwards;
+  animation: pp-lift 0.8s cubic-bezier(0.7, 0, 0.2, 1) 0.75s forwards;
 }
 .pp-curtain-mark {
   display: block;
-  animation: pp-spin 1.1s cubic-bezier(0.3, 0, 0.2, 1) both;
+  animation: pp-spin 1.5s cubic-bezier(0.3, 0, 0.2, 1) both;
+}
+.pp-curtain-word {
+  animation: pp-rise 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.05s both;
 }
 @keyframes pp-lift {
   to {
@@ -402,22 +405,26 @@ html.intro-seen .pp-intro {
   }
 }
 @supports (animation-timeline: view()) {
-  .pp-float {
-    animation: pp-float linear both;
-    animation-timeline: view();
-  }
   .pp-reveal {
     animation: pp-reveal linear both;
     animation-timeline: view();
     animation-range: entry 10% cover 35%;
   }
 }
-@keyframes pp-float {
-  from {
-    transform: translateY(calc(var(--d) * 1px));
-  }
+/* Photo strips: the list is doubled, so moving it by half its width loops seamlessly. */
+.pp-marquee-track {
+  animation: pp-marquee 60s linear infinite;
+}
+.pp-marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 70s;
+}
+.pp-marquee:hover .pp-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes pp-marquee {
   to {
-    transform: translateY(calc(var(--d) * -1px));
+    transform: translateX(-50%);
   }
 }
 @keyframes pp-reveal {
@@ -430,7 +437,7 @@ html.intro-seen .pp-intro {
   .pp-kenburns,
   .pp-line,
   .pp-slow-spin,
-  .pp-float,
+  .pp-marquee-track,
   .pp-reveal,
   .pp-hero-name,
   .pp-hero-photo,

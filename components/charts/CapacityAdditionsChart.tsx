@@ -65,7 +65,7 @@ export function CapacityAdditionsChart({
     <div>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <h2 className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22]">{title}</h2>
+          <h2 className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">{title}</h2>
           <p className="mt-1 text-sm text-muted">
             Net capacity added in {place} each year{only ? `, ${TECH_BY_ID[only].label.toLowerCase()}` : ""}
           </p>
@@ -87,7 +87,7 @@ export function CapacityAdditionsChart({
       </div>
 
       <p className="mt-4 text-sm text-muted">
-        <span className="tabular font-display text-3xl font-light tracking-[-0.03em] text-[#1d2a22]">
+        <span className="tabular font-display text-3xl font-light tracking-[-0.03em] text-[#0b1f3a]">
           {fmt(last.total)} {unit}
         </span>{" "}
         added in {last.year}

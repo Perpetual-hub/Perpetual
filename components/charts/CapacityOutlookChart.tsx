@@ -77,7 +77,7 @@ export function CapacityOutlookChart({ outlook, actual }: { outlook: CapacityOut
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <p className="text-sm text-muted">Projected for {end.year}, {scenario.label.toLowerCase()}</p>
-          <p className="tabular font-display text-4xl font-light tracking-[-0.03em] text-[#1d2a22]">
+          <p className="tabular font-display text-4xl font-light tracking-[-0.03em] text-[#0b1f3a]">
             {fmt(end.total)} <span className="text-lg font-semibold text-muted">GW</span>
           </p>
           <p className="mt-1 text-sm text-muted">Plus {fmt(end.battery)} GW of battery storage</p>

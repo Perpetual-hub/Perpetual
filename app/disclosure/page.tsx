@@ -200,7 +200,7 @@ export default function DisclosurePage() {
               ].map(([t, d], i) => (
                 <li key={t} className="border-t-2 border-brand-navy pt-4">
                   <span className="tabular text-xs font-semibold text-muted">Step {i + 1}</span>
-                  <h3 className="mt-1 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{t}</h3>
+                  <h3 className="mt-1 font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">{t}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted">{d}</p>
                 </li>
               ))}
@@ -281,7 +281,7 @@ function Feature({
   return (
     <div className="border-t border-line pt-5">
       <Icon className="size-5 text-brand-blue" aria-hidden />
-      <h3 className="mt-3 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h3>
+      <h3 className="mt-3 font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">{title}</h3>
       <p className="mt-1.5 text-sm leading-relaxed text-muted">{children}</p>
     </div>
   );

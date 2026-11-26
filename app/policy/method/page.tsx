@@ -111,7 +111,7 @@ export default function PolicyMethodPage() {
           {DEAL_BREAKERS.map((d, i) => (
             <Paper as="li" key={d.id}>
               <p className="text-[13px] text-soft">Deal-breaker {i + 1}</p>
-              <h3 className="mt-1.5 font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{d.title}</h3>
+              <h3 className="mt-1.5 font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">{d.title}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-ink/85">{d.label}.</p>
             </Paper>
           ))}
@@ -226,7 +226,7 @@ function PresetBars() {
           <p className="text-[13px] text-ink">{w.label}</p>
           <div className="mt-1.5 flex h-8 items-end gap-1" role="img" aria-label={`${w.label} weights: ${PILLARS.map((p) => `${p.id} ${w.weights[p.id]}`).join(", ")}`}>
             {PILLARS.map((p) => (
-              <span key={p.id} className="flex-1 bg-[#c9cfc6]" style={{ height: `${(w.weights[p.id] / max) * 100}%` }} title={`${p.name}: ${w.weights[p.id]}`} />
+              <span key={p.id} className="flex-1 bg-[#c8d4e3]" style={{ height: `${(w.weights[p.id] / max) * 100}%` }} title={`${p.name}: ${w.weights[p.id]}`} />
             ))}
           </div>
         </div>

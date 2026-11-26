@@ -53,7 +53,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
           <>
             {/* Background image, so a photo that fails to load leaves the plain navy band rather than a broken icon. */}
             <div aria-hidden className="absolute inset-0 -z-20 bg-cover bg-center" style={{ backgroundImage: `url("${photo.url}")` }} />
-            <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(14,22,17,0.9)_0%,rgba(14,22,17,0.6)_50%,rgba(14,22,17,0.25)_100%),linear-gradient(0deg,rgba(14,22,17,0.8)_0%,rgba(14,22,17,0)_60%)]" />
+            <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,26,51,0.9)_0%,rgba(6,26,51,0.6)_50%,rgba(6,26,51,0.25)_100%),linear-gradient(0deg,rgba(6,26,51,0.8)_0%,rgba(6,26,51,0)_60%)]" />
           </>
         )}
         <div className={`container-page pt-10 pb-12 md:pt-14 md:pb-14 ${photo ? "md:pt-32 md:pb-14" : ""}`}>
@@ -79,7 +79,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
           <p className={`text-sm ${photo ? "text-hero-ink/75" : "text-soft"}`}>
             {s.kind === "country" ? "Country profile" : "Region profile"}
           </p>
-          <h1 className={`mt-5 font-display text-[2.9rem] leading-[0.98] font-light tracking-[-0.04em] sm:text-[4rem] lg:text-[5.4rem] ${photo ? "text-hero-ink" : "text-[#1d2a22]"}`}>
+          <h1 className={`mt-5 font-display text-[2.9rem] leading-[0.98] font-light tracking-[-0.04em] sm:text-[4rem] lg:text-[5.4rem] ${photo ? "text-hero-ink" : "text-[#0b1f3a]"}`}>
             {s.name}
           </h1>
           {snap ? (
@@ -136,7 +136,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
             aria-labelledby="official-h"
             className="rounded-[var(--radius)] bg-paper p-6 md:p-8"
           >
-            <h2 id="official-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+            <h2 id="official-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
               Installed Renewable Capacity
             </h2>
             <p className="mt-2 mb-6 max-w-3xl leading-relaxed text-muted">
@@ -153,7 +153,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
         {memberRows.length > 0 && (
           <section aria-labelledby="countries-h">
-            <h2 id="countries-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22] md:text-[2.6rem]">
+            <h2 id="countries-h" className="mb-2 font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem]">
               Countries in {s.name}
             </h2>
             <p className="mb-6 max-w-3xl leading-relaxed text-muted">
@@ -209,7 +209,7 @@ function Stat({
   return (
     <div>
       <dt className={`text-xs font-medium ${dark ? "text-white/75" : "text-muted"}`}>{label}</dt>
-      <dd className={`tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] ${dark ? "text-hero-ink" : "text-[#1d2a22]"}`}>
+      <dd className={`tabular mt-1 font-display text-3xl font-light tracking-[-0.02em] ${dark ? "text-hero-ink" : "text-[#0b1f3a]"}`}>
         {value}
         {unit && (
           <span className={`ml-1 text-base font-semibold ${dark ? "text-white/70" : "text-muted"}`}>
@@ -233,7 +233,7 @@ export function ChartCard({
   return (
     <section className="rounded-[var(--radius)] bg-paper p-6">
       <div className="mb-5 flex items-baseline justify-between gap-4">
-        <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#1d2a22]">{title}</h2>
+        <h2 className="font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">{title}</h2>
         {note && <span className="text-xs text-muted">{note}</span>}
       </div>
       {children}
@@ -255,7 +255,7 @@ export function ListCard({
   return (
     <section>
       <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#1d2a22]">{title}</h2>
+        <h2 className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">{title}</h2>
         <Link
           href={href}
           className="text-sm font-medium text-brand-blue hover:underline"
