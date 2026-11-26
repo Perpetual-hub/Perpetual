@@ -20,7 +20,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import { useEffect, useRef, useState } from "react";
 import type { MapPoint } from "@/lib/data";
 import { MILESTONE_LABEL } from "@/lib/milestones";
-import { POLICY_RAMP, SHARE_RAMP, type PolicyCell, type PolicyScores } from "@/lib/policy-colors";
+import { SHARE_RAMP, VERDICT_FILL, type PolicyCell, type PolicyScores } from "@/lib/policy-colors";
 import { countryName, formatDate, formatMW } from "@/lib/format";
 import { TECHNOLOGIES, TECH_BY_ID } from "@/lib/tech";
 import type { Technology } from "@/lib/types";
@@ -35,12 +35,10 @@ export type MapMode = "projects" | "countries" | "policy" | "share";
 
 const isChoropleth = (m: MapMode) => m === "policy" || m === "share";
 const fillExpr = (m: MapMode) =>
-  [
-    "case",
-    ["==", ["get", "score"], null],
-    "rgba(255,255,255,0.03)",
-    ["interpolate", ["linear"], ["get", "score"], ...(m === "share" ? SHARE_RAMP : POLICY_RAMP).flat()],
-  ] as unknown as ExpressionSpecification;
+  (m === "share"
+    ? ["case", ["==", ["get", "score"], null], "rgba(255,255,255,0.03)", ["interpolate", ["linear"], ["get", "score"], ...SHARE_RAMP.flat()]]
+    : // Policy Review: one colour per verdict; countries not yet reviewed stay a quiet grey.
+      ["match", ["coalesce", ["get", "score"], 0], 3, VERDICT_FILL[3], 2, VERDICT_FILL[2], 1, VERDICT_FILL[1], "rgba(200,212,227,0.16)"]) as unknown as ExpressionSpecification;
 
 export type { PolicyCell, PolicyScores } from "@/lib/policy-colors";
 
@@ -150,7 +148,7 @@ function applyPolicy(map: MlMap, fc: GeoJSON.FeatureCollection, scores?: PolicyS
     type: "FeatureCollection",
     features: fc.features.map((f) => {
       const cell = scores?.[(f.properties as { iso2: string }).iso2];
-      return { ...f, properties: { ...f.properties, score: cell?.score ?? null, flagged: !!cell?.flagged } };
+      return { ...f, properties: { ...f.properties, score: cell?.score ?? null, flagged: !!cell?.flagged, faded: !!cell?.faded } };
     }),
   };
   (map.getSource("policy") as GeoJSONSource | undefined)?.setData(data);
@@ -357,7 +355,7 @@ export default function ProjectMap({
         layout: { visibility: visible("policy") },
         paint: {
           "fill-color": fillExpr(modeRef.current),
-          "fill-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 1, 0.88],
+          "fill-opacity": ["case", ["boolean", ["feature-state", "hover"], false], 1, ["==", ["get", "faded"], true], 0.4, 0.88],
         },
       });
       map.addLayer({
@@ -763,15 +761,16 @@ function Tooltip({ hover, theme, mode }: { hover: Hover; theme: MapTheme; mode: 
             ) : (
               <div className={`mt-0.5 ${muted}`}>No published data</div>
             )
-          ) : hover.cell?.score != null ? (
-            <div className={`mt-0.5 tabular ${muted}`}>
-              Score {hover.cell.score.toFixed(1)} / 5{hover.cell.rank ? ` · rank ${hover.cell.rank}` : ""}
-              {hover.cell.flagged && <div className="mt-1 font-medium text-[#f5b000]">Has a deal-breaker</div>}
-              {hover.cell.isSample && <div className="mt-1">Illustrative score</div>}
-              <div className="mt-1">Click for the breakdown</div>
+          ) : hover.cell?.verdict ? (
+            <div className={`mt-0.5 ${muted}`}>
+              <span className="font-medium text-current">{hover.cell.verdict}</span>
+              {hover.cell.direction ? `, ${hover.cell.direction.toLowerCase()}` : ""}
+              {hover.cell.lastReviewed && <div className="mt-0.5">Reviewed {formatDate(hover.cell.lastReviewed)}{hover.cell.faded ? ", out of date" : ""}</div>}
+              {hover.cell.flagged && <div className="mt-1 font-medium text-[#f5b000]">Active red flag</div>}
+              <div className="mt-1">Click for the full review</div>
             </div>
           ) : (
-            <div className={`mt-0.5 ${muted}`}>Not scored yet</div>
+            <div className={`mt-0.5 ${muted}`}>Not yet reviewed</div>
           )}
         </>
       ) : hover.kind === "point" && hover.p.deal ? (

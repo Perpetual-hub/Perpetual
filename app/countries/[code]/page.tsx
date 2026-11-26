@@ -13,10 +13,10 @@ export async function generateMetadata({ params }: PageProps<"/countries/[code]"
   const p = getCountryProfile((await params).code);
   if (!p) return {};
   return {
-    title: `${p.summary.name}: Renewable Energy Statistics`,
+    title: `${p.summary.name} Renewable Energy Statistics`,
     description: countryStats.get(p.summary.key)
       ? `Installed renewable capacity in ${p.summary.name} by technology, from official IRENA statistics, with deals and policy.`
-      : `${p.summary.deals} renewable energy deals in ${p.summary.name}, with policy scores.`,
+      : `${p.summary.deals} renewable energy deals in ${p.summary.name}, with its Policy Review.`,
   };
 }
 

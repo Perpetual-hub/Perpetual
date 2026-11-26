@@ -18,7 +18,7 @@ import {
   formatGW,
   DEAL_TYPE_LABEL,
 } from "@/lib/format";
-import { CountryPolicyCard } from "@/components/policy/CountryPolicyCard";
+import { CountryReviewCard } from "@/components/policy-review/CountryReviewCard";
 import { InvestorsCard } from "./InvestorsCard";
 
 /** Shared template for country and region statistics pages. */
@@ -128,7 +128,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
 
       <div className="container-page space-y-14 py-12">
         {s.kind === "country" && (
-          <CountryPolicyCard code={s.key} name={s.name} />
+          <CountryReviewCard code={s.key} name={s.name} />
         )}
 
         {official && (

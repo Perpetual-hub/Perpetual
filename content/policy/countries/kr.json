@@ -1,0 +1,147 @@
+{
+  "country": "KR",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "South Korea supports renewables through its Renewable Portfolio Standard, with competitive auctions that award 20-year fixed-price REC contracts. Corporate PPAs are legal and growing, but grid limits slow offshore wind.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "nrfkr"
+          ],
+          "confidence": "medium",
+          "reason": "Competitive auctions award 20-year fixed-price REC contracts, and offshore wind rounds were awarded in 2023 and 2024."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "nrfkr"
+          ],
+          "confidence": "medium",
+          "reason": "Auction winners receive 20-year fixed-price REC contracts alongside power sales."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": [],
+          "reason": "Foreign ownership rules for generation were not confirmed from a source we could read."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "nrfkr"
+          ],
+          "confidence": "medium",
+          "reason": "Grid and infrastructure limits pace offshore wind at about 4 GW a year, and KEPCO grid delays allow deadline extensions."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "nrfkr"
+          ],
+          "confidence": "medium",
+          "reason": "An offshore wind act passed in 2025 and an RPS reform bill from January 2026 are reshaping the market."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The offshore wind act and the RPS reform bill move procurement toward government-led auctions with long contracts.",
+        "sources": [
+          "nrfkr"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cg",
+            "bar"
+          ],
+          "confidence": "low",
+          "reason": "Direct and third-party corporate PPAs have been legal since 2022, and signed volumes reached a record in 2024."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "s4c"
+          ],
+          "confidence": "low",
+          "reason": "Grid usage fees for corporate PPAs are described as opaque and costly."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cg"
+          ],
+          "confidence": "low",
+          "reason": "Domestic renewable supply is expected to cover only about half of corporate demand by 2038."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No published change to corporate PPA rules in the last 12 months was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "nrfkr",
+      "title": "Global offshore wind, South Korea",
+      "publisher": "Norton Rose Fulbright with Lee & Ko",
+      "url": "https://nortonrosefulbright.com/en/knowledge/publications/faee407b/global-offshore-wind-south-korea",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07"
+    },
+    {
+      "id": "cg",
+      "title": "South Korea's PPA system, status and opportunities for renewable energy development",
+      "publisher": "The Climate Group (RE100)",
+      "url": "https://www.theclimategroup.org/re100/our-work/publications/south-koreas-ppa-system-status-and-opportunities-renewable-energy-development",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    },
+    {
+      "id": "bar",
+      "title": "As South Korean PPAs close in on grid parity, what does it mean for offtakers?",
+      "publisher": "Baringa",
+      "url": "https://www.baringa.com/en/insights/low-carbon-capital/south-korean-ppas-close-in-on-grid-parity/",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    },
+    {
+      "id": "s4c",
+      "title": "Opaque grid-fee system blocks PPA growth despite strong corporate demand",
+      "publisher": "Solutions for Our Climate",
+      "url": "https://forourclimate.org/newsroom/1170",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Foreign ownership rules for generation, KEPCO payment practice and curtailment compensation were not confirmed, so the ownership gate is not rated."
+}

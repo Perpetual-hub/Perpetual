@@ -1,0 +1,212 @@
+{
+  "country": "TH",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Thailand is opening direct corporate PPAs and green tariffs, but in 2026 the government moved to cut prices paid under legacy solar and wind PPAs. That unresolved cut weighs on utility-scale investment.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "wfwth"
+          ],
+          "confidence": "low",
+          "reason": "Feed-in tariff rounds allocate capacity through EGAT and PEA, but procurement is irregular and quotas are set by the government."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "bmth"
+          ],
+          "confidence": "low",
+          "reason": "Contracts run up to 25 years, but the government is now resetting prices on legacy contracts."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tg"
+          ],
+          "confidence": "low",
+          "reason": "Foreign-majority power companies usually rely on investment promotion, and a 2023 draft rule would tighten nationality tests for licence holders."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "unsupportive",
+          "sources": [
+            "bmth",
+            "rec"
+          ],
+          "confidence": "medium",
+          "reason": "In 2026 the government adopted a policy to restructure legacy solar and wind PPAs to lower purchase prices."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "The legacy PPA restructuring adopted in 2026 lowers prices paid to existing projects.",
+        "sources": [
+          "bmth"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "nation",
+            "ieefa"
+          ],
+          "confidence": "medium",
+          "reason": "Rooftop private PPAs work today. Direct PPAs over the grid were extended to all industries in July 2026, but the access charge is not yet set."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tg"
+          ],
+          "confidence": "low",
+          "reason": "Foreign-majority companies usually rely on investment promotion to own power assets."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "ieefa"
+          ],
+          "confidence": "low",
+          "reason": "Rooftop export buyback is capped at 500 MW and limited to ten-year contracts."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "nation"
+          ],
+          "confidence": "low",
+          "reason": "Direct PPA rules were drafted, shelved and revived between 2024 and 2026."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "In July 2026 the energy policy council removed the 2,000 MW cap on direct PPAs and opened them to all industries.",
+        "sources": [
+          "nation"
+        ]
+      }
+    }
+  },
+  "redFlags": [
+    {
+      "type": "retroactive_cut",
+      "status": "active",
+      "segments": [
+        "utility"
+      ],
+      "reason": "The government moved in 2026 to cut prices under legacy solar and wind PPAs for operating projects.",
+      "sources": [
+        "bmth",
+        "rec"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-07-15",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Direct PPAs opened to all industries, cap removed",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "nation"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "kind": "tariff",
+      "effect": "negative",
+      "title": "Policy adopted to restructure legacy solar and wind PPAs at lower prices",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "bmth"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "bmth",
+      "title": "Thailand, government moves to revisit legacy renewable PPAs",
+      "publisher": "Baker McKenzie",
+      "url": "https://www.bakermckenzie.com/en/insight/publications/2026/07/thailand-government-moves-to-revisit-legacy-renewable-ppas",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07"
+    },
+    {
+      "id": "rec",
+      "title": "Thailand renewable contracts review and adder",
+      "publisher": "Reccessary",
+      "url": "https://www.reccessary.com/en/news/thailand-renewable-contracts-review-adder",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026"
+    },
+    {
+      "id": "wfwth",
+      "title": "Thailand's ERC revises PPA timeline for renewable procurement under FIT scheme",
+      "publisher": "Watson Farley & Williams",
+      "url": "https://www.wfw.com/articles/thailands-erc-revises-ppa-timeline-for-renewable-procurement-under-fit-scheme/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025"
+    },
+    {
+      "id": "tg",
+      "title": "Thailand to restrict foreign shareholding in electricity businesses",
+      "publisher": "Tilleke & Gibbins",
+      "url": "https://www.tilleke.com/insights/thailand-to-restrict-foreign-shareholding-in-electricity-businesses/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2023-07-25"
+    },
+    {
+      "id": "nation",
+      "title": "Thailand scraps data centre power cap, opens clean electricity market to all industry",
+      "publisher": "The Nation",
+      "url": "https://www.nationthailand.com/news/policy/40070384",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07"
+    },
+    {
+      "id": "ieefa",
+      "title": "Reforming Thailand's rooftop solar policy framework to reduce gas dependence",
+      "publisher": "IEEFA",
+      "url": "https://ieefa.org/resources/reforming-thailands-rooftop-solar-policy-framework-reduce-gas-dependence",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-08"
+    }
+  ],
+  "gaps": "EGAT payment record, curtailment compensation and the final third-party access charge were not established. Foreign ownership rules for licence holders need confirmation from the final ERC regulation."
+}

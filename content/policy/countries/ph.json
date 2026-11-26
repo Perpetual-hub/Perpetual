@@ -1,0 +1,279 @@
+{
+  "country": "PH",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "The Philippines runs regular Green Energy Auctions and has allowed full foreign ownership of solar, wind and hydro projects since 2022. Transmission delays are the main constraint, and corporate buying is opening up gradually.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "bw",
+            "enr"
+          ],
+          "confidence": "medium",
+          "reason": "Green Energy Auctions run regularly. GEA-4 awarded about 10.2 GW across 123 projects, with more rounds planned for 2026 and 2027."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "gma",
+            "ngcp"
+          ],
+          "confidence": "low",
+          "reason": "Auction tariffs are funded by a consumer charge, but its collection was suspended through December 2026 while the fund balance stays positive."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "inq",
+            "bmph"
+          ],
+          "confidence": "low",
+          "reason": "Full foreign ownership of solar, wind, hydro and ocean projects has been allowed since December 2022, but land must be leased rather than owned."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "pids",
+            "inqtx"
+          ],
+          "confidence": "medium",
+          "reason": "Only 75 of 258 planned grid projects were reported complete, and the regulator extended deadlines for delayed transmission lines to 2027."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "conv"
+          ],
+          "confidence": "low",
+          "reason": "The Renewable Energy Act of 2008 and official targets of 35% by 2030 and 50% by 2040 frame the market."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The DOE plans more auction rounds across 2026 and 2027, and other companies may now build some transmission lines.",
+        "sources": [
+          "enr",
+          "inqtx2"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "dg",
+            "mberc"
+          ],
+          "confidence": "medium",
+          "reason": "Users of about 100 kW and above may choose suppliers from June 2026 and buy green power, but the rollout is phased."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "inq",
+            "bmph"
+          ],
+          "confidence": "low",
+          "reason": "Full foreign ownership is allowed, but land must be leased rather than owned."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "ember",
+            "pmnm"
+          ],
+          "confidence": "medium",
+          "reason": "Net metering approval was cut to 10 days and permits to 3 working days, though local permits still cause delays."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "mberc",
+            "adbgeop"
+          ],
+          "confidence": "low",
+          "reason": "Green Energy Option rules are being amended, and the promised phase-in roadmap was not yet published."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Retail choice opened to users of about 100 kW from June 2026, and net metering approvals were shortened.",
+        "sources": [
+          "dg",
+          "ember"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-06-26",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Retail competition opens to users of about 100 kW",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "dg"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "bw",
+      "title": "Fourth round of Green Energy Auction awards top 10,159 MW",
+      "publisher": "BusinessWorld",
+      "url": "https://www.bworldonline.com/?p=710655",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-11"
+    },
+    {
+      "id": "enr",
+      "title": "Philippines awards 10.2 GW in GEA-4 renewable auction",
+      "publisher": "Enerdata",
+      "url": "https://www.enerdata.net/publications/daily-energy-news/philippines-awards-102-gw-gea-4-renewable-auction.html",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-11"
+    },
+    {
+      "id": "gma",
+      "title": "Consumers get four more months of relief as ERC extends GEA-All charge suspension",
+      "publisher": "GMA News",
+      "url": "https://www.gmanetwork.com/news/money/economy/999126/consumers-get-four-more-months-of-relief-as-erc-extends-gea-all-charge-suspension/story/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-08"
+    },
+    {
+      "id": "ngcp",
+      "title": "Customer Bulletin No. 2026-03 on the Green Energy Auction Allowance",
+      "publisher": "National Grid Corporation of the Philippines",
+      "url": "https://www.ngcp.ph/Attachment-Uploads/Customer%20Bulletin%20No-2026-01-27-11-48-33.%202026-03.pdf",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2026-01-27"
+    },
+    {
+      "id": "inq",
+      "title": "No more renewable energy foreign equity limit in PH",
+      "publisher": "Philippine Daily Inquirer",
+      "url": "https://business.inquirer.net/373243/no-more-renewable-energy-foreign-equity-limit-in-ph",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2022-11"
+    },
+    {
+      "id": "bmph",
+      "title": "Philippines, renewable energy sector is now open to full foreign ownership",
+      "publisher": "Baker McKenzie",
+      "url": "https://insightplus.bakermckenzie.com/bm/projects/philippines-renewable-energy-sector-is-now-open-to-full-foreign-ownership",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2022"
+    },
+    {
+      "id": "pids",
+      "title": "Presentation on the power sector and transmission",
+      "publisher": "Philippine Institute for Development Studies",
+      "url": "https://pidswebs.pids.gov.ph/CDN/document/Navarro_0514.pdf",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    },
+    {
+      "id": "inqtx",
+      "title": "ERC extends deadline for two transmission projects",
+      "publisher": "Philippine Daily Inquirer",
+      "url": "https://business.inquirer.net/607561/erc-extends-deadline-for-two-transmission-projects",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026"
+    },
+    {
+      "id": "inqtx2",
+      "title": "ERC lets non-NGCP firms build transmission projects",
+      "publisher": "Philippine Daily Inquirer",
+      "url": "https://business.inquirer.net/596111/erc-lets-non-ngcp-firms-build-transmission-projects",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026"
+    },
+    {
+      "id": "conv",
+      "title": "Special report on renewable energy in the Philippines",
+      "publisher": "Conventus Law (SyCip Salazar)",
+      "url": "https://conventuslaw.com/special-report/special-report-on-renewal-energy-in-the-philippines/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-05"
+    },
+    {
+      "id": "dg",
+      "title": "ERC lowers retail electricity threshold to 100 kW",
+      "publisher": "Daily Guardian",
+      "url": "https://www.dailyguardian.com.ph/blog/erc-lowers-retail-electricity-threshold-to-100-kw",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-11"
+    },
+    {
+      "id": "mberc",
+      "title": "ERC OKs new rules to boost consumer power choice",
+      "publisher": "Manila Bulletin",
+      "url": "https://mb.com.ph/2025/11/04/erc-oks-new-rules-to-boost-consumer-power-choice-smart-grid-shift",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-11-04"
+    },
+    {
+      "id": "ember",
+      "title": "Payback period for residential rooftop solar in the Philippines falls to just three years",
+      "publisher": "Ember",
+      "url": "https://ember-energy.org/latest-updates/payback-period-for-residential-rooftop-solar-in-the-philippines-falls-to-just-three-years-as-electricity-prices-surge/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026"
+    },
+    {
+      "id": "pmnm",
+      "title": "DOE cuts net metering approval to 10 days amid energy emergency",
+      "publisher": "Power Philippines",
+      "url": "https://powerphilippines.com/doe-cuts-net-metering-approval-to-10-days-amid-energy-emergency/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07-14"
+    },
+    {
+      "id": "adbgeop",
+      "title": "Rules for the Green Energy Option Program, ERC Resolution No. 08, Series of 2021",
+      "publisher": "Asian Development Bank Law and Policy Reform",
+      "url": "https://lpr.adb.org/resource/rules-green-energy-option-progam-energy-regulatory-commission-resolution-no-08-series-2021",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2021"
+    }
+  ],
+  "gaps": "Payment record of distribution utilities, curtailment compensation and C&I contract enforcement were not established from public sources."
+}

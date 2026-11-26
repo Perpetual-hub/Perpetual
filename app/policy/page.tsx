@@ -1,108 +1,133 @@
-import { ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SampleBadge } from "@/components/ui/Badge";
-import { PolicyRanking } from "@/components/policy/PolicyRanking";
-import { Lede, Paper, Statement } from "@/components/editorial/Editorial";
-import { PageHero } from "@/components/ui/PageHero";
+import { Suspense } from "react";
+import { Pill } from "@/components/home/Landing";
+import { PolicyGlobe, ReviewTable } from "@/components/policy-review/PolicyOverview";
+import { HeroStats, PageHero } from "@/components/ui/PageHero";
+import { countryStats } from "@/lib/data";
+import { formatDate } from "@/lib/format";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
-import { getPolicyEvaluation } from "@/lib/data";
-import { countryName } from "@/lib/format";
-import { getPolicyRows } from "@/lib/policy";
+import { getLatestEvents, getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
 
 export const metadata: Metadata = {
-  title: "PROFITS Policy Map",
+  title: "Policy Review",
   description:
-    "PROFITS scores how investable each country is for renewable energy across seven pillars, covering political, regulatory, offtake, financial, infrastructure, track record and social factors.",
+    "How ready each market is for renewable investment. Every reviewed country gets a verdict for utility-scale and C&I deals, built from six investor questions with reasons and sources.",
 };
 
 export default function PolicyPage() {
-  const rows = getPolicyRows(countryName);
-  const ev = getPolicyEvaluation();
+  const rows = getReviewRows();
+  const cells = getVerdictCells();
+  const events = getLatestEvents(10);
+  const ready = (s: "utility" | "ci") => rows.filter((r) => r.segments[s].verdict === "ready").length;
+  const flagged = rows.filter((r) => r.activeFlags > 0).length;
+  const total = countryStats.all().length;
+
   return (
-    <div>
+    <>
       <PageHero
         photo={HERO_PHOTOS.policy}
         eyebrow="Policy"
-        title="Where renewable investment is best supported"
-        lede={`PROFITS scores ${rows.length} countries on seven pillars, from political commitment to social licence. Choose a deal type to re-weight the ranking, and open a country to see the evidence behind each pillar.`}
+        title="How ready each market is for renewable investment"
+        lede="Each reviewed country gets a verdict for utility-scale and C&I deals. Ready, Workable or Difficult, built from six questions an investment committee asks, each with a reason and a source."
         aside={
-          <Link href="/policy/method" className="group flex flex-wrap items-center justify-between gap-4">
-            <span className="max-w-3xl">
-              <span className="font-display text-xl font-light tracking-[-0.02em] text-[#0b1f3a]">How the scores are built and tested.</span>
-              {ev && (
-                <span className="ml-2 text-[15px] text-soft">
-                  Top scoring countries grew renewables by <span className="tabular text-accent">{Math.round(ev.growth.topMedian * 100)}%</span> from{" "}
-                  {ev.fromYear} to {ev.toYear}, against {Math.round(ev.growth.bottomMedian * 100)}% for the lowest.
-                </span>
-              )}
-            </span>
-            <span className="inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#0b1f3a] group-hover:bg-white">
-              Read the method
-              <span className="grid size-7 place-items-center rounded-full bg-[#0b1f3a] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
-                <ArrowUpRight className="size-3.5" />
-              </span>
-            </span>
-          </Link>
+          <HeroStats
+            stats={[
+              { label: "Markets reviewed", value: String(rows.length) },
+              { label: "Ready for utility-scale", value: String(ready("utility")) },
+              { label: "Ready for C&I", value: String(ready("ci")) },
+              { label: "With an active red flag", value: String(flagged) },
+            ]}
+          />
         }
       />
-      <div className="container-page pb-24">
 
-      {rows.length > 0 ? (
-        <section aria-labelledby="ranking-h" className="pt-16 md:pt-24">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <div className="flex flex-wrap items-center gap-3">
-                <Statement id="ranking-h">Countries ranked by investment climate.</Statement>
-                {rows.every((r) => r.isSample) && <SampleBadge />}
-              </div>
-              <Lede className="mt-3 text-base">
-                Scores come from the Climate Policy Database, which draws on the IEA Policies Hub, along with World Bank
-                indicators, IRENA statistics and our deal record.
-              </Lede>
-            </div>
-            <Link
-              href="/#policy"
-              className="group inline-flex items-center gap-3 rounded-full border border-line bg-white/60 py-1.5 pr-1.5 pl-4 text-sm font-medium text-[#0b1f3a] hover:bg-white"
-            >
-              See it on the globe
-              <span className="grid size-7 place-items-center rounded-full bg-[#0b1f3a] text-[var(--home-paper)] transition-transform duration-200 group-hover:rotate-45" aria-hidden>
-                <ArrowUpRight className="size-3.5" />
-              </span>
-            </Link>
+      <section aria-labelledby="map-h" className="on-dark bg-hero text-hero-ink">
+        <div className="container-page py-16 md:py-20">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
+            <h2 id="map-h" className="max-w-[18ch] font-display text-[clamp(2rem,4.4vw,3.6rem)] leading-[1] font-light tracking-[-0.04em] text-hero-ink">
+              The verdict map.
+            </h2>
+            <p className="max-w-md text-[15px] leading-relaxed text-hero-ink/75">
+              Choose a deal type. Grey countries have not been reviewed yet, and faded ones are out of date. Click a country for its full review.
+            </p>
           </div>
-          <PolicyRanking rows={rows} />
-        </section>
-      ) : (
-        <section aria-labelledby="ranking-h" className="pt-16">
-          <Paper>
-            <Statement id="ranking-h">Country scores are being researched.</Statement>
-            <Lede className="mt-3 text-base">Each country will be published with a score and the sources behind every pillar.</Lede>
-          </Paper>
-        </section>
-      )}
-
-      <section aria-labelledby="reference-h" className="mt-20 border-t border-line pt-10 md:mt-28 md:pt-14">
-        <Statement id="reference-h">The data behind the scores.</Statement>
-        <dl className="mt-8 grid grid-cols-[minmax(0,1fr)] border-t border-line md:grid-cols-2">
-          {REFERENCES.map(([name, use]) => (
-            <div key={name} className="grid grid-cols-[minmax(0,1fr)] gap-1 border-b border-line py-4 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6 md:odd:pr-8 md:even:pl-8">
-              <dt className="text-sm font-semibold text-ink">{name}</dt>
-              <dd className="text-sm leading-relaxed text-soft">{use}</dd>
-            </div>
-          ))}
-        </dl>
+          <Suspense fallback={<div className="h-[62vh] min-h-[420px] rounded-[16px] bg-white/5" />}>
+            <PolicyGlobe cells={cells} />
+          </Suspense>
+        </div>
       </section>
+
+      <div className="container-page space-y-20 py-16 md:py-24">
+        <section aria-labelledby="table-h">
+          <h2 id="table-h" className="mb-8 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
+            Reviewed markets.
+          </h2>
+          <Suspense fallback={<div className="skeleton h-96 rounded-[14px]" />}>
+            <ReviewTable
+              rows={rows.map((r) => ({
+                iso2: r.iso2,
+                name: r.name,
+                lastReviewed: r.lastReviewed,
+                freshness: r.freshness,
+                activeFlags: r.activeFlags,
+                segments: {
+                  utility: { verdict: r.segments.utility.verdict, direction: r.segments.utility.direction },
+                  ci: { verdict: r.segments.ci.verdict, direction: r.segments.ci.direction },
+                },
+              }))}
+            />
+          </Suspense>
+          <p className="mt-4 max-w-3xl text-sm text-soft">
+            {rows.length} of {total} countries and territories reviewed so far. The others show Not yet reviewed and keep their capacity and deal pages.
+            Reviews are desk research from published legal guides and official documents, dated and listed with every source.
+          </p>
+        </section>
+
+        {events.length > 0 && (
+          <section aria-labelledby="changes-h">
+            <h2 id="changes-h" className="mb-8 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
+              Latest policy changes.
+            </h2>
+            <ul className="divide-y divide-line border-y border-line">
+              {events.map((e, i) => (
+                <li key={i} className="grid gap-1 py-4 md:grid-cols-[9rem_12rem_minmax(0,1fr)_6rem] md:items-baseline md:gap-6">
+                  <span className="text-sm text-muted">{formatDate(e.date)}</span>
+                  <Link href={`/policy/${e.iso2.toLowerCase()}`} className="font-medium text-ink hover:text-brand-blue">
+                    {e.name}
+                  </Link>
+                  <span className="text-[15px] text-ink/85">
+                    {e.url ? (
+                      <a href={e.url} target="_blank" rel="noopener" className="hover:underline">
+                        {e.title}
+                      </a>
+                    ) : (
+                      e.title
+                    )}
+                  </span>
+                  <span className={`text-sm font-medium ${e.effect === "positive" ? "text-[#1f6b37]" : e.effect === "negative" ? "text-[#9c2a20]" : "text-[#7a4d00]"}`}>
+                    {e.effect === "positive" ? "Positive" : e.effect === "negative" ? "Negative" : "Mixed"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section aria-labelledby="method-h" className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end">
+          <h2 id="method-h" className="font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
+            How a verdict is reached.
+          </h2>
+          <div>
+            <p className="max-w-md text-[15px] leading-relaxed text-soft">
+              Six questions, three ratings, a fixed rule and three red flags that override everything else. No weights and no single score.
+            </p>
+            <div className="mt-6">
+              <Pill href="/policy/method">Read the method</Pill>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }
-
-const REFERENCES: [string, string][] = [
-  ["World Bank WGI", "Political stability, government effectiveness, regulatory quality, rule of law, voice and accountability, control of corruption (pillars P, R and S)"],
-  ["World Bank WDI", "GDP growth, inflation, exchange rates, lending rates, electricity access and grid losses (pillars O, F and I)"],
-  ["IRENA statistics", "Installed renewable capacity, growth and electricity generation (pillars O, I and T)"],
-  ["Perpetual deal record", "Renewable financings recorded in the last five years (pillar T)"],
-  ["World Bank RISE, BNEF Climatescope, EY RECAI", "Cross-checks when a country receives a researched score"],
-  ["Rating agencies and grid operators", "Sovereign credit, utility credit, curtailment and connection queues for researched scores"],
-];

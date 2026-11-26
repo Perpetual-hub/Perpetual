@@ -13,7 +13,7 @@ import { TECH_PHOTOS } from "@/lib/tech-photos";
 // One kind of renewable per link, so the preview photos vary: wind, hydro, storage and solar.
 const ITEMS = [
   { href: "/deals", label: "Deal Tracker", note: "Every renewable deal of the last five years", photo: HERO_PHOTOS.deals.src },
-  { href: "/policy", label: "Policy", note: "How investable each country is, scored with PROFITS", photo: TECH_PHOTOS.hydro!.src },
+  { href: "/policy", label: "Policy", note: "How ready each market is for renewable investment", photo: TECH_PHOTOS.hydro!.src },
   { href: "/statistics", label: "Statistics", note: "Official capacity by region, country and sector", photo: TECH_PHOTOS.storage!.src },
   { href: "/disclosure", label: "Disclosure", note: "Where every figure comes from", photo: HERO_PHOTOS.statistics.src },
 ];

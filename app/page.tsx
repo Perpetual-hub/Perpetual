@@ -3,7 +3,6 @@ import { dealValue, FeatureDealCard } from "@/components/cards/Cards";
 import { HomeHero } from "@/components/home/HomeHero";
 import { Closing, KeyFigures, MapIntro, Mission, OpeningHero, Pill, SectorPanels, StackedCards } from "@/components/home/Landing";
 import { LatestRail, type RailItem } from "@/components/home/LatestRail";
-import { WEIGHT_PRESETS } from "@/data/policy";
 import {
   DATA_AS_OF,
   getCountryStatsRows,
@@ -13,11 +12,11 @@ import {
   getGlobalCapacity,
   getSectorSummary,
 } from "@/lib/data";
-import { DEAL_TYPE_LABEL, countryName, daysBetween, formatDate } from "@/lib/format";
+import { DEAL_TYPE_LABEL, daysBetween, formatDate } from "@/lib/format";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { plainText } from "@/lib/plain-text";
-import { getPolicyRows } from "@/lib/policy";
-import { rankPolicies } from "@/lib/policy-score";
+import { getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
+import { VERDICT_CODE, VERDICT_LABEL } from "@/lib/policy-review/cells";
 
 const ROMAN = ["I", "II", "III", "IV", "V"];
 
@@ -35,7 +34,7 @@ export default function Home() {
     tech: d.technologies[0],
     isNew: daysBetween(d.date, DATA_AS_OF) <= 3,
   }));
-  const policyRows = getPolicyRows(countryName);
+  const reviewRows = getReviewRows();
   const moreDeals = deals.filter((d) => d.id !== featured?.id).slice(0, 5);
   const dealCountries = new Set(deals.flatMap((d) => d.countries)).size;
 
@@ -53,7 +52,9 @@ export default function Home() {
     .sort((a, b) => b.gw - a.gw);
 
   const last30 = deals.filter((d) => daysBetween(d.date, DATA_AS_OF) <= 30).length;
-  const topPolicy = rankPolicies(policyRows, WEIGHT_PRESETS[0].weights).slice(0, 5);
+  const topPolicy = [...reviewRows]
+    .sort((a, b) => VERDICT_CODE[b.segments.utility.verdict] - VERDICT_CODE[a.segments.utility.verdict] || a.name.localeCompare(b.name))
+    .slice(0, 5);
   const leaders = [...getCountryStatsRows()].sort((a, b) => b.renewableMW - a.renewableMW).slice(0, 5);
   const leaderMax = leaders[0]?.renewableMW ?? 1;
 
@@ -77,7 +78,7 @@ export default function Home() {
       <HomeHero
         points={dealPoints}
         ages={Object.fromEntries(dealPoints.map((p) => [p.id, daysBetween(p.deal!.date, DATA_AS_OF)]))}
-        policyRows={policyRows}
+        policyCells={getVerdictCells()}
         totalDeals={deals.length}
         rail={<LatestRail items={rail} />}
       />
@@ -108,21 +109,20 @@ export default function Home() {
           {
             n: "02",
             title: "Policy",
-            body: `PROFITS scores ${policyRows.length} countries on seven pillars, from political commitment to social licence, and weights them for the kind of deal being done.`,
+            body: `${reviewRows.length} markets reviewed so far. Each gets a verdict for utility-scale and C&I deals, built from six investor questions with a reason and a source behind every answer.`,
             href: "/policy",
-            cta: "See the country ranking",
+            cta: "See the reviewed markets",
             photo: HERO_PHOTOS.policy.src,
             tone: "green",
             extra: (
               <ol className="divide-y divide-white/20 border-t border-white/20 text-[15px]">
                 {topPolicy.map((p) => (
-                  <li key={p.country}>
-                    <Link href={`/countries/${p.country}`} className="flex justify-between gap-6 py-3 hover:underline">
+                  <li key={p.iso2}>
+                    <Link href={`/policy/${p.iso2.toLowerCase()}`} className="flex justify-between gap-6 py-3 hover:underline">
+                      <span>{p.name}</span>
                       <span>
-                        <span className="tabular mr-4 text-white/60">{p.rank}</span>
-                        {p.name}
+                        Utility-scale {VERDICT_LABEL[p.segments.utility.verdict]}, C&amp;I {VERDICT_LABEL[p.segments.ci.verdict]}
                       </span>
-                      <span className="tabular">{p.score.toFixed(1)} of 5</span>
                     </Link>
                   </li>
                 ))}

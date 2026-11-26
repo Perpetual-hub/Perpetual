@@ -1,10 +1,18 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.5";
+export const DATA_VERSION = "2026.11.6";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
 export const DATA_AS_OF = "2026-11-26";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.6",
+    date: "2026-11-26",
+    changes: [
+      "PROFITS scores are replaced by the Policy Review, with researched verdicts for utility-scale and C&I deals, six investor questions, red flags and sources.",
+      "First reviews published for Singapore, Vietnam, the Philippines, Malaysia, Thailand, Indonesia, South Korea and Taiwan. Other countries show Not yet reviewed.",
+    ],
+  },
   {
     version: "2026.11.5",
     date: "2026-11-26",

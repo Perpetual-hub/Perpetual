@@ -1,0 +1,149 @@
+{
+  "country": "TW",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Taiwan allows corporate PPAs and runs offshore wind allocation rounds, with Round 3.3 opened in April 2026. Financing and grid delays remain the main constraints. Key ownership and money rules were not confirmed.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "pm"
+          ],
+          "confidence": "low",
+          "reason": "Offshore wind is allocated in rounds, and Round 3.3 opened in April 2026 for up to 3.6 GW connecting in 2030 and 2031."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "ct"
+          ],
+          "confidence": "low",
+          "reason": "Financing is described as a main constraint, driven largely by policy gaps."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "pm",
+            "inn"
+          ],
+          "confidence": "low",
+          "reason": "Projects face delays, and grid connection for Round 3.3 is set for 2030 and 2031."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "Round 3.3 continues the existing allocation approach.",
+        "sources": [
+          "pm"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "semi"
+          ],
+          "confidence": "low",
+          "reason": "The 2017 Electricity Act amendment allows renewable generators to sell directly to end users, and corporate PPA rules were later relaxed."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No published change to corporate PPA rules in the last 12 months was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-04-01",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Offshore wind Round 3.3 opens for up to 3.6 GW",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "pm"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "pm",
+      "title": "Taiwan's new offshore wind development roadmap",
+      "publisher": "Pinsent Masons",
+      "url": "https://www.pinsentmasons.com/out-law/news/taiwan-new-offshore-wind-development-roadmap",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026"
+    },
+    {
+      "id": "ct",
+      "title": "Financing offshore wind in Taiwan",
+      "publisher": "Carbon Trust",
+      "url": "https://www.carbontrust.com/sites/default/files/documents/resource/public/Carbon%20Trust_Financing%20OSW%20in%20Taiwan_March26_v2.pdf",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-03"
+    },
+    {
+      "id": "inn",
+      "title": "Taiwan's renewable energy push is a combination of ambition, delays and dependence",
+      "publisher": "bne IntelliNews",
+      "url": "https://new.intellinews.com/articles/taiwan-s-renewable-energy-push-is-a-combination-of-ambition-delays-and-dependence-443521",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-05"
+    },
+    {
+      "id": "semi",
+      "title": "Making renewable energy available and making better use of it, the next step for surplus RE in Taiwan",
+      "publisher": "SEMI",
+      "url": "https://www.semi.org/en/blogs/making-renewable-energy-available-and-making-better-use-of-it-the-next-step-for-surplus-re-in-taiwan",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Foreign ownership and money transfer rules, Taipower payment practice and curtailment were not confirmed from sources we could read, so the ownership gate is not rated."
+}

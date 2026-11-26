@@ -11,14 +11,14 @@ import { TECHNOLOGIES } from "@/lib/tech";
 export const metadata: Metadata = {
   title: "Disclosure",
   description:
-    "How Perpetual's data works, covering definitions, sources, the PROFITS policy framework, how numbers are handled, limitations, corrections and the data changelog.",
+    "How Perpetual's data works, covering definitions, sources, the Policy Review, how numbers are handled, limitations, corrections and the data changelog.",
 };
 
 const TOC = [
   { id: "coverage", label: "Coverage" },
   { id: "definitions", label: "Definitions" },
   { id: "sources", label: "Sources" },
-  { id: "profits", label: "PROFITS framework" },
+  { id: "policy-review", label: "Policy Review" },
   { id: "numbers", label: "Numbers and units" },
   { id: "limitations", label: "Limitations" },
   { id: "corrections", label: "Corrections" },
@@ -138,17 +138,17 @@ export default function DisclosurePage() {
             </div>
           </Block>
 
-          {/* PROFITS lives on the Policy page */}
+          {/* The full method lives on the Policy Review method page */}
           <Block
-            id="profits"
-            title="PROFITS Framework"
-            lead="Country scores use PROFITS, Perpetual's framework for how investable a country is for renewable energy. The framework, its weights, the deal-breakers and every country's score are explained in full on the Policy page."
+            id="policy-review"
+            title="Policy Review"
+            lead="Each reviewed country gets a verdict for utility-scale and C&I deals, Ready, Workable or Difficult. It is worked out by a fixed rule from six investor questions, each rated with a reason, a confidence level and its sources, and three red flags override everything else. Countries without a review say so."
           >
             <Link
-              href="/policy"
+              href="/policy/method"
               className="group inline-flex items-center gap-2 rounded-lg bg-brand-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-blue"
             >
-              Open the PROFITS framework
+              Read the Policy Review method
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </Link>
           </Block>
@@ -177,7 +177,7 @@ export default function DisclosurePage() {
                 ["Delays", "Estimated dates often slip, sometimes by years."],
                 ["Conflicting Sources", "We record the most authoritative one and note the disagreement."],
                 ["Undisclosed Values", "Deal values are often private. We never estimate one and present it as fact."],
-                ["Policy Can Change Quickly", "Scores reflect the assessment date shown on each country."],
+                ["Policy Can Change Quickly", "Each review shows the date it was last checked, and pages flag themselves when a review is due."],
               ].map(([t, d], i) => (
                 <li key={t} className="flex gap-4 rounded-[var(--radius)] bg-paper p-5">
                   <span className="tabular font-display text-lg font-bold text-brand-blue">{String(i + 1).padStart(2, "0")}</span>
@@ -237,7 +237,7 @@ export default function DisclosurePage() {
           <Block id="legal" title="Legal">
             <p className="max-w-3xl rounded-[var(--radius)] bg-surface-2 p-6 text-sm leading-relaxed text-muted">
               Perpetual is provided for information only and is <strong className="text-ink">not investment advice</strong>. Linked filings,
-              announcements and reports belong to their owners, and we link to them as sources. Policy scores are an opinion framework, not a
+              announcements and reports belong to their owners, and we link to them as sources. Policy Review verdicts are an opinion based on public sources, not a
               rating or a recommendation to invest. Photos are used under their stated licences, credited where they appear. Map data ©
               OpenStreetMap contributors, OpenMapTiles, OpenFreeMap.
             </p>

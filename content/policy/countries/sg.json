@@ -1,0 +1,229 @@
+{
+  "country": "SG",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Singapore has little land for renewables, so large-scale supply is being built through licensed imports from its neighbours. Corporate buyers can use rooftop PPAs, solar leases and virtual PPAs, and foreign ownership and money transfers are unrestricted.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "ema900",
+            "emasemb"
+          ],
+          "confidence": "medium",
+          "reason": "Utility supply comes mainly through licensed imports. EMA gave conditional approvals in 2026, including 900 MW from Johor and 1.3 GW for Sembcorp."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": [],
+          "reason": "Commercial terms of import licences are not published."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "lmsg",
+            "tgsg"
+          ],
+          "confidence": "low",
+          "reason": "No general limits on foreign ownership outside a few sectors such as media, and no limits on repatriating earnings or capital."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "ema900",
+            "emasemb"
+          ],
+          "confidence": "low",
+          "reason": "Imports depend on new subsea interconnectors, and the approvals granted so far are conditional."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "ema900",
+            "emasolar"
+          ],
+          "confidence": "low",
+          "reason": "Import and solar targets are set in official EMA plans, and no retroactive change to renewable contracts was found."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "EMA granted further conditional import approvals during 2026, including 1.3 GW for Sembcorp in October.",
+        "sources": [
+          "emasemb"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "tbsg",
+            "emasolar"
+          ],
+          "confidence": "medium",
+          "reason": "Rooftop PPAs, solar leases and virtual PPAs are all in use, and the national solar target rose to 3 GWp by 2030."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "tbsg",
+            "cmssg"
+          ],
+          "confidence": "low",
+          "reason": "Price and length are agreed between buyer and seller, and surplus solar can be sold through the Enhanced Central Intermediary Scheme."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "lmsg",
+            "tgsg"
+          ],
+          "confidence": "low",
+          "reason": "No general limits on foreign ownership outside a few sectors, and no limits on repatriating earnings or capital."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmssg"
+          ],
+          "confidence": "low",
+          "reason": "Dense land use limits how much solar a site can host."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "emasolar"
+          ],
+          "confidence": "low",
+          "reason": "Solar targets have been raised over time, and no retroactive change to solar contracts was found."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The national solar target was raised to 3 GWp by 2030 in March 2026.",
+        "sources": [
+          "emasolar"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-10-26",
+      "kind": "other",
+      "effect": "positive",
+      "title": "EMA grants conditional approval for 1.3 GW of Sembcorp electricity imports",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "emasemb"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "kind": "other",
+      "effect": "positive",
+      "title": "EMA conditionally approves 900 MW of solar and battery imports from Johor",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ema900"
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Solar target raised to 3 GWp by 2030",
+      "segments": [
+        "ci",
+        "utility"
+      ],
+      "sources": [
+        "emasolar"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "ema900",
+      "title": "EMA grants conditional approvals for 900 MW of electricity trade between Peninsular Malaysia and Singapore",
+      "publisher": "Energy Market Authority",
+      "url": "https://ema.gov.sg/news-events/news/media-releases/2026/ema-grants-conditional-approvals-900mw-electricity-trade-between-peninsular-malaysia-singapore",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2026-08-07"
+    },
+    {
+      "id": "emasemb",
+      "title": "EMA grants conditional approval to Sembcorp Utilities",
+      "publisher": "Energy Market Authority",
+      "url": "https://www.ema.gov.sg/news-events/news/media-releases/2026/ema-grants-conditional-approval-to-sembcorp-utilities",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2026-10-26"
+    },
+    {
+      "id": "emasolar",
+      "title": "Singapore to accelerate solar deployment to meet 3 GWp solar target by 2030 (factsheet)",
+      "publisher": "Energy Market Authority",
+      "url": "https://www.ema.gov.sg/content/dam/corporate/news/media-releases/2026/20260302EMA-Media-Factsheet-Singapore-to-Accelerate-Solar-Deployment-to-Meet-3-GWp-Solar-Target-by-2030.pdf.coredownload.pdf",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2026-03-02"
+    },
+    {
+      "id": "tgsg",
+      "title": "Singapore Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/singapore-trade-financing",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    },
+    {
+      "id": "lmsg",
+      "title": "Global Foreign Investment Restrictions Guide, Singapore",
+      "publisher": "Lex Mundi (Rajah & Tann)",
+      "url": "https://www.lexmundi.com/guides/lex-mundi-global-foreign-investment-restrictions-guide/jurisdictions/asia-pacific/singapore/",
+      "accessed": "2026-11-26",
+      "kind": "secondary"
+    },
+    {
+      "id": "tbsg",
+      "title": "Solar energy corporate PPAs in Singapore",
+      "publisher": "Bird & Bird",
+      "url": "https://www.twobirds.com/en/insights/2024/singapore/solar-energy-corporate-ppas-in-singapore",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2024"
+    },
+    {
+      "id": "cmssg",
+      "title": "Renewable energy in Singapore",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/singapore",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    }
+  ],
+  "gaps": "Import licence terms, buyer credit practice and connection timelines for imports are not public. Ownership and money ratings rest on general investment guides, not energy rules."
+}

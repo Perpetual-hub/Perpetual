@@ -1,0 +1,270 @@
+{
+  "country": "VN",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Vietnam has opened up corporate buying of clean power, with rooftop self-consumption and direct power purchase agreements now working and prices freely negotiated. Utility-scale investors face an unresolved dispute over feed-in tariffs for 173 operating projects.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "ag"
+          ],
+          "confidence": "medium",
+          "reason": "Feed-in tariffs have ended. New utility projects are chosen by investor selection, with the winning tariff capped at a regulated price ceiling."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": [],
+          "reason": "Curtailment compensation and termination terms in new EVN contracts were not confirmed from a source we could read."
+        },
+        "buyer": {
+          "rating": "unsupportive",
+          "sources": [
+            "inv"
+          ],
+          "confidence": "medium",
+          "reason": "Investors report EVN withheld part of payments and applied lower temporary tariffs to disputed feed-in tariff projects."
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "and"
+          ],
+          "confidence": "low",
+          "reason": "Profits can be repatriated after notifying the tax authority, and foreign loans must be registered. Ownership caps for renewables were not confirmed."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "dm"
+          ],
+          "confidence": "low",
+          "reason": "Investor guidance flags grid connection, congestion and curtailment as core risks for new projects."
+        },
+        "stability": {
+          "rating": "unsupportive",
+          "sources": [
+            "sq",
+            "rec"
+          ],
+          "confidence": "medium",
+          "reason": "EVN proposed in April 2026 transitional tariffs up to 43% below feed-in rates for 173 operating projects. No final decision found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "A ministry directive asked provinces to review the affected feed-in tariff projects, but no settlement had been published.",
+        "sources": [
+          "moit"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "wfw",
+            "ag"
+          ],
+          "confidence": "medium",
+          "reason": "Rooftop self-consumption is allowed, and DPPAs run by private line or through the grid. Physical DPPAs opened to buyers using 20,000 kWh a month."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "ag"
+          ],
+          "confidence": "low",
+          "reason": "DPPA prices, physical or through the grid, may now be freely negotiated."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "and"
+          ],
+          "confidence": "low",
+          "reason": "Profits can be repatriated after notifying the tax authority, and foreign loans must be registered. Ownership caps were not confirmed."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "dm",
+            "vnn"
+          ],
+          "confidence": "low",
+          "reason": "Investor guidance flags grid connection and curtailment as core risks, and rooftop surplus sales are capped at 50% of output."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "wfw",
+            "sq"
+          ],
+          "confidence": "medium",
+          "reason": "Rooftop and DPPA rules changed several times since 2024, mostly loosening, but the feed-in tariff dispute shows existing terms can be reopened."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Decree 243 of June 2026 raised the rooftop surplus sales cap from 20% to 50% and added data centres as grid DPPA buyers.",
+        "sources": [
+          "bm",
+          "evn"
+        ]
+      }
+    }
+  },
+  "redFlags": [
+    {
+      "type": "retroactive_cut",
+      "status": "active",
+      "segments": [
+        "utility"
+      ],
+      "reason": "Payments to about 173 wind and solar projects were cut or delayed while their feed-in tariff eligibility is reviewed.",
+      "sources": [
+        "inv",
+        "sq"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-06-26",
+      "kind": "decree",
+      "effect": "positive",
+      "title": "Decree 243/2026 raises the rooftop surplus sales cap to 50% and widens grid DPPA buyers",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "evn",
+        "bm"
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "kind": "tariff",
+      "effect": "negative",
+      "title": "EVN proposes transitional tariffs well below feed-in rates for 173 operating projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "ag",
+      "title": "Vietnam's electricity sector, key regulatory developments",
+      "publisher": "Allen & Gledhill",
+      "url": "https://www.allenandgledhill.com/vn/publication/articles/33348/s-electricity-sector-key-regulatory-developments",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-08-12"
+    },
+    {
+      "id": "and",
+      "title": "Project Finance Guide, Vietnam 2026",
+      "publisher": "Andersen in Vietnam",
+      "url": "https://vn.andersen.com/wp-content/uploads/2026/02/Andersen-in-Vietnam-Project-Finance-Guide-2026.pdf",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-02"
+    },
+    {
+      "id": "dm",
+      "title": "Vietnam's energy opportunity, from market potential to investable projects",
+      "publisher": "Duane Morris",
+      "url": "https://blogs.duanemorris.com/vietnam/2026/09/14/vietnams-energy-opportunity-from-market-potential-to-investable-projects/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-09-14"
+    },
+    {
+      "id": "vnn",
+      "title": "Vietnam raises rooftop solar sales cap to 50%, widens direct power deals",
+      "publisher": "VietNamNet",
+      "url": "https://vietnamnet.vn/en/vietnam-raises-rooftop-solar-sales-cap-to-50-widens-direct-power-deals-2536486.html",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07"
+    },
+    {
+      "id": "inv",
+      "title": "Hundreds of wind, solar power investors petition Vietnam authorities to uphold feed-in tariffs",
+      "publisher": "The Investor",
+      "url": "https://theinvestor.vn/hundreds-of-wind-solar-power-investors-petition-vietnam-authorities-to-uphold-feed-in-tariffs-d15776.html",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-05"
+    },
+    {
+      "id": "sq",
+      "title": "Vietnam's EVN proposes retroactive tariff cuts for renewable projects amid $13 billion dispute",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/04/17/vietnams-evn-proposes-retroactive-tariff-cuts-for-renewable-projects-amid-13-billion-dispute/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-04-17"
+    },
+    {
+      "id": "rec",
+      "title": "EVN proposes deep FIT cuts in $13 billion renewable dispute",
+      "publisher": "Reccessary",
+      "url": "https://www.reccessary.com/en/news/evn-proposes-deep-fit-cuts-13-billion-renewable-dispute",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-04"
+    },
+    {
+      "id": "moit",
+      "title": "Vietnam's industry ministry asks provinces to handle stalled renewable power projects",
+      "publisher": "The Investor",
+      "url": "https://theinvestor.vn/vietnams-industry-ministry-asks-provinces-to-handle-stalled-renewable-power-projects-d18374.html",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026"
+    },
+    {
+      "id": "bm",
+      "title": "Vietnam: Decree No. 243/2026/ND-CP, enhanced renewable energy DPPA framework",
+      "publisher": "Baker McKenzie",
+      "url": "https://www.bakermckenzie.com/en/insight/publications/2026/06/vietnam-decree-no-243-2026-nd-cp-enhanced-renewable-energy-dppa-framework",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-06"
+    },
+    {
+      "id": "evn",
+      "title": "Government issues Decree No. 243/2026/ND-CP amending Decrees No. 57/2025/ND-CP and No. 58/2025/ND-CP",
+      "publisher": "Vietnam Electricity (EVN)",
+      "url": "https://en.evn.com.vn/d/en-US/news/Government-issues-Decree-No-2432026ND-CP-Amending-and-supplementing-several-provisions-of-Decrees-No-572025ND-CP-and-No-582025ND-CP-60-206-501528",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2026-06"
+    },
+    {
+      "id": "wfw",
+      "title": "Vietnam revises the DPPA and rooftop solar framework",
+      "publisher": "Watson Farley & Williams",
+      "url": "https://www.wfw.com/articles/vietnam-revises-the-dppa-and-rooftop-solar-framework/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-08-20"
+    }
+  ],
+  "gaps": "Curtailment and termination terms in new EVN contracts, payment security, foreign ownership caps and the practical speed of currency conversion were not confirmed from sources we could read."
+}

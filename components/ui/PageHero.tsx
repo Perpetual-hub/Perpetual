@@ -40,7 +40,7 @@ export function PageHero({
         <div className="relative mt-8 md:mt-0">
           <figure className="pp-hero-photo relative z-0 md:absolute md:right-0 md:bottom-[46%] md:w-[46%] lg:w-[44%]">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[12px]">
-              <Image src={photo.src} alt="" fill priority sizes="(min-width: 768px) 46vw, 100vw" className="object-cover" style={{ objectPosition: photo.position ?? "center" }} />
+              <Image src={photo.src} alt="" fill priority unoptimized={photo.src.startsWith("http")} sizes="(min-width: 768px) 46vw, 100vw" className="object-cover" style={{ objectPosition: photo.position ?? "center" }} />
             </div>
           </figure>
           <h1

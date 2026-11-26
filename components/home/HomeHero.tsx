@@ -6,12 +6,10 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { MapPlaceholder } from "@/components/map/MapPlaceholder";
 import { ProjectGlobeLazy } from "@/components/map/ProjectMapLazy";
-import { PolicyPanel } from "@/components/policy/PolicyPanel";
-import { WEIGHT_PRESETS, type PillarId } from "@/data/policy";
 import type { MapPoint } from "@/lib/data";
-import { POLICY_RAMP, rampColor, type PolicyScores } from "@/lib/policy-colors";
-import { formatDate } from "@/lib/format";
-import { rankPolicies } from "@/lib/policy-score";
+import { countryName, formatDate } from "@/lib/format";
+import { VERDICT_CODE, VERDICT_LABEL, VERDICT_STYLE, toPolicyScores, type VerdictCells } from "@/lib/policy-review/cells";
+import type { SegmentId } from "@/lib/policy-review/types";
 import { TECHNOLOGIES, TECH_BY_ID } from "@/lib/tech";
 
 type Mode = "deals" | "policy";
@@ -22,57 +20,48 @@ const PERIODS = [
   { days: 365, label: "12 months" },
 ] as const;
 
-interface PolicyRow {
-  country: string;
-  name: string;
-  scores: Record<PillarId, number>;
-  dealBreakers: string[];
-  isSample: boolean;
-}
-
 interface Props {
   /** Deals from the last 12 months as globe points (see getDealPoints). */
   points: MapPoint[];
   /** Days between each deal and the dataset date, keyed by deal id. */
   ages: Record<string, number>;
-  policyRows: PolicyRow[];
+  /** Policy Review verdicts by deal type, keyed by ISO code. */
+  policyCells: Record<SegmentId, VerdictCells>;
   /** All deals on record. */
   totalDeals: number;
   rail: React.ReactNode;
 }
 
-export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) {
+export function HomeHero({ points, ages, policyCells, totalDeals, rail }: Props) {
   const [mode, setMode] = useState<Mode>("deals");
   const router = useRouter();
   const [days, setDays] = useState<number>(90);
-  const [preset, setPreset] = useState(WEIGHT_PRESETS[1].id);
-  const [policyPick, setPolicyPick] = useState<{ iso2: string; name: string } | null>(null);
+  const [deal, setDeal] = useState<SegmentId>("utility");
   const [view, setView] = useState<"globe" | "list">("globe");
   const isWide = useMediaQuery("(min-width: 1024px)");
 
   // Deep link: /#policy opens the heatmap.
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- reads the URL hash once, browser-only
-    if (window.location.hash === "#policy" && policyRows.length) setMode("policy");
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- once on mount
+    if (window.location.hash === "#policy") setMode("policy");
   }, []);
 
   const modeOptions = [
     { id: "deals" as Mode, label: "Deals" },
-    ...(policyRows.length ? [{ id: "policy" as Mode, label: "Policy Heatmap" }] : []),
+    { id: "policy" as Mode, label: "Policy Review" },
   ];
 
   const filtered = useMemo(() => points.filter((p) => (ages[p.id] ?? Infinity) <= days), [points, ages, days]);
 
-  const weights = WEIGHT_PRESETS.find((p) => p.id === preset)!.weights;
-  const ranked = useMemo(() => rankPolicies(policyRows, weights), [policyRows, weights]);
-  const policyScores: PolicyScores = useMemo(
+  const cells = policyCells[deal];
+  const reviewed = useMemo(
     () =>
-      Object.fromEntries(
-        ranked.map((r) => [r.country, { score: r.score, rank: r.rank, flagged: r.dealBreakers.length > 0, isSample: r.isSample }]),
-      ),
-    [ranked],
+      Object.entries(cells)
+        .map(([iso, c]) => ({ iso, name: countryName(iso), ...c }))
+        .sort((a, b) => VERDICT_CODE[b.verdict] - VERDICT_CODE[a.verdict] || a.name.localeCompare(b.name)),
+    [cells],
   );
+  const policyScores = useMemo(() => toPolicyScores(cells), [cells]);
 
   const stats = useMemo(() => {
     const usd = filtered.reduce((s, p) => s + (p.deal?.usd ?? 0), 0);
@@ -85,15 +74,16 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
   }, [filtered]);
 
   const policyStats = useMemo(() => {
-    const sorted = [...ranked].sort((a, b) => a.rank - b.rank);
-    const sc = ranked.map((r) => r.score).sort((a, b) => a - b);
-    const m = sc.length ? (sc.length % 2 ? sc[(sc.length - 1) / 2] : (sc[sc.length / 2 - 1] + sc[sc.length / 2]) / 2) : 0;
-    return { top: sorted[0], median: m, flagged: ranked.filter((r) => r.dealBreakers.length > 0).length };
-  }, [ranked]);
+    const n = { ready: 0, workable: 0, difficult: 0, flagged: 0 };
+    for (const r of reviewed) {
+      if (r.verdict !== "not_reviewed") n[r.verdict]++;
+      if (r.redFlag) n.flagged++;
+    }
+    return n;
+  }, [reviewed]);
 
   const onSelect = useCallback((p: MapPoint) => p.deal && router.push(p.deal.href), [router]);
-  const onPolicySelect = useCallback((iso2: string, name: string) => setPolicyPick({ iso2, name }), []);
-  const presetLabel = WEIGHT_PRESETS.find((p) => p.id === preset)!.label;
+  const onPolicySelect = useCallback((iso2: string) => router.push(`/policy/${iso2.toLowerCase()}`), [router]);
   const periodLabel = PERIODS.find((p) => p.days === days)!.label;
 
   return (
@@ -130,8 +120,16 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
               </div>
             ) : (
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs text-hero-muted">Weights for</span>
-                <Segmented label="Weight preset" value={preset} onChange={setPreset} options={WEIGHT_PRESETS.map((p) => ({ id: p.id, label: p.label }))} />
+                <span className="text-xs text-hero-muted">Verdicts for</span>
+                <Segmented
+                  label="Deal type"
+                  value={deal}
+                  onChange={setDeal}
+                  options={[
+                    { id: "utility" as SegmentId, label: "Utility-scale" },
+                    { id: "ci" as SegmentId, label: "C&I" },
+                  ]}
+                />
               </div>
             )}
             <div className="ml-auto flex items-center gap-2">
@@ -149,7 +147,7 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
                 className="hidden items-center gap-1.5 rounded-[3px] border border-hero-line px-3 py-1.5 text-xs font-medium text-hero-ink transition-colors duration-150 hover:bg-white/5 sm:inline-flex"
               >
                 <Maximize2 className="size-3.5" aria-hidden />
-                {mode === "policy" ? "Full ranking" : "All deals"}
+                {mode === "policy" ? "All reviews" : "All deals"}
               </Link>
             </div>
           </div>
@@ -174,12 +172,12 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
                 onPolicySelect={onPolicySelect}
                 ariaLabel={
                   mode === "policy"
-                    ? "Globe coloured by PROFITS policy score. Use the List button for a keyboard-friendly ranking."
+                    ? "Globe coloured by Policy Review verdict. Use the List button for a keyboard-friendly list."
                     : `Globe of renewable energy deals from the last ${periodLabel}, sized by deal value. Use the List button for a keyboard-friendly list.`
                 }
               />
             ) : mode === "policy" ? (
-              <PolicyList ranked={ranked} onSelect={(r) => setPolicyPick({ iso2: r.country, name: r.name })} />
+              <PolicyList rows={reviewed} deal={deal} />
             ) : (
               <DealList points={filtered} period={periodLabel} />
             )}
@@ -193,11 +191,11 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
           {/* Stats strip */}
           {mode === "policy" ? (
             <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
-              <Stat label={`Top ranked, ${presetLabel.toLowerCase()} weights`} value={policyStats.top ? `${policyStats.top.name}` : "—"} />
-              <Stat label="Top score (1–5)" value={policyStats.top ? policyStats.top.score.toFixed(2) : "—"} />
-              <Stat label="Median score" value={policyStats.median ? policyStats.median.toFixed(2) : "—"} />
-              <Stat label="Countries with a deal-breaker" value={String(policyStats.flagged)} />
-              <Stat label="Countries scored" value={String(ranked.length)} />
+              <Stat label="Markets reviewed" value={String(reviewed.length)} />
+              <Stat label="Ready" value={String(policyStats.ready)} />
+              <Stat label="Workable" value={String(policyStats.workable)} />
+              <Stat label="Difficult" value={String(policyStats.difficult)} />
+              <Stat label="With an active red flag" value={String(policyStats.flagged)} />
             </dl>
           ) : (
           <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
@@ -219,14 +217,6 @@ export function HomeHero({ points, ages, policyRows, totalDeals, rail }: Props) 
         </aside>
       </div>
 
-      <PolicyPanel
-        entry={policyPick ? (ranked.find((r) => r.country === policyPick.iso2) ?? null) : null}
-        name={policyPick?.name ?? null}
-        total={ranked.length}
-        weights={weights}
-        presetLabel={presetLabel}
-        onClose={() => setPolicyPick(null)}
-      />
     </section>
   );
 }
@@ -249,30 +239,23 @@ function SectorLegend({ points, period }: { points: MapPoint[]; period: string }
 }
 
 function PolicyLegend() {
-  const grad = `linear-gradient(90deg, ${POLICY_RAMP.map(([, c]) => c).join(", ")})`;
   return (
-    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 pb-2 text-xs text-hero-ink">
-      <div className="flex items-center gap-3">
-        <span>Unsupportive</span>
-        <span className="relative h-2 w-40 rounded-[2px]" style={{ background: grad }} aria-hidden>
-          <span className="tabular absolute -bottom-4 left-0 text-[10px] text-hero-muted">1</span>
-          <span className="tabular absolute -bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-hero-muted">3</span>
-          <span className="tabular absolute right-0 -bottom-4 text-[10px] text-hero-muted">5</span>
-        </span>
-        <span>Supportive</span>
-      </div>
-      <span className="hidden h-5 w-px bg-hero-line sm:block" aria-hidden />
-      <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Map key">
-        <li className="inline-flex items-center gap-2">
-          <span className="h-3 w-5 rounded-[2px] border border-white/15 bg-[#24364f]" aria-hidden />
-          Not yet scored
+    <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pb-1 text-xs text-hero-ink" aria-label="Map key">
+      {(["ready", "workable", "difficult"] as const).map((v) => (
+        <li key={v} className="inline-flex items-center gap-2">
+          <span className="h-3 w-5 rounded-[2px]" style={{ background: VERDICT_STYLE[v].fill }} aria-hidden />
+          {VERDICT_LABEL[v]}
         </li>
-        <li className="inline-flex items-center gap-2">
-          <span className="h-3 w-5 rounded-[2px] border-[1.5px] border-dashed border-[#f5b000]" aria-hidden />
-          Deal-breaker
-        </li>
-      </ul>
-    </div>
+      ))}
+      <li className="inline-flex items-center gap-2">
+        <span className="h-3 w-5 rounded-[2px] border border-white/15 bg-white/10" aria-hidden />
+        Not yet reviewed
+      </li>
+      <li className="inline-flex items-center gap-2">
+        <span className="h-3 w-5 rounded-[2px] border-[1.5px] border-dashed border-[#f5b000]" aria-hidden />
+        Active red flag
+      </li>
+    </ul>
   );
 }
 
@@ -307,22 +290,22 @@ function DealList({ points, period }: { points: MapPoint[]; period: string }) {
   );
 }
 
-function PolicyList({ ranked, onSelect }: { ranked: ReturnType<typeof rankPolicies>; onSelect: (r: ReturnType<typeof rankPolicies>[number]) => void }) {
+function PolicyList({ rows, deal }: { rows: { iso: string; name: string; verdict: keyof typeof VERDICT_LABEL; direction?: string }[]; deal: SegmentId }) {
   return (
     <div className="absolute inset-0 overflow-y-auto py-5">
       <div className="max-w-4xl">
-        <p className="mb-3 text-xs text-hero-muted">{ranked.length} countries, highest score first.</p>
+        <p className="mb-3 text-xs text-hero-muted">
+          {rows.length} reviewed markets, {deal === "ci" ? "C&I" : "utility-scale"} verdicts.
+        </p>
         <ol className="divide-y divide-hero-line border-y border-hero-line">
-          {ranked.map((r) => (
-            <li key={r.country}>
-              <button type="button" onClick={() => onSelect(r)} className="flex w-full items-center gap-3 py-3 text-left hover:bg-white/5">
-                <span className="tabular w-6 text-sm text-hero-muted">{r.rank}</span>
+          {rows.map((r) => (
+            <li key={r.iso}>
+              <Link href={`/policy/${r.iso.toLowerCase()}`} className="flex w-full items-center gap-3 py-3 text-left hover:bg-white/5">
+                <span className="size-2.5 shrink-0 rounded-full" style={{ background: VERDICT_STYLE[r.verdict].fill }} aria-hidden />
                 <span className="min-w-0 flex-1 truncate text-sm font-medium text-white">{r.name}</span>
-                <span className="h-1.5 w-24 rounded-[3px] bg-white/10" aria-hidden>
-                  <span className="block h-full rounded-[2px]" style={{ width: `${(r.score / 5) * 100}%`, background: rampColor(r.score) }} />
-                </span>
-                <span className="tabular w-10 text-right text-sm text-hero-ink">{r.score.toFixed(1)}</span>
-              </button>
+                <span className="text-sm text-hero-ink">{VERDICT_LABEL[r.verdict]}</span>
+                {r.direction && <span className="w-20 text-right text-xs text-hero-muted">{r.direction}</span>}
+              </Link>
             </li>
           ))}
         </ol>
@@ -335,7 +318,7 @@ function Stat({ label, value, unit }: { label: string; value: string; unit?: str
   return (
     <div className="text-center">
       <dt className="text-[11px] leading-tight font-medium text-hero-muted">{label}</dt>
-      <dd className="tabular mt-1.5 font-display font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a] md:text-[2.6rem] text-white md:text-[1.75rem]">
+      <dd className="tabular mt-1.5 font-display text-2xl leading-tight font-light tracking-[-0.03em] text-white md:text-[1.75rem]">
         {value}
         {unit && <span className="ml-1 text-sm font-semibold text-hero-muted">{unit}</span>}
       </dd>

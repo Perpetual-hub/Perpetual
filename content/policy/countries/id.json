@@ -1,0 +1,169 @@
+{
+  "country": "ID",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Indonesia buys renewable power through PLN as the single buyer, now under bundled tenders such as GIGA ONE. PPAs can run 30 years, but PLN takes minority stakes in tendered projects and project companies carry currency convertibility risk.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "taiyang",
+            "jp"
+          ],
+          "confidence": "medium",
+          "reason": "PLN is the single buyer and runs tenders. The first 1.2 GW GIGA ONE solar tender began in April 2026, with larger rounds announced."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "nrfid"
+          ],
+          "confidence": "medium",
+          "reason": "PPAs may run 30 years, but PLN need not pay deemed dispatch during grid force majeure, a key bankability issue."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "nrfid"
+          ],
+          "confidence": "medium",
+          "reason": "Tenders may require a PLN subsidiary to take a minority stake, and project companies bear currency convertibility risk."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "nrfid",
+            "ash"
+          ],
+          "confidence": "low",
+          "reason": "Tariff and PPA rules were rewritten in 2022, 2025 and again for hybrid plants in June 2026."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Large solar tenders under GIGA ONE and a planned 30 GW round point to more procurement.",
+        "sources": [
+          "taiyang",
+          "jp"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": [],
+          "reason": "Rules for captive supply, rooftop export and power wheeling to companies were not confirmed."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "nrfid"
+          ],
+          "confidence": "medium",
+          "reason": "PLN minority stakes apply to tendered projects, and currency convertibility risk sits with the project company."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No published change to corporate supply rules was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-06-24",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "MEMR 264/2026 sets benchmark tariffs for hybrid renewable plants",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ash"
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "PLN starts the 1.2 GW Mentari Nusantara I solar tender under GIGA ONE",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "taiyang"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "nrfid",
+      "title": "Indonesia renewable energy briefing",
+      "publisher": "Norton Rose Fulbright",
+      "url": "https://www.nortonrosefulbright.com/en/knowledge/publications/ddb0acb4/indonesia-renewable-energy-briefing",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025"
+    },
+    {
+      "id": "taiyang",
+      "title": "Indonesia launches 1.2 GW solar tender under GIGA ONE",
+      "publisher": "TaiyangNews",
+      "url": "https://taiyangnews.info/tenders/indonesia-launches-12-gw-solar-tender",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-05"
+    },
+    {
+      "id": "jp",
+      "title": "Indonesia to kick off 30 GW tender in 100 GW solar power push",
+      "publisher": "The Jakarta Post",
+      "url": "https://www.thejakartapost.com/business/2026/08/20/indonesia-to-kick-off-30-gw-tender-in-100-gw-solar-power-push",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-08-20"
+    },
+    {
+      "id": "ash",
+      "title": "Indonesia issues hybrid power tariff framework",
+      "publisher": "Ashurst Perkins Coie",
+      "url": "https://www.ashurstperkinscoie.com/en/insights/2026/jul/indonesia-issues-hybrid-power-tariff-framework/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07"
+    }
+  ],
+  "gaps": "Corporate supply routes, PLN payment record, grid connection times and current foreign ownership limits for small plants were not established from public sources."
+}

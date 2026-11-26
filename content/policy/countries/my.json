@@ -1,0 +1,185 @@
+{
+  "country": "MY",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Malaysia procures utility solar through Large Scale Solar rounds sold to TNB under 21-year PPAs, and lets companies buy renewable power over the grid through CRESS. Parts of each round are reserved for Bumiputera companies.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "rt"
+          ],
+          "confidence": "medium",
+          "reason": "Large Scale Solar rounds continue. LSS6, opened in July 2026, offers 2,650 MW of solar with 1,250 MW of batteries."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "nst",
+            "stg"
+          ],
+          "confidence": "low",
+          "reason": "LSS projects sell to TNB under 21-year PPAs as build, own and operate concessions."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "rt"
+          ],
+          "confidence": "low",
+          "reason": "Two LSS6 packages are reserved for Bumiputera companies, and it is unclear whether foreign firms may join them through consortia."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "bmmy",
+            "stsc"
+          ],
+          "confidence": "low",
+          "reason": "Corporate supply and self-consumption rules were revised several times in 2025 and 2026."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "LSS6 opened in July 2026 with 2,650 MW of solar and 1,250 MW of batteries.",
+        "sources": [
+          "rt"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "mall",
+            "stsc"
+          ],
+          "confidence": "low",
+          "reason": "CRESS lets companies buy from third-party developers over TNB's grid, and self-consumption solar has its own guidelines."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "rt"
+          ],
+          "confidence": "low",
+          "reason": "Foreign participation rules for corporate supply projects were not confirmed, and parts of national solar programmes are reserved for Bumiputera companies."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "bmmy",
+            "stsc"
+          ],
+          "confidence": "low",
+          "reason": "Corporate supply and self-consumption rules were revised several times in 2025 and 2026."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No further published change after the 2026 scheme updates was found.",
+        "sources": [
+          "bmmy"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-07-16",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "LSS6 opens with 2,650 MW of solar and 1,250 MW of batteries",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "rt"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "rt",
+      "title": "Large Scale Solar Photovoltaic Plant, Sixth Competitive Bidding Round (LSS6)",
+      "publisher": "Rajah & Tann Asia",
+      "url": "https://www.rajahtannasia.com/viewpoints/large-scale-solar-photovoltaic-plant-sixth-competitive-bidding-round-lss6/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-07-20"
+    },
+    {
+      "id": "nst",
+      "title": "Solarvest-Malakoff consortium secures 470MW solar PPA with TNB",
+      "publisher": "New Straits Times",
+      "url": "https://www.nst.com.my/amp/business/corporate/2025/12/1340787/solarvest-malakoff-consortium-secures-470mw-solar-ppa-tnb",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-12"
+    },
+    {
+      "id": "stg",
+      "title": "Guideline on Large Scale Solar PV for Connection to Electricity Networks",
+      "publisher": "Energy Commission (Suruhanjaya Tenaga)",
+      "url": "https://www.st.gov.my/contents/2019/LSS/Guideline%20on%20LSSPV%20for%20Connection%20to%20Electricity%20Networks_%20February%202019.PDF",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2019-02"
+    },
+    {
+      "id": "bmmy",
+      "title": "Malaysia, 2026 updates to renewable energy schemes",
+      "publisher": "Baker McKenzie",
+      "url": "https://www.bakermckenzie.com/en/insight/publications/2026/01/malaysia-2026-updates-to-renewable-energy-schemes",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-01"
+    },
+    {
+      "id": "stsc",
+      "title": "Guidelines for Solar Photovoltaic for Self Consumption in Peninsular Malaysia",
+      "publisher": "Energy Commission (Suruhanjaya Tenaga)",
+      "url": "https://www.st.gov.my/sites/default/files/2026-07/Guidelines-for-Solar-Photovoltaic-for-Self-Consumption-In-Peninsular-Malaysia.pdf",
+      "accessed": "2026-11-26",
+      "kind": "primary",
+      "published": "2026-07"
+    },
+    {
+      "id": "mall",
+      "title": "Buying green electricity in Malaysia, corporate PPAs emerge in a liberalising market",
+      "publisher": "King & Wood Mallesons",
+      "url": "https://www.mallesons.com/sg/en/insights/latest-thinking/buying-green-electricity-in-malaysia-corporate-ppas-emerge-in-a-liberalising-market.html",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-07-07"
+    }
+  ],
+  "gaps": "Foreign equity limits for power developers, TNB payment record, grid connection timelines and CRESS contract terms were not confirmed from primary sources. Whether LSS6 requires majority Malaysian ownership, which would raise a red flag, is not confirmed."
+}

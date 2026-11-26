@@ -1,8 +1,7 @@
 name: Update data
 
-# Monthly, on the 1st: last month's deals from press releases, news and development lenders, plus refreshed
-# PROFITS indicators. Opens a pull request so every change is reviewed before it
-# goes live. Statistics (IRENA, EIA) update yearly and are refreshed by hand.
+# Monthly, on the 1st: last month's deals from press releases, news and development lenders.
+# Opens a pull request so every change is reviewed before it goes live. Statistics (IRENA, EIA) update yearly and are refreshed by hand.
 on:
   schedule:
     - cron: "17 5 1 * *"
@@ -104,9 +103,6 @@ jobs:
           name: data-${{ github.run_id }}
           path: data/
           retention-days: 30
-
-      - name: PROFITS indicator scores
-        run: node scripts/build-profits.mjs
 
       - name: Check the site still builds
         run: npm run lint && npm run typecheck && npm run build

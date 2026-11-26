@@ -1,15 +1,24 @@
 // Policy heatmap colours and cell type (client-safe; shared by the map and its legend).
 
-/** Per-country policy score for the heatmap (null = not scored yet). */
+/**
+ * Per-country cell for the choropleth globe. In "policy" mode `score` is the Policy Review verdict
+ * code (3 Ready, 2 Workable, 1 Difficult, null not reviewed); in "share" mode it is a percentage.
+ */
 export interface PolicyCell {
   score: number | null;
   /** Extra line for the tooltip, e.g. the data year. */
   note?: string;
-  rank?: number;
+  verdict?: string;
+  direction?: string;
+  lastReviewed?: string;
+  /** Review older than nine months: drawn faded. */
+  faded?: boolean;
   flagged?: boolean;
-  isSample?: boolean;
 }
 export type PolicyScores = Record<string, PolicyCell>;
+
+/** Verdict colours on the globe (Ready, Workable, Difficult); unreviewed countries stay grey. */
+export const VERDICT_FILL = { 3: "#3f9d5a", 2: "#e3a73a", 1: "#cf4b3f" } as const;
 
 /**
  * Diverging ramp: red-orange = unsupportive, neutral sand at the midpoint (3), green = supportive.
