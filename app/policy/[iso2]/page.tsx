@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps<"/policy/[iso2]">):
   if (!c) return { title: `${name} Policy Review`, description: `${name} has not been reviewed yet.` };
   return {
     title: `${name} Policy Review`,
-    description: `Utility-scale ${VERDICT_LABEL[segmentVerdict(c, "utility").verdict]}, C&I ${VERDICT_LABEL[segmentVerdict(c, "ci").verdict]}. ${c.summary ?? ""}`,
+    description: `Utility-Scale ${VERDICT_LABEL[segmentVerdict(c, "utility").verdict]}, C&I ${VERDICT_LABEL[segmentVerdict(c, "ci").verdict]}. ${c.summary ?? ""}`,
   };
 }
 
@@ -144,10 +144,10 @@ async function Content({ params }: { params: PageProps<"/policy/[iso2]">["params
         kicker={c.status === "draft" ? "Policy Review (draft)" : "Policy Review"}
         lede={c.summary}
         stats={[
-          { label: "Utility-scale", value: <VerdictValue v={segmentVerdict(c, "utility").verdict} /> },
+          { label: "Utility-Scale", value: <VerdictValue v={segmentVerdict(c, "utility").verdict} /> },
           { label: "C&I", value: <VerdictValue v={segmentVerdict(c, "ci").verdict} /> },
-          { label: "Policy changes recorded", value: <span className="tabular">{c.events.length}</span> },
-          { label: "Last reviewed", value: formatDate(c.lastReviewed ?? "") },
+          { label: "Policy Changes Recorded", value: <span className="tabular">{c.events.length}</span> },
+          { label: "Last Reviewed", value: formatDate(c.lastReviewed ?? "") },
         ]}
       >
         <p className="flex flex-wrap items-center gap-3 text-sm text-hero-ink/75">
@@ -166,7 +166,7 @@ async function Content({ params }: { params: PageProps<"/policy/[iso2]">["params
 
         <section aria-labelledby="questions-h">
           <h2 id="questions-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-            Six investor questions
+            Six Investor Questions
           </h2>
           <p className="mt-2 mb-6 max-w-2xl text-[15px] text-soft">
             Each answer is rated for both deal types, with a reason, a confidence level and its sources.{" "}
@@ -182,9 +182,9 @@ async function Content({ params }: { params: PageProps<"/policy/[iso2]">["params
           <section aria-labelledby="gaps-h" className="grid gap-6 border-t border-line pt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
             <div>
               <h2 id="gaps-h" className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-                Still to be established
+                Still to Be Established
               </h2>
-              <p className="mt-2 max-w-sm text-[15px] text-soft">What public sources did not settle. These questions stay Not rated until they do.</p>
+              <p className="mt-2 max-w-sm text-[15px] text-soft">What public sources did not settle. These questions stay Not Rated until they do.</p>
             </div>
             <ul className="divide-y divide-line border-y border-line">
               {c.gaps
@@ -201,7 +201,7 @@ async function Content({ params }: { params: PageProps<"/policy/[iso2]">["params
 
         <section aria-labelledby="timeline-h">
           <h2 id="timeline-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-            How policy has moved
+            How Policy Has Moved
           </h2>
           <p className="mt-2 mb-8 max-w-2xl text-[15px] text-soft">Dated laws, decrees, auctions and tariff decisions, and whether each helped or hurt investors.</p>
           <PolicyTimeline
@@ -219,14 +219,14 @@ async function Content({ params }: { params: PageProps<"/policy/[iso2]">["params
 
         <section aria-labelledby="flags-h">
           <h2 id="flags-h" className="mb-6 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-            Red flags
+            Red Flags
           </h2>
           <RedFlagList c={c} num={num} />
         </section>
 
         <section aria-labelledby="log-h">
           <h2 id="log-h" className="mb-6 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-            Rating changes
+            Rating Changes
           </h2>
           <ChangeLog c={c} />
         </section>

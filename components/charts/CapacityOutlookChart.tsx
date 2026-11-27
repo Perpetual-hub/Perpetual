@@ -13,7 +13,7 @@ const SERIES: { key: Key; label: string; color: string }[] = [
   { key: "hydro", label: "Hydropower", color: TECH_BY_ID.hydro.hex },
   { key: "wind", label: "Wind", color: TECH_BY_ID.wind.hex },
   { key: "solar", label: "Solar", color: TECH_BY_ID.solar.hex },
-  { key: "other", label: "Other renewables", color: TECH_BY_ID.bioenergy.hex },
+  { key: "other", label: "Other Renewables", color: TECH_BY_ID.bioenergy.hex },
   { key: "geothermal", label: "Geothermal", color: TECH_BY_ID.geothermal.hex },
 ];
 
@@ -201,8 +201,8 @@ export function CapacityOutlookChart({ outlook, actual }: { outlook: CapacityOut
                   <th key={s.key} scope="col" className="px-3 py-2 text-right font-medium">{s.label}</th>
                 ))}
                 <th scope="col" className="px-3 py-2 text-right font-semibold text-ink">Total</th>
-                <th scope="col" className="px-3 py-2 text-right font-medium">Battery storage</th>
-                <th scope="col" className="px-3 py-2 text-right font-medium">IRENA reported</th>
+                <th scope="col" className="px-3 py-2 text-right font-medium">Battery Storage</th>
+                <th scope="col" className="px-3 py-2 text-right font-medium">IRENA Reported</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-line">

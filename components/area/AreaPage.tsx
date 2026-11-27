@@ -98,7 +98,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
                 label={
                   snap.generationYear
                     ? `Renewable share of electricity, ${snap.generationYear}`
-                    : "Renewable share of electricity"
+                    : "Renewable Share of Electricity"
                 }
                 value={pct(snap.renewableGenerationShare)}
                 unit={snap.renewableGenerationShare == null ? undefined : "%"}

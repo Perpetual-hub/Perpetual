@@ -14,7 +14,7 @@ export const VERDICT_LABEL: Record<Verdict, string> = {
   ready: "Ready",
   workable: "Workable",
   difficult: "Difficult",
-  not_reviewed: "Not yet reviewed",
+  not_reviewed: "Not Yet Reviewed",
 };
 export const VERDICT_STYLE: Record<Verdict, { fill: string; chip: string; dot: string }> = {
   ready: { fill: "#3f9d5a", chip: "border-[#3f9d5a]/35 bg-[#ebf6ee] text-[#1f6b37]", dot: "#3f9d5a" },
@@ -22,7 +22,7 @@ export const VERDICT_STYLE: Record<Verdict, { fill: string; chip: string; dot: s
   difficult: { fill: "#cf4b3f", chip: "border-[#cf4b3f]/35 bg-[#fcecea] text-[#9c2a20]", dot: "#cf4b3f" },
   not_reviewed: { fill: "#8a98ab", chip: "border-line bg-surface-2 text-muted", dot: "#8a98ab" },
 };
-export const SEGMENT_LABEL: Record<SegmentId, string> = { utility: "Utility-scale", ci: "C&I" };
+export const SEGMENT_LABEL: Record<SegmentId, string> = { utility: "Utility-Scale", ci: "C&I" };
 export const DIRECTION_LABEL = { improving: "Improving", stable: "Stable", worsening: "Worsening" } as const;
 
 /** Numeric code the map colours by (0 = not reviewed). */

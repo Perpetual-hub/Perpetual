@@ -36,12 +36,12 @@ export default function DisclosurePage() {
       <PageHeader
         photo={HERO_PHOTOS.disclosure}
         eyebrow="Disclosure"
-        title="How our data works"
+        title="How Our Data Works"
         intro="Where every figure on Perpetual comes from, how it is defined and checked, and where its limits are."
         aside={
           <HeroStats
             stats={[
-              { label: "Data version", value: DATA_VERSION },
+              { label: "Data Version", value: DATA_VERSION },
               { label: "Compiled", value: formatDate(DATA_AS_OF) },
               { label: "Countries", value: String(countryStats.all().length) },
               { label: "Deals", value: dealCount.toLocaleString("en-GB") },

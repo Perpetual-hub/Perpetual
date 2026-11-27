@@ -53,7 +53,7 @@ export const OWNERSHIP_LABEL: Record<Ownership, string> = {
 };
 export const FINANCING_OPTIONS = [
   { id: "DFI loan", label: "Has DFI loan" },
-  { id: "green bond", label: "Has green bond" },
+  { id: "green bond", label: "Has Green Bond" },
 ] as const;
 
 export function matchesFilters(p: Filterable, f: ProjectFilters): boolean {

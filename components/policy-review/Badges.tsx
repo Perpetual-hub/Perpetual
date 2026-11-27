@@ -20,7 +20,7 @@ const RATING: Record<Rating, { label: string; cls: string; dot: string }> = {
   supportive: { label: "Supportive", cls: "text-ink", dot: "#3f9d5a" },
   mixed: { label: "Mixed", cls: "text-ink", dot: "#e3a73a" },
   unsupportive: { label: "Unsupportive", cls: "text-ink", dot: "#cf4b3f" },
-  not_rated: { label: "Not rated", cls: "text-muted", dot: "#b4bfcd" },
+  not_rated: { label: "Not Rated", cls: "text-muted", dot: "#b4bfcd" },
 };
 
 export function RatingChip({ rating }: { rating: Rating }) {

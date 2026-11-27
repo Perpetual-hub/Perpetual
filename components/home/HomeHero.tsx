@@ -133,7 +133,7 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRa
                   value={deal}
                   onChange={setDeal}
                   options={[
-                    { id: "utility" as SegmentId, label: "Utility-scale" },
+                    { id: "utility" as SegmentId, label: "Utility-Scale" },
                     { id: "ci" as SegmentId, label: "C&I" },
                   ]}
                 />
@@ -154,7 +154,7 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRa
                 className="hidden items-center gap-1.5 rounded-[3px] border border-hero-line px-3 py-1.5 text-xs font-medium text-hero-ink transition-colors duration-150 hover:bg-white/5 sm:inline-flex"
               >
                 <Maximize2 className="size-3.5" aria-hidden />
-                {mode === "policy" ? "All reviews" : "All deals"}
+                {mode === "policy" ? "All reviews" : "All Deals"}
               </Link>
             </div>
           </div>
@@ -198,11 +198,11 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRa
           {/* Stats strip */}
           {mode === "policy" ? (
             <dl aria-live="polite" className="flex flex-wrap justify-around gap-x-10 gap-y-6 border-t border-hero-line py-6">
-              <Stat label="Markets reviewed" value={String(reviewed.length)} />
+              <Stat label="Markets Reviewed" value={String(reviewed.length)} />
               <Stat label="Ready" value={String(policyStats.ready)} />
               <Stat label="Workable" value={String(policyStats.workable)} />
               <Stat label="Difficult" value={String(policyStats.difficult)} />
-              <Stat label="With an active red flag" value={String(policyStats.flagged)} />
+              <Stat label="With an Active Red Flag" value={String(policyStats.flagged)} />
             </dl>
           ) : (
           <dl aria-live="polite" className="flex flex-wrap justify-around gap-x-10 gap-y-6 border-t border-hero-line py-6">
@@ -213,7 +213,7 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRa
             />
             <Stat label="Countries" value={String(stats.countries)} />
             <Stat label="Sectors" value={String(stats.sectors)} />
-            <Stat label="Deals on record" value={totalDeals.toLocaleString("en-GB")} />
+            <Stat label="Deals on Record" value={totalDeals.toLocaleString("en-GB")} />
           </dl>
           )}
         </div>

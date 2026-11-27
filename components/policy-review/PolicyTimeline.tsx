@@ -35,7 +35,7 @@ export function EffectTag({ effect }: { effect: TimelineEvent["effect"] }) {
     mixed: { label: "Mixed", bg: AMBER, Icon: Minus },
   }[effect];
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-[6px] px-2.5 py-1 text-sm font-semibold whitespace-nowrap text-white" style={{ background: m.bg }}>
+    <span className="inline-flex w-[7.5rem] items-center justify-center gap-1.5 rounded-[6px] py-1.5 text-sm font-semibold whitespace-nowrap text-white" style={{ background: m.bg }}>
       <m.Icon className="size-4" strokeWidth={2.5} aria-hidden />
       {m.label}
     </span>
@@ -51,20 +51,20 @@ const total = (c: Cell) => c.pos + c.neg + c.mix;
 
 /** Colour of a year: green when changes were mostly positive, red when mostly negative, amber when balanced. */
 function cellStyle(c: Cell | undefined): { bg: string; fg: string; label: string; text: string } {
-  if (!c || !total(c)) return { bg: "#e9eef4", fg: "#94a3b8", label: "No recorded change", text: "" };
+  if (!c || !total(c)) return { bg: "#e9eef4", fg: "#94a3b8", label: "No Recorded Change", text: "" };
   const net = c.pos - c.neg;
-  if (net >= 2) return { bg: "#167a41", fg: "#fff", label: "Mostly positive", text: `+${net}` };
-  if (net === 1) return { bg: GREEN, fg: "#fff", label: "Mostly positive", text: "+1" };
-  if (net === -1) return { bg: RED, fg: "#fff", label: "Mostly negative", text: "−1" };
-  if (net <= -2) return { bg: "#a8261c", fg: "#fff", label: "Mostly negative", text: `−${-net}` };
+  if (net >= 2) return { bg: "#167a41", fg: "#fff", label: "Mostly Positive", text: `+${net}` };
+  if (net === 1) return { bg: GREEN, fg: "#fff", label: "Mostly Positive", text: "+1" };
+  if (net === -1) return { bg: RED, fg: "#fff", label: "Mostly Negative", text: "−1" };
+  if (net <= -2) return { bg: "#a8261c", fg: "#fff", label: "Mostly Negative", text: `−${-net}` };
   return { bg: AMBER, fg: "#fff", label: "Mixed", text: "±" };
 }
 
 function overall(pos: number, neg: number, mix: number) {
   const n = pos + neg + mix;
   if (!n) return { word: "No recorded changes", color: "#56667c" };
-  if (pos >= neg * 2 && pos / n >= 0.5) return { word: "Mostly positive", color: "#167a41" };
-  if (neg >= pos * 2 && neg / n >= 0.5) return { word: "Mostly negative", color: "#a8261c" };
+  if (pos >= neg * 2 && pos / n >= 0.5) return { word: "Mostly Positive", color: "#167a41" };
+  if (neg >= pos * 2 && neg / n >= 0.5) return { word: "Mostly Negative", color: "#a8261c" };
   return { word: "Mixed", color: "#9a6100" };
 }
 
@@ -152,16 +152,16 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
               onClick={() => setSeg(s)}
               className={`rounded-full px-4 py-1.5 text-sm font-medium ${seg === s ? "bg-[#0b1f3a] text-white" : "text-muted hover:text-ink"}`}
             >
-              {s === "all" ? "All deals" : s === "utility" ? "Utility-scale" : "C&I"}
+              {s === "all" ? "All Deals" : s === "utility" ? "Utility-Scale" : "C&I"}
             </button>
           ))}
         </div>
         <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink" aria-label="Key">
           {[
-            ["#167a41", "Mostly positive"],
+            ["#167a41", "Mostly Positive"],
             [AMBER, "Mixed"],
-            [RED, "Mostly negative"],
-            ["#e9eef4", "No recorded change"],
+            [RED, "Mostly Negative"],
+            ["#e9eef4", "No Recorded Change"],
           ].map(([c, l]) => (
             <li key={l} className="flex items-center gap-2">
               <span className="size-4 rounded-[4px]" style={{ background: c }} aria-hidden />
@@ -242,7 +242,7 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
         {list.length ? (
           <ol className="mt-5 divide-y divide-line border-y border-line">
             {list.map((e, i) => (
-              <li key={i} className="grid gap-2 py-5 md:grid-cols-[8rem_minmax(0,1fr)_auto] md:items-start md:gap-6">
+              <li key={i} className="grid gap-2 py-5 md:grid-cols-[8rem_minmax(0,1fr)_7.5rem] md:items-start md:gap-6">
                 <span className="text-sm text-muted">{when(e)}</span>
                 <span className="text-[15px] leading-relaxed text-ink">
                   {e.country && (
@@ -262,7 +262,7 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
                       [{r.n}]
                     </a>
                   ))}
-                  <span className="block text-xs text-muted">{e.segments.map((s) => (s === "ci" ? "C&I" : "Utility-scale")).join(" and ")}</span>
+                  <span className="block text-xs text-muted">{e.segments.map((s) => (s === "ci" ? "C&I" : "Utility-Scale")).join(" and ")}</span>
                 </span>
                 <EffectTag effect={e.effect} />
               </li>

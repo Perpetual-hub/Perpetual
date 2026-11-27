@@ -3,18 +3,18 @@
 import { z } from "zod";
 
 export const QUESTIONS = [
-  { id: "access", n: 1, short: "Market access", ask: "Can you sell the power?" },
-  { id: "terms", n: 2, short: "Revenue terms", ask: "Are the terms bankable?" },
-  { id: "buyer", n: 3, short: "Buyer and payment", ask: "Will the buyer pay?" },
-  { id: "ownership", n: 4, short: "Ownership and money", ask: "Can a foreign investor own it and take money home?" },
-  { id: "build", n: 5, short: "Build and connect", ask: "Can it be built and connected on time?" },
-  { id: "stability", n: 6, short: "Rule stability", ask: "Will the rules hold?" },
+  { id: "access", n: 1, short: "Market Access", ask: "Can you sell the power?" },
+  { id: "terms", n: 2, short: "Revenue Terms", ask: "Are the terms bankable?" },
+  { id: "buyer", n: 3, short: "Buyer and Payment", ask: "Will the buyer pay?" },
+  { id: "ownership", n: 4, short: "Ownership and Money", ask: "Can a foreign investor own it and take money home?" },
+  { id: "build", n: 5, short: "Build and Connect", ask: "Can it be built and connected on time?" },
+  { id: "stability", n: 6, short: "Rule Stability", ask: "Will the rules hold?" },
 ] as const;
 export type QuestionId = (typeof QUESTIONS)[number]["id"];
 export const GATES: QuestionId[] = ["access", "ownership"];
 
 export const SEGMENTS = [
-  { id: "utility", label: "Utility-scale" },
+  { id: "utility", label: "Utility-Scale" },
   { id: "ci", label: "C&I" },
 ] as const;
 export type SegmentId = (typeof SEGMENTS)[number]["id"];

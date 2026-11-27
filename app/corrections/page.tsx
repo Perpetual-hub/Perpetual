@@ -19,7 +19,7 @@ export default function CorrectionsPage() {
       <PageHeader
         photo={HERO_PHOTOS.corrections}
         eyebrow="Corrections"
-        title="Help us get it right"
+        title="Help Us Get It Right"
         intro="Every fact on Perpetual should be traceable and right. If something is wrong or out of date, tell us what it should say and where you found it."
       />
       <div className="container-page grid gap-12 py-12 lg:grid-cols-[minmax(0,640px)_minmax(0,1fr)]">

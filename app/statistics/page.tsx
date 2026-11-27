@@ -38,7 +38,7 @@ export default function StatisticsPage() {
       <PageHero
         photo={HERO_PHOTOS.statistics}
         eyebrow="Statistics"
-        title="Renewable power by the numbers"
+        title="Renewable Power by the Numbers"
         lede={
           <>
             Official capacity statistics from IRENA and the US Energy Information Administration, for every region, country and
@@ -53,7 +53,7 @@ export default function StatisticsPage() {
             stats={[
               { label: `World renewable capacity, ${worldNow.year}`, value: Math.round(worldNow.total).toLocaleString("en-GB"), unit: "GW" },
               { label: `Added since ${worldFiveAgo.year}`, value: Math.round(worldNow.total - worldFiveAgo.total).toLocaleString("en-GB"), unit: "GW" },
-              { label: "Countries covered", value: String(countryRows.length) },
+              { label: "Countries Covered", value: String(countryRows.length) },
               { label: `EIA projection, ${outlookRef.year}`, value: Math.round(outlookRef.total).toLocaleString("en-GB"), unit: "GW" },
             ]}
           />

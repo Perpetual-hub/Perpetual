@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { SegmentId } from "@/lib/policy-review/types";
 
-/** Utility-scale or C&I, kept in the address (?deal=ci) so a view can be shared. */
+/** Utility-Scale or C&I, kept in the address (?deal=ci) so a view can be shared. */
 export function useDeal(): SegmentId {
   return useSearchParams().get("deal") === "ci" ? "ci" : "utility";
 }
@@ -33,7 +33,7 @@ export function DealToggle({ tone = "light" }: { tone?: "light" | "dark" }) {
             deal === d ? (dark ? "bg-hero-ink text-[#0b1f3a]" : "bg-[#0b1f3a] text-white") : dark ? "text-hero-ink/80 hover:text-hero-ink" : "text-muted hover:text-ink"
           }`}
         >
-          {d === "utility" ? "Utility-scale" : "C&I"}
+          {d === "utility" ? "Utility-Scale" : "C&I"}
         </button>
       ))}
     </div>

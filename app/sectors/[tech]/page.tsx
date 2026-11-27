@@ -132,14 +132,14 @@ async function TechnologyContent({
                   ),
                   unit: "GW",
                 },
-                { label: "Deals on record", value: String(prof.deals.length) },
-                { label: "Countries with deals", value: String(dealCountries) },
+                { label: "Deals on Record", value: String(prof.deals.length) },
+                { label: "Countries with Deals", value: String(dealCountries) },
               ]
             : [
-                { label: "Deals on record", value: String(prof.deals.length) },
-                { label: "Countries with deals", value: String(dealCountries) },
-                { label: "Investors and lenders", value: String(lenders) },
-                { label: "Deals in the last 30 days", value: String(prof.dealsLast30Days) },
+                { label: "Deals on Record", value: String(prof.deals.length) },
+                { label: "Countries with Deals", value: String(dealCountries) },
+                { label: "Investors and Lenders", value: String(lenders) },
+                { label: "Deals in the Last 30 Days", value: String(prof.dealsLast30Days) },
               ]
         }
       />

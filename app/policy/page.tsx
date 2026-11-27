@@ -25,15 +25,15 @@ export default function PolicyPage() {
       <PageHero
         photo={HERO_PHOTOS.policy}
         eyebrow="Policy"
-        title="How ready each market is for renewable investment"
+        title="How Ready Each Market Is for Renewable Investment"
         lede="Each reviewed country gets a verdict for utility-scale and C&I deals. Ready, Workable or Difficult, built from six questions an investment committee asks, each with a reason and a source."
         aside={
           <HeroStats
             stats={[
-              { label: "Markets reviewed", value: String(rows.length) },
-              { label: "Ready for utility-scale", value: String(ready("utility")) },
+              { label: "Markets Reviewed", value: String(rows.length) },
+              { label: "Ready for Utility-Scale", value: String(ready("utility")) },
               { label: "Ready for C&I", value: String(ready("ci")) },
-              { label: "With an active red flag", value: String(flagged) },
+              { label: "With an Active Red Flag", value: String(flagged) },
             ]}
           />
         }
@@ -45,7 +45,7 @@ export default function PolicyPage() {
       <div className="container-page space-y-20 py-16 md:py-24">
         <section aria-labelledby="table-h">
           <h2 id="table-h" className="mb-8 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
-            Reviewed markets.
+            Reviewed Markets
           </h2>
           <Suspense fallback={<div className="skeleton h-96 rounded-[14px]" />}>
             <ReviewTable
@@ -65,14 +65,14 @@ export default function PolicyPage() {
             />
           </Suspense>
           <p className="mt-4 max-w-3xl text-sm text-soft">
-            {rows.length} of {total} countries and territories reviewed so far. The others show Not yet reviewed and keep their capacity and deal pages.
+            {rows.length} of {total} countries and territories reviewed so far. The others show Not Yet Reviewed and keep their capacity and deal pages.
             Reviews are desk research from published legal guides and official documents, dated and listed with every source.
           </p>
         </section>
 
         <section aria-labelledby="changes-h">
           <h2 id="changes-h" className="font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
-            How policy has moved.
+            How Policy Has Moved
           </h2>
           <p className="mt-3 mb-10 max-w-2xl text-[15px] text-soft">
             Dated policy changes across every reviewed market, and whether each helped or hurt investors. Choose a year to see what changed.
@@ -82,7 +82,7 @@ export default function PolicyPage() {
 
         <section aria-labelledby="method-h" className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end">
           <h2 id="method-h" className="font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
-            How a verdict is reached.
+            How a Verdict Is Reached
           </h2>
           <div>
             <div>

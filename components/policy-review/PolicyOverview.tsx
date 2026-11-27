@@ -116,7 +116,7 @@ export function ReviewTable({ rows }: { rows: OverviewRow[] }) {
         <label className="flex flex-col gap-1.5 text-xs font-medium text-muted">
           Deal type
           <select value={seg} onChange={(e) => setSeg(e.target.value as SegmentId)} className={selectCls}>
-            <option value="utility">Utility-scale</option>
+            <option value="utility">Utility-Scale</option>
             <option value="ci">C&amp;I</option>
           </select>
         </label>
@@ -144,13 +144,13 @@ export function ReviewTable({ rows }: { rows: OverviewRow[] }) {
             <tr>
               {th("name", "Country")}
               {th("region", "Region")}
-              {th("utility", "Utility-scale")}
+              {th("utility", "Utility-Scale")}
               {th("ci", "C&I")}
               <th scope="col" className="px-4 py-3 text-left text-[13px] font-semibold text-ink">
                 Direction
               </th>
-              {th("flags", "Red flags")}
-              {th("events", "Policy changes")}
+              {th("flags", "Red Flags")}
+              {th("events", "Policy Changes")}
               {th("reviewed", "Reviewed")}
             </tr>
           </thead>

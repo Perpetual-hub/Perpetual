@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Pill } from "@/components/home/Landing";
 import { PageHero } from "@/components/ui/PageHero";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Ban, Banknote, RotateCcw } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, PenLine, ShieldCheck } from "lucide-react";
 import { MethodExplorer } from "@/components/policy-review/MethodExplorer";
 
 export const metadata: Metadata = {
@@ -72,16 +72,16 @@ const EARNS: Record<string, [string, string, string]> = {
 };
 
 const DECISIONS: [string, string][] = [
-  ["A judgement with reasons, not a numeric score", "A number like 3.4 suggests precision that research cannot support, and it hides the trade-offs an investor needs to see."],
-  ["Six questions, phrased the way an investor asks them", "They match the workstreams of real due diligence and the headings of an investment committee memo. Each can be answered from laws, contracts and regulator documents."],
-  ["Three ratings", "Supportive, Mixed or Unsupportive. Finer grades cannot be applied consistently from desk research."],
-  ["Separate verdicts for utility-scale and C&I", "The same country can run good auctions but block corporate PPAs, or the reverse. One verdict would hide that."],
-  ["Verdicts follow a fixed rule, not an average", "Deals fail at the weakest link. If you cannot sell the power, a good grid does not help."],
-  ["Three red flags override any verdict", "Blocked foreign control, blocked profit transfer and unresolved retroactive cuts stop deals in practice, whatever else is true."],
-  ["A direction of travel", "Investors price the next ten years, not today. Workable and improving is a different call from Workable and worsening."],
-  ["Every rating cites a source", "A reader should be able to click through to the law, regulator notice, tender document or legal guide behind it."],
-  ["Dated reviews on a six-month cycle", "Policy moves fast, so every page shows when it was last checked and flags itself when overdue."],
-  ["No weights", "With a rule-based verdict, nothing needs weighting."],
+  ["A Judgement with Reasons, Not a Score", "A number like 3.4 suggests precision that research cannot support, and it hides the trade-offs an investor needs to see."],
+  ["Six Questions an Investor Would Ask", "They match the workstreams of real due diligence and the headings of an investment committee memo. Each can be answered from laws, contracts and regulator documents."],
+  ["Three Ratings", "Supportive, Mixed or Unsupportive. Finer grades cannot be applied consistently from desk research."],
+  ["Separate Verdicts for Utility-Scale and C&I", "The same country can run good auctions but block corporate PPAs, or the reverse. One verdict would hide that."],
+  ["A Fixed Rule, Not an Average", "Deals fail at the weakest link. If you cannot sell the power, a good grid does not help."],
+  ["Red Flags Override Any Verdict", "Blocked foreign control, blocked profit transfer and unresolved retroactive cuts stop deals in practice, whatever else is true."],
+  ["A Direction of Travel", "Investors price the next ten years, not today. Workable and improving is a different call from Workable and worsening."],
+  ["Every Rating Cites a Source", "A reader should be able to click through to the law, regulator notice, tender document or legal guide behind it."],
+  ["Reviewed Every Six Months", "Policy moves fast, so every page shows when it was last checked and flags itself when overdue."],
+  ["No Weights", "With a rule-based verdict, nothing needs weighting."],
 ];
 
 const H2 = "font-display text-[clamp(2.2rem,4.6vw,3.8rem)] leading-[1] font-light tracking-[-0.04em]";
@@ -89,7 +89,7 @@ const H2 = "font-display text-[clamp(2.2rem,4.6vw,3.8rem)] leading-[1] font-ligh
 const FLOW: { q: string; yes: string; color: string }[] = [
   { q: "Is any red flag active?", yes: "Difficult", color: "#d63c2f" },
   { q: "Is either gate Unsupportive, or are two or more questions Unsupportive?", yes: "Difficult", color: "#d63c2f" },
-  { q: "Is either gate not rated, or are more than two questions not rated?", yes: "Not yet reviewed", color: "#8a98ab" },
+  { q: "Is either gate not rated, or are more than two questions not rated?", yes: "Not Yet Reviewed", color: "#8a98ab" },
   { q: "Are both gates Supportive, nothing Unsupportive, and two or fewer Mixed?", yes: "Ready", color: "#1f9d55" },
 ];
 
@@ -99,22 +99,22 @@ export default function PolicyMethodPage() {
       <PageHero
         photo={HERO_PHOTOS.method}
         eyebrow="Method"
-        title="How a Policy Review is built"
+        title="How a Policy Review Is Built"
         lede="Each reviewed country gets a verdict for utility-scale and C&I deals. Ready, Workable or Difficult, worked out by a fixed rule from six investor questions, each rated with a reason, a confidence level and a source."
       />
 
       {/* At a glance */}
       <section aria-label="The method at a glance" className="border-b border-line bg-white">
-        <ol className="container-page grid grid-cols-2 gap-px bg-line md:grid-cols-4">
+        <ol className="container-page grid grid-cols-2 md:grid-cols-4">
           {[
-            ["6", "investor questions"],
-            ["3", "ratings for each answer"],
-            ["2", "verdicts, one per deal type"],
-            ["3", "red flags that override all"],
-          ].map(([n, l]) => (
-            <li key={l} className="bg-white px-2 py-8 md:px-8 md:first:pl-0">
-              <p className="tabular font-display text-[4rem] leading-none font-light tracking-[-0.05em] text-[#0b5cad]">{n}</p>
-              <p className="mt-2 text-[15px] text-soft">{l}</p>
+            ["6", "Investor Questions"],
+            ["3", "Ratings per Answer"],
+            ["2", "Verdicts per Market"],
+            ["3", "Red Flags"],
+          ].map(([n, l], i) => (
+            <li key={l} className={`flex items-center gap-4 py-7 md:justify-center ${i % 2 ? "pl-5 md:pl-0" : ""} ${i > 0 ? "md:border-l md:border-line" : ""} ${i % 2 ? "border-l border-line md:border-l" : ""} ${i > 1 ? "border-t border-line md:border-t-0" : ""}`}>
+              <span className="tabular font-display text-[3.2rem] leading-none font-light tracking-[-0.05em] text-[#0b5cad]">{n}</span>
+              <span className="max-w-[7rem] text-[15px] leading-snug font-medium text-[#0b1f3a]">{l}</span>
             </li>
           ))}
         </ol>
@@ -125,16 +125,31 @@ export default function PolicyMethodPage() {
         <div className="container-page py-20 md:py-28">
           <div className="mb-12 grid gap-6 lg:grid-cols-2 lg:items-end">
             <h2 id="q-h" className={`${H2} text-[#0b1f3a]`}>
-              Six questions an investment committee asks.
+              Six Questions an Investment Committee Asks
             </h2>
             <p className="max-w-xl text-lg leading-relaxed text-soft lg:justify-self-end">
               Every country answers the same six, separately for utility-scale and for C&amp;I, meaning rooftop, on-site and corporate PPAs. Choose one to see how it is rated.
             </p>
           </div>
           <MethodExplorer check={CHECK} earns={EARNS} />
-          <p className="mt-8 max-w-3xl text-[15px] text-soft">
-            When evidence points two ways, the question is rated Mixed and the reason says why. When there is not enough evidence to rate, it is marked Not rated rather than guessed.
-          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {[
+              ["The evidence points two ways", "Mixed", "#e9a23b", "#fff", "The reason explains both sides."],
+              ["Not enough evidence to decide", "Not Rated", "#dfe6ee", "#3b4a5e", "We leave it open rather than guess, and list it as still to be established."],
+            ].map(([when, tag, bg, fg, note]) => (
+              <div key={tag} className="grid grid-cols-[minmax(0,1fr)_auto_auto] items-center gap-4 rounded-[14px] border border-line bg-white p-5 md:p-6">
+                <div>
+                  <p className="text-sm text-soft">When</p>
+                  <p className="mt-0.5 text-[17px] font-medium text-[#0b1f3a]">{when}</p>
+                  <p className="mt-1 text-sm text-soft">{note}</p>
+                </div>
+                <ArrowRight className="size-5 text-[#8396ae]" aria-hidden />
+                <span className="w-[7.5rem] rounded-[6px] py-1.5 text-center text-sm font-semibold" style={{ background: bg, color: fg }}>
+                  {tag}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -143,14 +158,33 @@ export default function PolicyMethodPage() {
         <div className="container-page grid gap-14 py-20 md:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)]">
           <div>
             <h2 id="rule-h" className={`${H2} text-white`}>
-              The verdict follows a rule, not an average.
+              The Verdict Follows a Rule, Not an Average
             </h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-white/80">
               Market access and ownership are gates. If you cannot sell the power, or cannot own the asset and take the money home, nothing else rescues the deal.
             </p>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/65">
-              The site works the verdict out from the ratings, so a page can never show a verdict its ratings do not support. A reviewer may override it only with a written reason, shown on the page.
-            </p>
+            <div className="mt-10 max-w-md space-y-3">
+              <div className="flex items-center gap-2 rounded-[14px] bg-white/[0.07] p-4 text-sm text-white">
+                {["Six Ratings", "Fixed Rule", "Verdict"].map((x, i) => (
+                  <span key={x} className="flex items-center gap-2">
+                    {i > 0 && <ArrowRight className="size-4 text-white/50" aria-hidden />}
+                    <span className={`rounded-[6px] px-3 py-1.5 font-medium ${i === 2 ? "bg-white text-[#083b6e]" : "bg-white/10"}`}>{x}</span>
+                  </span>
+                ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="rounded-[14px] border border-white/15 p-4">
+                  <ShieldCheck className="size-5 text-[#5aa9e6]" aria-hidden />
+                  <p className="mt-3 font-medium text-white">Worked Out by the Site</p>
+                  <p className="mt-1 leading-relaxed text-white/65">A page can never show a verdict its ratings do not support.</p>
+                </div>
+                <div className="rounded-[14px] border border-white/15 p-4">
+                  <PenLine className="size-5 text-[#5aa9e6]" aria-hidden />
+                  <p className="mt-3 font-medium text-white">Overrides Are Rare</p>
+                  <p className="mt-1 leading-relaxed text-white/65">A reviewer must write a reason, and it is shown on the page.</p>
+                </div>
+              </div>
+            </div>
           </div>
           <ol className="relative">
             {FLOW.map((f, i) => (
@@ -186,27 +220,25 @@ export default function PolicyMethodPage() {
       <section aria-labelledby="flags-h" className="bg-[var(--home-paper)]">
         <div className="container-page py-20 md:py-28">
           <h2 id="flags-h" className={`${H2} max-w-[18ch] text-[#0b1f3a]`}>
-            Three red flags override everything.
+            Three Red Flags Override Everything
           </h2>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {(
-              [
-                [Ban, "Foreign control blocked", "Foreign investors cannot hold more than 50% of the relevant generation assets.", "Investment law, and the OECD FDI Regulatory Restrictiveness Index where it covers the country."],
-                [Banknote, "Money can't leave", "Profits or capital cannot be converted or sent abroad, or transfers face systematic long delays.", "Central bank rules and the IMF Annual Report on Exchange Arrangements and Exchange Restrictions."],
-                [RotateCcw, "Unresolved retroactive cut", "Terms for operating projects were cut in the last ten years and not restored, settled or compensated.", "Official decisions and the UNCTAD Investment Dispute Settlement Navigator."],
-              ] as const
-            ).map(([Icon, t, a, d]) => (
-              <article key={t} className="relative overflow-hidden rounded-[16px] border border-line bg-white p-7">
-                <span aria-hidden className="absolute inset-x-0 top-0 h-1.5 bg-[#d63c2f]" />
-                <span className="grid size-12 place-items-center rounded-full bg-[#fcebe9] text-[#d63c2f]">
-                  <Icon className="size-6" aria-hidden />
-                </span>
-                <h3 className="mt-6 font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">{t}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink/85">{a}</p>
-                <p className="mt-5 border-t border-line pt-4 text-sm text-soft">Checked against {d.charAt(0).toLowerCase() + d.slice(1)}</p>
-              </article>
+          <ol className="mt-12 border-b border-line">
+            {[
+              ["Foreign Control Blocked", "Foreign investors cannot hold more than 50% of the relevant generation assets.", "Investment law, and the OECD FDI Regulatory Restrictiveness Index where it covers the country"],
+              ["Money Cannot Leave", "Profits or capital cannot be converted or sent abroad, or transfers face systematic long delays.", "Central bank rules and the IMF Annual Report on Exchange Arrangements and Exchange Restrictions"],
+              ["Unresolved Retroactive Cut", "Terms for operating projects were cut in the last ten years and not restored, settled or compensated.", "Official decisions and the UNCTAD Investment Dispute Settlement Navigator"],
+            ].map(([t, a, d], i) => (
+              <li key={t} className="grid gap-4 border-t border-line py-8 md:grid-cols-[5rem_minmax(0,1fr)_minmax(0,1.3fr)_minmax(0,1fr)] md:gap-8">
+                <span className="tabular font-display text-[2.6rem] leading-none font-light text-[#d63c2f]">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="font-display text-[1.6rem] leading-tight font-light tracking-[-0.02em] text-[#0b1f3a]">{t}</h3>
+                <p className="text-[15px] leading-relaxed text-ink/85">{a}</p>
+                <div className="text-sm">
+                  <p className="font-medium text-ink">Checked Against</p>
+                  <p className="mt-1 leading-relaxed text-soft">{d}</p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
           <p className="mt-8 max-w-3xl text-[15px] leading-relaxed text-soft">
             A red flag is Active, Resolved or None, and names the deal types it applies to, because a problem in one regime may not reach another. A resolved flag stays on the country page as history but no longer forces the verdict.
           </p>
@@ -218,7 +250,7 @@ export default function PolicyMethodPage() {
         <div className="container-page py-20 md:py-28">
           <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
             <h2 id="dir-h" className={`${H2} text-[#0b1f3a]`}>
-              Where it is heading.
+              Where It Is Heading
             </h2>
             <p className="max-w-xl text-lg leading-relaxed text-soft lg:justify-self-end">
               Each deal type gets an arrow from the last 12 months of dated policy events and changes formally published with a start date. Rumours and speeches do not count.
@@ -248,7 +280,7 @@ export default function PolicyMethodPage() {
       <section aria-labelledby="ev-h" className="bg-[var(--home-paper)]">
         <div className="container-page py-20 md:py-28">
           <h2 id="ev-h" className={`${H2} max-w-[20ch] text-[#0b1f3a]`}>
-            Every answer shows its evidence.
+            Every Answer Shows Its Evidence
           </h2>
           <div className="mt-12 grid gap-4 lg:grid-cols-2">
             <div className="rounded-[16px] border border-line bg-white p-7 md:p-9">
@@ -274,7 +306,7 @@ export default function PolicyMethodPage() {
               </ul>
             </div>
             <div className="rounded-[16px] border border-line bg-white p-7 md:p-9">
-              <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">Review cycle</h3>
+              <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">Review Cycle</h3>
               <div className="mt-8" aria-hidden>
                 <div className="flex h-3 overflow-hidden rounded-full">
                   <span className="w-[66.6%] bg-[#1f9d55]" />
@@ -301,11 +333,11 @@ export default function PolicyMethodPage() {
               <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">Sources</h3>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-[12px] bg-[#e9f2fb] p-5">
-                  <p className="font-medium text-[#0b5cad]">Primary</p>
+                  <p className="font-medium text-[#0b5cad]">Primary Sources</p>
                   <p className="mt-2 text-[15px] leading-relaxed text-ink/85">Laws, decrees, regulator decisions, ministry plans and tender documents.</p>
                 </div>
                 <div className="rounded-[12px] bg-surface p-5">
-                  <p className="font-medium text-ink">Secondary</p>
+                  <p className="font-medium text-ink">Secondary Sources</p>
                   <p className="mt-2 text-[15px] leading-relaxed text-ink/85">Published legal guides, development bank reports and established trade press.</p>
                 </div>
               </div>
@@ -314,7 +346,7 @@ export default function PolicyMethodPage() {
               </p>
             </div>
             <div className="rounded-[16px] bg-[#0b5cad] p-7 text-white md:p-9">
-              <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-white">How the current reviews were made</h3>
+              <h3 className="font-display text-2xl font-light tracking-[-0.02em] text-white">How the Current Reviews Were Made</h3>
               <p className="mt-4 text-[15px] leading-relaxed text-white/85">
                 The reviews published so far are desk reviews. They rest on law firm briefings, regulator and ministry documents, development bank reports and established trade press. We only use sources whose publishers allow automated reading. Without a primary source, a rating is held to medium confidence at most. Each country page lists what its sources could not establish, and every reason is written in our own words.
               </p>
@@ -324,23 +356,23 @@ export default function PolicyMethodPage() {
       </section>
 
       {/* Design decisions */}
-      <section aria-labelledby="why-h" className="on-dark bg-hero text-white">
+      <section aria-labelledby="why-h" className="border-t border-line bg-white">
         <div className="container-page py-20 md:py-28">
-          <h2 id="why-h" className={`${H2} max-w-[16ch] text-white`}>
-            Why it works this way.
+          <h2 id="why-h" className={`${H2} max-w-[16ch] text-[#0b1f3a]`}>
+            Why It Works This Way
           </h2>
-          <ol className="mt-14 grid gap-px overflow-hidden rounded-[16px] bg-white/10 md:grid-cols-2">
+          <ol className="mt-14 grid gap-4 md:grid-cols-2">
             {DECISIONS.map(([t, d], i) => (
-              <li key={t} className="bg-hero p-7 md:p-8">
-                <p className="tabular font-display text-4xl leading-none font-light text-[#5aa9e6]">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-5 text-lg font-medium text-white">{t}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-white/70">{d}</p>
+              <li key={t} className="rounded-[16px] bg-[var(--home-paper)] p-7 md:p-8">
+                <p className="tabular font-display text-4xl leading-none font-light text-[#0b5cad]">{String(i + 1).padStart(2, "0")}</p>
+                <h3 className="mt-5 text-lg font-medium text-[#0b1f3a]">{t}</h3>
+                <p className="mt-2 text-[15px] leading-relaxed text-soft">{d}</p>
               </li>
             ))}
           </ol>
           <div className="mt-12 flex flex-wrap gap-3">
-            <Pill href="/policy" tone="dark">See the reviewed markets</Pill>
-            <Pill href="/corrections" tone="dark">Report a correction</Pill>
+            <Pill href="/policy">See the Reviewed Markets</Pill>
+            <Pill href="/corrections">Report a Correction</Pill>
           </div>
         </div>
       </section>

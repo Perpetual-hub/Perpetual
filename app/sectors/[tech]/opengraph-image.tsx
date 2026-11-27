@@ -24,7 +24,7 @@ export default async function Image({ params }: { params: Promise<{ tech: string
     accent: t.hex,
     stats: [
       ...(world != null ? [{ label: `World capacity, ${last.year}`, value: `${Math.round(world).toLocaleString("en")} GW` }] : []),
-      { label: "Deals on record", value: String(deals.length) },
+      { label: "Deals on Record", value: String(deals.length) },
     ],
   });
 }

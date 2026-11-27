@@ -202,7 +202,7 @@ async function DealContent({ params }: { params: PageProps<"/deals/[slug]">["par
         </div>
 
         <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <h2 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">Related deals</h2>
+          <h2 className="font-display text-2xl font-light tracking-[-0.02em] text-[#0b1f3a]">Related Deals</h2>
           <ul className="space-y-3">
             {related.map((x) => (
               <li key={x.id}>

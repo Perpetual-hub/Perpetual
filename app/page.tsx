@@ -134,7 +134,7 @@ export default function Home() {
                     <Link href={`/policy/${p.iso2.toLowerCase()}`} className="flex justify-between gap-6 py-3 hover:underline">
                       <span>{p.name}</span>
                       <span>
-                        Utility-scale {VERDICT_LABEL[p.segments.utility.verdict]}, C&amp;I {VERDICT_LABEL[p.segments.ci.verdict]}
+                        Utility-Scale {VERDICT_LABEL[p.segments.utility.verdict]}, C&amp;I {VERDICT_LABEL[p.segments.ci.verdict]}
                       </span>
                     </Link>
                   </li>
@@ -174,7 +174,7 @@ export default function Home() {
         <div className="container-page py-20 md:py-28">
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <h2 id="latest-h" className="max-w-[16ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
-              Latest renewable energy deals.
+              Latest Renewable Energy Deals
             </h2>
             <Pill href="/deals">All deals</Pill>
           </div>

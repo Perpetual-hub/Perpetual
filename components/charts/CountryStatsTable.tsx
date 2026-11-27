@@ -20,13 +20,13 @@ export interface CountryStatsRow {
 type SortKey = "name" | "renewableMW" | "solarMW" | "windMW" | "hydroMW" | "otherRenewableMW" | "addedFiveYearsMW" | "renewableGenerationShare";
 
 const COLS: { key: SortKey; label: string; short?: string }[] = [
-  { key: "renewableMW", label: "Renewable capacity", short: "Total" },
+  { key: "renewableMW", label: "Renewable Capacity", short: "Total" },
   { key: "solarMW", label: "Solar" },
   { key: "windMW", label: "Wind" },
   { key: "hydroMW", label: "Hydropower" },
-  { key: "otherRenewableMW", label: "Other renewables", short: "Other" },
-  { key: "addedFiveYearsMW", label: "Added in 5 years", short: "Added, 5 yrs" },
-  { key: "renewableGenerationShare", label: "Renewable share of electricity", short: "RE share" },
+  { key: "otherRenewableMW", label: "Other Renewables", short: "Other" },
+  { key: "addedFiveYearsMW", label: "Added in 5 Years", short: "Added, 5 yrs" },
+  { key: "renewableGenerationShare", label: "Renewable Share of Electricity", short: "RE share" },
 ];
 
 const gw = (mw: number) =>

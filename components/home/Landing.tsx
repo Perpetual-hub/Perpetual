@@ -151,7 +151,7 @@ export function KeyFigures({
     { value: gw(added), unit: "GW", label: `Renewable capacity added worldwide in ${year}` },
     { value: gw(installed), unit: "GW", label: `Renewable capacity installed worldwide at the end of ${year}` },
     { value: deals.toLocaleString("en-GB"), unit: "", label: "Renewable energy deals on record from the last five years" },
-    { value: String(countries), unit: "", label: "Countries where those deals took place" },
+    { value: String(countries), unit: "", label: "Countries Where Those Deals Took Place" },
   ];
   return (
     <section aria-labelledby="figures-h" className="border-t border-line bg-[var(--home-paper)]">
@@ -211,7 +211,7 @@ export function StackedCards({ cards }: { cards: { n: string; title: string; bod
     <section aria-labelledby="what-h" className="bg-[var(--home-paper)] pt-20 md:pt-28">
       <div className="container-page">
         <h2 id="what-h" className="max-w-[20ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
-          Three ways to read the market.
+          Three Ways to Read the Market
         </h2>
       </div>
       <ol className="mt-14">
@@ -254,7 +254,7 @@ export function SectorPanels({ counts }: { counts: Record<Technology, { deals: n
     <section aria-labelledby="sectors-h" className="on-dark bg-hero text-hero-ink">
       <div className="container-page flex flex-wrap items-end justify-between gap-6 pt-20 pb-12 md:pt-28">
         <h2 id="sectors-h" className="max-w-[16ch] text-hero-ink font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em]">
-          Eight renewable sectors.
+          Eight Renewable Sectors
         </h2>
       </div>
       <ol>
@@ -311,7 +311,7 @@ export function Closing() {
     <section aria-labelledby="close-h" className="bg-[var(--home-paper)]">
       <div className="container-page grid gap-10 py-24 md:py-32 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end">
         <h2 id="close-h" className="font-display text-[clamp(2.6rem,6vw,5.6rem)] leading-[0.95] font-light tracking-[-0.045em] text-[#0b1f3a]">
-          Every number has a source.
+          Every Number Has a Source
         </h2>
         <div>
           <p className="max-w-md text-lg leading-relaxed text-soft">

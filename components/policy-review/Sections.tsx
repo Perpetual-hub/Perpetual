@@ -76,7 +76,7 @@ export function QuestionGrid({ c, num }: { c: CountryReview; num: Map<string, nu
     <div className="overflow-hidden rounded-[14px] border border-line bg-white/60">
       <div className="hidden grid-cols-[minmax(0,14rem)_minmax(0,1fr)_minmax(0,1fr)] border-b border-line bg-surface-2/60 text-sm font-medium text-muted md:grid">
         <span className="px-5 py-3">Question</span>
-        <span className="px-5 py-3">Utility-scale</span>
+        <span className="px-5 py-3">Utility-Scale</span>
         <span className="px-5 py-3">C&amp;I</span>
       </div>
       <ol className="divide-y divide-line">

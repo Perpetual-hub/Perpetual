@@ -55,15 +55,15 @@ export function MethodExplorer({ check, earns }: { check: Record<string, [string
           <h3 className="mt-2 font-display text-[clamp(2rem,4vw,3rem)] leading-none font-light tracking-[-0.035em] text-white">{q.ask}</h3>
           <div className="mt-5 flex flex-wrap items-center gap-3">
             <span className="text-white/80">{q.short}</span>
-            {gate && <span className="rounded-full bg-[#5aa9e6] px-3 py-1 text-xs font-semibold text-[#061a33]">Gate question</span>}
+            {gate && <span className="rounded-full bg-[#5aa9e6] px-3 py-1 text-xs font-semibold text-[#061a33]">Gate Question</span>}
           </div>
         </div>
 
         <div className="px-6 py-8 md:px-10">
           <div className="flex flex-wrap items-center justify-between gap-4">
-            <p className="font-medium text-[#0b1f3a]">What we check</p>
+            <p className="font-medium text-[#0b1f3a]">What We Check</p>
             <div role="radiogroup" aria-label="Deal type" className="inline-flex rounded-full border border-line p-1">
-              {["Utility-scale", "C&I"].map((l, i) => (
+              {["Utility-Scale", "C&I"].map((l, i) => (
                 <button
                   key={l}
                   type="button"
@@ -79,7 +79,7 @@ export function MethodExplorer({ check, earns }: { check: Record<string, [string
           </div>
           <p className="mt-4 max-w-[62ch] text-lg leading-relaxed text-ink/85">{check[id][seg]}.</p>
 
-          <p className="mt-10 font-medium text-[#0b1f3a]">What earns each rating</p>
+          <p className="mt-10 font-medium text-[#0b1f3a]">What Earns Each Rating</p>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {RATINGS.map((r, i) => (
               <div key={r.word} className="rounded-[12px] p-5" style={{ background: r.tint }}>
