@@ -71,18 +71,6 @@ const EARNS: Record<string, [string, string, string]> = {
   ],
 };
 
-const DECISIONS: [string, string][] = [
-  ["A Judgement with Reasons, Not a Score", "A number like 3.4 suggests precision that research cannot support, and it hides the trade-offs an investor needs to see."],
-  ["Six Questions an Investor Would Ask", "They match the workstreams of real due diligence and the headings of an investment committee memo. Each can be answered from laws, contracts and regulator documents."],
-  ["Three Ratings", "Supportive, Mixed or Unsupportive. Finer grades cannot be applied consistently from desk research."],
-  ["Separate Verdicts for Utility-Scale and C&I", "The same country can run good auctions but block corporate PPAs, or the reverse. One verdict would hide that."],
-  ["A Fixed Rule, Not an Average", "Deals fail at the weakest link. If you cannot sell the power, a good grid does not help."],
-  ["Red Flags Override Any Verdict", "Blocked foreign control, blocked profit transfer and unresolved retroactive cuts stop deals in practice, whatever else is true."],
-  ["A Direction of Travel", "Investors price the next ten years, not today. Workable and improving is a different call from Workable and worsening."],
-  ["Every Rating Cites a Source", "A reader should be able to click through to the law, regulator notice, tender document or legal guide behind it."],
-  ["Reviewed Every Six Months", "Policy moves fast, so every page shows when it was last checked and flags itself when overdue."],
-  ["No Weights", "With a rule-based verdict, nothing needs weighting."],
-];
 
 const H2 = "font-display text-[clamp(2.2rem,4.6vw,3.8rem)] leading-[1] font-light tracking-[-0.04em]";
 
@@ -352,24 +340,6 @@ export default function PolicyMethodPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Design decisions */}
-      <section aria-labelledby="why-h" className="border-t border-line bg-white">
-        <div className="container-page py-20 md:py-28">
-          <h2 id="why-h" className={`${H2} max-w-[16ch] text-[#0b1f3a]`}>
-            Why It Works This Way
-          </h2>
-          <ol className="mt-14 grid gap-4 md:grid-cols-2">
-            {DECISIONS.map(([t, d], i) => (
-              <li key={t} className="rounded-[16px] bg-[var(--home-paper)] p-7 md:p-8">
-                <p className="tabular font-display text-4xl leading-none font-light text-[#0b5cad]">{String(i + 1).padStart(2, "0")}</p>
-                <h3 className="mt-5 text-lg font-medium text-[#0b1f3a]">{t}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-soft">{d}</p>
-              </li>
-            ))}
-          </ol>
           <div className="mt-12 flex flex-wrap gap-3">
             <Pill href="/policy">See the Reviewed Markets</Pill>
             <Pill href="/corrections">Report a Correction</Pill>
