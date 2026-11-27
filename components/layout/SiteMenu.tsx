@@ -39,7 +39,7 @@ export function SiteMenu({ open, onClose, onSearch }: { open: boolean; onClose: 
   return createPortal(
     <div id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" className="pp-menu on-dark fixed inset-0 z-[60] overflow-y-auto bg-[var(--home-forest)] text-[var(--home-forest-ink)]">
       <div className="container-page flex h-16 items-center justify-between">
-        <Link href="/" onClick={() => { window.__ppLogoNav = true; onClose(); }} className="flex items-center gap-3">
+        <Link href="/" onClick={() => { window.__ppLogoNav = window.location.pathname !== "/"; onClose(); }} className="flex items-center gap-3">
           <MarkOnDark size={36} bg="#083b6e" />
           <span className="font-wordmark text-2xl font-extrabold tracking-[-0.03em]">perpetual</span>
         </Link>

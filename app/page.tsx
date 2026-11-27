@@ -15,7 +15,7 @@ import {
 import { DEAL_TYPE_LABEL, daysBetween, formatDate } from "@/lib/format";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { plainText } from "@/lib/plain-text";
-import { getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
+import { getLatestEvents, getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
 import { VERDICT_CODE, VERDICT_LABEL } from "@/lib/policy-review/cells";
 
 const ROMAN = ["I", "II", "III", "IV", "V"];
@@ -80,6 +80,20 @@ export default function Home() {
         policyCells={getVerdictCells()}
         totalDeals={deals.length}
         rail={<LatestRail items={rail} />}
+        policyRail={
+          <LatestRail
+            title="Latest Policy Changes"
+            more={{ href: "/policy", label: "Open the Policy Review" }}
+            items={getLatestEvents(12).map((e, i) => ({
+              id: `${e.iso2}-${i}`,
+              href: `/policy/${e.iso2.toLowerCase()}`,
+              date: e.date,
+              kicker: e.name,
+              title: e.title,
+              value: e.effect === "positive" ? "Positive for investors" : e.effect === "negative" ? "Negative for investors" : "Mixed for investors",
+            }))}
+          />
+        }
       />
 
       <StackedCards

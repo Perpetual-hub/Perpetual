@@ -76,7 +76,7 @@ export function Header({
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-[var(--home-paper)]/90 backdrop-blur-md">
       <div className="container-page flex h-16 items-center gap-6">
-        <Link href="/" className="shrink-0" onClick={() => { window.__ppLogoNav = true; setMobileOpen(false); }}>
+        <Link href="/" className="shrink-0" onClick={() => { window.__ppLogoNav = window.location.pathname !== "/"; setMobileOpen(false); }}>
           {logo}
         </Link>
 

@@ -256,9 +256,6 @@ export function SectorPanels({ counts }: { counts: Record<Technology, { deals: n
         <h2 id="sectors-h" className="max-w-[16ch] text-hero-ink font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em]">
           Eight renewable sectors.
         </h2>
-        <p className="max-w-md text-[15px] leading-relaxed text-hero-ink/75">
-          World installed capacity from IRENA, and the deals on record in each sector. Open one for its charts, deals and investors.
-        </p>
       </div>
       <ol>
         {TECHNOLOGIES.map((t, i) => {

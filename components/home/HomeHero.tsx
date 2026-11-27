@@ -30,9 +30,11 @@ interface Props {
   /** All deals on record. */
   totalDeals: number;
   rail: React.ReactNode;
+  /** Shown instead of the deals rail when the globe is in policy mode. */
+  policyRail: React.ReactNode;
 }
 
-export function HomeHero({ points, ages, policyCells, totalDeals, rail }: Props) {
+export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRail }: Props) {
   const [mode, setMode] = useState<Mode>("deals");
   const router = useRouter();
   const [days, setDays] = useState<number>(90);
@@ -217,8 +219,8 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail }: Props)
         </div>
 
         {/* On wide screens the rail matches the globe column's height and scrolls inside it, so neither column leaves a gap. */}
-        <aside aria-label="Latest deals" className="-mx-4 border-t border-hero-line md:-mx-8 lg:relative lg:mx-0 lg:border-t-0 lg:border-l lg:pl-2">
-          <div className="lg:absolute lg:inset-0 lg:left-2">{rail}</div>
+        <aside aria-label={mode === "policy" ? "Latest policy changes" : "Latest deals"} className="-mx-4 border-t border-hero-line md:-mx-8 lg:relative lg:mx-0 lg:border-t-0 lg:border-l lg:pl-2">
+          <div className="lg:absolute lg:inset-0 lg:left-2">{mode === "policy" ? policyRail : rail}</div>
         </aside>
       </div>
 

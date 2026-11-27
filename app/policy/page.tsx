@@ -5,7 +5,7 @@ import { ReviewTable } from "@/components/policy-review/PolicyOverview";
 import { HeroStats, PageHero } from "@/components/ui/PageHero";
 import { DATA_AS_OF, countryStats } from "@/lib/data";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
-import { getAllEvents, getReviewRows } from "@/lib/policy-review/data";
+import { getAllEvents, getReview, getReviewRows } from "@/lib/policy-review/data";
 import { PolicyTimeline } from "@/components/policy-review/PolicyTimeline";
 
 export const metadata: Metadata = {
@@ -52,6 +52,8 @@ export default function PolicyPage() {
               rows={rows.map((r) => ({
                 iso2: r.iso2,
                 name: r.name,
+                region: countryStats.regionOf(r.iso2),
+                events: getReview(r.iso2)?.events.length ?? 0,
                 lastReviewed: r.lastReviewed,
                 freshness: r.freshness,
                 activeFlags: r.activeFlags,
@@ -83,10 +85,7 @@ export default function PolicyPage() {
             How a verdict is reached.
           </h2>
           <div>
-            <p className="max-w-md text-[15px] leading-relaxed text-soft">
-              Six questions, three ratings, a fixed rule and three red flags that override everything else. No weights and no single score.
-            </p>
-            <div className="mt-6">
+            <div>
               <Pill href="/policy/method">Read the method</Pill>
             </div>
           </div>
