@@ -6634,45 +6634,5 @@ export const iatiDeals: Deal[] = [
     "retrievedAt": "2026-11-11"
    }
   ]
- },
- {
-  "id": "iati-46002-p-z1-ff0-024",
-  "slug": "multinational-the-covid-19-off-grid-recovery-platform-crp-sima-fund-i-46002-p-z1-ff0-024",
-  "isSample": false,
-  "date": "2021-11-26",
-  "type": "development finance",
-  "status": "completed",
-  "title": "Multinational - The COVID-19 Off-Grid Recovery Platform (CRP) - Sima Fund I",
-  "technologies": [
-   "solar"
-  ],
-  "countries": [],
-  "region": "Multi-country",
-  "buyers": [
-   {
-    "name": "African Development Bank",
-    "role": "Lender"
-   }
-  ],
-  "sellers": [
-   {
-    "name": "SIMA Fund I",
-    "role": "Implementing Organisation"
-   }
-  ],
-  "value": {
-   "amount": 4081573.15,
-   "currency": "XDR",
-   "disclosed": true
-  },
-  "summary": "African Development Bank committed XDR 4 million to this project, with the first commitment dated 26 November 2021, according to its published IATI data. Renewable energy (solar) makes up 100% of the project's sector allocation. Implementing organisation: SIMA Fund I. Status as reported: completed.",
-  "sources": [
-   {
-    "publisher": "African Development Bank (IATI, CC BY)",
-    "title": "Multinational - The COVID-19 Off-Grid Recovery Platform (CRP) - Sima Fund I (46002-P-Z1-FF0-024)",
-    "url": "https://mapafrica.afdb.org/en/projects/46002-P-Z1-FF0-024",
-    "retrievedAt": "2026-11-11"
-   }
-  ]
  }
 ];
