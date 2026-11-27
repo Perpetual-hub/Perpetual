@@ -75,6 +75,7 @@ export interface PolicyEvent {
   iso2: string;
   name: string;
   date: string;
+  precision: "day" | "month" | "year";
   title: string;
   effect: "positive" | "negative" | "mixed";
   kind: string;
@@ -90,6 +91,7 @@ export function getLatestEvents(n = 10): PolicyEvent[] {
         iso2: c.country,
         name: countryName(c.country),
         date: e.date,
+        precision: e.precision,
         title: e.title,
         effect: e.effect,
         kind: e.kind,
@@ -99,4 +101,19 @@ export function getLatestEvents(n = 10): PolicyEvent[] {
     )
     .sort((a, b) => b.date.localeCompare(a.date))
     .slice(0, n);
+}
+
+/** Every dated event across reviewed countries, for the overview timeline. */
+export function getAllEvents() {
+  return reviews.flatMap((c) =>
+    c.events.map((e) => ({
+      date: e.date,
+      precision: e.precision,
+      effect: e.effect,
+      title: e.title,
+      segments: e.segments,
+      refs: e.sources.map((id, i) => ({ n: i + 1, url: c.sources.find((s) => s.id === id)?.url ?? "" })),
+      country: { name: countryName(c.country), href: `/policy/${c.country.toLowerCase()}` },
+    })),
+  );
 }

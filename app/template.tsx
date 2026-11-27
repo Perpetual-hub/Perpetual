@@ -2,12 +2,14 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { MarkOutline } from "@/components/brand/Mark";
+import { Mark, MarkOutline } from "@/components/brand/Mark";
 import { sectionName } from "@/lib/section-name";
 
 declare global {
   interface Window {
     __ppNavigated?: boolean;
+    /** Set when the Perpetual logo is clicked, so the page change replays the opening intro. */
+    __ppLogoNav?: boolean;
   }
 }
 
@@ -18,13 +20,27 @@ declare global {
  */
 export default function Template({ children }: { children: React.ReactNode }) {
   const path = usePathname();
-  const [curtain] = useState(() => typeof window !== "undefined" && window.__ppNavigated === true);
+  const [curtain] = useState<"none" | "section" | "intro">(() => {
+    if (typeof window === "undefined" || window.__ppNavigated !== true) return "none";
+    return window.__ppLogoNav ? "intro" : "section";
+  });
   useEffect(() => {
     window.__ppNavigated = true;
+    window.__ppLogoNav = false;
   }, []);
   return (
     <>
-      {curtain && (
+      {curtain === "intro" && (
+        <div className="pp-replay" aria-hidden>
+          <div className="flex flex-col items-center gap-5">
+            <span className="pp-intro-mark">
+              <Mark size={112} />
+            </span>
+            <span className="pp-intro-word font-wordmark text-[2.4rem] font-extrabold tracking-[-0.03em] text-[#0b5cad]">perpetual</span>
+          </div>
+        </div>
+      )}
+      {curtain === "section" && (
         <div className="pp-curtain" aria-hidden>
           <span className="pp-curtain-mark absolute">
             <MarkOutline size={300} color="rgba(255,255,255,0.55)" strokeWidth={1.6} />

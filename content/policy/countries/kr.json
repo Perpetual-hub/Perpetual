@@ -106,7 +106,60 @@
     }
   },
   "redFlags": [],
-  "events": [],
+  "events": [
+    {
+      "date": "2012-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "mixed",
+      "title": "Renewable Portfolio Standard replaces the feed-in tariff",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfkr"
+      ]
+    },
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Direct corporate PPAs become legal",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cg"
+      ]
+    },
+    {
+      "date": "2025-02-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Offshore Wind Special Act passed, moving to government-designated zones",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfkr"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "RPS reform bill proposes auctions with long-term fixed-price contracts",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfkr"
+      ]
+    }
+  ],
   "log": [],
   "sources": [
     {

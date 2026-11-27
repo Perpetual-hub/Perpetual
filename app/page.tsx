@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { dealValue, FeatureDealCard } from "@/components/cards/Cards";
 import { HomeHero } from "@/components/home/HomeHero";
-import { Closing, KeyFigures, MapIntro, Mission, OpeningHero, Pill, SectorPanels, StackedCards } from "@/components/home/Landing";
+import { Closing, KeyFigures, Mission, OpeningHero, Pill, SectorPanels, StackedCards } from "@/components/home/Landing";
 import { LatestRail, type RailItem } from "@/components/home/LatestRail";
 import {
   DATA_AS_OF,
@@ -74,7 +74,6 @@ export default function Home() {
         citationUrl={series.source.url}
       />
 
-      <MapIntro />
       <HomeHero
         points={dealPoints}
         ages={Object.fromEntries(dealPoints.map((p) => [p.id, daysBetween(p.deal!.date, DATA_AS_OF)]))}

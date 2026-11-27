@@ -95,7 +95,21 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2017-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Electricity Act amendment lets renewable generators sell directly to end users",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "semi"
+      ]
+    },
+    {
       "date": "2026-04-01",
+      "precision": "day",
       "kind": "auction",
       "effect": "positive",
       "title": "Offshore wind Round 3.3 opens for up to 3.6 GW",

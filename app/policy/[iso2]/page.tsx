@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { FreshnessBadge } from "@/components/policy-review/Badges";
-import { ChangeLog, QuestionGrid, RedFlagList, SourceList, Timeline, VerdictCards, sourceNumbers } from "@/components/policy-review/Sections";
+import { ChangeLog, QuestionGrid, RedFlagList, SourceList, VerdictCards, sourceNumbers } from "@/components/policy-review/Sections";
+import { PolicyTimeline } from "@/components/policy-review/PolicyTimeline";
 import { Pill } from "@/components/home/Landing";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import { PageHero } from "@/components/ui/PageHero";
@@ -109,27 +110,54 @@ async function Content({ params }: { params: PageProps<"/policy/[iso2]">["params
             </Link>
           </p>
           <QuestionGrid c={c} num={num} />
-          {c.gaps && (
-            <p className="mt-4 max-w-3xl rounded-[12px] border border-line bg-surface-2/60 px-5 py-4 text-[15px] text-ink/85">
-              <span className="font-medium text-ink">What the sources do not establish.</span> {c.gaps}
-            </p>
-          )}
+
         </section>
 
-        <div className="grid gap-16 lg:grid-cols-2">
-          <section aria-labelledby="flags-h">
-            <h2 id="flags-h" className="mb-6 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-              Red flags
-            </h2>
-            <RedFlagList c={c} num={num} />
+        {c.gaps && (
+          <section aria-labelledby="gaps-h" className="grid gap-6 border-t border-line pt-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
+            <div>
+              <h2 id="gaps-h" className="font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
+                Still to be established
+              </h2>
+              <p className="mt-2 max-w-sm text-[15px] text-soft">What public sources did not settle. These questions stay Not rated until they do.</p>
+            </div>
+            <ul className="divide-y divide-line border-y border-line">
+              {c.gaps
+                .split(/(?<=\.)\s+/)
+                .filter(Boolean)
+                .map((g) => (
+                  <li key={g} className="py-4 text-[15px] leading-relaxed text-ink/85">
+                    {g}
+                  </li>
+                ))}
+            </ul>
           </section>
-          <section aria-labelledby="timeline-h">
-            <h2 id="timeline-h" className="mb-6 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
-              Policy timeline
-            </h2>
-            <Timeline c={c} num={num} />
-          </section>
-        </div>
+        )}
+
+        <section aria-labelledby="timeline-h">
+          <h2 id="timeline-h" className="font-display text-[2rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
+            How policy has moved
+          </h2>
+          <p className="mt-2 mb-8 max-w-2xl text-[15px] text-soft">Dated laws, decrees, auctions and tariff decisions, and whether each helped or hurt investors.</p>
+          <PolicyTimeline
+            currentYear={+DATA_AS_OF.slice(0, 4)}
+            events={c.events.map((e) => ({
+              date: e.date,
+              precision: e.precision,
+              effect: e.effect,
+              title: e.title,
+              segments: e.segments,
+              refs: e.sources.map((id) => ({ n: num.get(id) ?? 0, url: c.sources.find((x) => x.id === id)?.url ?? "" })),
+            }))}
+          />
+        </section>
+
+        <section aria-labelledby="flags-h">
+          <h2 id="flags-h" className="mb-6 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">
+            Red flags
+          </h2>
+          <RedFlagList c={c} num={num} />
+        </section>
 
         <section aria-labelledby="log-h">
           <h2 id="log-h" className="mb-6 font-display text-[1.75rem] leading-tight font-light tracking-[-0.03em] text-[#0b1f3a]">

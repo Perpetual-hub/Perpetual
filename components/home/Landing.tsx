@@ -200,21 +200,6 @@ export function KeyFigures({
   );
 }
 
-/* 4. Section opener on the dark band above the deal map. */
-export function MapIntro() {
-  return (
-    <div className="on-dark border-b border-hero-line bg-hero text-hero-ink">
-      <div className="container-page flex flex-wrap items-end justify-between gap-6 pt-20 pb-10 md:pt-28">
-        <h2 className="max-w-[18ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-hero-ink">The deal map.</h2>
-        <p className="max-w-md text-[15px] leading-relaxed text-hero-ink/75">
-          Every deal of the last year, placed where its assets are. Switch to the policy heatmap to see how investable each country is,
-          or open the list for a keyboard friendly view.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 /* 5. What Perpetual does: three cards that stack as the reader scrolls. */
 export function StackedCards({ cards }: { cards: { n: string; title: string; body: string; href: string; cta: string; photo: string; tone: "paper" | "green" | "forest"; extra: ReactNode }[] }) {
   const tones = {

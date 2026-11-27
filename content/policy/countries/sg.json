@@ -124,7 +124,35 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2021-10-25",
+      "precision": "day",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "EMA announces plans to import up to 4 GW of low-carbon electricity by 2035",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmssg"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Singapore reaches its earlier 2 GWp solar target",
+      "segments": [
+        "ci",
+        "utility"
+      ],
+      "sources": [
+        "emasolar"
+      ]
+    },
+    {
       "date": "2026-10-26",
+      "precision": "day",
       "kind": "other",
       "effect": "positive",
       "title": "EMA grants conditional approval for 1.3 GW of Sembcorp electricity imports",
@@ -137,6 +165,7 @@
     },
     {
       "date": "2026-08-07",
+      "precision": "day",
       "kind": "other",
       "effect": "positive",
       "title": "EMA conditionally approves 900 MW of solar and battery imports from Johor",
@@ -149,6 +178,7 @@
     },
     {
       "date": "2026-03-02",
+      "precision": "day",
       "kind": "plan",
       "effect": "positive",
       "title": "Solar target raised to 3 GWp by 2030",

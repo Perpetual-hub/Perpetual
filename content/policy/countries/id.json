@@ -102,7 +102,47 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Presidential Regulation 112/2022 sets ceiling tariffs for renewable power sold to PLN",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfid"
+      ]
+    },
+    {
+      "date": "2024-07-01",
+      "precision": "month",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "New local content rules for power projects shift how thresholds are set",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfid"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "MEMR Regulation 5/2025 codifies renewable PPA terms, including 30-year maximum terms",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfid"
+      ]
+    },
+    {
       "date": "2026-06-24",
+      "precision": "day",
       "kind": "tariff",
       "effect": "mixed",
       "title": "MEMR 264/2026 sets benchmark tariffs for hybrid renewable plants",
@@ -115,6 +155,7 @@
     },
     {
       "date": "2026-04-30",
+      "precision": "day",
       "kind": "auction",
       "effect": "positive",
       "title": "PLN starts the 1.2 GW Mentari Nusantara I solar tender under GIGA ONE",

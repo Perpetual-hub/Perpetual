@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Suspense } from "react";
 import { Pill } from "@/components/home/Landing";
-import { PolicyGlobe, ReviewTable } from "@/components/policy-review/PolicyOverview";
+import { ReviewTable } from "@/components/policy-review/PolicyOverview";
 import { HeroStats, PageHero } from "@/components/ui/PageHero";
-import { countryStats } from "@/lib/data";
-import { formatDate } from "@/lib/format";
+import { DATA_AS_OF, countryStats } from "@/lib/data";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
-import { getLatestEvents, getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
+import { getAllEvents, getReviewRows } from "@/lib/policy-review/data";
+import { PolicyTimeline } from "@/components/policy-review/PolicyTimeline";
 
 export const metadata: Metadata = {
   title: "Policy Review",
@@ -17,8 +16,6 @@ export const metadata: Metadata = {
 
 export default function PolicyPage() {
   const rows = getReviewRows();
-  const cells = getVerdictCells();
-  const events = getLatestEvents(10);
   const ready = (s: "utility" | "ci") => rows.filter((r) => r.segments[s].verdict === "ready").length;
   const flagged = rows.filter((r) => r.activeFlags > 0).length;
   const total = countryStats.all().length;
@@ -40,23 +37,10 @@ export default function PolicyPage() {
             ]}
           />
         }
-      />
+      >
+        <Pill href="/#policy">See the policy map</Pill>
+      </PageHero>
 
-      <section aria-labelledby="map-h" className="on-dark bg-hero text-hero-ink">
-        <div className="container-page py-16 md:py-20">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
-            <h2 id="map-h" className="max-w-[18ch] font-display text-[clamp(2rem,4.4vw,3.6rem)] leading-[1] font-light tracking-[-0.04em] text-hero-ink">
-              The verdict map.
-            </h2>
-            <p className="max-w-md text-[15px] leading-relaxed text-hero-ink/75">
-              Choose a deal type. Grey countries have not been reviewed yet, and faded ones are out of date. Click a country for its full review.
-            </p>
-          </div>
-          <Suspense fallback={<div className="h-[62vh] min-h-[420px] rounded-[16px] bg-white/5" />}>
-            <PolicyGlobe cells={cells} />
-          </Suspense>
-        </div>
-      </section>
 
       <div className="container-page space-y-20 py-16 md:py-24">
         <section aria-labelledby="table-h">
@@ -84,35 +68,15 @@ export default function PolicyPage() {
           </p>
         </section>
 
-        {events.length > 0 && (
-          <section aria-labelledby="changes-h">
-            <h2 id="changes-h" className="mb-8 font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
-              Latest policy changes.
-            </h2>
-            <ul className="divide-y divide-line border-y border-line">
-              {events.map((e, i) => (
-                <li key={i} className="grid gap-1 py-4 md:grid-cols-[9rem_12rem_minmax(0,1fr)_6rem] md:items-baseline md:gap-6">
-                  <span className="text-sm text-muted">{formatDate(e.date)}</span>
-                  <Link href={`/policy/${e.iso2.toLowerCase()}`} className="font-medium text-ink hover:text-brand-blue">
-                    {e.name}
-                  </Link>
-                  <span className="text-[15px] text-ink/85">
-                    {e.url ? (
-                      <a href={e.url} target="_blank" rel="noopener" className="hover:underline">
-                        {e.title}
-                      </a>
-                    ) : (
-                      e.title
-                    )}
-                  </span>
-                  <span className={`text-sm font-medium ${e.effect === "positive" ? "text-[#1f6b37]" : e.effect === "negative" ? "text-[#9c2a20]" : "text-[#7a4d00]"}`}>
-                    {e.effect === "positive" ? "Positive" : e.effect === "negative" ? "Negative" : "Mixed"}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        <section aria-labelledby="changes-h">
+          <h2 id="changes-h" className="font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">
+            How policy has moved.
+          </h2>
+          <p className="mt-3 mb-10 max-w-2xl text-[15px] text-soft">
+            Dated policy changes across every reviewed market, and whether each helped or hurt investors. Choose a year to see what changed.
+          </p>
+          <PolicyTimeline events={getAllEvents()} currentYear={+DATA_AS_OF.slice(0, 4)} />
+        </section>
 
         <section aria-labelledby="method-h" className="grid gap-8 border-t border-line pt-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:items-end">
           <h2 id="method-h" className="font-display text-[clamp(2rem,4vw,3.2rem)] leading-[1.02] font-light tracking-[-0.035em] text-[#0b1f3a]">

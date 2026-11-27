@@ -5,30 +5,29 @@ import type { Freshness, Rating, Verdict } from "@/lib/policy-review/types";
 
 export function VerdictBadge({ verdict, size = "md" }: { verdict: Verdict; size?: "md" | "lg" }) {
   const st = VERDICT_STYLE[verdict];
+  const lg = size === "lg";
   return (
-    <span
-      className={`inline-flex items-center gap-2 rounded-full border font-medium whitespace-nowrap ${st.chip} ${
-        size === "lg" ? "px-3.5 py-1.5 text-base" : "px-2.5 py-0.5 text-[13px]"
-      }`}
-    >
-      <span className="size-2 rounded-full" style={{ background: st.dot }} aria-hidden />
-      {VERDICT_LABEL[verdict]}
+    <span className={`inline-flex items-center whitespace-nowrap text-ink ${lg ? "gap-3" : "gap-2"}`}>
+      <span className={`shrink-0 ${lg ? "h-7 w-1.5" : "h-3.5 w-1"}`} style={{ background: st.dot }} aria-hidden />
+      <span className={lg ? "font-display text-[1.9rem] leading-none font-light tracking-[-0.03em]" : "text-[15px] font-medium"}>
+        {VERDICT_LABEL[verdict]}
+      </span>
     </span>
   );
 }
 
 const RATING: Record<Rating, { label: string; cls: string; dot: string }> = {
-  supportive: { label: "Supportive", cls: "bg-[#ebf6ee] text-[#1f6b37]", dot: "#3f9d5a" },
-  mixed: { label: "Mixed", cls: "bg-[#fdf4e2] text-[#7a4d00]", dot: "#e3a73a" },
-  unsupportive: { label: "Unsupportive", cls: "bg-[#fcecea] text-[#9c2a20]", dot: "#cf4b3f" },
-  not_rated: { label: "Not rated", cls: "bg-surface-2 text-muted", dot: "#8a98ab" },
+  supportive: { label: "Supportive", cls: "text-ink", dot: "#3f9d5a" },
+  mixed: { label: "Mixed", cls: "text-ink", dot: "#e3a73a" },
+  unsupportive: { label: "Unsupportive", cls: "text-ink", dot: "#cf4b3f" },
+  not_rated: { label: "Not rated", cls: "text-muted", dot: "#b4bfcd" },
 };
 
 export function RatingChip({ rating }: { rating: Rating }) {
   const r = RATING[rating];
   return (
-    <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[13px] font-medium whitespace-nowrap ${r.cls}`}>
-      <span className="size-1.5 rounded-full" style={{ background: r.dot }} aria-hidden />
+    <span className={`inline-flex items-center gap-2 text-sm font-medium whitespace-nowrap ${r.cls}`}>
+      <span className="h-3 w-1 shrink-0" style={{ background: r.dot }} aria-hidden />
       {r.label}
     </span>
   );
@@ -68,9 +67,9 @@ export function DirectionArrow({ value, reason }: { value: "improving" | "stable
 export function FreshnessBadge({ value }: { value?: Freshness }) {
   if (!value) return null;
   const m = {
-    current: ["Current", "bg-[#ebf6ee] text-[#1f6b37]"],
-    review_due: ["Review due", "bg-[#fdf4e2] text-[#7a4d00]"],
-    out_of_date: ["Out of date", "bg-[#fcecea] text-[#9c2a20]"],
+    current: ["Current", "text-[#1f6b37]"],
+    review_due: ["Review due", "text-[#7a4d00]"],
+    out_of_date: ["Out of date", "text-[#9c2a20]"],
   }[value];
-  return <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${m[1]}`}>{m[0]}</span>;
+  return <span className={`text-sm font-medium ${m[1]}`}>{m[0]}</span>;
 }

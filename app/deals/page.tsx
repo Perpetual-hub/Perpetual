@@ -17,7 +17,7 @@ export default function DealsPage() {
     <>
       <PageHeader
         photo={HERO_PHOTOS.deals}
-        eyebrow="Deal Tracker"
+        eyebrow="Deals"
         title="Renewable energy deals worldwide"
         intro={`Acquisitions, project finance, development finance, equity raises, PPAs, IPOs and fund closes from the last five years. Each deal links to the news it came from. Data compiled ${formatDate(DATA_AS_OF)}.`}
       />

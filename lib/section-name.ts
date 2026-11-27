@@ -4,7 +4,7 @@ import type { Technology } from "@/lib/types";
 
 const FIXED: Record<string, string> = {
   "/": "Perpetual",
-  "/deals": "Deal Tracker",
+  "/deals": "Deals",
   "/policy": "Policy",
   "/policy/method": "Method",
   "/statistics": "Statistics",
@@ -19,7 +19,7 @@ const title = (slug: string) => slug.split("-").map((w) => (w === "and" || w ===
 export function sectionName(path: string): string {
   if (FIXED[path]) return FIXED[path];
   const [, first, second] = path.split("/");
-  if (first === "deals") return "Deal Tracker";
+  if (first === "deals") return "Deals";
   if (first === "sectors" && second) return TECH_BY_ID[second as Technology]?.label ?? "Sectors";
   if (first === "countries" && second) return countryName(second.toUpperCase());
   if (first === "regions" && second) return title(second);

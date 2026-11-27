@@ -286,6 +286,17 @@ p {
 html.intro-seen .pp-intro {
   display: none;
 }
+/* The same intro, replayed when the Perpetual logo is clicked (not limited to once per session). */
+.pp-replay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--home-paper);
+  pointer-events: none;
+  animation: pp-lift 0.9s cubic-bezier(0.7, 0, 0.2, 1) 1.7s forwards;
+}
 .pp-curtain {
   position: fixed;
   inset: 0;
@@ -334,6 +345,7 @@ html.intro-seen .pp-intro {
 }
 @media (prefers-reduced-motion: reduce) {
   .pp-intro,
+  .pp-replay,
   .pp-curtain {
     display: none;
   }
@@ -445,5 +457,15 @@ html.intro-seen .pp-intro {
   .pp-menu,
   .pp-menu-item {
     animation: none !important;
+  }
+}
+
+/* Page header name: the white copy only shows over the photograph (see PageHero). */
+.pp-hero-name-over {
+  clip-path: inset(0 0 calc(100% - 62.5cqw + 0px) 0);
+}
+@media (width >= 48rem) {
+  .pp-hero-name-over {
+    clip-path: inset(calc(54% - 28.75cqw) 0 46% 54%);
   }
 }

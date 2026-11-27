@@ -37,8 +37,10 @@ export function PageHero({
           {children && <div className="mt-6">{children}</div>}
         </div>
 
-        <div className="relative mt-8 md:mt-0">
-          <figure className="pp-hero-photo relative z-0 md:absolute md:right-0 md:bottom-[46%] md:w-[46%] lg:w-[44%]">
+        {/* The name is drawn twice: navy on the paper, and a white copy clipped to the photograph, so the
+            letters stay readable where they cross it. Container units keep the clip on the photo at any width. */}
+        <div className="relative mt-8 [container-type:inline-size] md:mt-0">
+          <figure className="pp-hero-photo relative z-0 md:absolute md:right-0 md:bottom-[46%] md:w-[46%]">
             <div className="relative aspect-[16/10] overflow-hidden rounded-[12px]">
               <Image src={photo.src} alt="" fill priority unoptimized={photo.src.startsWith("http")} sizes="(min-width: 768px) 46vw, 100vw" className="object-cover" style={{ objectPosition: photo.position ?? "center" }} />
             </div>
@@ -49,6 +51,13 @@ export function PageHero({
           >
             {eyebrow}
           </h1>
+          <span
+            aria-hidden
+            className="pp-hero-name pp-hero-name-over pointer-events-none absolute inset-0 z-20 flex items-end justify-end text-right font-display leading-[0.8] font-light tracking-[-0.055em] text-white"
+            style={{ fontSize: size }}
+          >
+            {eyebrow}
+          </span>
         </div>
         <p className="mt-5 pb-5 text-[11px] text-soft [&_a]:underline [&_a]:underline-offset-2">
           Photo by{" "}

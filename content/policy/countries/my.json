@@ -112,7 +112,35 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2011-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Renewable Energy Act 2011 introduces feed-in tariffs for small renewable generators",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "mall"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "precision": "month",
+      "kind": "circular",
+      "effect": "positive",
+      "title": "Energy Commission issues new guidelines for self-consumption solar in Peninsular Malaysia",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "stsc"
+      ]
+    },
+    {
       "date": "2026-07-16",
+      "precision": "day",
       "kind": "auction",
       "effect": "positive",
       "title": "LSS6 opens with 2,650 MW of solar and 1,250 MW of batteries",

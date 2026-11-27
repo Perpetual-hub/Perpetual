@@ -74,6 +74,8 @@ export const countryReview = z.object({
     .array(
       z.object({
         date: isoDate,
+        /** How exact the date is. A year-only event is stored as 1 January of that year. */
+        precision: z.enum(["day", "month", "year"]).default("day"),
         kind: z.enum(["law", "decree", "circular", "plan", "auction", "tariff", "grid", "tax", "court", "other"]),
         effect: z.enum(["positive", "negative", "mixed"]),
         title: z.string(),

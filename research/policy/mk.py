@@ -27,6 +27,13 @@ def seg(rs, d):
     assert len(rs) == 6, rs
     return {"ratings": dict(zip(Q, [rating(x) for x in rs])), "direction": {"value": D[d[0]], "reason": d[1], "sources": d[2]}}
 
+def ev(x):
+    d, k, e, ti, sg, so = x
+    # "2025" or "2025-04" mark a year or month; stored as the first day with its precision.
+    prec = "year" if len(d) == 4 else "month" if len(d) == 7 else "day"
+    date = d + "-01-01" if prec == "year" else d + "-01" if prec == "month" else d
+    return {"date": date, "precision": prec, "kind": k, "effect": e, "title": ti, "segments": sg, "sources": so}
+
 def c(iso, summary, U, Ud, C, Cd, sources, flags=(), events=(), gaps=None, status="reviewed"):
     srcs = []
     for s in sources:
@@ -40,7 +47,7 @@ def c(iso, summary, U, Ud, C, Cd, sources, flags=(), events=(), gaps=None, statu
         "country": iso, "status": status, "basis": "desk", "lastReviewed": TODAY, "reviewer": "Perpetual",
         "summary": summary, "segments": {"utility": seg(U, Ud), "ci": seg(C, Cd)},
         "redFlags": [{"type": t, "status": st, "segments": sg, "reason": r, "sources": so} for t, st, sg, r, so in flags],
-        "events": [{"date": d, "kind": k, "effect": e, "title": ti, "segments": sg, "sources": so} for d, k, e, ti, sg, so in events],
+        "events": [ev(x) for x in events],
         "log": [], "sources": srcs,
     }
     if gaps: out["gaps"] = gaps

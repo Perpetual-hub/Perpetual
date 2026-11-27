@@ -139,7 +139,48 @@
   ],
   "events": [
     {
+      "date": "2025-04-15",
+      "precision": "day",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Revised national power plan (Decision 768/QD-TTg) raises renewable, storage and grid ambitions",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "dm"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "decree",
+      "effect": "positive",
+      "title": "Decree 57/2025 sets up direct power purchase agreements between generators and large users",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "dm"
+      ]
+    },
+    {
+      "date": "2025-05-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "negative",
+      "title": "Hundreds of wind and solar investors petition to keep feed-in tariffs as payments are withheld",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "inv"
+      ]
+    },
+    {
       "date": "2026-06-26",
+      "precision": "day",
       "kind": "decree",
       "effect": "positive",
       "title": "Decree 243/2026 raises the rooftop surplus sales cap to 50% and widens grid DPPA buyers",
@@ -153,6 +194,7 @@
     },
     {
       "date": "2026-04-17",
+      "precision": "day",
       "kind": "tariff",
       "effect": "negative",
       "title": "EVN proposes transitional tariffs well below feed-in rates for 173 operating projects",

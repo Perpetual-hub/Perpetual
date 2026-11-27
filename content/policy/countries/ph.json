@@ -126,7 +126,61 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2022-11-15",
+      "precision": "day",
+      "kind": "circular",
+      "effect": "positive",
+      "title": "DOE circular opens solar, wind, hydro and ocean projects to full foreign ownership",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "inq"
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Fourth Green Energy Auction awards about 10.2 GW across 123 projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "bw"
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "Collection of the green energy auction charge stays suspended through December 2026",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "gma"
+      ]
+    },
+    {
+      "date": "2013-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Net metering for systems up to 100 kW begins",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "ember"
+      ]
+    },
+    {
       "date": "2026-06-26",
+      "precision": "day",
       "kind": "other",
       "effect": "positive",
       "title": "Retail competition opens to users of about 100 kW",

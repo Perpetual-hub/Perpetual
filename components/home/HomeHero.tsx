@@ -42,8 +42,11 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail }: Props)
 
   // Deep link: /#policy opens the heatmap.
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- reads the URL hash once, browser-only
-    if (window.location.hash === "#policy") setMode("policy");
+    if (window.location.hash === "#policy") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reads the URL hash once, browser-only
+      setMode("policy");
+      document.getElementById("map")?.scrollIntoView();
+    }
   }, []);
 
   const modeOptions = [
@@ -87,10 +90,12 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail }: Props)
   const periodLabel = PERIODS.find((p) => p.days === days)!.label;
 
   return (
-    <section className="on-dark relative bg-hero text-hero-ink" aria-labelledby="hero-title">
-      <h2 id="hero-title" className="sr-only">
-        Perpetual tracks the latest renewable energy deals around the world, and how investable each country is
-      </h2>
+    <section id="map" className="on-dark relative scroll-mt-16 bg-hero text-hero-ink" aria-labelledby="hero-title">
+      <div className="container-page pt-20 pb-8 md:pt-28">
+        <h2 id="hero-title" className="font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-hero-ink">
+          {mode === "policy" ? "The policy map." : "The deal map."}
+        </h2>
+      </div>
       {/* Same centred grid as the header, so every edge lines up at any width. */}
       <div className="container-page grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
         <div className="flex min-w-0 flex-col">

@@ -136,28 +136,6 @@ export function RedFlagList({ c, num }: { c: CountryReview; num: Map<string, num
   );
 }
 
-export function Timeline({ c, num }: { c: CountryReview; num: Map<string, number> }) {
-  const ev = [...c.events].sort((a, b) => b.date.localeCompare(a.date));
-  if (!ev.length) return <p className="text-[15px] text-soft">No dated policy events recorded yet.</p>;
-  const tone = { positive: "bg-[#3f9d5a]", negative: "bg-[#cf4b3f]", mixed: "bg-[#e3a73a]" };
-  return (
-    <ol className="relative space-y-6 border-l border-line pl-6">
-      {ev.map((e, i) => (
-        <li key={i} className="relative">
-          <span className={`absolute top-1.5 -left-[29px] size-2.5 rounded-full ${tone[e.effect]}`} aria-hidden />
-          <p className="text-sm text-muted">
-            {formatDate(e.date)} · {e.segments.map((s) => SEGMENT_LABEL[s]).join(", ")} · {e.effect === "positive" ? "Positive" : e.effect === "negative" ? "Negative" : "Mixed"}
-          </p>
-          <p className="mt-1 text-[15px] text-ink">
-            {e.title}
-            <Refs ids={e.sources} num={num} />
-          </p>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
 export function ChangeLog({ c }: { c: CountryReview }) {
   if (!c.log.length)
     return <p className="text-[15px] text-soft">First review on {formatDate(c.lastReviewed ?? "")}. Every later rating change is listed here with its reason.</p>;

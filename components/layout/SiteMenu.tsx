@@ -12,7 +12,7 @@ import { TECH_PHOTOS } from "@/lib/tech-photos";
 
 // One kind of renewable per link, so the preview photos vary: wind, hydro, storage and solar.
 const ITEMS = [
-  { href: "/deals", label: "Deal Tracker", note: "Every renewable deal of the last five years", photo: HERO_PHOTOS.deals.src },
+  { href: "/deals", label: "Deals", note: "Every renewable deal of the last five years", photo: HERO_PHOTOS.deals.src },
   { href: "/policy", label: "Policy", note: "How ready each market is for renewable investment", photo: TECH_PHOTOS.hydro!.src },
   { href: "/statistics", label: "Statistics", note: "Official capacity by region, country and sector", photo: TECH_PHOTOS.storage!.src },
   { href: "/disclosure", label: "Disclosure", note: "Where every figure comes from", photo: HERO_PHOTOS.statistics.src },
@@ -39,7 +39,7 @@ export function SiteMenu({ open, onClose, onSearch }: { open: boolean; onClose: 
   return createPortal(
     <div id="site-menu" role="dialog" aria-modal="true" aria-label="Menu" className="pp-menu on-dark fixed inset-0 z-[60] overflow-y-auto bg-[var(--home-forest)] text-[var(--home-forest-ink)]">
       <div className="container-page flex h-16 items-center justify-between">
-        <Link href="/" onClick={onClose} className="flex items-center gap-3">
+        <Link href="/" onClick={() => { window.__ppLogoNav = true; onClose(); }} className="flex items-center gap-3">
           <MarkOnDark size={36} bg="#083b6e" />
           <span className="font-wordmark text-2xl font-extrabold tracking-[-0.03em]">perpetual</span>
         </Link>

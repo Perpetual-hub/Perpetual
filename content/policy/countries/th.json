@@ -127,7 +127,22 @@
   ],
   "events": [
     {
+      "date": "2023-07-25",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "negative",
+      "title": "Draft ERC rule would tighten nationality tests for shareholders of electricity licence holders",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tg"
+      ]
+    },
+    {
       "date": "2026-07-15",
+      "precision": "day",
       "kind": "other",
       "effect": "positive",
       "title": "Direct PPAs opened to all industries, cap removed",
@@ -140,6 +155,7 @@
     },
     {
       "date": "2026-07-01",
+      "precision": "day",
       "kind": "tariff",
       "effect": "negative",
       "title": "Policy adopted to restructure legacy solar and wind PPAs at lower prices",
