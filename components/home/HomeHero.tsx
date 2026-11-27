@@ -197,7 +197,7 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRa
 
           {/* Stats strip */}
           {mode === "policy" ? (
-            <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
+            <dl aria-live="polite" className="flex flex-wrap justify-around gap-x-10 gap-y-6 border-t border-hero-line py-6">
               <Stat label="Markets reviewed" value={String(reviewed.length)} />
               <Stat label="Ready" value={String(policyStats.ready)} />
               <Stat label="Workable" value={String(policyStats.workable)} />
@@ -205,7 +205,7 @@ export function HomeHero({ points, ages, policyCells, totalDeals, rail, policyRa
               <Stat label="With an active red flag" value={String(policyStats.flagged)} />
             </dl>
           ) : (
-          <dl aria-live="polite" className="grid grid-cols-2 gap-x-6 gap-y-5 border-t border-hero-line py-6 sm:grid-cols-3 xl:grid-cols-5">
+          <dl aria-live="polite" className="flex flex-wrap justify-around gap-x-10 gap-y-6 border-t border-hero-line py-6">
             <Stat label={`Deals, last ${periodLabel}`} value={stats.deals.toLocaleString("en-GB")} />
             <Stat
               label="Disclosed value (USD deals)"
