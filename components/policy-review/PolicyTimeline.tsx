@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowDown, ArrowUp, Minus } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { SegmentId } from "@/lib/policy-review/types";
 
 export interface TimelineEvent {
@@ -81,6 +81,14 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
     const first = Math.min(currentYear, ...events.map((e) => +e.date.slice(0, 4)));
     return Array.from({ length: currentYear - first + 1 }, (_, i) => first + i);
   }, [events, currentYear]);
+  // On narrow screens the grid scrolls sideways; start at the most recent years.
+  const scroller = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = scroller.current;
+    if (el) el.scrollLeft = el.scrollWidth;
+  }, []);
+  // Stretch the grid across the card once there are enough years to fill it.
+  const fill = years.length >= 8;
   const rows = useMemo(() => {
     const names = [...new Set(events.map((e) => e.country?.name ?? ""))].sort();
     return names.map((name) => ({ name, href: events.find((e) => e.country?.name === name)?.country?.href }));
@@ -172,18 +180,22 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
       </div>
 
       {/* Heat map */}
-      <div className="mt-5 overflow-x-auto rounded-[12px] border border-line bg-white p-4 md:p-5">
-        <table className="border-separate border-spacing-1.5">
+      <div ref={scroller} className={`mt-5 overflow-x-auto rounded-[12px] border border-line bg-white py-4 pr-4 md:py-5 md:pr-5 ${multi ? "" : "pl-4 md:pl-5"}`}>
+        <table className={`border-separate border-spacing-1.5 ${fill ? "w-full min-w-[44rem] table-fixed" : ""}`}>
           <caption className="sr-only">Policy changes by year. Each square shows whether that year was mostly positive, mostly negative or mixed for investors.</caption>
           <thead>
             <tr>
-              {multi && <th scope="col" className="sr-only">Market</th>}
+              {multi && (
+                <th scope="col" className="sticky left-0 z-10 w-32 bg-white p-0 shadow-[5px_0_0_#fff] md:w-[8.5rem]">
+                  <span className="sr-only">Market</span>
+                </th>
+              )}
               {years.map((y) => (
                 <th key={y} scope="col" className="p-0">
                   <button
                     type="button"
                     onClick={() => setPick({ row: null, year: y })}
-                    className={`tabular w-11 rounded-[4px] py-1 text-xs ${sel.year === y && sel.row == null ? "bg-[#0b1f3a] font-semibold text-white" : "text-muted hover:text-ink"}`}
+                    className={`tabular ${fill ? "w-full" : "w-11"} rounded-[4px] py-1 text-xs ${sel.year === y && sel.row == null ? "bg-[#0b1f3a] font-semibold text-white" : "text-muted hover:text-ink"}`}
                   >
                     {y}
                   </button>
@@ -195,7 +207,7 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
             {rows.map((r) => (
               <tr key={r.name}>
                 {multi && (
-                  <th scope="row" className="pr-3 text-left text-sm font-medium whitespace-nowrap text-ink">
+                  <th scope="row" className="sticky left-0 z-10 w-32 bg-white pr-3 pl-4 text-left shadow-[5px_0_0_#fff] md:w-[8.5rem] md:pl-5 text-sm font-medium whitespace-nowrap text-ink">
                     {r.href ? (
                       <a href={r.href} className="hover:text-brand-blue">
                         {r.name}
@@ -216,7 +228,7 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
                         disabled={!c}
                         onClick={() => setPick({ row: r.name, year: y })}
                         aria-label={`${r.name || "This market"} ${y}, ${c ? `${st.label}, ${c.pos} positive, ${c.neg} negative, ${c.mix} mixed` : "no recorded change"}`}
-                        className={`tabular grid place-items-center rounded-[6px] text-sm font-semibold transition-transform ${multi ? "size-11" : "size-14 text-base"} ${c ? "hover:scale-105" : ""} ${active ? "ring-2 ring-[#0b1f3a] ring-offset-2" : ""}`}
+                        className={`tabular grid place-items-center rounded-[6px] text-sm font-semibold transition-transform ${fill ? (multi ? "h-11 w-full" : "h-14 w-full text-base") : multi ? "size-11" : "size-14 text-base"} ${c ? "hover:scale-105" : ""} ${active ? "ring-2 ring-[#0b1f3a] ring-offset-2" : ""}`}
                         style={{ background: st.bg, color: st.fg }}
                       >
                         {st.text}
@@ -228,7 +240,7 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
             ))}
           </tbody>
         </table>
-        <p className="mt-3 px-1.5 text-xs text-muted">
+        <p className={`mt-3 text-xs text-muted ${multi ? "px-5 md:px-6" : "px-1.5"}`}>
           The number in a square is positive minus negative changes that year. Choose a square{multi ? " or a year" : ""} to see what changed.
         </p>
       </div>
