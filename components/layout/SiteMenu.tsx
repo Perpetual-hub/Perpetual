@@ -10,12 +10,13 @@ import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { TECHNOLOGIES } from "@/lib/tech";
 import { TECH_PHOTOS } from "@/lib/tech-photos";
 
-// One kind of renewable per link, so the preview photos vary: wind, hydro, storage and solar.
+// One kind of renewable per link, so the preview photos vary.
 const ITEMS = [
-  { href: "/deals", label: "Deals", note: "Every renewable deal of the last five years", photo: HERO_PHOTOS.deals.src },
-  { href: "/policy", label: "Policy", note: "How ready each market is for renewable investment", photo: TECH_PHOTOS.hydro!.src },
-  { href: "/statistics", label: "Statistics", note: "Official capacity by region, country and sector", photo: TECH_PHOTOS.storage!.src },
-  { href: "/disclosure", label: "Disclosure", note: "Where every figure comes from", photo: HERO_PHOTOS.statistics.src },
+  { href: "/knowledge", label: "Knowledge", photo: TECH_PHOTOS.solar!.src },
+  { href: "/deals", label: "Deals", photo: HERO_PHOTOS.deals.src },
+  { href: "/policy", label: "Policy", photo: TECH_PHOTOS.hydro!.src },
+  { href: "/statistics", label: "Statistics", photo: TECH_PHOTOS.storage!.src },
+  { href: "/disclosure", label: "Disclosure", photo: HERO_PHOTOS.statistics.src },
 ];
 
 /** Full-screen menu: big numbered links on deep green, with a photo that follows the hovered link. */
@@ -84,7 +85,6 @@ export function SiteMenu({ open, onClose, onSearch }: { open: boolean; onClose: 
                     <span className="block font-display text-[2.4rem] leading-none font-light tracking-[-0.04em] transition-transform duration-300 group-hover:translate-x-2 sm:text-[3.4rem] lg:text-[4.2rem]">
                       {it.label}
                     </span>
-                    <span className="mt-2 block text-sm text-[var(--home-forest-muted)]">{it.note}</span>
                   </span>
                   <ArrowUpRight className="size-7 opacity-40 transition-all duration-300 group-hover:rotate-45 group-hover:opacity-100" aria-hidden />
                 </Link>

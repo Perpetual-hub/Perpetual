@@ -59,13 +59,13 @@ export function OpeningHero() {
       <div className="container-page flex flex-1 flex-col justify-end pb-10 md:pb-14">
         <h1 id="home-h" className="text-hero-ink font-display text-[clamp(2.8rem,8.6vw,8.6rem)] leading-[0.92] font-light tracking-[-0.05em]">
           <span className="pp-line block" style={{ animationDelay: "0.15s" }}>
-            Following the money
+            All things
           </span>
           <span className="pp-line block pl-[12vw]" style={{ animationDelay: "0.3s" }}>
-            behind the
+            renewable energy,
           </span>
           <span className="pp-line block text-right" style={{ animationDelay: "0.45s" }}>
-            energy transition
+            in one place
           </span>
         </h1>
         <div className="mt-10 flex items-end justify-between gap-6 border-t border-white/20 pt-5 text-sm">
@@ -100,7 +100,7 @@ function PhotoRow({ photos, reverse = false }: { photos: { src: string; position
   );
 }
 
-export function Mission({ deals, countries }: { deals: number; countries: number }) {
+export function Mission() {
   return (
     <section id="mission" aria-labelledby="mission-h" className="overflow-hidden bg-[var(--home-paper)] pb-24 md:pb-32">
       <div className="container-page flex flex-col items-center pt-24 pb-16 text-center md:pt-32 md:pb-20">
@@ -108,11 +108,10 @@ export function Mission({ deals, countries }: { deals: number; countries: number
           <Mark size={104} />
         </span>
         <h2 id="mission-h" className="pp-reveal max-w-[22ch] font-display text-[clamp(1.9rem,3.6vw,3.2rem)] leading-[1.12] font-light tracking-[-0.03em] text-[#0b1f3a]">
-          Perpetual is an open record of the deals, policies and statistics shaping renewable energy.
+          Perpetual is an open platform for understanding renewable energy.
         </h2>
         <p className="pp-reveal mt-6 max-w-xl text-lg leading-relaxed text-soft">
-          {deals.toLocaleString("en-GB")} deals across {countries} countries from the last five years, each linked to the news or filing it
-          came from.
+          From the technologies that generate clean power to the markets, policies and investments that shape it.
         </p>
       </div>
       <div aria-hidden className="space-y-4">

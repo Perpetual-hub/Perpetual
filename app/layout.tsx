@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · Perpetual",
   },
   description:
-    "Renewable energy deals, official capacity statistics and how investable each country is, with a source behind every fact.",
+    "An open platform for understanding renewable energy, from the technologies that generate clean power to the markets, policies and investments that shape it.",
   openGraph: { siteName: "Perpetual", type: "website" },
 };
 

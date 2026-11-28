@@ -6,7 +6,7 @@ import { DATA_VERSION } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Perpetual is an open record of renewable energy deals, policy and statistics.",
+  description: "Perpetual is an open platform for understanding renewable energy.",
 };
 
 export default function AboutPage() {
@@ -15,8 +15,8 @@ export default function AboutPage() {
       <PageHeader
         photo={HERO_PHOTOS.about}
         eyebrow="About"
-        title="Following the money behind clean energy"
-        intro="Perpetual follows the money behind the energy transition. We show what is being built and where, who is financing it, and which countries make it easiest to invest."
+        title="All Things Renewable Energy, in One Place"
+        intro="Perpetual is an open platform for understanding renewable energy, from the technologies that generate clean power to the markets, policies and investments that shape it."
       />
       <div className="container-page py-12">
         <Prose>

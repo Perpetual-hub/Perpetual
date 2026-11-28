@@ -7,7 +7,7 @@ export const contentType = "image/png";
 export default function Image() {
   return ogImage({
     eyebrow: "All things renewables",
-    title: "Follow the money behind renewable energy.",
-    subtitle: "Deals, capacity statistics and how investable each country is, with a source behind every fact.",
+    title: "All things renewable energy, in one place.",
+    subtitle: "Knowledge, deals, policy and statistics for renewable energy, with a source behind every fact.",
   });
 }

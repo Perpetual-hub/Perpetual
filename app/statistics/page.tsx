@@ -8,13 +8,12 @@ import { CapacityAdditionsChart } from "@/components/charts/CapacityAdditionsCha
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import {
-  DATA_AS_OF,
   countryStats,
   getCapacityOutlook,
   getGlobalCapacity,
   getRegionStatsRows,
 } from "@/lib/data";
-import { countryName, formatDate } from "@/lib/format";
+import { countryName } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Statistics",
@@ -41,8 +40,8 @@ export default function StatisticsPage() {
         title="Renewable Power by the Numbers"
         lede={
           <>
-            Official capacity statistics from IRENA and the US Energy Information Administration, for every region, country and
-            sector. Each figure is credited to its source. Data compiled {formatDate(DATA_AS_OF)}.{" "}
+            Official installed renewable capacity for every region, country and sector, from IRENA, with projections from the US
+            Energy Information Administration. Every figure is credited to its source.{" "}
             <Link href="/disclosure#sources" className="underline underline-offset-2">
               Sources and methods
             </Link>

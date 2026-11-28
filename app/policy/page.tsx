@@ -26,7 +26,7 @@ export default function PolicyPage() {
         photo={HERO_PHOTOS.policy}
         eyebrow="Policy"
         title="How Ready Each Market Is for Renewable Investment"
-        lede="Each reviewed country gets a verdict for utility-scale and C&I deals. Ready, Workable or Difficult, built from six questions an investment committee asks, each with a reason and a source."
+        lede="Country assessments of the policy and regulation behind renewable investment. Each reviewed market is rated Ready, Workable or Difficult for utility-scale and C&I deals, with the reasoning and sources behind every rating."
         aside={
           <HeroStats
             stats={[
@@ -38,7 +38,7 @@ export default function PolicyPage() {
           />
         }
       >
-        <Pill href="/#policy">See the policy map</Pill>
+        <Pill href="/#policy">See the Policy Map</Pill>
       </PageHero>
 
 

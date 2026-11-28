@@ -32,6 +32,7 @@ function SearchLauncher({ open, onOpenChange }: { open: boolean; onOpenChange: (
 export type TechCounts = Record<Technology, { deals: number; worldMW?: number }>;
 
 const NAV = [
+  { href: "/knowledge", label: "Knowledge" },
   { href: "/deals", label: "Deals" },
   { href: "/policy", label: "Policy" },
   { href: "/statistics", label: "Statistics" },
@@ -81,9 +82,11 @@ export function Header({
         </Link>
 
         <nav aria-label="Sections" className="hidden flex-1 items-center justify-center gap-0.5 lg:flex">
-          <Link href={NAV[0].href} className={linkCls}>
-            {NAV[0].label}
-          </Link>
+          {NAV.slice(0, 2).map((n) => (
+            <Link key={n.href} href={n.href} className={linkCls}>
+              {n.label}
+            </Link>
+          ))}
           <div ref={techRef} className="relative">
             <button
               type="button"
@@ -135,7 +138,7 @@ export function Header({
                 </div>
               )}
           </div>
-          {NAV.slice(1).map((n) => (
+          {NAV.slice(2).map((n) => (
             <Link key={n.href} href={n.href} className={linkCls}>
               {n.label}
             </Link>

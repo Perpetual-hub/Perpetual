@@ -51,7 +51,6 @@ export default function Home() {
     .filter((m) => m.gw > 0)
     .sort((a, b) => b.gw - a.gw);
 
-  const last30 = deals.filter((d) => daysBetween(d.date, DATA_AS_OF) <= 30).length;
   const topPolicy = [...reviewRows]
     .sort((a, b) => VERDICT_CODE[b.segments.utility.verdict] - VERDICT_CODE[a.segments.utility.verdict] || a.name.localeCompare(b.name))
     .slice(0, 5);
@@ -61,7 +60,7 @@ export default function Home() {
   return (
     <>
       <OpeningHero />
-      <Mission deals={deals.length} countries={dealCountries} />
+      <Mission />
       <KeyFigures
         record={record}
         year={now.year}
@@ -101,7 +100,7 @@ export default function Home() {
           {
             n: "01",
             title: "Deal Tracker",
-            body: `Acquisitions, project finance, power purchase agreements and fund closes from the last five years. ${last30} new deals in the last 30 days, each linked to the news it came from.`,
+            body: "Renewable energy transactions worldwide, from acquisitions and project finance to power purchase agreements and fund closes, each traced to its original source.",
             href: "/deals",
             cta: "Open the Deal Tracker",
             photo: HERO_PHOTOS.deals.src,
@@ -122,7 +121,7 @@ export default function Home() {
           {
             n: "02",
             title: "Policy",
-            body: `${reviewRows.length} markets reviewed so far. Each gets a verdict for utility-scale and C&I deals, built from six investor questions with a reason and a source behind every answer.`,
+            body: "Country assessments of how ready each market is for utility-scale and C&I renewable investment, with the reasoning and sources behind every verdict.",
             href: "/policy",
             cta: "See the reviewed markets",
             photo: HERO_PHOTOS.policy.src,
@@ -145,7 +144,7 @@ export default function Home() {
           {
             n: "03",
             title: "Statistics",
-            body: "Official installed capacity from IRENA for every region, country and sector, with projections from the US Energy Information Administration.",
+            body: "Official installed capacity for every region, country and sector from IRENA, with projections from the US Energy Information Administration.",
             href: "/statistics",
             cta: "Explore the statistics",
             photo: HERO_PHOTOS.statistics.src,

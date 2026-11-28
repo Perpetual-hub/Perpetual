@@ -4,6 +4,7 @@ import type { Technology } from "@/lib/types";
 
 const FIXED: Record<string, string> = {
   "/": "Perpetual",
+  "/knowledge": "Knowledge",
   "/deals": "Deals",
   "/policy": "Policy",
   "/policy/method": "Method",

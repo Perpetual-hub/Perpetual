@@ -4,7 +4,6 @@ import { Suspense } from "react";
 import { DealTracker } from "@/components/deals/DealTracker";
 import { PageHeader } from "@/components/prose/Prose";
 import { DATA_AS_OF, getDeals } from "@/lib/data";
-import { formatDate } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Deal Tracker",
@@ -19,7 +18,7 @@ export default function DealsPage() {
         photo={HERO_PHOTOS.deals}
         eyebrow="Deals"
         title="Renewable Energy Deals Worldwide"
-        intro={`Acquisitions, project finance, development finance, equity raises, PPAs, IPOs and fund closes from the last five years. Each deal links to the news it came from. Data compiled ${formatDate(DATA_AS_OF)}.`}
+        intro="A record of renewable energy transactions over the past five years, covering acquisitions, project finance, development finance, equity raises, power purchase agreements, IPOs and fund closes. Each entry is traced to its original announcement or report and the record is updated daily."
       />
       {/* Filters live in the URL and are read on the client, so the page stays static. */}
       <Suspense fallback={<div className="container-page py-10"><div className="skeleton h-96 rounded-xl" aria-label="Loading deals" /></div>}>

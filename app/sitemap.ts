@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
   return [
     page("/", 1),
+    page("/knowledge", 0.9),
     page("/deals", 0.9),
     page("/policy", 0.8),
     page("/policy/method", 0.6),
