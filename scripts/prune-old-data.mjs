@@ -1,7 +1,7 @@
 // Deletes deals dated before the rolling five-year window from every deal data file.
 // Usage: node scripts/prune-old-data.mjs [--dry-run]
 // Run daily by .github/workflows/prune-old-data.yml; the commit it makes triggers a fresh site build.
-import { readFileSync, writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const WINDOW_YEARS = 5; // keep in step with lib/window.ts
 const now = new Date();
@@ -32,4 +32,15 @@ for (const file of FILES) {
   const body = indent ? JSON.stringify(kept, null, indent) : JSON.stringify(kept);
   writeFileSync(file, text.slice(0, start) + body + text.slice(end + 1));
 }
+// Policy Review events follow the same window. Scheduled future events stay.
+let oldEvents = 0;
+for (const f of readdirSync("content/policy/countries").filter((x) => x.endsWith(".json"))) {
+  const path = `content/policy/countries/${f}`;
+  const c = JSON.parse(readFileSync(path, "utf8"));
+  const kept = c.events.filter((e) => e.date >= cutoff);
+  if (kept.length === c.events.length) continue;
+  oldEvents += c.events.length - kept.length;
+  if (!dry) writeFileSync(path, JSON.stringify({ ...c, events: kept }, null, 2) + "\n");
+}
+if (oldEvents) console.log(`Removed ${oldEvents} policy events dated before ${cutoff}${dry ? " (dry run)" : ""}.`);
 console.log(removed ? `Removed ${removed} deals older than ${cutoff}${dry ? " (dry run)" : ""}.` : `Nothing older than ${cutoff}.`);

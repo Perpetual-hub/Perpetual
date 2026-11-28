@@ -1,0 +1,132 @@
+{
+  "country": "IE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Ireland supports small renewable projects with a guaranteed premium tariff without auction since 2024, and capital and profits can be repatriated freely.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgietr"
+          ],
+          "confidence": "low",
+          "reason": "There are no restrictions on inward investment or repatriating capital and profits."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_ie_sres"
+          ],
+          "confidence": "medium",
+          "reason": "Small-scale projects get a guaranteed premium tariff without auction, €150 per MWh for solar under 1 MW."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "sq_ie_sres"
+          ],
+          "confidence": "low",
+          "reason": "The scheme sets a fixed price for renewable certificates."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgietr"
+          ],
+          "confidence": "low",
+          "reason": "No restrictions on repatriating capital and profits."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The second phase of the small-scale scheme opened in 2024.",
+        "sources": [
+          "sq_ie_sres"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-05-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Second phase of the Small-Scale Renewable Electricity Support Scheme opens",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_ie_sres"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_ie_sres",
+      "title": "Ireland launches second phase of Small-Scale Renewable Electricity Support Scheme",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/05/29/ireland-launches-second-phase-of-small-scale-renewable-electricity-support-scheme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-05-29"
+    },
+    {
+      "id": "tgietr",
+      "title": "Ireland Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/ireland-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-02"
+    }
+  ],
+  "gaps": "Utility-scale auction terms, grid connection and permitting were not covered by the sources reviewed."
+}

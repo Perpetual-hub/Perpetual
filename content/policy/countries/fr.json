@@ -104,16 +104,16 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2015-08-17",
-      "precision": "day",
-      "kind": "law",
+      "date": "2025-08-01",
+      "precision": "month",
+      "kind": "other",
       "effect": "positive",
-      "title": "Energy transition law moves support from feed-in tariffs to contracts for difference",
+      "title": "EU approves an €11 billion French support scheme for offshore wind",
       "segments": [
         "utility"
       ],
       "sources": [
-        "cmsfr"
+        "eg_fr_osw"
       ]
     }
   ],
@@ -145,6 +145,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-05-21"
+    },
+    {
+      "id": "eg_fr_osw",
+      "title": "European Commission approves €11 billion French State aid scheme for offshore wind",
+      "publisher": "Energy Global",
+      "url": "https://www.energyglobal.com/wind/06082025/european-commission-approves-11-billion-french-state-aid-scheme-for-offshore-wind/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-08-06"
     }
   ],
   "gaps": "Grid connection times, buyer credit and corporate PPA practice were not covered. The CMS guide dates from March 2024, so later changes may be missing."

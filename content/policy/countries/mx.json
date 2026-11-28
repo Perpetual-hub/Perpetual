@@ -113,6 +113,33 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2025-10-01",
+      "precision": "month",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Electricity Sector Law regulations restrict sale of self-supply surplus to CFE only",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "hk_mx_reg"
+      ]
+    },
+    {
+      "date": "2025-03-18",
+      "precision": "day",
+      "kind": "law",
+      "effect": "negative",
+      "title": "Electricity Sector Law gives CFE at least 54% of generation and repeals the 2014 market law",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "hk_mx_lse"
+      ]
+    },
+    {
       "date": "2025-01-01",
       "precision": "year",
       "kind": "law",
@@ -154,6 +181,28 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-02-12"
+    },
+    {
+      "id": "hk_mx_lse",
+      "title": "El Ejecutivo Federal de México publica la legislación secundaria (Mexico publishes secondary energy legislation)",
+      "publisher": "Holland & Knight",
+      "url": "https://www.hklaw.com/es/insights/publications/2025/03/el-ejecutivo-federal-de-mexico-publica-la-legislacion-secundaria",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-03",
+      "language": "Spanish",
+      "originalTitle": "El Ejecutivo Federal de México publica la legislación secundaria"
+    },
+    {
+      "id": "hk_mx_reg",
+      "title": "México publica el Reglamento de la Ley del Sector Eléctrico (Mexico publishes Electricity Sector Law regulations)",
+      "publisher": "Holland & Knight",
+      "url": "https://www.hklaw.com/es/insights/publications/2025/11/mexico-publishes-electricity-sector-law-regulations",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-11",
+      "language": "Spanish",
+      "originalTitle": "Reglamento de la Ley del Sector Eléctrico"
     }
   ],
   "gaps": "Contract terms with CFE, buyer credit and the status of earlier private contracts were not covered by the sources reviewed."

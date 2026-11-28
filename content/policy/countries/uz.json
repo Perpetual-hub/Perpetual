@@ -1,0 +1,126 @@
+{
+  "country": "UZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Uzbekistan tenders power projects to private developers under concessions and is guaranteed by law to let foreign investors move funds in and out. Solar and hydro projects are being built with foreign partners.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "ap_uz_hydro"
+          ],
+          "confidence": "low",
+          "reason": "The Ministry of Energy tenders projects to private developers to build, own and operate under concessions."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tguztr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign investors are formally guaranteed to transfer funds in foreign currency without limitation."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tguztr"
+          ],
+          "confidence": "low",
+          "reason": "Transfers of foreign currency are guaranteed by law."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2023-08-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Tender for five private hydropower projects of 46.6 MW",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ap_uz_hydro"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "ap_uz_hydro",
+      "title": "Uzbekistan launches tender for 5 hydropower projects",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/project/news/uzbekistan-launches-tender-5-hydropower-power-projects",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-08-23"
+    },
+    {
+      "id": "tguztr",
+      "title": "Uzbekistan Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/uzbekistan-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-09"
+    }
+  ],
+  "gaps": "PPA terms, buyer credit, grid and rule stability were not covered by the sources reviewed."
+}

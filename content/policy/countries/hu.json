@@ -122,32 +122,6 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2017-01-01",
-      "precision": "year",
-      "kind": "other",
-      "effect": "mixed",
-      "title": "Mandatory offtake scheme closes to new entrants as METÁR takes over",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "cmshu"
-      ]
-    },
-    {
-      "date": "2021-01-01",
-      "precision": "year",
-      "kind": "other",
-      "effect": "negative",
-      "title": "Annual green premium budget cut by 45% for 2022 to 2026",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "cmshu"
-      ]
-    },
-    {
       "date": "2025-01-01",
       "precision": "year",
       "kind": "auction",

@@ -1,0 +1,161 @@
+{
+  "country": "TR",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Türkiye allocates wind and solar capacity through YEKA competitions, with 1,150 MW of wind awarded in December 2025 at 3.50 euro cents per kWh plus a fee paid to the state, and targets 54.7% renewable generation by 2035. The lira is convertible.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "fb_tr_yeka"
+          ],
+          "confidence": "medium",
+          "reason": "YEKA competitions allocate grid capacity, with 1,150 MW of wind awarded across five provinces in 2025."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "fb_tr_yeka"
+          ],
+          "confidence": "low",
+          "reason": "Winning bids are priced in euro cents per kWh, but bidders also pay a capacity fee per MW to the state."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgtrtr"
+          ],
+          "confidence": "low",
+          "reason": "The lira is fully convertible, with declaration rules on carrying cash out."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_tr_2035"
+          ],
+          "confidence": "low",
+          "reason": "The government targets 54.7% renewable generation by 2035."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "New capacity allocation rounds are planned from 2026.",
+        "sources": [
+          "fb_tr_yeka"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgtrtr"
+          ],
+          "confidence": "low",
+          "reason": "The lira is fully convertible."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2025-12-09",
+      "precision": "day",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "YEKA wind competitions award 1,150 MW at 3.50 euro cents per kWh",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "fb_tr_yeka"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Target set for 54.7% renewable generation by 2035",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "sq_tr_2035"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "fb_tr_yeka",
+      "title": "YEKA RES 2025 yarışmalarının kazananları belli oldu (Winners of the 2025 YEKA wind competitions announced)",
+      "publisher": "Forbes Türkiye (Anadolu Agency)",
+      "url": "https://www.forbes.com.tr/ekonomi/yeka-res-2025-yarismalarinin-kazananlari-belli-oldu",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-09",
+      "language": "Turkish",
+      "originalTitle": "YEKA RES 2025 yarışmalarının kazananları belli oldu"
+    },
+    {
+      "id": "sq_tr_2035",
+      "title": "Türkiye targets 54.7% renewable electricity generation by 2035",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/07/15/turkiye-targets-54-7-renewable-electricity-generation-by-2035-with-major-solar-and-wind-expansion/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-07-15"
+    },
+    {
+      "id": "tgtrtr",
+      "title": "Türkiye Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/turkey-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-29"
+    }
+  ],
+  "gaps": "Buyer credit, connection times and corporate PPA rules were not covered by the sources reviewed."
+}

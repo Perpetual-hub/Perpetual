@@ -116,11 +116,11 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2022-01-01",
+      "date": "2025-01-01",
       "precision": "year",
       "kind": "law",
-      "effect": "positive",
-      "title": "Inflation Reduction Act expands federal tax credits for clean electricity",
+      "effect": "negative",
+      "title": "One Big Beautiful Bill Act sunsets tax credits for new solar and wind",
       "segments": [
         "utility",
         "ci"
@@ -130,11 +130,37 @@
       ]
     },
     {
-      "date": "2025-01-01",
+      "date": "2024-03-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Energy Department publishes a roadmap for next-generation geothermal",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "eg_us_geo"
+      ]
+    },
+    {
+      "date": "2023-12-01",
+      "precision": "month",
+      "kind": "court",
+      "effect": "negative",
+      "title": "Appeals court upholds California's net billing rules that cut rooftop export credits",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "rew_us_nem3"
+      ]
+    },
+    {
+      "date": "2022-01-01",
       "precision": "year",
       "kind": "law",
-      "effect": "negative",
-      "title": "One Big Beautiful Bill Act sunsets tax credits for new solar and wind",
+      "effect": "positive",
+      "title": "Inflation Reduction Act expands federal tax credits for clean electricity",
       "segments": [
         "utility",
         "ci"
@@ -154,6 +180,24 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-06-11"
+    },
+    {
+      "id": "rew_us_nem3",
+      "title": "California NEM 3.0, appeals court rejects lawsuit, upholds new rooftop solar policy",
+      "publisher": "Renewable Energy World",
+      "url": "https://www.renewableenergyworld.com/solar/residential/california-nem-3-0-appeals-court-rejects-lawsuit-upholds-new-rooftop-solar-policy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-12-22"
+    },
+    {
+      "id": "eg_us_geo",
+      "title": "DOE unveils roadmap for next generation of geothermal power",
+      "publisher": "Energy Global",
+      "url": "https://www.energyglobal.com/other-renewables/25032024/us-doe-unveils-roadmap-for-next-generation-of-geothermal-power/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-03-25"
     }
   ],
   "gaps": "Buyer credit, state by state rules and the exact credit deadlines were not covered in detail by the sources reviewed."

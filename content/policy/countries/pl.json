@@ -102,16 +102,16 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2020-12-01",
+      "date": "2024-10-01",
       "precision": "month",
-      "kind": "law",
+      "kind": "other",
       "effect": "positive",
-      "title": "Offshore Wind Act sets 25-year support and grid connection rules",
+      "title": "EU approves €1.2 billion Polish scheme for at least 5.4 GWh of storage",
       "segments": [
         "utility"
       ],
       "sources": [
-        "cmspl"
+        "eg_pl_stor"
       ]
     },
     {
@@ -125,6 +125,19 @@
       ],
       "sources": [
         "tgplen"
+      ]
+    },
+    {
+      "date": "2023-03-13",
+      "precision": "day",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Wind law amendment replaces the 10H distance rule with a 700 m minimum",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tg_pl_10h"
       ]
     }
   ],
@@ -155,6 +168,24 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-04-02"
+    },
+    {
+      "id": "eg_pl_stor",
+      "title": "European Commission approves Polish renewable energy scheme",
+      "publisher": "Energy Global",
+      "url": "https://www.energyglobal.com/other-renewables/04102024/european-commission-approves-polish-renewable-energy-scheme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-10-04"
+    },
+    {
+      "id": "tg_pl_10h",
+      "title": "Poland onshore wind energy 10H distance rule liberalized",
+      "publisher": "US International Trade Administration",
+      "url": "https://trade.gov/market-intelligence/poland-onshore-wind-energy-10h-distance-rule-liberalized",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-04-18"
     }
   ],
   "gaps": "Corporate PPA practice, grid connection and onshore wind siting rules were not covered by the sources reviewed, so C&I is not reviewed."

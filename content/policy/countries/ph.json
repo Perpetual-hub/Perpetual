@@ -126,17 +126,29 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2022-11-15",
-      "precision": "day",
-      "kind": "circular",
-      "effect": "positive",
-      "title": "DOE circular opens solar, wind, hydro and ocean projects to full foreign ownership",
+      "date": "2026-08-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "Collection of the green energy auction charge stays suspended through December 2026",
       "segments": [
-        "utility",
+        "utility"
+      ],
+      "sources": [
+        "gma"
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "precision": "day",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Retail competition opens to users of about 100 kW",
+      "segments": [
         "ci"
       ],
       "sources": [
-        "inq"
+        "dg"
       ]
     },
     {
@@ -153,42 +165,43 @@
       ]
     },
     {
-      "date": "2026-08-01",
-      "precision": "month",
-      "kind": "tariff",
-      "effect": "mixed",
-      "title": "Collection of the green energy auction charge stays suspended through December 2026",
+      "date": "2025-02-14",
+      "precision": "day",
+      "kind": "circular",
+      "effect": "positive",
+      "title": "DOE amends Green Energy Auction guidelines for FIT-All funded projects",
       "segments": [
         "utility"
       ],
       "sources": [
-        "gma"
+        "sq_ph_gea"
       ]
     },
     {
-      "date": "2013-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Net metering for systems up to 100 kW begins",
-      "segments": [
-        "ci"
-      ],
-      "sources": [
-        "ember"
-      ]
-    },
-    {
-      "date": "2026-06-26",
+      "date": "2022-11-15",
       "precision": "day",
-      "kind": "other",
+      "kind": "circular",
       "effect": "positive",
-      "title": "Retail competition opens to users of about 100 kW",
+      "title": "DOE circular opens solar, wind, hydro and ocean projects to full foreign ownership",
       "segments": [
+        "utility",
         "ci"
       ],
       "sources": [
-        "dg"
+        "inq"
+      ]
+    },
+    {
+      "date": "2022-04-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Offshore wind roadmap targets 40 GW by 2050",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ap_ph_osw"
       ]
     }
   ],
@@ -327,6 +340,24 @@
       "accessed": "2026-11-26",
       "kind": "primary",
       "published": "2021"
+    },
+    {
+      "id": "ap_ph_osw",
+      "title": "Philippines' new roadmap targets 40GW offshore wind by 2050",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/power-utility/news/philippines-new-roadmap-targets-40gw-offshore-wind-2050",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-04-26"
+    },
+    {
+      "id": "sq_ph_gea",
+      "title": "Philippines amends Green Energy Auction guidelines to boost renewable investments",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/02/14/philippines-amends-green-energy-auction-guidelines-to-boost-renewable-investments/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-02-14"
     }
   ],
   "gaps": "Payment record of distribution utilities, curtailment compensation and C&I contract enforcement were not established from public sources."

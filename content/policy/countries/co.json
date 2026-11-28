@@ -98,19 +98,6 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2019-01-01",
-      "precision": "year",
-      "kind": "auction",
-      "effect": "positive",
-      "title": "Reliability charge auction awards firm energy to wind and solar for the first time",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "cmsco"
-      ]
-    },
-    {
       "date": "2024-05-01",
       "precision": "month",
       "kind": "plan",

@@ -104,7 +104,22 @@
     }
   },
   "redFlags": [],
-  "events": [],
+  "events": [
+    {
+      "date": "2026-06-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Minimum renewable consumption targets set for industries and provinces",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "mi_cn_cons"
+      ]
+    }
+  ],
   "log": [],
   "sources": [
     {
@@ -124,6 +139,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2025-09-25"
+    },
+    {
+      "id": "mi_cn_cons",
+      "title": "China sets renewable energy consumption targets for industries and provinces",
+      "publisher": "Mercom India",
+      "url": "https://www.mercomindia.com/china-sets-renewable-energy-consumption-targets-for-industries-and-provinces/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-26"
     }
   ],
   "gaps": "Foreign ownership rules for generation, buyer credit, curtailment levels and corporate green power trading were not covered by the sources reviewed."

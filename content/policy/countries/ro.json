@@ -107,6 +107,45 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-03-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "EU approves €150 million Romanian scheme for 2,174 MWh of storage",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_ro_stor"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Second Contract for Difference round planned for 3 GW",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsro"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "First CfD auction opens for 1.5 GW of solar and onshore wind",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_ro_cfd1"
+      ]
+    },
+    {
       "date": "2024-01-01",
       "precision": "year",
       "kind": "auction",
@@ -125,19 +164,6 @@
       "kind": "law",
       "effect": "positive",
       "title": "Offshore wind law sets the framework for Black Sea projects",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "cmsro"
-      ]
-    },
-    {
-      "date": "2025-01-01",
-      "precision": "year",
-      "kind": "auction",
-      "effect": "positive",
-      "title": "Second Contract for Difference round planned for 3 GW",
       "segments": [
         "utility"
       ],
@@ -173,6 +199,24 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-06-02"
+    },
+    {
+      "id": "sq_ro_cfd1",
+      "title": "Romania launches renewable energy auctions with EBRD support",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/09/13/romania-launches-renewable-energy-auctions-with-ebrd-support/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-09-13"
+    },
+    {
+      "id": "sq_ro_stor",
+      "title": "European Commission approves €150 million Romanian scheme to boost electricity storage",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/03/10/european-commission-approves-e150-million-romanian-scheme-to-boost-electricity-storage/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-10"
     }
   ],
   "gaps": "Corporate buying routes, buyer credit and connection times were not covered by the sources reviewed, so C&I is not reviewed. Earlier changes to green certificate support were not covered either."

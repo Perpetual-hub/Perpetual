@@ -110,6 +110,32 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-06-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "negative",
+      "title": "Industry warns delays to the offshore wind auction risk losing investment",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "eco_pt_osw"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Government auctions grid capacity for renewables with batteries and for standalone storage",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "gov_pt_leil"
+      ]
+    },
+    {
       "date": "2024-01-01",
       "precision": "year",
       "kind": "plan",
@@ -161,6 +187,28 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2026-04-16"
+    },
+    {
+      "id": "gov_pt_leil",
+      "title": "Governo lança leilões para reforçar a produção renovável e o armazenamento de eletricidade (Government launches auctions to boost renewable generation and storage)",
+      "publisher": "Government of Portugal",
+      "url": "https://portugal.gov.pt/gc25/comunicacao/noticias/governo-lanca-leiloes-para-reforcar-a-producao-renovavel-e-o-armazenamento-de-eletricidade",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2026",
+      "language": "Portuguese",
+      "originalTitle": "Governo lança leilões para reforçar a produção renovável e o armazenamento de eletricidade"
+    },
+    {
+      "id": "eco_pt_osw",
+      "title": "APREN alerta que Portugal pode perder investimento com atrasos no leilão eólico no mar (APREN warns Portugal may lose investment over offshore wind auction delays)",
+      "publisher": "ECO (Lusa)",
+      "url": "https://eco.sapo.pt/2026/06/15/apren-alerta-que-portugal-pode-perder-investimento-com-atrasos-no-leilao-eolico-no-mar/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-15",
+      "language": "Portuguese",
+      "originalTitle": "APREN alerta que Portugal pode perder investimento com atrasos no leilão eólico no mar"
     }
   ],
   "gaps": "Contract terms, buyer credit and the timing of the first offshore wind auction were not established from the sources reviewed."

@@ -1,0 +1,141 @@
+{
+  "country": "KZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Kazakhstan runs scheduled renewable auctions, 1,810 MW in 2025, and lets non-residents transfer dividends freely. It may still miss its 15% renewable target for 2030.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_kz_auc"
+          ],
+          "confidence": "medium",
+          "reason": "The Ministry of Energy approved a 2025 auction schedule for 1,810 MW of renewables."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgkztr"
+          ],
+          "confidence": "medium",
+          "reason": "IMF commitments prohibit restrictions on conversion or repatriation of profits, and non-residents can transfer dividends freely."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "ap_kz_miss"
+          ],
+          "confidence": "low",
+          "reason": "The 2030 target was raised to 15% in 2021, but analysts expect it may be missed."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Auctions are scheduled each year.",
+        "sources": [
+          "sq_kz_auc"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgkztr"
+          ],
+          "confidence": "low",
+          "reason": "Dividends can be transferred freely."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2025-02-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "2025 renewable auction schedule approved for 1,810 MW",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_kz_auc"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_kz_auc",
+      "title": "Kazakhstan announces 2025 renewable energy auction schedule with 1,810 MW",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/02/13/kazakhstan-announces-2025-renewable-energy-auction-schedule-with-1810-mw-capacity/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-02-13"
+    },
+    {
+      "id": "ap_kz_miss",
+      "title": "Kazakhstan could miss its revised 2030 renewables target",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/power-utility/news/kazakhstan-could-miss-its-revised-2030-renewables-target",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-04-14"
+    },
+    {
+      "id": "tgkztr",
+      "title": "Kazakhstan Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/kazakhstan-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-10"
+    }
+  ],
+  "gaps": "PPA terms, buyer credit and grid access were not covered by the sources reviewed."
+}

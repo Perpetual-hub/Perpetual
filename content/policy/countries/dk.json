@@ -108,20 +108,6 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2020-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Climate Act sets a binding 70% emissions cut by 2030",
-      "segments": [
-        "utility",
-        "ci"
-      ],
-      "sources": [
-        "tgdken"
-      ]
-    },
-    {
       "date": "2026-01-01",
       "precision": "year",
       "kind": "other",

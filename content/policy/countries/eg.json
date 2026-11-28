@@ -114,16 +114,16 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2014-01-01",
-      "precision": "year",
-      "kind": "tariff",
+      "date": "2024-01-01",
+      "precision": "month",
+      "kind": "law",
       "effect": "positive",
-      "title": "Feed-in tariff programme launched for 4.3 GW of solar and wind",
+      "title": "Parliament approves incentives for green hydrogen projects",
       "segments": [
         "utility"
       ],
       "sources": [
-        "cmseg"
+        "sq_eg_h2"
       ]
     }
   ],
@@ -154,6 +154,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2025-11-21"
+    },
+    {
+      "id": "sq_eg_h2",
+      "title": "Egyptian House of Representatives approves bill for green hydrogen incentives",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/01/05/egyptian-house-of-representatives-approves-groundbreaking-bill-for-green-hydrogen-incentives/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-01-05"
     }
   ],
   "gaps": "EETC's payment record, currency conversion delays and grid connection times were not covered in detail by the sources reviewed."

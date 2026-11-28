@@ -100,6 +100,32 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-07-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Regulator allows direct sales of renewable electricity to consumers",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_om_direct"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "precision": "month",
+      "kind": "tax",
+      "effect": "positive",
+      "title": "New fiscal incentives for the third green hydrogen auction round",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_om_h2"
+      ]
+    },
+    {
       "date": "2022-01-01",
       "precision": "month",
       "kind": "other",
@@ -140,6 +166,24 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2025-12-22"
+    },
+    {
+      "id": "sq_om_h2",
+      "title": "Oman unveils new incentives to boost green hydrogen projects in third auction round",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/08/14/oman-unveils-new-incentives-to-boost-green-hydrogen-projects-in-third-auction-round/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-08-14"
+    },
+    {
+      "id": "sq_om_direct",
+      "title": "Oman introduces new rules for direct renewable electricity sales",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/07/28/oman-introduces-new-rules-for-direct-renewable-electricity-sales-across-the-sultanate/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-07-28"
     }
   ],
   "gaps": "PPA terms, buyer credit, the Sahim rooftop scheme status and grid connection were not covered in detail by the sources reviewed."

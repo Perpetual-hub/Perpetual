@@ -114,25 +114,38 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2012-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Feed-in tariff scheme starts under the Renewable Energy Act",
+      "date": "2026-04-01",
+      "precision": "month",
+      "kind": "grid",
+      "effect": "negative",
+      "title": "Coal plant cap suspended for 2026, raising solar curtailment",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ap_jp_curt"
+      ]
+    },
+    {
+      "date": "2026-02-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "mixed",
+      "title": "Draft framework would require recycling of solar panels",
       "segments": [
         "utility",
         "ci"
       ],
       "sources": [
-        "l5jp"
+        "eb_jp_recycle"
       ]
     },
     {
-      "date": "2018-01-01",
+      "date": "2025-01-01",
       "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Marine Renewable Energy Act sets up offshore wind site auctions",
+      "kind": "grid",
+      "effect": "mixed",
+      "title": "Curtailment order revised so FIT projects are curtailed before FIP projects",
       "segments": [
         "utility"
       ],
@@ -152,19 +165,6 @@
       ],
       "sources": [
         "cmsjp"
-      ]
-    },
-    {
-      "date": "2025-01-01",
-      "precision": "year",
-      "kind": "grid",
-      "effect": "mixed",
-      "title": "Curtailment order revised so FIT projects are curtailed before FIP projects",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "l5jp"
       ]
     }
   ],
@@ -195,6 +195,24 @@
       "url": "https://www.trade.gov/country-commercial-guides/japan-trade-financing",
       "accessed": "2026-11-28",
       "kind": "secondary"
+    },
+    {
+      "id": "ap_jp_curt",
+      "title": "Japan energy policy forces renewable curtailment surge",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/news/japan-energy-policy-forces-renewable-curtailment-surge",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-30"
+    },
+    {
+      "id": "eb_jp_recycle",
+      "title": "Japan drafts stricter solar panel recycling rules ahead of waste surge",
+      "publisher": "Eco-Business",
+      "url": "https://www.eco-business.com/news/japan-drafts-stricter-solar-panel-recycling-rules-ahead-of-waste-surge/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-04"
     }
   ],
   "gaps": "Buyer credit and grid connection times were not covered by the sources reviewed."

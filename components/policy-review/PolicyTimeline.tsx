@@ -78,8 +78,10 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
   const shown = useMemo(() => events.filter((e) => seg === "all" || e.segments.includes(seg)), [events, seg]);
   const multi = events.some((e) => e.country);
   const years = useMemo(() => {
-    const first = Math.min(currentYear, ...events.map((e) => +e.date.slice(0, 4)));
-    return Array.from({ length: currentYear - first + 1 }, (_, i) => first + i);
+    const ys = events.map((e) => +e.date.slice(0, 4));
+    const first = Math.min(currentYear, ...ys);
+    const last = Math.max(currentYear, ...ys);
+    return Array.from({ length: last - first + 1 }, (_, i) => first + i);
   }, [events, currentYear]);
   // On narrow screens the grid scrolls sideways; start at the most recent years.
   const scroller = useRef<HTMLDivElement>(null);

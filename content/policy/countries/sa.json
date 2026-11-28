@@ -103,13 +103,52 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2020-01-01",
-      "precision": "year",
-      "kind": "law",
+      "date": "2026-11-01",
+      "precision": "month",
+      "kind": "auction",
       "effect": "positive",
-      "title": "Small-scale solar framework allows grid-connected systems of 1 kW to 2 MW",
+      "title": "Eighth NREP round launched for 3,200 MW of solar and wind",
       "segments": [
-        "ci"
+        "utility"
+      ],
+      "sources": [
+        "sq_sa_r8"
+      ]
+    },
+    {
+      "date": "2025-12-12",
+      "precision": "day",
+      "kind": "grid",
+      "effect": "negative",
+      "title": "Dispatch limits imposed on the 1,425 MW Al Kahfah solar plant",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "mi_ae_res"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Sixth NREP round opens for solar and wind",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_sa_r6"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Four solar projects totalling 1.3 GW reach financial close",
+      "segments": [
+        "utility"
       ],
       "sources": [
         "cmssa"
@@ -123,19 +162,6 @@
       "title": "Self-consumption framework extends to wind and other technologies",
       "segments": [
         "ci"
-      ],
-      "sources": [
-        "cmssa"
-      ]
-    },
-    {
-      "date": "2023-01-01",
-      "precision": "year",
-      "kind": "auction",
-      "effect": "positive",
-      "title": "Four solar projects totalling 1.3 GW reach financial close",
-      "segments": [
-        "utility"
       ],
       "sources": [
         "cmssa"
@@ -169,6 +195,33 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-05-13"
+    },
+    {
+      "id": "mi_ae_res",
+      "title": "MENA weekly round-up, Abu Dhabi unveils phase 2 of residential solar policy",
+      "publisher": "Mercom India",
+      "url": "https://www.mercomindia.com/mena-weekly-round-up-abu-dhabi-unveils-phase-2-of-residential-solar-policy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-07"
+    },
+    {
+      "id": "sq_sa_r6",
+      "title": "Saudi Arabia launches sixth round of solar and wind projects under NREP",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/09/26/saudi-arabia-launches-sixth-round-of-solar-and-wind-projects-under-nrep/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-09-26"
+    },
+    {
+      "id": "sq_sa_r8",
+      "title": "Saudi Arabia launches 3200 MW solar and wind projects under eighth NREP round",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/11/23/saudi-arabia-launches-3200-mw-solar-and-wind-projects-under-eighth-nrep-round/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-11-23"
     }
   ],
   "gaps": "PPA terms, buyer credit and grid connection times were not covered by the sources reviewed."

@@ -1,0 +1,130 @@
+{
+  "country": "IL",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Israel offers fixed tariffs through tenders, including a 23-year tariff for agrivoltaic projects, and abolished most foreign exchange controls in the 1990s.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_il_agri"
+          ],
+          "confidence": "low",
+          "reason": "Tenders award fixed tariffs, such as the 2022 agrivoltaic tender."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "sq_il_agri"
+          ],
+          "confidence": "low",
+          "reason": "The agrivoltaic tender pays a fixed tariff for 23 years."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgiltr"
+          ],
+          "confidence": "low",
+          "reason": "Israel abolished most of its foreign exchange controls in the 1990s."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgiltr"
+          ],
+          "confidence": "low",
+          "reason": "Most foreign exchange controls were abolished."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "100 MW agrivoltaic tender offers a 23-year fixed tariff",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_il_agri"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_il_agri",
+      "title": "Israel launches 100 MW agrivoltaic tender",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/01/21/israel-launches-100-mw-capacity-of-agrivoltaic-tender/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-01-21"
+    },
+    {
+      "id": "tgiltr",
+      "title": "Israel Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/israel-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-24"
+    }
+  ],
+  "gaps": "Grid connection, buyer credit and rule stability were not covered by the sources reviewed."
+}

@@ -1,0 +1,145 @@
+{
+  "country": "BE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Belgium is building its first offshore wind farm in the Princess Elisabeth Zone with €2.04 billion of state support approved in 2026. Onshore wind permits in Flanders were disrupted by court rulings, and capital moves freely.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_be_osw"
+          ],
+          "confidence": "medium",
+          "reason": "Offshore wind gets state support, with €2.04 billion approved for a 735 MW project in November 2026."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgbetr"
+          ],
+          "confidence": "low",
+          "reason": "There are no restrictions on moving capital or profits."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmsbe"
+          ],
+          "confidence": "low",
+          "reason": "Court rulings on environmental assessment temporarily halted onshore wind permits in Flanders."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsbe"
+          ],
+          "confidence": "low",
+          "reason": "Wallonia raised its wind target, but permit rules have been in flux."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Offshore wind support was approved in 2026.",
+        "sources": [
+          "sq_be_osw"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgbetr"
+          ],
+          "confidence": "low",
+          "reason": "No restrictions on moving capital or profits."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-11-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "EU approves €2.04 billion support for a 735 MW offshore wind farm",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_be_osw"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_be_osw",
+      "title": "European Commission approves €2.04 billion Belgian State aid for 735 MW offshore wind project",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/11/13/european-commission-approves-e2-04-billion-belgian-state-aid-for-735-mw-offshore-wind-project/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-11-13"
+    },
+    {
+      "id": "cmsbe",
+      "title": "Renewable energy in Belgium",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/belgium",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgbetr",
+      "title": "Belgium Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/belgium-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-20"
+    }
+  ],
+  "gaps": "Onshore support, PPA terms and buyer credit were not covered by the sources reviewed."
+}

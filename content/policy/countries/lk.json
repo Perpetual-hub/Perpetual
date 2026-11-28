@@ -1,0 +1,111 @@
+{
+  "country": "LK",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Sri Lanka is expanding rooftop solar and introducing virtual net metering with Asian Development Bank financing approved in 2026.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_lk_adb"
+          ],
+          "confidence": "low",
+          "reason": "Rooftop solar aggregation and virtual net metering are being expanded with ADB support."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Virtual net metering is being introduced.",
+        "sources": [
+          "sq_lk_adb"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-06-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "ADB approves US$57.4 million for rooftop solar and virtual net metering",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_lk_adb"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_lk_adb",
+      "title": "ADB approves $57.4 million to expand rooftop solar and virtual net metering in Sri Lanka",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/06/26/adb-approves-57-4-million-to-expand-rooftop-solar-and-virtual-net-metering-in-sri-lanka/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-26"
+    }
+  ],
+  "gaps": "Utility procurement, ownership rules and the utility's payment record were not covered by the sources reviewed."
+}

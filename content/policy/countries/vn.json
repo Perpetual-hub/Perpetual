@@ -139,6 +139,46 @@
   ],
   "events": [
     {
+      "date": "2026-06-26",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "positive",
+      "title": "Decree 243/2026 raises the rooftop surplus sales cap to 50% and widens grid DPPA buyers",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "evn",
+        "bm"
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "precision": "day",
+      "kind": "tariff",
+      "effect": "negative",
+      "title": "EVN proposes transitional tariffs well below feed-in rates for 173 operating projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq"
+      ]
+    },
+    {
+      "date": "2025-05-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "negative",
+      "title": "Hundreds of wind and solar investors petition to keep feed-in tariffs as payments are withheld",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "inv"
+      ]
+    },
+    {
       "date": "2025-04-15",
       "precision": "day",
       "kind": "plan",
@@ -166,43 +206,30 @@
       ]
     },
     {
-      "date": "2025-05-01",
-      "precision": "month",
-      "kind": "tariff",
-      "effect": "negative",
-      "title": "Hundreds of wind and solar investors petition to keep feed-in tariffs as payments are withheld",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "inv"
-      ]
-    },
-    {
-      "date": "2026-06-26",
+      "date": "2024-10-22",
       "precision": "day",
       "kind": "decree",
       "effect": "positive",
-      "title": "Decree 243/2026 raises the rooftop surplus sales cap to 50% and widens grid DPPA buyers",
+      "title": "Decree 135/2024 sets rules for self-consumed rooftop solar",
       "segments": [
         "ci"
       ],
       "sources": [
-        "evn",
-        "bm"
+        "sq_vn_135"
       ]
     },
     {
-      "date": "2026-04-17",
-      "precision": "day",
-      "kind": "tariff",
-      "effect": "negative",
-      "title": "EVN proposes transitional tariffs well below feed-in rates for 173 operating projects",
+      "date": "2023-05-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Power Development Plan VIII approved for 2021 to 2030",
       "segments": [
-        "utility"
+        "utility",
+        "ci"
       ],
       "sources": [
-        "sq"
+        "sq_vn_pdp8"
       ]
     }
   ],
@@ -306,6 +333,24 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2026-08-20"
+    },
+    {
+      "id": "sq_vn_pdp8",
+      "title": "Vietnam approves National Electricity Master Plan VIII",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/05/17/vietnam-approves-national-electricity-master-plan-viii-focusing-on-renewable-energy-and-sustainable-development/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-05-17"
+    },
+    {
+      "id": "sq_vn_135",
+      "title": "Vietnam unveils decree for self-produced rooftop solar power",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/11/05/vietnam-unveils-decree-for-unlimited-self-produced-rooftop-solar-power-for-households-under-100-kw/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-11-05"
     }
   ],
   "gaps": "Curtailment and termination terms in new EVN contracts, payment security, foreign ownership caps and the practical speed of currency conversion were not confirmed from sources we could read."

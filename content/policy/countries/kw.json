@@ -1,0 +1,137 @@
+{
+  "country": "KW",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Kuwait tenders large solar projects through its partnership authority, including the 500 MW Shagaya phase III in 2025, and set out a three-year power sector roadmap in 2026.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_kw_shag"
+          ],
+          "confidence": "low",
+          "reason": "The partnership authority and the electricity ministry tendered the 500 MW Al Dibdibah Shagaya phase III solar project."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_kw_road"
+          ],
+          "confidence": "low",
+          "reason": "A three-year roadmap to expand renewables was presented in 2026."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "More solar is being tendered.",
+        "sources": [
+          "sq_kw_shag"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2025-11-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Bidding opens for the 500 MW Shagaya phase III solar project",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_kw_shag"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Three-year roadmap to strengthen the power sector and add renewables",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_kw_road"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_kw_shag",
+      "title": "Kuwait launches bidding for 500 MW Al Dibdibah Shagaya phase III solar project",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/11/27/kuwait-launches-bidding-for-500-mw-al-dibdibah-shagaya-phase-iii-solar-project/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-11-27"
+    },
+    {
+      "id": "sq_kw_road",
+      "title": "Kuwait unveils three-year roadmap to strengthen power sector and expand renewable energy",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/01/03/kuwait-unveils-three-year-roadmap-to-strengthen-power-sector-and-expand-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-03"
+    }
+  ],
+  "gaps": "Foreign ownership rules, PPA terms and grid access were not covered by the sources reviewed."
+}

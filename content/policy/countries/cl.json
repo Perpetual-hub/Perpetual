@@ -104,6 +104,19 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2024-04-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Green Hydrogen Action Plan 2023 to 2030 sets 81 actions",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_cl_h2"
+      ]
+    },
+    {
       "date": "2022-01-01",
       "precision": "year",
       "kind": "law",
@@ -147,6 +160,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-02-23"
+    },
+    {
+      "id": "sq_cl_h2",
+      "title": "Chile unveils Green Hydrogen Action Plan 2023-2030",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/04/26/chile-unveils-green-hydrogen-action-plan-2023-2030-to-foster-industry-development/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-04-26"
     }
   ],
   "gaps": "Supply auction terms, PPA length, buyer credit and curtailment compensation were not covered by the sources reviewed. C&I routes were not covered."

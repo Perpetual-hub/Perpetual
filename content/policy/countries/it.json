@@ -120,16 +120,29 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2024-06-19",
-      "precision": "day",
-      "kind": "decree",
+      "date": "2026-06-01",
+      "precision": "month",
+      "kind": "other",
       "effect": "positive",
-      "title": "FER 2 decree supports offshore wind, floating solar, geothermal and marine energy",
+      "title": "EU approves a €23 billion Italian renewable support scheme",
       "segments": [
         "utility"
       ],
       "sources": [
-        "l5it"
+        "sq_it_23bn"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "month",
+      "kind": "tax",
+      "effect": "positive",
+      "title": "Transizione 5.0 tax credit raised for EU-made solar modules",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_it_t50"
       ]
     },
     {
@@ -143,6 +156,45 @@
       ],
       "sources": [
         "l5it"
+      ]
+    },
+    {
+      "date": "2024-07-02",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Suitable Areas decree gives regions 180 days to map where renewables can be built",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "rin_it_ai"
+      ]
+    },
+    {
+      "date": "2024-06-19",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "positive",
+      "title": "FER 2 decree supports offshore wind, floating solar, geothermal and marine energy",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5it"
+      ]
+    },
+    {
+      "date": "2024-06-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "EU approves €35.3 billion FER 2 scheme for 4.6 GW of innovative renewables",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "rew_it_fer2"
       ]
     }
   ],
@@ -174,6 +226,44 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2026-04-14"
+    },
+    {
+      "id": "rew_it_fer2",
+      "title": "Greenlight for €35.3bn Italian scheme of 4.6GW renewable capacity",
+      "publisher": "Renewable Energy World",
+      "url": "https://www.renewableenergyworld.com/energy-business/greenlight-for-e35-3bn-italian-scheme-of-4-6gw-renewable-capacity/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-06-05"
+    },
+    {
+      "id": "sq_it_t50",
+      "title": "Italy increases tax incentives for EU-made solar modules",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/01/13/italy-increases-tax-incentives-for-eu-made-solar-modules-to-accelerate-renewable-energy-transition/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-01-13"
+    },
+    {
+      "id": "sq_it_23bn",
+      "title": "European Commission approves €23 billion Italian renewable energy support scheme",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/06/09/european-commission-approves-e23-billion-italian-renewable-energy-support-scheme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-09"
+    },
+    {
+      "id": "rin_it_ai",
+      "title": "Il Decreto Aree Idonee per le rinnovabili è entrato in vigore (The Suitable Areas decree for renewables is in force)",
+      "publisher": "Rinnovabili.it",
+      "url": "https://www.rinnovabili.it/energia/eolico/decreto-aree-idonee-rinnovabili-in-vigore/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-07-04",
+      "language": "Italian",
+      "originalTitle": "Il Decreto Aree Idonee per le rinnovabili è entrato in vigore"
     }
   ],
   "gaps": "Contract length, grid connection times and corporate PPA practice were not covered by the sources reviewed."

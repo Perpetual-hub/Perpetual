@@ -1,0 +1,155 @@
+{
+  "country": "ZM",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Zambia targets 10,000 MW of generation by 2031 and has added capacity quickly since 2024, with the utility ZESCO tendering solar plants to independent producers. Funds can be moved out of the country easily.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_zm_zesco",
+            "sq_zm_10gw"
+          ],
+          "confidence": "low",
+          "reason": "ZESCO has tendered solar plants to independent producers, and capacity rose from 3,777 MW in 2024 to 4,722 MW."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgzmtr"
+          ],
+          "confidence": "low",
+          "reason": "Accounts may be held in foreign currency, and funds are easily transferred out of the country."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_zm_10gw"
+          ],
+          "confidence": "low",
+          "reason": "Reforms support a 10,000 MW target for 2031."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Energy reforms are boosting new capacity.",
+        "sources": [
+          "sq_zm_10gw"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgzmtr"
+          ],
+          "confidence": "low",
+          "reason": "Funds are easily transferred out of the country."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-08-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "ZESCO invites producers for 50 MW of solar plants",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_zm_zesco"
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Government targets 10,000 MW of capacity by 2031",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_zm_10gw"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_zm_10gw",
+      "title": "Zambia targets 10,000 MW power generation capacity by 2031",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/10/29/zambia-targets-10000-mw-power-generation-capacity-by-2031-as-energy-reforms-boost-growth/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-10-29"
+    },
+    {
+      "id": "sq_zm_zesco",
+      "title": "ZESCO launches tender for 50 MW solar PV plants",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/08/24/zambia-electricity-supply-corporation-launches-tender-for-50-mw-solar-pv-plants/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-08-24"
+    },
+    {
+      "id": "tgzmtr",
+      "title": "Zambia Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/zambia-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-23"
+    }
+  ],
+  "gaps": "PPA terms, ZESCO's payment record and grid access were not covered by the sources reviewed."
+}

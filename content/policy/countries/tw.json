@@ -95,16 +95,17 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2017-01-01",
-      "precision": "year",
-      "kind": "law",
+      "date": "2026-08-01",
+      "precision": "month",
+      "kind": "tariff",
       "effect": "positive",
-      "title": "Electricity Act amendment lets renewable generators sell directly to end users",
+      "title": "2026 feed-in tariffs announced for solar, wind and other sources",
       "segments": [
+        "utility",
         "ci"
       ],
       "sources": [
-        "semi"
+        "sq_tw_fit26"
       ]
     },
     {
@@ -118,6 +119,47 @@
       ],
       "sources": [
         "pm"
+      ]
+    },
+    {
+      "date": "2026-02-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "negative",
+      "title": "20% renewable electricity target pushed beyond 2026",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "eb_tw_delay"
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "negative",
+      "title": "Parliament bans ground-mounted and floating solar in protected areas",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "eb_tw_ban"
+      ]
+    },
+    {
+      "date": "2024-05-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "2024 feed-in tariffs set, with a small cut for solar",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "ap_tw_fit24"
       ]
     }
   ],
@@ -157,6 +199,42 @@
       "url": "https://www.semi.org/en/blogs/making-renewable-energy-available-and-making-better-use-of-it-the-next-step-for-surplus-re-in-taiwan",
       "accessed": "2026-11-26",
       "kind": "secondary"
+    },
+    {
+      "id": "ap_tw_fit24",
+      "title": "Taiwan unveils 2024 renewable energy FIT rates",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/project/news/taiwan-unveils-2024-renewable-energy-fit-rates",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-05-13"
+    },
+    {
+      "id": "eb_tw_ban",
+      "title": "Taiwan tightens solar rules, bans projects in protected areas",
+      "publisher": "Eco-Business",
+      "url": "https://www.eco-business.com/news/taiwan-tightens-solar-rules-bans-projects-in-protected-areas/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-11-17"
+    },
+    {
+      "id": "eb_tw_delay",
+      "title": "Taiwan delays 20 per cent renewables target beyond 2026",
+      "publisher": "Eco-Business",
+      "url": "https://www.eco-business.com/news/taiwan-delays-20-per-cent-renewables-target-beyond-2026-as-tighter-solar-rules-slow-rollout/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-09"
+    },
+    {
+      "id": "sq_tw_fit26",
+      "title": "Taiwan announces 2026 renewable energy feed-in tariffs",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/08/26/taiwan-announces-2026-renewable-energy-feed-in-tariffs-across-solar-wind-and-other-sources/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-08-26"
     }
   ],
   "gaps": "Foreign ownership and money transfer rules, Taipower payment practice and curtailment were not confirmed from sources we could read, so the ownership gate is not rated."

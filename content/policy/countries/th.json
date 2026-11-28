@@ -127,17 +127,16 @@
   ],
   "events": [
     {
-      "date": "2023-07-25",
-      "precision": "day",
-      "kind": "decree",
-      "effect": "negative",
-      "title": "Draft ERC rule would tighten nationality tests for shareholders of electricity licence holders",
+      "date": "2026-09-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Subsidised rooftop solar programme for one million households",
       "segments": [
-        "utility",
         "ci"
       ],
       "sources": [
-        "tg"
+        "sq_th_roof"
       ]
     },
     {
@@ -164,6 +163,59 @@
       ],
       "sources": [
         "bmth"
+      ]
+    },
+    {
+      "date": "2025-10-27",
+      "precision": "day",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Energy policy council approves 1,500 MW community solar framework",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_th_comm"
+      ]
+    },
+    {
+      "date": "2025-07-01",
+      "precision": "month",
+      "kind": "tax",
+      "effect": "positive",
+      "title": "Cabinet approves tax incentives for renewables and efficiency",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_th_tax"
+      ]
+    },
+    {
+      "date": "2023-07-25",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "negative",
+      "title": "Draft ERC rule would tighten nationality tests for shareholders of electricity licence holders",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tg"
+      ]
+    },
+    {
+      "date": "2022-11-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "New feed-in tariff covers utility solar, storage, wind and biogas",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_th_fit"
       ]
     }
   ],
@@ -222,6 +274,42 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2026-08"
+    },
+    {
+      "id": "sq_th_fit",
+      "title": "Thailand launches a new feed-in tariff scheme for solar and storage",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/11/03/thailand-launches-a-new-feed-in-tariff-scheme-for-solar-solar-and-storage/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-11-03"
+    },
+    {
+      "id": "sq_th_tax",
+      "title": "Thailand approves major tax incentives to accelerate renewable energy",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/07/10/thailand-approves-major-tax-incentives-to-accelerate-renewable-energy-and-energy-efficiency/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-07-10"
+    },
+    {
+      "id": "sq_th_comm",
+      "title": "NEPC approves 1500 MW community solar framework",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/12/04/nepc-approves-1500-mw-community-solar-framework-launching-high-speed-race-for-project-readiness-in-thailand/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-04"
+    },
+    {
+      "id": "sq_th_roof",
+      "title": "Thailand to launch subsidised rooftop solar programme for 1 million households",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/09/11/thailand-to-launch-subsidised-rooftop-solar-programme-for-1-million-households/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-09-11"
     }
   ],
   "gaps": "EGAT payment record, curtailment compensation and the final third-party access charge were not established. Foreign ownership rules for licence holders need confirmation from the final ERC regulation."

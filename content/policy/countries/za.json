@@ -105,6 +105,58 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-11-26",
+      "precision": "day",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Scatec moves its 288 MW Mercury project from public procurement to corporate buyers",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "enn_lyra"
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Eskom keeps its registration fee waiver for small solar systems indefinitely",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_za_waiver"
+      ]
+    },
+    {
+      "date": "2023-08-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Energy Bounce Back loan guarantees support solar for small firms and homes",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_za_ebb"
+      ]
+    },
+    {
+      "date": "2023-02-01",
+      "precision": "month",
+      "kind": "tax",
+      "effect": "positive",
+      "title": "Budget introduces a tax incentive for rooftop solar",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_za_tax"
+      ]
+    },
+    {
       "date": "2023-01-01",
       "precision": "month",
       "kind": "law",
@@ -119,16 +171,16 @@
       ]
     },
     {
-      "date": "2026-11-26",
-      "precision": "day",
-      "kind": "other",
+      "date": "2022-04-01",
+      "precision": "month",
+      "kind": "auction",
       "effect": "positive",
-      "title": "Scatec moves its 288 MW Mercury project from public procurement to corporate buyers",
+      "title": "Sixth REIPPPP round opens for 2.6 GW of solar and wind",
       "segments": [
-        "ci"
+        "utility"
       ],
       "sources": [
-        "enn_lyra"
+        "sq_za_bw6"
       ]
     }
   ],
@@ -160,6 +212,42 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-11-27"
+    },
+    {
+      "id": "sq_za_bw6",
+      "title": "South Africa launches 2.6 GW clean energy tender under REIPPPP",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/04/14/south-africa-launches-2-6-gw-clean-energy-tender-under-reippp-programme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-04-14"
+    },
+    {
+      "id": "sq_za_tax",
+      "title": "South Africa to introduce tax breaks and other measures to boost solar rollout",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/02/11/south-africa-to-introduce-tax-breaks-and-other-measures-to-boost-solar-rollout/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-02-11"
+    },
+    {
+      "id": "sq_za_ebb",
+      "title": "South African government launches Energy Bounce Back loan scheme",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/08/11/south-african-government-launches-energy-bounce-back-loan-scheme-to-fuel-solar-investment/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-08-11"
+    },
+    {
+      "id": "sq_za_waiver",
+      "title": "Eskom extends solar registration fee waiver indefinitely for systems up to 50 kVA",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/10/01/eskom-extends-solar-registration-fee-waiver-indefinitely-for-systems-up-to-50-kva/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-10-01"
     }
   ],
   "gaps": "Exchange control rules and foreign ownership requirements were not covered by the sources reviewed, so the ownership gate is not rated. Eskom's payment record was not covered."

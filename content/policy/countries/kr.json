@@ -108,11 +108,25 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2012-01-01",
-      "precision": "year",
+      "date": "2026-10-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "K-GX strategy targets 100 GW of renewables by 2030",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "sq_kr_kgx"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "month",
       "kind": "law",
-      "effect": "mixed",
-      "title": "Renewable Portfolio Standard replaces the feed-in tariff",
+      "effect": "positive",
+      "title": "RPS reform bill proposes auctions with long-term fixed-price contracts",
       "segments": [
         "utility"
       ],
@@ -121,16 +135,16 @@
       ]
     },
     {
-      "date": "2022-01-01",
-      "precision": "year",
-      "kind": "law",
+      "date": "2025-12-01",
+      "precision": "month",
+      "kind": "plan",
       "effect": "positive",
-      "title": "Direct corporate PPAs become legal",
+      "title": "Draft planned-site rules would halve offshore wind permitting time",
       "segments": [
-        "ci"
+        "utility"
       ],
       "sources": [
-        "cg"
+        "eb_kr_site"
       ]
     },
     {
@@ -147,16 +161,42 @@
       ]
     },
     {
-      "date": "2026-01-01",
+      "date": "2024-08-01",
       "precision": "month",
-      "kind": "law",
+      "kind": "plan",
       "effect": "positive",
-      "title": "RPS reform bill proposes auctions with long-term fixed-price contracts",
+      "title": "Offshore wind bidding roadmap plans about 7 to 8 GW of tenders",
       "segments": [
         "utility"
       ],
       "sources": [
-        "nrfkr"
+        "ap_kr_osw"
+      ]
+    },
+    {
+      "date": "2023-03-01",
+      "precision": "month",
+      "kind": "court",
+      "effect": "negative",
+      "title": "Citizens and developers sue the government over cut renewable targets",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "eb_kr_sue"
+      ]
+    },
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Direct corporate PPAs become legal",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cg"
       ]
     }
   ],
@@ -194,6 +234,42 @@
       "url": "https://forourclimate.org/newsroom/1170",
       "accessed": "2026-11-26",
       "kind": "secondary"
+    },
+    {
+      "id": "eb_kr_sue",
+      "title": "South Korea government sued over renewables target backslide",
+      "publisher": "Eco-Business",
+      "url": "https://www.eco-business.com/news/south-korea-government-sued-over-renewables-target-backslide/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-03-20"
+    },
+    {
+      "id": "ap_kr_osw",
+      "title": "South Korea unveils offshore wind bidding roadmap",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/project/news/south-korea-unveils-offshore-wind-bidding-roadmap",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-08-12"
+    },
+    {
+      "id": "eb_kr_site",
+      "title": "South Korea moves to halve offshore wind permitting time",
+      "publisher": "Eco-Business",
+      "url": "https://www.eco-business.com/news/south-korea-moves-to-halve-offshore-wind-permitting-time-under-new-planned-site-rules/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-10"
+    },
+    {
+      "id": "sq_kr_kgx",
+      "title": "South Korea launches K-GX strategy, targets 100 GW renewable energy by 2030",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/10/12/south-korea-launches-krw-1000-trillion-k-gx-strategy-targets-100-gw-renewable-energy-by-2030/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-10-12"
     }
   ],
   "gaps": "Foreign ownership rules for generation, KEPCO payment practice and curtailment compensation were not confirmed, so the ownership gate is not rated."

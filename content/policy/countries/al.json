@@ -103,19 +103,6 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2019-01-01",
-      "precision": "year",
-      "kind": "auction",
-      "effect": "positive",
-      "title": "First solar auctions under the renewable energy law",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "cmsal"
-      ]
-    },
-    {
       "date": "2023-01-01",
       "precision": "year",
       "kind": "law",

@@ -102,45 +102,6 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2022-01-01",
-      "precision": "year",
-      "kind": "decree",
-      "effect": "mixed",
-      "title": "Presidential Regulation 112/2022 sets ceiling tariffs for renewable power sold to PLN",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "nrfid"
-      ]
-    },
-    {
-      "date": "2024-07-01",
-      "precision": "month",
-      "kind": "decree",
-      "effect": "mixed",
-      "title": "New local content rules for power projects shift how thresholds are set",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "nrfid"
-      ]
-    },
-    {
-      "date": "2025-01-01",
-      "precision": "year",
-      "kind": "decree",
-      "effect": "mixed",
-      "title": "MEMR Regulation 5/2025 codifies renewable PPA terms, including 30-year maximum terms",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "nrfid"
-      ]
-    },
-    {
       "date": "2026-06-24",
       "precision": "day",
       "kind": "tariff",
@@ -164,6 +125,84 @@
       ],
       "sources": [
         "taiyang"
+      ]
+    },
+    {
+      "date": "2026-04-21",
+      "precision": "day",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Government and PLN launch 1.3 GW of rooftop solar",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_id_13gw"
+      ]
+    },
+    {
+      "date": "2025-05-26",
+      "precision": "day",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "PLN's 2025 to 2034 business plan adds 69.5 GW, about 76% renewables and storage",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "esdm_ruptl"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "MEMR Regulation 5/2025 codifies renewable PPA terms, including 30-year maximum terms",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfid"
+      ]
+    },
+    {
+      "date": "2024-07-01",
+      "precision": "month",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "New local content rules for power projects shift how thresholds are set",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfid"
+      ]
+    },
+    {
+      "date": "2024-01-31",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Rooftop solar regulation ends export credits and adds grid quotas",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "esdm_plts"
+      ]
+    },
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Presidential Regulation 112/2022 sets ceiling tariffs for renewable power sold to PLN",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "nrfid"
       ]
     }
   ],
@@ -204,6 +243,37 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2026-07"
+    },
+    {
+      "id": "esdm_plts",
+      "title": "Aturan terbaru PLTS Atap terbit, kini kapasitas pemasangan tidak dibatasi (New rooftop solar rules issued, installed capacity no longer capped)",
+      "publisher": "Ministry of Energy and Mineral Resources",
+      "url": "https://www.esdm.go.id/id/media-center/arsip-berita/aturan-terbaru-plts-atap-terbit-kini-kapasitas-pemasangan-tidak-dibatasi",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2024",
+      "language": "Indonesian",
+      "originalTitle": "Aturan Terbaru PLTS Atap Terbit, Kini Kapasitas Pemasangan Tidak Dibatasi"
+    },
+    {
+      "id": "sq_id_13gw",
+      "title": "Indonesia launches 1.3 GW rooftop solar",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/04/22/indonesia-launches-1-3-gw-rooftop-solar-sets-path-for-100-gw-clean-energy-vision/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-22"
+    },
+    {
+      "id": "esdm_ruptl",
+      "title": "Menteri ESDM umumkan RUPTL PLN 2025–2034 (Energy Minister announces PLN electricity plan 2025 to 2034)",
+      "publisher": "Ministry of Energy and Mineral Resources",
+      "url": "https://www.esdm.go.id/en/media-center/news-archives/menteri-esdm-umumkan-ruptl-pln-2025-2034-serap-lebih-dari-17-juta-tenaga-kerja-baru",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2025",
+      "language": "Indonesian",
+      "originalTitle": "Menteri ESDM Umumkan RUPTL PLN 2025–2034, Serap Lebih dari 1,7 Juta Tenaga Kerja Baru"
     }
   ],
   "gaps": "Corporate supply routes, PLN payment record, grid connection times and current foreign ownership limits for small plants were not established from public sources."

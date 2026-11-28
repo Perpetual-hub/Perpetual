@@ -113,6 +113,19 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-04-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Abu Dhabi opens phase two of its residential rooftop solar policy",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "mi_ae_res"
+      ]
+    },
+    {
       "date": "2022-09-01",
       "precision": "month",
       "kind": "law",
@@ -145,6 +158,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2024-02-22"
+    },
+    {
+      "id": "mi_ae_res",
+      "title": "MENA weekly round-up, Abu Dhabi unveils phase 2 of residential solar policy",
+      "publisher": "Mercom India",
+      "url": "https://www.mercomindia.com/mena-weekly-round-up-abu-dhabi-unveils-phase-2-of-residential-solar-policy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-07"
     }
   ],
   "gaps": "Grid connection times and the exact foreign ownership rules for energy companies were not covered by the sources reviewed."

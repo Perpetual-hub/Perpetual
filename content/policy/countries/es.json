@@ -104,17 +104,17 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2020-01-01",
-      "precision": "year",
+      "date": "2026-09-01",
+      "precision": "month",
       "kind": "decree",
-      "effect": "mixed",
-      "title": "Royal Decree-law 23/2020 sets milestones that cancel grid permits if missed",
+      "effect": "positive",
+      "title": "New capacity market pays storage and flexible demand for availability",
       "segments": [
         "utility",
         "ci"
       ],
       "sources": [
-        "cmses"
+        "miteco_es_cap"
       ]
     }
   ],
@@ -146,6 +146,17 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2024-07-31"
+    },
+    {
+      "id": "miteco_es_cap",
+      "title": "El MITECO incentiva la firmeza y la flexibilidad del sistema eléctrico (Ministry rewards firmness and flexibility in the power system)",
+      "publisher": "Ministry for the Ecological Transition (MITECO)",
+      "url": "https://www.miteco.gob.es/es/prensa/ultimas-noticias/2026/septiembre/el-miteco-incentiva-la-firmeza-y-la-flexibilidad-del-sistema-ele.html",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2026-09-16",
+      "language": "Spanish",
+      "originalTitle": "El MITECO incentiva la firmeza y la flexibilidad del sistema eléctrico"
     }
   ],
   "gaps": "Rule stability, including the 2013 and 2014 cuts to earlier support and the arbitrations that followed, was not covered by the sources reviewed. Auction contract terms and curtailment were not covered."

@@ -1,0 +1,164 @@
+{
+  "country": "DZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Algeria tenders large solar programmes, 1 GW in 2022 and 3.2 GW under way from 2025, but barriers to moving money out of the country remain a challenge for investors.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_dz_1gw",
+            "mi_dz_32"
+          ],
+          "confidence": "low",
+          "reason": "Private investors were invited to build 50 to 300 MWp plants in a 1 GW tender, and a 3.2 GW programme began in 2025."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "unsupportive",
+          "sources": [
+            "tgdztr"
+          ],
+          "confidence": "low",
+          "reason": "The government tightly controls foreign exchange, and barriers to outward transfers pose challenges for investors."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The 3.2 GW programme is being rolled out across 12 provinces.",
+        "sources": [
+          "mi_dz_32"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "unsupportive",
+          "sources": [
+            "tgdztr"
+          ],
+          "confidence": "low",
+          "reason": "Outward transfers face barriers."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [
+    {
+      "type": "money_exit",
+      "status": "active",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "reason": "The government tightly controls foreign exchange, and investors report barriers to outward transfers.",
+      "sources": [
+        "tgdztr"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Tender for 1 GW of private solar plants across 11 sites",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_dz_1gw"
+      ]
+    },
+    {
+      "date": "2025-03-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Construction starts on a 3.2 GW solar programme across 12 provinces",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "mi_dz_32"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_dz_1gw",
+      "title": "Algeria launches tender for 1 GW solar PV plants",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/01/06/algeria-launches-tender-for-1-gw-solar-pv-plants/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-01-06"
+    },
+    {
+      "id": "mi_dz_32",
+      "title": "MENA weekly round-up, Algeria launches 3.2 GW solar projects",
+      "publisher": "Mercom India",
+      "url": "https://www.mercomindia.com/mena-weekly-round-up-algeria-launches-3-2-gw-solar-projects/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-03-24"
+    },
+    {
+      "id": "tgdztr",
+      "title": "Algeria Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/algeria-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-01-31"
+    }
+  ],
+  "gaps": "PPA terms, buyer credit and foreign ownership rules for power were not covered by the sources reviewed."
+}

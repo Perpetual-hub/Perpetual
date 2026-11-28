@@ -1,0 +1,221 @@
+{
+  "country": "AU",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Australia underwrites new generation and storage through Capacity Investment Scheme tenders, including in Western Australia, and is reforming distribution planning to cut rooftop solar curtailment. Offshore wind has a licensing framework with financial security rules, and a developer rating scheme started in 2026.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_au_wa"
+          ],
+          "confidence": "medium",
+          "reason": "The federal Capacity Investment Scheme runs tenders for generation and storage, including two Western Australian rounds opened in 2025."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "sq_au_dnsp"
+          ],
+          "confidence": "low",
+          "reason": "Rooftop solar is curtailed on distribution networks, and a reform proposes 20-year network plans to reduce it."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_au_wa",
+            "ap_au_osw",
+            "sq_au_rating"
+          ],
+          "confidence": "low",
+          "reason": "Tender rounds, an offshore wind licensing framework and a developer rating scheme show a steady policy direction."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Grid planning reform aims to cut curtailment, and new tenders keep opening.",
+        "sources": [
+          "sq_au_dnsp",
+          "sq_au_wa"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_au_sunshot"
+          ],
+          "confidence": "low",
+          "reason": "One in three households has rooftop solar, the highest uptake in the world."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "sq_au_dnsp"
+          ],
+          "confidence": "low",
+          "reason": "Rooftop solar faces curtailment on local networks."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Distribution planning reform targets rooftop curtailment.",
+        "sources": [
+          "sq_au_dnsp"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-12-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "mixed",
+      "title": "Offshore wind rules amended to require financial security from licence holders",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ap_au_osw"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Two Capacity Investment Scheme tenders open in Western Australia",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_au_wa"
+      ]
+    },
+    {
+      "date": "2025-09-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Second round of the Solar Sunshot manufacturing programme opens",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "sq_au_sunshot"
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "precision": "month",
+      "kind": "grid",
+      "effect": "positive",
+      "title": "Grid planning reform proposed to cut rooftop solar curtailment",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_au_dnsp"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Developer Rating Scheme launched to build community trust",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_au_rating"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_au_wa",
+      "title": "Western Australia launches $4 billion renewable energy tenders under federal Capacity Investment Scheme",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/08/29/western-australia-launches-4-billion-renewable-energy-tenders-under-federal-capacity-investment-scheme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-08-29"
+    },
+    {
+      "id": "sq_au_dnsp",
+      "title": "Australia moves to cut rooftop solar curtailment with 20-year grid planning reform",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/04/27/australia-moves-to-cut-rooftop-solar-curtailment-with-20-year-grid-planning-reform/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-27"
+    },
+    {
+      "id": "ap_au_osw",
+      "title": "Australia includes financial security requirement in amended offshore wind regulation",
+      "publisher": "Asian Power",
+      "url": "https://asian-power.com/project/news/australia-includes-financial-security-requirement-in-amended-offshore-wind-regulation",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-12-13"
+    },
+    {
+      "id": "sq_au_sunshot",
+      "title": "Australia launches round 2 of $1 billion Solar Sunshot program",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/09/05/australia-launches-round-2-of-1-billion-solar-sunshot-program/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-09-05"
+    },
+    {
+      "id": "sq_au_rating",
+      "title": "Australia launches developer rating scheme to strengthen trust in renewable energy projects",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/07/24/australia-launches-developer-rating-scheme-to-strengthen-trust-in-renewable-energy-projects/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-07-24"
+    }
+  ],
+  "gaps": "Foreign investment review, contract terms under the scheme and connection times were not covered by the sources reviewed, so the ownership gate is not rated."
+}

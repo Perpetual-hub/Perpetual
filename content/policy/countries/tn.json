@@ -1,0 +1,131 @@
+{
+  "country": "TN",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Tunisia launched a fifth bidding round and a new feed-in tariff that applies to current and past projects, after years of slow delivery under earlier programmes. Profits can be repatriated freely.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "ae_tn_fit"
+          ],
+          "confidence": "low",
+          "reason": "A fifth bidding round has been launched with a new feed-in tariff structure."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgtntr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign investors may freely repatriate profits and sale proceeds, and the dinar is convertible for current transactions."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "ae_tn_fit"
+          ],
+          "confidence": "low",
+          "reason": "The new tariff applies to past projects too, and the government needs to persuade investors that delivery will improve."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "New tenders and tariffs were announced.",
+        "sources": [
+          "ae_tn_fit"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgtntr"
+          ],
+          "confidence": "low",
+          "reason": "Profits can be repatriated freely."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-01-01",
+      "precision": "year",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "New feed-in tariff structure applies to current and past projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ae_tn_fit"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "ae_tn_fit",
+      "title": "Tunisia announces feed-in tariff and more renewables tenders",
+      "publisher": "Africa Energy",
+      "url": "https://www.africa-energy.com/news-centre/article/tunisia-announces-feed-tariff-and-more-renewables-tenders",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgtntr",
+      "title": "Tunisia Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/tunisia-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-26"
+    }
+  ],
+  "gaps": "Contract length, the utility's payment record and grid capacity were not covered by the sources reviewed."
+}

@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { DATA_AS_OF } from "@/data/meta";
 import { countryName } from "@/lib/format";
 import type { VerdictCell, VerdictCells } from "./cells";
+import { windowStart } from "@/lib/window";
 import { countryReview, type CountryReview, type SegmentId } from "./types";
 import { freshness, segmentVerdict } from "./verdict";
 
@@ -14,7 +15,9 @@ const showDrafts = process.env.VERCEL_ENV !== "production";
 const reviews: CountryReview[] = readdirSync(DIR)
   .filter((f) => f.endsWith(".json"))
   .map((f) => countryReview.parse(JSON.parse(readFileSync(join(DIR, f), "utf8"))))
-  .filter((c) => c.status === "reviewed" || (c.status === "draft" && showDrafts));
+  .filter((c) => c.status === "reviewed" || (c.status === "draft" && showDrafts))
+  // Same rolling five-year window as the deals. Scheduled future events are kept.
+  .map((c) => ({ ...c, events: c.events.filter((e) => e.date >= windowStart(new Date(DATA_AS_OF))) }));
 const byIso = new Map(reviews.map((c) => [c.country, c]));
 
 export function getReview(iso2: string): CountryReview | undefined {

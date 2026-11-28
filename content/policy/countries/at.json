@@ -118,33 +118,6 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2012-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Green Electricity Act 2012 sets feed-in tariffs for renewables",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "l5at"
-      ]
-    },
-    {
-      "date": "2021-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Renewable Energy Expansion Act replaces feed-in tariffs with market premiums and grants",
-      "segments": [
-        "utility",
-        "ci"
-      ],
-      "sources": [
-        "l5at"
-      ]
-    },
-    {
       "date": "2024-01-01",
       "precision": "year",
       "kind": "other",

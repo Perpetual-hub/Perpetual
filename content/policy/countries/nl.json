@@ -1,0 +1,179 @@
+{
+  "country": "NL",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "The Netherlands kept net metering for home solar after a 2024 Senate vote and is moving offshore wind tenders to a two-way support scheme approved by the EU in 2026. Grid congestion is the main barrier, with capacity allocated first come first served.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "et_nl_osw"
+          ],
+          "confidence": "medium",
+          "reason": "Offshore wind is tendered, and a €10 billion scheme approved in November 2026 supports 2 GW through competitive tenders."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgnltr"
+          ],
+          "confidence": "low",
+          "reason": "There are no foreign exchange controls."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "cmsnl"
+          ],
+          "confidence": "medium",
+          "reason": "The grid is congested in large areas, and capacity is allocated first come first served, with priority rules for public interest projects."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_nl_nem"
+          ],
+          "confidence": "low",
+          "reason": "No retroactive change was found, and net metering was extended."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "New offshore wind support was approved in 2026.",
+        "sources": [
+          "et_nl_osw"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_nl_nem"
+          ],
+          "confidence": "low",
+          "reason": "Net metering for home solar was kept after the Senate vote in February 2024."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgnltr"
+          ],
+          "confidence": "low",
+          "reason": "No foreign exchange controls."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "cmsnl"
+          ],
+          "confidence": "medium",
+          "reason": "Grid congestion limits new connections."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_nl_nem"
+          ],
+          "confidence": "low",
+          "reason": "Net metering was extended."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-02-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Senate keeps net metering for home solar",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_nl_nem"
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "EU approves a €10 billion Dutch offshore wind support scheme for 2 GW",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "et_nl_osw"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_nl_nem",
+      "title": "Enphase Energy applauds Dutch Senate's decision to extend solar net metering",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/02/16/enphase-energy-applauds-dutch-senates-decision-to-extend-solar-net-metering/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-16"
+    },
+    {
+      "id": "et_nl_osw",
+      "title": "EU greenlights €10 billion Dutch offshore wind energy scheme",
+      "publisher": "ESG Today",
+      "url": "https://www.esgtoday.com/eu-greenlights-10-billion-dutch-offshore-wind-energy-scheme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-11-18"
+    },
+    {
+      "id": "cmsnl",
+      "title": "Renewable energy in the Netherlands",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/netherlands",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgnltr",
+      "title": "Netherlands Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/netherlands-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-30"
+    }
+  ],
+  "gaps": "Onshore support terms and buyer credit were not covered by the sources reviewed."
+}

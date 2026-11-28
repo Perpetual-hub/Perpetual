@@ -124,30 +124,17 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2021-10-25",
-      "precision": "day",
+      "date": "2026-11-01",
+      "precision": "month",
       "kind": "plan",
       "effect": "positive",
-      "title": "EMA announces plans to import up to 4 GW of low-carbon electricity by 2035",
-      "segments": [
-        "utility"
-      ],
-      "sources": [
-        "cmssg"
-      ]
-    },
-    {
-      "date": "2025-01-01",
-      "precision": "year",
-      "kind": "plan",
-      "effect": "positive",
-      "title": "Singapore reaches its earlier 2 GWp solar target",
+      "title": "Solar target set at 4 GWp by 2035",
       "segments": [
         "ci",
         "utility"
       ],
       "sources": [
-        "emasolar"
+        "sq_sg_4gw"
       ]
     },
     {
@@ -188,6 +175,46 @@
       ],
       "sources": [
         "emasolar"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Singapore reaches its earlier 2 GWp solar target",
+      "segments": [
+        "ci",
+        "utility"
+      ],
+      "sources": [
+        "emasolar"
+      ]
+    },
+    {
+      "date": "2023-04-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "HDB opens its largest SolarNova leasing tender, 113 MWp",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_sg_hdb"
+      ]
+    },
+    {
+      "date": "2023-03-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "negative",
+      "title": "New fire safety rule adds insulation costs for some rooftop solar",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "eb_sg_fire"
       ]
     }
   ],
@@ -253,6 +280,33 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2024-02-22"
+    },
+    {
+      "id": "eb_sg_fire",
+      "title": "Severe financial impact, Singapore solar panel providers alarmed by rooftop fire safety rules",
+      "publisher": "Eco-Business",
+      "url": "https://www.eco-business.com/news/severe-financial-impact-singapore-solar-panel-providers-alarmed-by-rooftop-fire-safety-rules/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-03-22"
+    },
+    {
+      "id": "sq_sg_hdb",
+      "title": "HDB Singapore launches largest solar leasing tender under SolarNova",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/04/06/hdb-singapore-launches-largest-solar-leasing-tender-under-solarnova-programme/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-04-06"
+    },
+    {
+      "id": "sq_sg_4gw",
+      "title": "Singapore sets 4 GWp solar capacity target by 2035",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/11/06/singapore-sets-4-gwp-solar-capacity-target-by-2035-to-accelerate-clean-energy-transition/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-11-06"
     }
   ],
   "gaps": "Import licence terms, buyer credit practice and connection timelines for imports are not public. Ownership and money ratings rest on general investment guides, not energy rules."

@@ -90,7 +90,21 @@
     }
   },
   "redFlags": [],
-  "events": [],
+  "events": [
+    {
+      "date": "2022-07-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Masen tenders the Noor Atlas solar programme",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_ma_atlas"
+      ]
+    }
+  ],
   "log": [],
   "sources": [
     {
@@ -118,6 +132,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2025-07-31"
+    },
+    {
+      "id": "sq_ma_atlas",
+      "title": "Masen launches tender for the Noor Atlas solar program in Morocco",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/07/14/masen-launches-tender-for-the-noor-atlas-solar-program-in-morocco/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-07-14"
     }
   ],
   "gaps": "Contract terms, ONEE's payment record, grid access and corporate buying rules were not covered by the sources reviewed."

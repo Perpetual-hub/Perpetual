@@ -116,11 +116,25 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2022-01-01",
-      "precision": "year",
+      "date": "2024-04-26",
+      "precision": "day",
       "kind": "law",
       "effect": "positive",
-      "title": "Coal Exit Act sets the phase-out of coal power by 2038",
+      "title": "Bundestag passes Solar Package I to speed up solar on roofs, balconies and land",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "ss_de_sp1"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Largest offshore wind tender to date opens, 7 GW across four sites",
       "segments": [
         "utility"
       ],
@@ -142,11 +156,38 @@
       ]
     },
     {
-      "date": "2023-07-01",
+      "date": "2022-07-01",
       "precision": "month",
-      "kind": "auction",
+      "kind": "law",
       "effect": "positive",
-      "title": "Largest offshore wind tender to date opens, 7 GW across four sites",
+      "title": "Parliament writes 80% renewable electricity by 2030 into law",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "et_de_80"
+      ]
+    },
+    {
+      "date": "2022-07-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "New onshore wind law revises the expansion path and auctions",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "eg_de_wind"
+      ]
+    },
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Coal Exit Act sets the phase-out of coal power by 2038",
       "segments": [
         "utility"
       ],
@@ -192,6 +233,35 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2025-08-01"
+    },
+    {
+      "id": "et_de_80",
+      "title": "Germany enshrines 80% renewable electricity target into law",
+      "publisher": "ESG Today",
+      "url": "https://www.esgtoday.com/germany-enshrines-80-renewable-electricity-target-into-law/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-07-11"
+    },
+    {
+      "id": "eg_de_wind",
+      "title": "WindEurope, German parliament adopts new onshore wind law",
+      "publisher": "Energy Global",
+      "url": "https://www.energyglobal.com/wind/13072022/windeurope-german-parliament-adopts-new-onshore-wind-law/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-07-13"
+    },
+    {
+      "id": "ss_de_sp1",
+      "title": "Bundestag verabschiedet Solarpaket I (Bundestag passes Solar Package I)",
+      "publisher": "Solarserver",
+      "url": "https://www.solarserver.de/2024/04/26/bundestag-verabschiedet-solarpaket-i/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-04-26",
+      "language": "German",
+      "originalTitle": "Bundestag verabschiedet Solarpaket I"
     }
   ],
   "gaps": "Buyer credit, curtailment compensation and C&I contract terms were not covered by the sources reviewed."

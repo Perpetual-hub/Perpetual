@@ -121,16 +121,43 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2017-01-01",
+      "date": "2025-01-01",
       "precision": "year",
-      "kind": "other",
-      "effect": "mixed",
-      "title": "Renewables Obligation closes to new projects, existing support continues for 20 years",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Planning and Infrastructure Act 2025 streamlines consent for energy infrastructure",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5gb"
+      ]
+    },
+    {
+      "date": "2024-10-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Cap and floor scheme adopted for long-duration storage",
       "segments": [
         "utility"
       ],
       "sources": [
-        "l5gb"
+        "rew_gb_cf"
+      ]
+    },
+    {
+      "date": "2024-07-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Record £1.5 billion budget set for the sixth Contract for Difference round",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "et_gb_ar6"
       ]
     },
     {
@@ -159,20 +186,6 @@
       ],
       "sources": [
         "cmsgb"
-      ]
-    },
-    {
-      "date": "2025-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Planning and Infrastructure Act 2025 streamlines consent for energy infrastructure",
-      "segments": [
-        "utility",
-        "ci"
-      ],
-      "sources": [
-        "l5gb"
       ]
     }
   ],
@@ -204,6 +217,24 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2023-11-03"
+    },
+    {
+      "id": "et_gb_ar6",
+      "title": "UK sets largest ever £1.5 billion budget for renewable energy auction",
+      "publisher": "ESG Today",
+      "url": "https://www.esgtoday.com/uk-sets-largest-ever-1-5-budget-for-renewable-energy-auction-largely-targeting-offshore-wind/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-07-31"
+    },
+    {
+      "id": "rew_gb_cf",
+      "title": "UK government adopts cap and floor scheme for pumped storage development",
+      "publisher": "Renewable Energy World",
+      "url": "https://www.renewableenergyworld.com/energy-storage/pumped-storage/uk-government-adopts-cap-and-floor-scheme-for-pumped-storage-development/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-10-11"
     }
   ],
   "gaps": "Contract length, curtailment compensation and C&I contract terms were not covered by the sources reviewed. Connection queue times were not quantified."

@@ -1,0 +1,143 @@
+{
+  "country": "JO",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Jordan lifted its 2019 ban on large renewable projects using wheeling or net metering above 1 MW in 2024, alongside new grid connection rules. Foreign investors may remit capital and profits in convertible currency.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "sq_jo_ban"
+          ],
+          "confidence": "medium",
+          "reason": "The ban on new large projects using wheeling or net metering was lifted in 2024 under new connection rules."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgjotr"
+          ],
+          "confidence": "medium",
+          "reason": "Foreign investors may remit capital and returns abroad in fully convertible currency."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "sq_jo_ban"
+          ],
+          "confidence": "low",
+          "reason": "The 2019 freeze on large projects lasted five years before it was lifted."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Large projects can apply again from 2024.",
+        "sources": [
+          "sq_jo_ban"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_jo_ban"
+          ],
+          "confidence": "low",
+          "reason": "Wheeling and net metering above 1 MW are allowed again under the 2024 rules."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgjotr"
+          ],
+          "confidence": "medium",
+          "reason": "Capital and profits can be remitted abroad."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "sq_jo_ban"
+          ],
+          "confidence": "low",
+          "reason": "Rules were frozen from 2019 to 2024."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Wheeling routes reopened in 2024.",
+        "sources": [
+          "sq_jo_ban"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-09-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Cabinet lifts the 2019 ban on large wheeling and net metering projects",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "sq_jo_ban"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_jo_ban",
+      "title": "Jordan lifts ban on large-scale renewable energy projects",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/09/02/jordan-lifts-ban-on-large-scale-renewable-energy-projects-new-regulations-effective-2024/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-09-02"
+    },
+    {
+      "id": "tgjotr",
+      "title": "Jordan Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/jordan-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-26"
+    }
+  ],
+  "gaps": "Contract terms, buyer credit and connection capacity were not covered by the sources reviewed."
+}

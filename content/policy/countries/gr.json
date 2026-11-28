@@ -121,30 +121,16 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2016-01-01",
-      "precision": "year",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Law 4414/2016 sets up auctions with market-linked premiums",
+      "date": "2025-07-01",
+      "precision": "month",
+      "kind": "grid",
+      "effect": "negative",
+      "title": "Rising curtailment cuts renewable revenues and makes banks more cautious",
       "segments": [
         "utility"
       ],
       "sources": [
-        "l5gr"
-      ]
-    },
-    {
-      "date": "2020-05-01",
-      "precision": "month",
-      "kind": "law",
-      "effect": "positive",
-      "title": "Licensing and permitting for renewables are sped up",
-      "segments": [
-        "utility",
-        "ci"
-      ],
-      "sources": [
-        "cmsgr"
+        "pg_gr_curt"
       ]
     },
     {
@@ -198,6 +184,17 @@
       "url": "https://www.trade.gov/country-commercial-guides/greece-trade-financing",
       "accessed": "2026-11-28",
       "kind": "secondary"
+    },
+    {
+      "id": "pg_gr_curt",
+      "title": "Πόσο μπορούν να επηρεάσουν τα νέα έργα ΑΠΕ οι περικοπές (How much curtailment can affect new renewable projects)",
+      "publisher": "Powergame.gr",
+      "url": "https://www.powergame.gr/energygame/1017514/poso-boroun-na-epireasoun-ta-nea-erga-ape-oi-perikopes/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-07-21",
+      "language": "Greek",
+      "originalTitle": "Πόσο μπορούν να επηρεάσουν τα νέα έργα ΑΠΕ οι περικοπές"
     }
   ],
   "gaps": "Buyer credit, contract length and curtailment levels were not quantified in the sources reviewed."

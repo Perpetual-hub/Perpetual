@@ -118,30 +118,30 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2021-11-01",
+      "date": "2026-04-01",
       "precision": "month",
-      "kind": "plan",
+      "kind": "law",
       "effect": "positive",
-      "title": "India announces 500 GW non-fossil capacity target for 2030 and net zero by 2070",
+      "title": "Madhya Pradesh raises renewable purchase obligations to 2030",
       "segments": [
         "utility",
         "ci"
       ],
       "sources": [
-        "in_inv"
+        "sq_in_mp"
       ]
     },
     {
-      "date": "2025-09-18",
-      "precision": "day",
+      "date": "2026-01-01",
+      "precision": "month",
       "kind": "plan",
       "effect": "mixed",
-      "title": "Government plans to rebid about 40 GW of projects stalled without PPAs",
+      "title": "India drops annual tender targets and moves to demand-based tendering",
       "segments": [
         "utility"
       ],
       "sources": [
-        "in_rebid"
+        "in_halt"
       ]
     },
     {
@@ -158,16 +158,69 @@
       ]
     },
     {
-      "date": "2026-01-01",
-      "precision": "month",
+      "date": "2025-09-18",
+      "precision": "day",
       "kind": "plan",
       "effect": "mixed",
-      "title": "India drops annual tender targets and moves to demand-based tendering",
+      "title": "Government plans to rebid about 40 GW of projects stalled without PPAs",
       "segments": [
         "utility"
       ],
       "sources": [
-        "in_halt"
+        "in_rebid"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "Gujarat amends rooftop solar net metering costs and processing",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_in_gj"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "mixed",
+      "title": "Central government amends the Electricity Rules",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "sq_in_rules"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Cabinet approves the National Green Hydrogen Mission with ₹19,744 crore",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_in_nghm"
+      ]
+    },
+    {
+      "date": "2022-02-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Green hydrogen policy targets 5 million tonnes a year by 2030",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "et_in_h2"
       ]
     }
   ],
@@ -225,6 +278,51 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2025-08-03"
+    },
+    {
+      "id": "et_in_h2",
+      "title": "India unveils policy targeting 5 million tonnes of green hydrogen production by 2030",
+      "publisher": "ESG Today",
+      "url": "https://www.esgtoday.com/india-unveils-policy-targeting-5-million-tonnes-of-green-hydrogen-production-by-2030/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-02-18"
+    },
+    {
+      "id": "sq_in_nghm",
+      "title": "Cabinet approves National Green Hydrogen Mission with initial outlay of Rs 19,744 crore",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/01/07/tender-policy-buzz-india-cabinet-approves-national-green-hydrogen-mission-with-initial-outlay-of-rs-19744-cr-govt-to-issue-its-novel-sovereign-green-bonds-for-aggregate-amt-of-rs-16000-cr-a/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-01-07"
+    },
+    {
+      "id": "sq_in_rules",
+      "title": "Central government overhauls electricity rules",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/01/13/tender-policy-buzz-india-central-government-overhauls-electricity-rules-with-2025-amendments-railways-releases-tender-for-the-purchase-of-695-mw-continuous-renewable-power-and-more/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-01-13"
+    },
+    {
+      "id": "sq_in_gj",
+      "title": "Gujarat amends net metering regulations for rooftop solar PV systems",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/09/05/gujarat-amends-net-metering-regulations-for-rooftop-solar-pv-systems-with-new-cost-and-processing-guidelines/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-09-05"
+    },
+    {
+      "id": "sq_in_mp",
+      "title": "MPERC notifies fifth amendment, sets higher renewable purchase targets till 2030",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/04/15/mperc-notifies-fifth-amendment-sets-higher-renewable-purchase-targets-till-2030-in-madhya-pradesh/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-15"
     }
   ],
   "gaps": "PPA terms, curtailment compensation and state-level open access rules were not covered by the sources reviewed."

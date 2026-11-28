@@ -108,16 +108,29 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2022-01-01",
-      "precision": "year",
-      "kind": "plan",
+      "date": "2025-04-01",
+      "precision": "month",
+      "kind": "other",
       "effect": "positive",
-      "title": "Government targets offshore wind areas for 30 GW by 2040",
+      "title": "EFTA authority approves support for floating offshore wind at Utsira Nord",
       "segments": [
         "utility"
       ],
       "sources": [
-        "tgnoof"
+        "eg_no_utsira"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "day",
+      "kind": "tax",
+      "effect": "negative",
+      "title": "Resource rent tax on onshore wind production takes effect",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgnoin"
       ]
     },
     {
@@ -134,16 +147,16 @@
       ]
     },
     {
-      "date": "2024-01-01",
-      "precision": "day",
-      "kind": "tax",
-      "effect": "negative",
-      "title": "Resource rent tax on onshore wind production takes effect",
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Government targets offshore wind areas for 30 GW by 2040",
       "segments": [
         "utility"
       ],
       "sources": [
-        "tgnoin"
+        "tgnoof"
       ]
     }
   ],
@@ -174,6 +187,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-05-29"
+    },
+    {
+      "id": "eg_no_utsira",
+      "title": "ESA approves Norwegian scheme for floating offshore wind in Utsira Nord",
+      "publisher": "Energy Global",
+      "url": "https://www.energyglobal.com/wind/17042025/esa-approves-norwegian-scheme-for-floating-offshore-wind-in-utsira-nord/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-04-17"
     }
   ],
   "gaps": "Onshore market access, buyer credit and corporate buying were not covered by the sources reviewed."

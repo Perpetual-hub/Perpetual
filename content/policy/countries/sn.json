@@ -1,0 +1,128 @@
+{
+  "country": "SN",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Senegal's utility Senelec tendered 500 MW of solar with battery storage in 2026, and the CFA franc is freely convertible with no exchange controls since 1998.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_sn_500"
+          ],
+          "confidence": "low",
+          "reason": "Senelec launched a 500 MW solar tender with battery storage in 2026."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgsntr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign exchange controls were lifted in 1998, and the CFA franc is freely convertible through banks."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "A large solar and storage tender is under way.",
+        "sources": [
+          "sq_sn_500"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgsntr"
+          ],
+          "confidence": "low",
+          "reason": "No foreign exchange controls."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-03-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Senelec tenders 500 MW of solar with battery storage",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_sn_500"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_sn_500",
+      "title": "Senegal launches 500 MW solar tender with battery storage",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/03/06/senegal-launches-500-mw-solar-tender-with-battery-storage-to-accelerate-clean-energy-transition/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-06"
+    },
+    {
+      "id": "tgsntr",
+      "title": "Senegal Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/senegal-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-30"
+    }
+  ],
+  "gaps": "PPA terms, Senelec's payment record and grid capacity were not covered by the sources reviewed."
+}

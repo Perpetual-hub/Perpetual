@@ -1,0 +1,111 @@
+{
+  "country": "QA",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Qatar's solar build-out is projected to raise renewables to about 26% of power capacity by 2035, with natural gas still central.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_qa_2035"
+          ],
+          "confidence": "low",
+          "reason": "Qatar is planning solar to reach about 25.9% of power capacity by 2035."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Solar expansion is planned.",
+        "sources": [
+          "sq_qa_2035"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-10-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Renewables projected at 25.9% of power capacity by 2035",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_qa_2035"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_qa_2035",
+      "title": "Qatar targets 25.9% renewable energy share in power capacity by 2035",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/10/26/qatar-targets-25-9-renewable-energy-share-in-power-capacity-by-2035/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-10-26"
+    }
+  ],
+  "gaps": "Procurement routes, ownership rules and contract terms were not covered by the sources reviewed."
+}

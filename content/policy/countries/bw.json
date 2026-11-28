@@ -1,0 +1,113 @@
+{
+  "country": "BW",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Botswana Power Corporation tendered seven solar projects in 2023 to cut reliance on imports, but the tender was open only to companies wholly owned by Botswana citizens.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_bw_bpc"
+          ],
+          "confidence": "low",
+          "reason": "The utility tendered seven solar PV projects in 2023."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "unsupportive",
+          "sources": [
+            "sq_bw_bpc"
+          ],
+          "confidence": "low",
+          "reason": "The 2023 tender was restricted to firms 100% owned by Botswana citizens."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2023-02-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "mixed",
+      "title": "Utility tenders seven solar projects, open only to citizen-owned firms",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_bw_bpc"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_bw_bpc",
+      "title": "Botswana Power Corporation launches tender for seven solar PV projects",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/02/13/botswana-power-corporation-launches-tender-for-seven-solar-pv-projects/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-02-13"
+    }
+  ],
+  "gaps": "Whether other tenders allow foreign ownership, contract terms and currency rules were not covered by the sources reviewed."
+}

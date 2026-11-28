@@ -1,0 +1,141 @@
+{
+  "country": "KH",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Cambodia's utility-scale solar grew faster than planned to about 1.5 GW, beating targets set for 2030 and 2035, and project bonds now help finance it. Rooftop solar growth faces policy roadblocks.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "sq_kh_roof"
+          ],
+          "confidence": "low",
+          "reason": "Large utility solar projects have grown faster than expected, reaching about 1.5 GW."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "sq_kh_bond"
+          ],
+          "confidence": "low",
+          "reason": "A 2025 framework lets companies raise long-term bonds for infrastructure."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Project bond financing is growing.",
+        "sources": [
+          "sq_kh_bond"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "sq_kh_roof"
+          ],
+          "confidence": "low",
+          "reason": "Rooftop solar growth faces policy roadblocks."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2026-06-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Installed solar reaches about 1.5 GW, beating 2030 and 2035 goals",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_kh_roof"
+      ]
+    },
+    {
+      "date": "2026-11-16",
+      "precision": "day",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Record US$99 million green bond listed for a 350 MW solar project",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_kh_bond"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "sq_kh_roof",
+      "title": "Cambodia surpasses solar targets as rooftop solar growth faces policy roadblocks",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/06/03/cambodia-surpasses-solar-targets-as-rooftop-solar-growth-faces-policy-roadblocks/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-03"
+    },
+    {
+      "id": "sq_kh_bond",
+      "title": "Cambodia lists record $99 million green bond to finance 350 MW solar project",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/11/26/cambodia-lists-record-99-million-green-bond-to-finance-350-mw-solar-project/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-11-26"
+    }
+  ],
+  "gaps": "Ownership rules, PPA terms and the utility's payment record were not covered by the sources reviewed."
+}

@@ -113,14 +113,26 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2024-01-01",
-      "precision": "year",
-      "kind": "other",
+      "date": "2026-01-01",
+      "precision": "month",
+      "kind": "plan",
       "effect": "positive",
-      "title": "Solar becomes Brazil's second largest power source at almost 50 GW including distributed generation",
+      "title": "Ministry opens consultation on compensating wind and solar for curtailment",
       "segments": [
-        "utility",
-        "ci"
+        "utility"
+      ],
+      "sources": [
+        "sq_br_curt"
+      ]
+    },
+    {
+      "date": "2025-06-27",
+      "precision": "day",
+      "kind": "auction",
+      "effect": "mixed",
+      "title": "Capacity reserve auction for hydro and thermal plants, with 15-year contracts",
+      "segments": [
+        "utility"
       ],
       "sources": [
         "tgbrpo"
@@ -140,16 +152,30 @@
       ]
     },
     {
-      "date": "2025-06-27",
-      "precision": "day",
-      "kind": "auction",
-      "effect": "mixed",
-      "title": "Capacity reserve auction for hydro and thermal plants, with 15-year contracts",
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Solar becomes Brazil's second largest power source at almost 50 GW including distributed generation",
       "segments": [
-        "utility"
+        "utility",
+        "ci"
       ],
       "sources": [
         "tgbrpo"
+      ]
+    },
+    {
+      "date": "2022-01-07",
+      "precision": "day",
+      "kind": "law",
+      "effect": "mixed",
+      "title": "Law 14.300 keeps net metering for existing solar until 2045 and phases in grid charges for new systems",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cam_br_14300"
       ]
     }
   ],
@@ -198,6 +224,26 @@
       "url": "https://www.financierworldwide.com/curtailment-in-brazil-from-operational-constraint-to-market-redesign",
       "accessed": "2026-11-28",
       "kind": "secondary"
+    },
+    {
+      "id": "sq_br_curt",
+      "title": "Brazil opens public consultation on compensation rules for wind and solar curtailment",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/01/03/brazil-opens-public-consultation-on-compensation-rules-for-wind-and-solar-curtailment/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-03"
+    },
+    {
+      "id": "cam_br_14300",
+      "title": "Lei institui marco legal da micro e minigeração de energia (Law sets legal framework for micro and mini generation)",
+      "publisher": "Chamber of Deputies of Brazil",
+      "url": "https://www.camara.leg.br/noticias/843782-LEI-INSTITUI-MARCO-LEGAL-DA-MICRO-E-MINIGERACAO-DE-ENERGIA",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2022-01-07",
+      "language": "Portuguese",
+      "originalTitle": "Lei institui marco legal da micro e minigeração de energia"
     }
   ],
   "gaps": "Free market PPA terms, buyer credit and the details of curtailment compensation rules were not covered by the sources reviewed."

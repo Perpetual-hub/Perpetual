@@ -104,6 +104,19 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-02-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Kenya reopens new PPAs through competitive auctions, with regulator approval of contract changes",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ke_sq"
+      ]
+    },
+    {
       "date": "2024-01-01",
       "precision": "year",
       "kind": "law",
@@ -118,16 +131,16 @@
       ]
     },
     {
-      "date": "2026-02-01",
+      "date": "2023-09-01",
       "precision": "month",
-      "kind": "law",
+      "kind": "plan",
       "effect": "positive",
-      "title": "Kenya reopens new PPAs through competitive auctions, with regulator approval of contract changes",
+      "title": "Green hydrogen strategy and roadmap launched with EU support",
       "segments": [
         "utility"
       ],
       "sources": [
-        "ke_sq"
+        "sq_ke_h2"
       ]
     }
   ],
@@ -159,6 +172,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-02-26"
+    },
+    {
+      "id": "sq_ke_h2",
+      "title": "Kenya launches green hydrogen strategy and roadmap",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/09/06/kenya-launches-green-hydrogen-strategy-and-roadmap-with-eu-and-global-gateway-support-for-clean-energy-transition/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-09-06"
     }
   ],
   "gaps": "KPLC's payment record, the auction timetable and C&I buying routes were not covered by the sources reviewed."

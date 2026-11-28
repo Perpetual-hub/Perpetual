@@ -112,17 +112,16 @@
   "redFlags": [],
   "events": [
     {
-      "date": "2011-01-01",
-      "precision": "year",
-      "kind": "law",
+      "date": "2026-07-16",
+      "precision": "day",
+      "kind": "auction",
       "effect": "positive",
-      "title": "Renewable Energy Act 2011 introduces feed-in tariffs for small renewable generators",
+      "title": "LSS6 opens with 2,650 MW of solar and 1,250 MW of batteries",
       "segments": [
-        "utility",
-        "ci"
+        "utility"
       ],
       "sources": [
-        "mall"
+        "rt"
       ]
     },
     {
@@ -139,16 +138,81 @@
       ]
     },
     {
-      "date": "2026-07-16",
+      "date": "2026-05-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "SuRIA Home rebate supports rooftop solar for 50,000 homes",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_my_suria"
+      ]
+    },
+    {
+      "date": "2025-12-01",
       "precision": "day",
+      "kind": "tariff",
+      "effect": "mixed",
+      "title": "Solar ATAP replaces net energy metering for rooftop solar",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_my_atap"
+      ]
+    },
+    {
+      "date": "2025-05-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "CREAM scheme lets owners lease rooftops to solar developers",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_my_cream"
+      ]
+    },
+    {
+      "date": "2024-09-01",
+      "precision": "month",
+      "kind": "circular",
+      "effect": "positive",
+      "title": "CRESS guidelines let companies buy green power directly over the grid",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_my_cress"
+      ]
+    },
+    {
+      "date": "2024-06-01",
+      "precision": "month",
       "kind": "auction",
       "effect": "positive",
-      "title": "LSS6 opens with 2,650 MW of solar and 1,250 MW of batteries",
+      "title": "Fifth large-scale solar round opens for 2,000 MW",
       "segments": [
         "utility"
       ],
       "sources": [
-        "rt"
+        "sq_my_lss5"
+      ]
+    },
+    {
+      "date": "2023-05-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Malaysia lifts its ban on exporting renewable electricity",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_my_export"
       ]
     }
   ],
@@ -207,6 +271,60 @@
       "accessed": "2026-11-26",
       "kind": "secondary",
       "published": "2025-07-07"
+    },
+    {
+      "id": "sq_my_export",
+      "title": "Malaysia lifts export ban on renewable energy",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/05/10/malaysia-lifts-export-ban-on-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-05-10"
+    },
+    {
+      "id": "sq_my_lss5",
+      "title": "Energy Commission launches fifth round of 2000 MW large scale solar project bidding in Malaysia",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/06/08/energy-commission-launches-fifth-round-of-2000-mw-large-scale-solar-project-bidding-in-malaysia/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-06-08"
+    },
+    {
+      "id": "sq_my_cress",
+      "title": "Malaysia unveils new Corporate Renewable Energy Supply Scheme (CRESS) guidelines",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/09/23/malaysia-unveils-new-corporate-renewable-energy-supply-scheme-cress-guidelines/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-09-23"
+    },
+    {
+      "id": "sq_my_cream",
+      "title": "Malaysia introduces community based rooftop solar aggregation scheme",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/05/06/malaysia-introduces-community-based-rooftop-solar-aggregation-scheme-to-accelerate-clean-energy-access-and-grid-decentralization/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-05-06"
+    },
+    {
+      "id": "sq_my_atap",
+      "title": "Malaysia to launch new Solar ATAP scheme on December 1",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2025/11/19/malaysia-to-launch-new-solar-atap-scheme-on-december-1-enhancing-rooftop-solar-adoption/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-11-19"
+    },
+    {
+      "id": "sq_my_suria",
+      "title": "Malaysia launches SuRIA Home solar rebate scheme",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/05/22/malaysia-launches-suria-home-solar-rebate-scheme-to-support-50000-homes-and-add-250-mw-capacity/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-22"
     }
   ],
   "gaps": "Foreign equity limits for power developers, TNB payment record, grid connection timelines and CRESS contract terms were not confirmed from primary sources. Whether LSS6 requires majority Malaysian ownership, which would raise a red flag, is not confirmed."
