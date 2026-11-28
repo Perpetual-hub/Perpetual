@@ -14,6 +14,8 @@ import {
 } from "@/lib/data";
 import { DEAL_TYPE_LABEL, daysBetween, formatDate } from "@/lib/format";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
+import { TECHNOLOGIES } from "@/lib/tech";
+import { TECH_PHOTOS } from "@/lib/tech-photos";
 import { plainText } from "@/lib/plain-text";
 import { getLatestEvents, getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
 import { VERDICT_CODE, VERDICT_LABEL } from "@/lib/policy-review/cells";
@@ -99,6 +101,26 @@ export default function Home() {
         cards={[
           {
             n: "01",
+            title: "Knowledge",
+            body: "Clear guides to how renewable energy works, from the technologies that generate clean power to the ideas behind the markets that finance it.",
+            href: "/knowledge",
+            cta: "Explore Knowledge",
+            photo: TECH_PHOTOS.solar!.src,
+            tone: "forest",
+            extra: (
+              <ul className="flex flex-wrap gap-2 border-t border-white/15 pt-5 text-[15px]">
+                {TECHNOLOGIES.map((t) => (
+                  <li key={t.id}>
+                    <Link href={`/sectors/${t.id}`} className="inline-block rounded-full border border-white/20 px-4 py-1.5 hover:bg-white/10">
+                      {t.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            ),
+          },
+          {
+            n: "02",
             title: "Deal Tracker",
             body: "Renewable energy transactions worldwide, from acquisitions and project finance to power purchase agreements and fund closes, each traced to its original source.",
             href: "/deals",
@@ -119,7 +141,7 @@ export default function Home() {
             ),
           },
           {
-            n: "02",
+            n: "03",
             title: "Policy",
             body: "Country assessments of how ready each market is for utility-scale and C&I renewable investment, with the reasoning and sources behind every verdict.",
             href: "/policy",
@@ -142,7 +164,7 @@ export default function Home() {
             ),
           },
           {
-            n: "03",
+            n: "04",
             title: "Statistics",
             body: "Official installed capacity for every region, country and sector from IRENA, with projections from the US Energy Information Administration.",
             href: "/statistics",

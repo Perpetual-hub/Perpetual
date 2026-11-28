@@ -108,7 +108,7 @@ export function Mission() {
           <Mark size={104} />
         </span>
         <h2 id="mission-h" className="pp-reveal max-w-[22ch] font-display text-[clamp(1.9rem,3.6vw,3.2rem)] leading-[1.12] font-light tracking-[-0.03em] text-[#0b1f3a]">
-          Perpetual is an open platform for understanding renewable energy.
+          Perpetual is an open guide to the world of renewable energy.
         </h2>
         <p className="pp-reveal mt-6 max-w-xl text-lg leading-relaxed text-soft">
           From the technologies that generate clean power to the markets, policies and investments that shape it.
@@ -210,7 +210,7 @@ export function StackedCards({ cards }: { cards: { n: string; title: string; bod
     <section aria-labelledby="what-h" className="bg-[var(--home-paper)] pt-20 md:pt-28">
       <div className="container-page">
         <h2 id="what-h" className="max-w-[20ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
-          Three Ways to Read the Market
+          Four Ways to Explore Renewable Energy
         </h2>
       </div>
       <ol className="mt-14">

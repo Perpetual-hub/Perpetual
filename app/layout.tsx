@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s · Perpetual",
   },
   description:
-    "An open platform for understanding renewable energy, from the technologies that generate clean power to the markets, policies and investments that shape it.",
+    "An open guide to the world of renewable energy, from the technologies that generate clean power to the markets, policies and investments that shape it.",
   openGraph: { siteName: "Perpetual", type: "website" },
 };
 
