@@ -10,7 +10,7 @@ export const changelog: { version: string; date: string; changes: string[] }[] =
     date: "2026-11-28",
     changes: [
       "6 new deals from 26 to 27 November 2026, including financial close for Statera's Exeter battery and Lyra Energy's Noko solar plant.",
-      "Policy Reviews for 20 more markets across Europe, North America, Japan, New Zealand and the UAE, from 2026 legal guides and US government country guides.",
+      "Policy Reviews for 41 more markets across Europe, the Americas, Africa, the Middle East and Asia, from 2026 and 2024 legal guides, US government country guides, official sources and trade press. Questions the sources could not settle are marked Not rated and listed on each page.",
     ],
   },
   {

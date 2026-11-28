@@ -1,0 +1,166 @@
+{
+  "country": "ZA",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "South Africa's public procurement programme continues, but corporate PPAs are now driving most new utility-scale solar and wind, and behind-the-meter solar exceeds 7 GW. Transmission constraints are the main barrier, and wind bids have been rejected for lack of grid capacity.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsza"
+          ],
+          "confidence": "medium",
+          "reason": "The renewable IPP procurement programme runs bid windows, and since 2023 private generators of any size are exempt from licensing, though they must register."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "cmsza",
+            "tgzaen"
+          ],
+          "confidence": "medium",
+          "reason": "About 23 wind projects in bid window 6 were not selected because of grid capacity constraints, and the grid remains fragile."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgzaen"
+          ],
+          "confidence": "low",
+          "reason": "The 2024 coalition government continues the programme, but transmission and affordability problems threaten long-term stability."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Projects are moving from public procurement to corporate PPAs, which were expected to support most 2026 additions.",
+        "sources": [
+          "enn_lyra"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "enn_lyra"
+          ],
+          "confidence": "medium",
+          "reason": "Corporate buyers were expected to support 73% of utility-scale solar and wind added in 2026, more than public procurement."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "tgzaen"
+          ],
+          "confidence": "low",
+          "reason": "Behind-the-meter solar has grown past 7 GW, but grid-connected projects face transmission limits."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsza"
+          ],
+          "confidence": "low",
+          "reason": "The 2023 licensing changes opened private generation to businesses."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPAs are outpacing public procurement for the first time in 2026.",
+        "sources": [
+          "enn_lyra"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2023-01-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Licensing threshold for private generation removed from the Electricity Regulation Act",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsza"
+      ]
+    },
+    {
+      "date": "2026-11-26",
+      "precision": "day",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Scatec moves its 288 MW Mercury project from public procurement to corporate buyers",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "enn_lyra"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsza",
+      "title": "Renewable energy in South Africa",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/south-africa",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgzaen",
+      "title": "South Africa Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/south-africa-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-01"
+    },
+    {
+      "id": "enn_lyra",
+      "title": "Lyra Energy achieves financial close on Noko plant",
+      "publisher": "Energy News Network",
+      "url": "https://energy-news-network.com/industry-news/lyra-energy-noko-solar-mercury-corporate-ppa",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-11-27"
+    }
+  ],
+  "gaps": "Exchange control rules and foreign ownership requirements were not covered by the sources reviewed, so the ownership gate is not rated. Eskom's payment record was not covered."
+}

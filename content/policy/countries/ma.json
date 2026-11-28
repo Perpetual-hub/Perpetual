@@ -1,0 +1,124 @@
+{
+  "country": "MA",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Morocco opened renewable generation to private companies under Law 13-09 and runs tenders through the state utility ONEE, with wind and solar supplying about a fifth of electricity in 2023. Coal still dominates, and foreign exchange is controlled.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsma"
+          ],
+          "confidence": "low",
+          "reason": "Law 13-09 allows private renewable generation, and ONEE runs international tenders."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgmatr"
+          ],
+          "confidence": "low",
+          "reason": "Morocco keeps a system of foreign exchange controls managed by the Foreign Exchange Office."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgmaen"
+          ],
+          "confidence": "low",
+          "reason": "The government aims to cut import dependence by using more renewables, and no retroactive change was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgmatr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign exchange controls apply."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsma",
+      "title": "Renewable energy in Morocco",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/morocco",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgmatr",
+      "title": "Morocco Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/morocco-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgmaen",
+      "title": "Morocco Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/morocco-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-07-31"
+    }
+  ],
+  "gaps": "Contract terms, ONEE's payment record, grid access and corporate buying rules were not covered by the sources reviewed."
+}

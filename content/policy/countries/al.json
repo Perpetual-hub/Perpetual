@@ -1,0 +1,176 @@
+{
+  "country": "AL",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Albania has run solar auctions since 2019 and its first wind auction in 2023, and a 2023 law added premium contracts alongside contracts for difference. Foreign investors get national treatment, can own 100% of most companies, and face no exchange controls.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsal"
+          ],
+          "confidence": "medium",
+          "reason": "Solar auctions since 2019 awarded 240 MW, and the first wind auction in July 2023 awarded 222 MW."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmsal"
+          ],
+          "confidence": "low",
+          "reason": "Law 24/2023 offers contracts for difference and fixed or sliding premium contracts approved by the Council of Ministers."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgalin",
+            "tgaltr"
+          ],
+          "confidence": "medium",
+          "reason": "Foreign investors get national treatment and may own 100% of companies in most sectors, and there are no foreign exchange controls."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsal"
+          ],
+          "confidence": "low",
+          "reason": "Law 24/2023 sets a 54.4% renewable target for 2030."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The 2023 law broadened support contracts.",
+        "sources": [
+          "cmsal"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgaltr"
+          ],
+          "confidence": "medium",
+          "reason": "No foreign exchange controls."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsal"
+          ],
+          "confidence": "low",
+          "reason": "Targets are set in law."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2019-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "First solar auctions under the renewable energy law",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsal"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Law 24/2023 adds premium contracts and a 54.4% target for 2030",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsal"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "First wind auction awards 222 MW across three projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsal"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsal",
+      "title": "Renewable energy in Albania",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/albania",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgaltr",
+      "title": "Albania Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/albania-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2021-10-09"
+    },
+    {
+      "id": "tgalin",
+      "title": "Albania Country Commercial Guide, investment climate statement",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/albania-investment-climate-statement",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2021-10-09"
+    }
+  ],
+  "gaps": "Buyer credit, grid connection and C&I buying routes were not covered by the sources reviewed."
+}

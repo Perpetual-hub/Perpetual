@@ -1,0 +1,175 @@
+{
+  "country": "SA",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Saudi Arabia procures solar and wind through the Saudi Power Procurement Company under its National Renewable Energy Program, with the sovereign fund PIF financing about 70% of the target capacity. Self-consumption rules cover solar and wind, and money can move freely, but the legal framework lags behind commercial activity.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmssa"
+          ],
+          "confidence": "medium",
+          "reason": "SPPC procures solar and wind rounds under the National Renewable Energy Program, with 1.3 GW of solar closing in 2023."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgsatr"
+          ],
+          "confidence": "low",
+          "reason": "There is no limit on moving profits, capital or debt service in or out, apart from withholding taxes."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmssa",
+            "tgsapo"
+          ],
+          "confidence": "low",
+          "reason": "The government aims for 50% renewable electricity by 2030, but the legal framework may lag behind commercial developments."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Spending on power and renewables is expected to reach $293 billion by 2030.",
+        "sources": [
+          "tgsapo"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmssa"
+          ],
+          "confidence": "low",
+          "reason": "The 2022 self-consumption framework covers solar and wind for consumers, building on 2020 rules for systems of 1 kW to 2 MW."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgsatr"
+          ],
+          "confidence": "low",
+          "reason": "No limits on moving profits or capital."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmssa"
+          ],
+          "confidence": "low",
+          "reason": "Each offtaker may connect up to 5 MW under the small-scale framework."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found after 2022.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2020-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Small-scale solar framework allows grid-connected systems of 1 kW to 2 MW",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmssa"
+      ]
+    },
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Self-consumption framework extends to wind and other technologies",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmssa"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Four solar projects totalling 1.3 GW reach financial close",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmssa"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmssa",
+      "title": "Renewable energy in Saudi Arabia",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/saudi-arabia",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgsatr",
+      "title": "Saudi Arabia Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/saudi-arabia-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgsapo",
+      "title": "Saudi Arabia Country Commercial Guide, power",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/saudi-arabia-power",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-13"
+    }
+  ],
+  "gaps": "PPA terms, buyer credit and grid connection times were not covered by the sources reviewed."
+}

@@ -1,0 +1,231 @@
+{
+  "country": "IN",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "India allows 100% foreign ownership of renewable generation and targets 500 GW of non-fossil capacity by 2030, but about 43 to 45 GW of auctioned projects have no signed PPAs because state utilities delay buying. The government stopped setting annual tender targets in 2026 and now tenders only against utility demand.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "in_halt",
+            "in_dte"
+          ],
+          "confidence": "medium",
+          "reason": "Central agencies auction large volumes, but around 43 GW of awarded capacity still had no buyer in early 2026, and annual tender targets were dropped."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "mixed",
+          "sources": [
+            "in_halt",
+            "in_rebid"
+          ],
+          "confidence": "low",
+          "reason": "State distribution companies delay signing and buying, and industry bodies cite delays in payment from them."
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "in_inv",
+            "tgintr"
+          ],
+          "confidence": "medium",
+          "reason": "100% foreign investment is allowed under the automatic route for renewable generation and distribution, though the rupee is only partially convertible."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "in_50",
+            "in_dte"
+          ],
+          "confidence": "medium",
+          "reason": "Stranded projects passed 50 GW in 2025 because of unfinished transmission lines, and 45 GW of granted or pending connectivity sits unused."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "in_inv",
+            "in_halt"
+          ],
+          "confidence": "low",
+          "reason": "Long-term targets are firm, but the backlog has led to cancelled tenders and a change in how tenders are issued."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "Unsold capacity grew through 2025, and some awarded projects may be cancelled or rebid.",
+        "sources": [
+          "in_halt",
+          "in_rebid"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "in_rebid"
+          ],
+          "confidence": "low",
+          "reason": "Virtual PPAs were close to being finalised in 2025, which would let companies underwrite projects without taking physical delivery."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "in_inv"
+          ],
+          "confidence": "medium",
+          "reason": "100% foreign investment allowed under the automatic route."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "in_inv"
+          ],
+          "confidence": "low",
+          "reason": "National targets support corporate buying."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Virtual PPAs are being introduced for corporate buyers.",
+        "sources": [
+          "in_rebid"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2021-11-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "India announces 500 GW non-fossil capacity target for 2030 and net zero by 2070",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "in_inv"
+      ]
+    },
+    {
+      "date": "2025-09-18",
+      "precision": "day",
+      "kind": "plan",
+      "effect": "mixed",
+      "title": "Government plans to rebid about 40 GW of projects stalled without PPAs",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "in_rebid"
+      ]
+    },
+    {
+      "date": "2025-11-01",
+      "precision": "month",
+      "kind": "grid",
+      "effect": "negative",
+      "title": "Regulator paper finds 45 GW of connectivity idle while PPAs remain unsigned",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "in_dte"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "mixed",
+      "title": "India drops annual tender targets and moves to demand-based tendering",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "in_halt"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "in_inv",
+      "title": "Renewable energy sector overview",
+      "publisher": "Invest India",
+      "url": "https://www.investindia.gov.in/sector/renewable-energy",
+      "accessed": "2026-11-28",
+      "kind": "primary"
+    },
+    {
+      "id": "tgintr",
+      "title": "India Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/india-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-17"
+    },
+    {
+      "id": "in_dte",
+      "title": "India's renewable energy sector grapples with massive PPA signing delays",
+      "publisher": "Down To Earth",
+      "url": "https://www.downtoearth.org.in/energy/indias-renewable-energy-sector-grapples-with-massive-ppa-signing-delays",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-25"
+    },
+    {
+      "id": "in_halt",
+      "title": "India halts annual clean energy tender targets amid growing project backlog",
+      "publisher": "Outlook Business (citing Reuters)",
+      "url": "https://www.outlookbusiness.com/planet/industry/india-halts-annual-clean-energy-tender-targets-project-backlog",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-27"
+    },
+    {
+      "id": "in_rebid",
+      "title": "India mulls reissuing tenders for stalled 40 GW renewable projects",
+      "publisher": "Outlook Business (citing PTI)",
+      "url": "https://www.outlookbusiness.com/planet/industry/india-rebid-40gw-renewable-projects-virtual-ppa-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-09-18"
+    },
+    {
+      "id": "in_50",
+      "title": "India's renewable projects stalled by grid gaps, legal disputes and unsigned power deals",
+      "publisher": "Outlook Business (citing Reuters)",
+      "url": "https://www.outlookbusiness.com/planet/industry/india-stranded-renewable-projects-50gw-grid-delays",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-08-03"
+    }
+  ],
+  "gaps": "PPA terms, curtailment compensation and state-level open access rules were not covered by the sources reviewed."
+}

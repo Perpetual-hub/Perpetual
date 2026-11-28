@@ -1,0 +1,180 @@
+{
+  "country": "NO",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Norway is opening offshore wind with a 15-year two-way Contract for Difference for Sørlige Nordsjø II and aims to open areas for 30 GW by 2040. Grid constraints affect several regions, and a resource rent tax on onshore wind from 2024 made the climate less predictable.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsno",
+            "tgnoof"
+          ],
+          "confidence": "medium",
+          "reason": "Offshore wind areas are tendered, with Sørlige Nordsjø II awarded through a monetary auction for a 15-year two-way Contract for Difference."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmsno"
+          ],
+          "confidence": "low",
+          "reason": "The CfD runs 15 years and is capped at NOK 23 billion."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgnoin"
+          ],
+          "confidence": "low",
+          "reason": "Norway welcomes foreign investment, but certain ownership restrictions and national security reviews apply."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmsno"
+          ],
+          "confidence": "low",
+          "reason": "Several regions face grid and power constraints, and Finnmark has a dedicated grid plan."
+        },
+        "stability": {
+          "rating": "unsupportive",
+          "sources": [
+            "tgnoin"
+          ],
+          "confidence": "medium",
+          "reason": "A resource rent tax on onshore wind production took effect in January 2024, creating a more unpredictable climate for investors."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The first offshore wind tenders opened in 2023 with a 30 GW ambition for 2040.",
+        "sources": [
+          "cmsno",
+          "tgnoof"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgnoin"
+          ],
+          "confidence": "low",
+          "reason": "Certain ownership restrictions apply."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgnoin"
+          ],
+          "confidence": "low",
+          "reason": "New taxes have made the investment climate less predictable."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Government targets offshore wind areas for 30 GW by 2040",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgnoof"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "First offshore wind tenders announced, with a 15-year CfD for Sørlige Nordsjø II",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsno"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "day",
+      "kind": "tax",
+      "effect": "negative",
+      "title": "Resource rent tax on onshore wind production takes effect",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgnoin"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsno",
+      "title": "Renewable energy in Norway",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/norway",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgnoin",
+      "title": "Norway Country Commercial Guide, investment climate statement",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/norway-investment-climate-statement",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgnoof",
+      "title": "Norway Country Commercial Guide, offshore energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/norway-offshore-energy-oil-gas-and-renewables",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-29"
+    }
+  ],
+  "gaps": "Onshore market access, buyer credit and corporate buying were not covered by the sources reviewed."
+}

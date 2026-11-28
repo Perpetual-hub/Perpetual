@@ -1,0 +1,125 @@
+{
+  "country": "AO",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Angola is building hydro and solar through public partnerships and external finance, but still lacks specific renewable energy legislation to protect private investment and set tariffs. Companies must operate in kwanza, and dividends face taxes that rise with early repatriation.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "cmsao"
+          ],
+          "confidence": "low",
+          "reason": "Projects are built through government partnerships and external finance, but specific renewable energy legislation, including tariffs and contract rules to protect private investment, is still awaited."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgaotr"
+          ],
+          "confidence": "low",
+          "reason": "Companies must operate in kwanza through local banks, and dividend tax ranges from 15% to 50% depending on value and timing of repatriation."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsao"
+          ],
+          "confidence": "low",
+          "reason": "Targets aim for 7.5% new renewables by 2025, with feed-in tariffs for projects up to 10 MW planned but not confirmed."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgaotr"
+          ],
+          "confidence": "low",
+          "reason": "Kwanza operation and dividend taxes apply."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsao",
+      "title": "Renewable energy in Angola",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/angola",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgaotr",
+      "title": "Angola Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/angola-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-01"
+    },
+    {
+      "id": "tgaoen",
+      "title": "Angola Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/angola-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-01"
+    }
+  ],
+  "gaps": "Whether the planned renewable law and feed-in tariffs were adopted after 2024 was not established."
+}

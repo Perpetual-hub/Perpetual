@@ -1,0 +1,160 @@
+{
+  "country": "EG",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Egypt's Renewable Energy Law offers tenders, build-own-operate contracts and feed-in tariffs with PPAs of up to 25 years, and lets private generators sell directly to consumers over the grid. Targets rose to 42% renewable electricity by 2030, but access to foreign currency is managed by the central bank.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmseg"
+          ],
+          "confidence": "medium",
+          "reason": "Private projects can win state tenders, build-own-operate contracts with EETC, or feed-in tariffs under the Renewable Energy Law."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmseg"
+          ],
+          "confidence": "medium",
+          "reason": "PPAs run up to 25 years for solar and 20 for wind, and EETC must pay for power it cannot transmit."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgegtr"
+          ],
+          "confidence": "low",
+          "reason": "Businesses may buy foreign currency and transfer it abroad through licensed banks, but the central bank controls all transactions and banks prioritise essential imports."
+        },
+        "build": {
+          "rating": "supportive",
+          "sources": [
+            "cmseg"
+          ],
+          "confidence": "low",
+          "reason": "The buyer is committed to pay for energy it cannot take because of grid limits."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgegel"
+          ],
+          "confidence": "low",
+          "reason": "Targets were raised to 42% renewable electricity by 2030 and over 60% by 2040."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The 2035 energy strategy raised renewable targets.",
+        "sources": [
+          "tgegel"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmseg"
+          ],
+          "confidence": "medium",
+          "reason": "EETC and distribution companies must let investors sell directly to consumers over their grids for a wheeling charge."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgegtr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign currency is available through licensed banks under central bank control."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmseg"
+          ],
+          "confidence": "low",
+          "reason": "Self-consumption solar needs prior approval from the network operator."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgegel"
+          ],
+          "confidence": "low",
+          "reason": "Targets were raised in the national strategy."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change to direct sales rules was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2014-01-01",
+      "precision": "year",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Feed-in tariff programme launched for 4.3 GW of solar and wind",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmseg"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmseg",
+      "title": "Renewable energy in Egypt",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/egypt",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgegtr",
+      "title": "Egypt Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/egypt-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgegel",
+      "title": "Egypt Country Commercial Guide, electricity and renewable energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/egypt-electricity-and-renewable-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-11-21"
+    }
+  ],
+  "gaps": "EETC's payment record, currency conversion delays and grid connection times were not covered in detail by the sources reviewed."
+}

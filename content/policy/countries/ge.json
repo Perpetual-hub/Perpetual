@@ -1,0 +1,139 @@
+{
+  "country": "GE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Georgia's market operator ESCO is a guaranteed buyer for new power plants, grid-connected projects can join competitive auctions or state support, and money can be converted and moved abroad without limit. Corporate PPAs are legally possible but lack standard templates, and regulatory instruments are still being finalised.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5ge"
+          ],
+          "confidence": "low",
+          "reason": "Grid-connected projects may enter competitive auctions or state-supported schemes, and ESCO is a guaranteed purchaser for new plants."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tggetr"
+          ],
+          "confidence": "medium",
+          "reason": "Foreign businesses may convert lari at the market rate and transfer proceeds abroad without limitation."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5ge"
+          ],
+          "confidence": "low",
+          "reason": "GSE reviews connection applications within 15 business days, but delays occur while regulatory instruments for new capacity queues are finalised."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5ge"
+          ],
+          "confidence": "low",
+          "reason": "Targets to 2030 are set in law across sectoral legislation."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "New transmission lines to Türkiye and Armenia are being built with KfW support.",
+        "sources": [
+          "tggeel"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5ge"
+          ],
+          "confidence": "low",
+          "reason": "Bilateral contracts are allowed, but there is no standard PPA template or statutory wheeling or net-billing guarantee."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tggetr"
+          ],
+          "confidence": "medium",
+          "reason": "Proceeds can be transferred abroad without limitation."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5ge"
+          ],
+          "confidence": "low",
+          "reason": "Targets are set in law."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5ge",
+      "title": "Renewable Energy, Georgia (comparative guide)",
+      "publisher": "Legal 500 (Andersen in Georgia)",
+      "url": "https://www.legal500.com/guides/chapter/georgia-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "tggetr",
+      "title": "Georgia Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/georgia-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-03"
+    },
+    {
+      "id": "tggeel",
+      "title": "Georgia Country Commercial Guide, electrical power systems",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/georgia-electrical-power-systems-elp",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-03"
+    }
+  ],
+  "gaps": "Contract length, ESCO's payment record and curtailment were not covered by the sources reviewed."
+}

@@ -1,0 +1,163 @@
+{
+  "country": "SE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Sweden built most of its renewables under a market-based electricity certificate scheme whose 46.4 TWh goal was met nine years early, and now relies mainly on market sales and PPAs. The target is 100% renewable electricity production by 2040, and there are no foreign exchange controls.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "cmsse"
+          ],
+          "confidence": "low",
+          "reason": "The certificate scheme met its goal in 2021 and was changed that year, so new projects rely mainly on market revenue and PPAs."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgsetr"
+          ],
+          "confidence": "low",
+          "reason": "Sweden levies no foreign exchange controls."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsse"
+          ],
+          "confidence": "low",
+          "reason": "The target is 100% renewable electricity production by 2040, and no retroactive change was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found after 2021.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsse"
+          ],
+          "confidence": "low",
+          "reason": "Since 2021 small solar is supported through a tax reduction for green technology."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgsetr"
+          ],
+          "confidence": "low",
+          "reason": "No foreign exchange controls."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsse"
+          ],
+          "confidence": "low",
+          "reason": "Long-term targets support renewables."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2003-05-01",
+      "precision": "day",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Electricity certificate scheme starts",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsse"
+      ]
+    },
+    {
+      "date": "2021-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "mixed",
+      "title": "Certificate goal of 46.4 TWh reached nine years early and the scheme changed",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsse"
+      ]
+    },
+    {
+      "date": "2021-01-01",
+      "precision": "day",
+      "kind": "tax",
+      "effect": "positive",
+      "title": "Tax reduction for green technology replaces solar panel grants",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmsse"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsse",
+      "title": "Renewable energy in Sweden",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/sweden",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-29"
+    },
+    {
+      "id": "tgsetr",
+      "title": "Sweden Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/sweden-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "PPA practice, grid connection and permitting were not covered by the sources reviewed."
+}

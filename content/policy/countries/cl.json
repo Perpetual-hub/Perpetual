@@ -1,0 +1,153 @@
+{
+  "country": "CL",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Chile's power sector is run entirely by private companies, and a 2022 climate law sets carbon neutrality by 2050. Solar and wind output has outpaced grid capacity, so energy is being lost and storage is now the policy priority. Capital and profits move freely.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "tgclen"
+          ],
+          "confidence": "low",
+          "reason": "Generation, transmission and distribution are all operated by private companies, local and international."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgcltr"
+          ],
+          "confidence": "medium",
+          "reason": "Chile has no restrictions on incoming or outgoing foreign capital, and limits on repatriating capital and profits were removed."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "tgclen"
+          ],
+          "confidence": "medium",
+          "reason": "Electricity production has outpaced grid capacity, causing energy losses, with new projects concentrated in the north far from demand."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmscl",
+            "tgclen"
+          ],
+          "confidence": "medium",
+          "reason": "The 2022 Framework Law on Climate Change makes carbon neutrality by 2050 a legal goal, and generators committed to retire thermal plants by 2040."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Storage is being promoted under a dedicated law, and new transmission lines are planned.",
+        "sources": [
+          "cmscl",
+          "tgclen"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgcltr"
+          ],
+          "confidence": "medium",
+          "reason": "No restrictions on capital or profit repatriation."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmscl"
+          ],
+          "confidence": "medium",
+          "reason": "Carbon neutrality by 2050 is set in law."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Framework Law on Climate Change sets carbon neutrality by 2050",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmscl",
+        "tgclen"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmscl",
+      "title": "Renewable energy in Chile",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/chile",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgcltr",
+      "title": "Chile Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/chile-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-11-24"
+    },
+    {
+      "id": "tgclen",
+      "title": "Chile Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/chile-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-23"
+    }
+  ],
+  "gaps": "Supply auction terms, PPA length, buyer credit and curtailment compensation were not covered by the sources reviewed. C&I routes were not covered."
+}

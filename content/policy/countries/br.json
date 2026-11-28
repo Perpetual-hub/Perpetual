@@ -1,0 +1,204 @@
+{
+  "country": "BR",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Brazil's grid is 87% renewable and foreign investors are treated like local ones, but curtailment of wind and solar has become structural, with losses above US$370 million in 2025. Utility-scale solar investment has stalled, while distributed solar keeps growing.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "tgbrpo"
+          ],
+          "confidence": "medium",
+          "reason": "Private investment has built most new wind and solar, but recent government auctions focused on hydro and thermal capacity."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "br_tgc"
+          ],
+          "confidence": "low",
+          "reason": "Curtailment is undermining the bankability of new wind and solar projects."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgbrin"
+          ],
+          "confidence": "medium",
+          "reason": "Foreign investors receive the same legal treatment as local investors in most sectors, and power is not among the restricted ones."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "br_tgc",
+            "br_cs"
+          ],
+          "confidence": "medium",
+          "reason": "Curtailment losses exceeded US$370 million in 2025, average cuts in 2026 were 18% higher than in 2025, and ONS expects most future cuts to come from oversupply."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "br_fw",
+            "br_tgc"
+          ],
+          "confidence": "low",
+          "reason": "Losses from curtailment are changing financing assumptions for new and operating projects, and rules are being redesigned."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "Curtailment kept rising in 2026, and the operator expects it to become mostly structural by 2029.",
+        "sources": [
+          "br_cs",
+          "br_tgc"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "tgbrpo"
+          ],
+          "confidence": "medium",
+          "reason": "Distributed solar has grown to the largest share of solar capacity, helping make solar Brazil's second largest source."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgbrin"
+          ],
+          "confidence": "medium",
+          "reason": "Foreign investors are treated like locals in most sectors."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "br_fw"
+          ],
+          "confidence": "low",
+          "reason": "Rapid growth of distributed generation adds to grid stress."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for distributed solar was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Solar becomes Brazil's second largest power source at almost 50 GW including distributed generation",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tgbrpo"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "grid",
+      "effect": "negative",
+      "title": "Curtailment losses exceed US$370 million",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "br_tgc"
+      ]
+    },
+    {
+      "date": "2025-06-27",
+      "precision": "day",
+      "kind": "auction",
+      "effect": "mixed",
+      "title": "Capacity reserve auction for hydro and thermal plants, with 15-year contracts",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgbrpo"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "tgbrin",
+      "title": "Brazil Country Commercial Guide, investment climate statement",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/brazil-investment-climate-statement",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-05-20"
+    },
+    {
+      "id": "tgbrpo",
+      "title": "Brazil Country Commercial Guide, power generation, transmission and distribution",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/brazil-power-generation-transmission-and-distribution-infrastructure",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-08-21"
+    },
+    {
+      "id": "br_tgc",
+      "title": "Brazil energy curtailment",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/market-intelligence/brazil-energy-curtailment",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-05"
+    },
+    {
+      "id": "br_cs",
+      "title": "Curtailment has already totaled 73.4 million MWh in Brazil since 2021",
+      "publisher": "Canal Solar",
+      "url": "https://canalsolar.com.br/en/Curtailment-totals-73-million-MWh-since-2021./",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-09-16"
+    },
+    {
+      "id": "br_fw",
+      "title": "Curtailment in Brazil, from operational constraint to market redesign",
+      "publisher": "Financier Worldwide",
+      "url": "https://www.financierworldwide.com/curtailment-in-brazil-from-operational-constraint-to-market-redesign",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Free market PPA terms, buyer credit and the details of curtailment compensation rules were not covered by the sources reviewed."
+}

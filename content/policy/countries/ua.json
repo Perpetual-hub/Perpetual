@@ -1,0 +1,178 @@
+{
+  "country": "UA",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Ukraine kept feed-in tariffs during martial law and added a feed-in premium and private contracts for difference for producers leaving the guaranteed buyer. Currency controls under martial law still limit repatriation, though they were eased in 2025.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "cmsua"
+          ],
+          "confidence": "low",
+          "reason": "Feed-in tariffs are preserved during martial law, and producers may leave the guaranteed buyer for private contracts for difference."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "cmsua"
+          ],
+          "confidence": "low",
+          "reason": "The guaranteed buyer pays the gap between market price and the tariff or auction price under the feed-in premium."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "unsupportive",
+          "sources": [
+            "tguatr"
+          ],
+          "confidence": "medium",
+          "reason": "Martial law currency controls restrict cross-border transfers and repatriation, though dividends since 2023 may now be paid up to set limits."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmsua"
+          ],
+          "confidence": "low",
+          "reason": "War has delayed construction, and deadlines for commissioning projects with preliminary PPAs have expired."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsua"
+          ],
+          "confidence": "low",
+          "reason": "The 2050 energy strategy keeps renewables in the mix, but war makes rules uncertain."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The central bank eased several currency restrictions in August 2025.",
+        "sources": [
+          "tguatr"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsua"
+          ],
+          "confidence": "low",
+          "reason": "Producers may sign price-stabilising contracts with consumers, suppliers or traders."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "unsupportive",
+          "sources": [
+            "tguatr"
+          ],
+          "confidence": "medium",
+          "reason": "Martial law currency controls limit repatriation."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsua"
+          ],
+          "confidence": "low",
+          "reason": "Rules are shaped by martial law."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Currency rules were eased in 2025.",
+        "sources": [
+          "tguatr"
+        ]
+      }
+    }
+  },
+  "redFlags": [
+    {
+      "type": "money_exit",
+      "status": "active",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "reason": "Martial law rules restrict repatriation of investment. Dividends since 2023 may be paid within monthly limits since August 2025.",
+      "sources": [
+        "tguatr"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "date": "2022-02-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "negative",
+      "title": "Martial law currency controls restrict cross-border transfers",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tguatr"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Central bank eases currency rules, allowing dividends accrued since 2023",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tguatr"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsua",
+      "title": "Renewable energy in Ukraine",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/ukraine",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tguatr",
+      "title": "Ukraine Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/ukraine-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-11"
+    }
+  ],
+  "gaps": "The guaranteed buyer's payment record and earlier tariff reductions were not covered by the sources reviewed."
+}

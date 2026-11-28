@@ -1,0 +1,165 @@
+{
+  "country": "KE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Kenya gets about 90% of its capacity from renewables, a third of it from independent power producers. A freeze on new PPAs was lifted with a move to competitive auctions, but the auction rules are still unclear. There are no foreign exchange controls.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "ke_sq"
+          ],
+          "confidence": "medium",
+          "reason": "New PPAs are allowed again, but through a competitive auction system whose rules investors are still waiting to see."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "ke_sq"
+          ],
+          "confidence": "low",
+          "reason": "Local costs may be paid in shillings while foreign debt can be serviced in hard currency, after a proposal for shilling-only contracts was dropped."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgketr"
+          ],
+          "confidence": "medium",
+          "reason": "Kenya repealed exchange controls in 1993, and funds from investment can be converted and transferred freely."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "ke_sq"
+          ],
+          "confidence": "low",
+          "reason": "Contract changes now need regulator approval to stop informal renegotiation, and earlier projects face uncertainty."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The freeze on new PPAs has been lifted.",
+        "sources": [
+          "ke_sq"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgketr"
+          ],
+          "confidence": "medium",
+          "reason": "No exchange controls."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgkeen"
+          ],
+          "confidence": "low",
+          "reason": "Rules ending the KPLC distribution monopoly were introduced in 2024."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "2024 changes seek to open transmission and distribution.",
+        "sources": [
+          "tgkeen"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Rules introduced to end the KPLC and KETRACO monopolies",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tgkeen"
+      ]
+    },
+    {
+      "date": "2026-02-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Kenya reopens new PPAs through competitive auctions, with regulator approval of contract changes",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ke_sq"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "tgketr",
+      "title": "Kenya Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/kenya-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-07-05"
+    },
+    {
+      "id": "tgkeen",
+      "title": "Kenya Country Commercial Guide, energy and electrical power systems",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/kenya-energy-electrical-power-systems",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-07-05"
+    },
+    {
+      "id": "ke_sq",
+      "title": "Kenya reopens power purchase agreements with competitive auctions and stricter oversight",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2026/02/26/kenya-reopens-power-purchase-agreements-with-competitive-auctions-and-stricter-oversight/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-26"
+    }
+  ],
+  "gaps": "KPLC's payment record, the auction timetable and C&I buying routes were not covered by the sources reviewed."
+}

@@ -1,0 +1,142 @@
+{
+  "country": "AZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Azerbaijan targets 30% renewable capacity by 2030 and is building utility-scale solar and wind with foreign developers such as Masdar and ACWA Power, under long-term PPAs with tax exemptions of up to 30 years. Currency can be converted and transferred freely.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5az",
+            "tgazen"
+          ],
+          "confidence": "low",
+          "reason": "Large projects are agreed with foreign developers under PPAs or public-private partnerships, with the Garadagh 230 MW solar plant operating."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5az"
+          ],
+          "confidence": "low",
+          "reason": "Projects under PPAs or public-private partnerships of up to 30 years are exempt from income tax, VAT, customs and property taxes."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgaztr",
+            "l5az"
+          ],
+          "confidence": "medium",
+          "reason": "There are generally no restrictions on converting or transferring funds, and the renewable energy agency helps foreign investors."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgazen",
+            "l5az"
+          ],
+          "confidence": "low",
+          "reason": "The 30% renewable capacity target for 2030 has been reaffirmed."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "More utility-scale solar and offshore wind projects are under way.",
+        "sources": [
+          "tgazen"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5az"
+          ],
+          "confidence": "low",
+          "reason": "Companies can buy renewable power through PPAs, but the market is small."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgaztr"
+          ],
+          "confidence": "medium",
+          "reason": "No restrictions on converting or transferring funds."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgazen"
+          ],
+          "confidence": "low",
+          "reason": "Targets have been reaffirmed."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5az",
+      "title": "Renewable Energy, Azerbaijan (comparative guide)",
+      "publisher": "Legal 500 (Caspian Legal Center)",
+      "url": "https://www.legal500.com/guides/chapter/azerbaijan-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "tgaztr",
+      "title": "Azerbaijan Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/azerbaijan-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-12"
+    },
+    {
+      "id": "tgazen",
+      "title": "Azerbaijan Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/azerbaijan-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-01-12"
+    }
+  ],
+  "gaps": "Buyer credit, grid connection and dispute resolution were not covered in detail by the sources reviewed."
+}

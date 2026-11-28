@@ -1,0 +1,160 @@
+{
+  "country": "MX",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Mexico's new electricity laws reserve at least 54% of dispatched power for the state utility CFE, and private utility-scale projects must sell to CFE. Profits can be repatriated freely, but the policy shift and unclear regulation weigh on private renewables.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "tgmxre"
+          ],
+          "confidence": "medium",
+          "reason": "Private utility-scale projects now sell exclusively to CFE, which must supply at least 54% of power dispatched to the grid."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgmxtr"
+          ],
+          "confidence": "low",
+          "reason": "There are no controls on transferring US dollars, and profits can be repatriated freely."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmsmx"
+          ],
+          "confidence": "low",
+          "reason": "Larger projects face unclear regulation and paralysis at the energy authorities, and new transmission is needed."
+        },
+        "stability": {
+          "rating": "unsupportive",
+          "sources": [
+            "tgmxre"
+          ],
+          "confidence": "medium",
+          "reason": "New laws reversed the earlier open market by guaranteeing CFE a majority share of generation."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "Plan México gives CFE most of the 2030 capacity build, with private investment limited to about 6.4 GW.",
+        "sources": [
+          "tgmxre"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "tgmxre",
+            "cmsmx"
+          ],
+          "confidence": "medium",
+          "reason": "Self-generation of 0.7 to 20 MW can connect to the grid, but surplus power must be sold only to CFE."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgmxtr"
+          ],
+          "confidence": "low",
+          "reason": "Profits can be repatriated freely."
+        },
+        "build": {
+          "rating": "supportive",
+          "sources": [
+            "cmsmx"
+          ],
+          "confidence": "low",
+          "reason": "Smaller projects benefit from a fast-track interconnection process."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgmxre"
+          ],
+          "confidence": "low",
+          "reason": "The new laws favour CFE, though self-generation remains allowed."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "Self-generation rules were set out in the new laws.",
+        "sources": [
+          "tgmxre"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "negative",
+      "title": "New electricity laws require at least 54% of dispatched power to come from CFE",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tgmxre"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsmx",
+      "title": "Renewable energy in Mexico",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/mexico",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgmxtr",
+      "title": "Mexico Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/mexico-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgmxre",
+      "title": "Mexico Country Commercial Guide, renewable energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/mexico-renewable-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-12"
+    }
+  ],
+  "gaps": "Contract terms with CFE, buyer credit and the status of earlier private contracts were not covered by the sources reviewed."
+}

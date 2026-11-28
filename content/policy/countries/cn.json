@@ -1,0 +1,130 @@
+{
+  "country": "CN",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "China's solar and wind now grow without central subsidies, with grid-guaranteed projects allocated competitively by provinces. Grid connection and absorption are the main constraints, and strict capital controls limit moving money abroad.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmscn"
+          ],
+          "confidence": "medium",
+          "reason": "Projects with guaranteed grid connection are allocated competitively by provincial energy authorities, and market-oriented projects follow national and provincial rules."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "cmscn"
+          ],
+          "confidence": "low",
+          "reason": "Solar has moved to subsidy-free growth, ending central government subsidies."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgcntr"
+          ],
+          "confidence": "low",
+          "reason": "Strict capital controls since 2016 require approval from the foreign exchange regulator for many transfers."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmscn"
+          ],
+          "confidence": "medium",
+          "reason": "Further growth depends on grid connection and absorption of solar output."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmscn"
+          ],
+          "confidence": "low",
+          "reason": "Carbon peak by 2030 and neutrality by 2060 frame five-year plan targets."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "Market-oriented reform continues under the five-year plan.",
+        "sources": [
+          "cmscn"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgcntr"
+          ],
+          "confidence": "low",
+          "reason": "Capital controls apply."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmscn"
+          ],
+          "confidence": "low",
+          "reason": "National targets support renewables."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmscn",
+      "title": "Renewable energy in China",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/china",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgcntr",
+      "title": "China Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/china-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-09-25"
+    }
+  ],
+  "gaps": "Foreign ownership rules for generation, buyer credit, curtailment levels and corporate green power trading were not covered by the sources reviewed."
+}

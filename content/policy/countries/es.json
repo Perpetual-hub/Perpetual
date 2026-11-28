@@ -1,0 +1,152 @@
+{
+  "country": "ES",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Spain combines government auctions with one of the world's largest corporate PPA markets, and has streamlined permits for solar and wind. Grid access is the pinch point, with strict milestones that can cancel permits and tenders for capacity at congested nodes.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "tgesen"
+          ],
+          "confidence": "medium",
+          "reason": "Government auctions drive renewable growth, and corporate PPAs are increasingly used for wind and solar."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgestr"
+          ],
+          "confidence": "low",
+          "reason": "Transfers with non-residents are free, though a 1991 decree lets the government limit them in exceptional circumstances."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmses"
+          ],
+          "confidence": "medium",
+          "reason": "Grid permits expire automatically if projects miss milestones set in 2020, and capacity at some nodes is allocated by tender."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Permitting for solar and wind has been streamlined and grid capacity increased.",
+        "sources": [
+          "tgesen"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "tgesen"
+          ],
+          "confidence": "medium",
+          "reason": "Spain ranks among the top countries for corporate PPAs."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgestr"
+          ],
+          "confidence": "low",
+          "reason": "Transfers are free except in exceptional circumstances."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmses"
+          ],
+          "confidence": "low",
+          "reason": "Grid access milestones and node tenders also apply to corporate projects."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPAs are expected to drive further growth.",
+        "sources": [
+          "tgesen"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2020-01-01",
+      "precision": "year",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Royal Decree-law 23/2020 sets milestones that cancel grid permits if missed",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmses"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmses",
+      "title": "Renewable energy in Spain",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/spain",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgestr",
+      "title": "Spain Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/spain-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-07-31"
+    },
+    {
+      "id": "tgesen",
+      "title": "Spain Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/spain-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-07-31"
+    }
+  ],
+  "gaps": "Rule stability, including the 2013 and 2014 cuts to earlier support and the arbitrations that followed, was not covered by the sources reviewed. Auction contract terms and curtailment were not covered."
+}

@@ -1,0 +1,162 @@
+{
+  "country": "MZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Mozambique launched its first renewable energy auction programme, PROLER, for solar and wind of 30 to 50 MW, and updated tariff, off-grid and mini-grid rules in 2022 and 2023. Foreign exchange needs central bank approval.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsmz"
+          ],
+          "confidence": "low",
+          "reason": "The PROLER auction programme tenders solar and wind projects of 30 to 50 MW for independent power producers."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgmztr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign exchange is available but purchases need central bank approval."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmsmz"
+          ],
+          "confidence": "low",
+          "reason": "A grid code revision to integrate renewable plants is under way."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsmz"
+          ],
+          "confidence": "low",
+          "reason": "The government targets 20% renewables on the grid and has updated tariff rules."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Tariff, off-grid and mini-grid regulations were issued in 2022 and 2023.",
+        "sources": [
+          "cmsmz"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgmztr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign exchange purchases need central bank approval."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Regulations for energy access in off-grid areas take effect",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmsmz"
+      ]
+    },
+    {
+      "date": "2022-12-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Tariff regulation sets how the regulator approves grid tariffs",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsmz"
+      ]
+    },
+    {
+      "date": "2023-05-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Regulations for awarding mini-grid concessions published",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmsmz"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsmz",
+      "title": "Renewable energy in Mozambique",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/mozambique",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgmztr",
+      "title": "Mozambique Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/mozambique-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-08"
+    }
+  ],
+  "gaps": "PPA terms, the utility's payment record and C&I routes were not covered by the sources reviewed."
+}

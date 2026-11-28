@@ -1,0 +1,146 @@
+{
+  "country": "OM",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Oman's single buyer Nama PWP procures solar and wind IPPs, starting with the 500 MW Ibri-II plant, and targets at least 30% renewable electricity by 2030. Capital can be repatriated freely, and green hydrogen is a national priority.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsom",
+            "tgomne"
+          ],
+          "confidence": "medium",
+          "reason": "Nama PWP, the statutory power procurer, runs IPP tenders, with Ibri-II, Manah I and II and several wind projects procured or planned."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgomtr"
+          ],
+          "confidence": "low",
+          "reason": "There is no restriction on repatriating capital, and the rial is pegged to the dollar."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgomne"
+          ],
+          "confidence": "low",
+          "reason": "The target is at least 30% renewable electricity by 2030, and no retroactive change was found."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "More solar and wind IPPs are planned to 2028.",
+        "sources": [
+          "cmsom"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "tgomne",
+            "cmsom"
+          ],
+          "confidence": "low",
+          "reason": "Large industrial users such as PDO and OQ procure their own renewable supply, but a general corporate route was not described."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgomtr"
+          ],
+          "confidence": "low",
+          "reason": "No restriction on repatriating capital."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Ibri-II, Oman's largest solar IPP, starts commercial operation",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgomne"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsom",
+      "title": "Renewable energy in Oman",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/oman",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgomtr",
+      "title": "Oman Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/oman-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgomne",
+      "title": "Oman Country Commercial Guide, new energy technologies",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/oman-new-energy-technologies",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-12-22"
+    }
+  ],
+  "gaps": "PPA terms, buyer credit, the Sahim rooftop scheme status and grid connection were not covered in detail by the sources reviewed."
+}

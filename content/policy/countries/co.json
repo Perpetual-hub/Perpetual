@@ -1,0 +1,158 @@
+{
+  "country": "CO",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Colombia lets renewables compete in reliability charge auctions, first in 2019, and aims for half its energy from renewables by 2030. Hydropower still dominates, and foreign exchange must go through a formal registered market.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsco"
+          ],
+          "confidence": "medium",
+          "reason": "Renewables have won firm energy obligations in reliability charge auctions since 2019, and a third expansion auction covers 2027 to 2028."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgcotr"
+          ],
+          "confidence": "medium",
+          "reason": "Capital and profits can be repatriated only if the investment is registered, and all cross-border payments go through the formal exchange market."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgcoen"
+          ],
+          "confidence": "low",
+          "reason": "The renewable target deadline was pushed to 2030, and the country is unlikely to meet its most ambitious short-term targets."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "The 2024 roadmap sets a 50% renewable target for 2030.",
+        "sources": [
+          "tgcoen"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "tgcotr"
+          ],
+          "confidence": "medium",
+          "reason": "Repatriation requires registration through the formal exchange market."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgcoen"
+          ],
+          "confidence": "low",
+          "reason": "Policy now favours community-level generation."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2019-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Reliability charge auction awards firm energy to wind and solar for the first time",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsco"
+      ]
+    },
+    {
+      "date": "2024-05-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Just Energy Transition Roadmap targets 50% renewable energy by 2030",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tgcoen"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsco",
+      "title": "Renewable energy in Colombia",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/colombia",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgcotr",
+      "title": "Colombia Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/colombia-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgcoen",
+      "title": "Colombia Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/colombia-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-05"
+    }
+  ],
+  "gaps": "Contract terms, buyer credit, connection times and corporate buying rules were not covered by the sources reviewed."
+}
