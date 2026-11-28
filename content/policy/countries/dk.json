@@ -120,6 +120,19 @@
       "sources": [
         "l5dk"
       ]
+    },
+    {
+      "date": "2025-11-20",
+      "precision": "day",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Offshore wind tenders relaunched for at least 2.8 GW with two-sided CfDs",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ens_dk_osw"
+      ]
     }
   ],
   "log": [],
@@ -141,6 +154,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-05-27"
+    },
+    {
+      "id": "ens_dk_osw",
+      "title": "The Danish Energy Agency opens tenders for three new Danish offshore wind farms",
+      "publisher": "Danish Energy Agency",
+      "url": "https://ens.dk/en/press/danish-energy-agency-opens-tenders-three-new-danish-offshore-wind-farms",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2025-11-20"
     }
   ],
   "gaps": "Foreign ownership rules and transfer of profits were not covered by the sources reviewed, so the ownership gate is not rated. Buyer credit and contract length are also not established."

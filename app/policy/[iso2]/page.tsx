@@ -9,7 +9,7 @@ import { Pill } from "@/components/home/Landing";
 import { DetailSkeleton } from "@/components/ui/DetailSkeleton";
 import { DATA_AS_OF, getAllCountryCodes } from "@/lib/data";
 import { countryName, formatDate } from "@/lib/format";
-import { countryPhotos } from "@/data/geo/country-photos";
+import { countryPhoto } from "@/data/geo/country-photo";
 import { VERDICT_STYLE } from "@/lib/policy-review/cells";
 import type { ReactNode } from "react";
 import { HERO_PHOTOS, type HeroPhoto } from "@/lib/hero-photos";
@@ -57,7 +57,7 @@ function photoFor(iso: string): HeroPhoto {
  * is layered over a self-hosted one, so if the remote image fails the header still has a picture.
  */
 function CountryHero({ iso, name, kicker, lede, stats, children }: { iso: string; name: string; kicker: string; lede?: string; stats?: { label: string; value: ReactNode }[]; children?: ReactNode }) {
-  const cp = countryPhotos[iso];
+  const cp = countryPhoto(iso);
   const local = photoFor(iso);
   const layers = [cp && `url("${cp.url.replace(/\/3840px-/, "/1920px-")}")`, `url("${local.src}")`].filter(Boolean).join(", ");
   const credit = cp ? { by: cp.artist, url: cp.page, license: cp.license } : { by: local.credit, url: local.sourceUrl, license: local.license };

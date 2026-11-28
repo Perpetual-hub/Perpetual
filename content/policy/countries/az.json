@@ -107,7 +107,21 @@
     }
   },
   "redFlags": [],
-  "events": [],
+  "events": [
+    {
+      "date": "2024-11-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "First renewables auction awards 100 MW of solar at 3.54 US cents per kWh",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "ebrd_az_auc"
+      ]
+    }
+  ],
   "log": [],
   "sources": [
     {
@@ -136,6 +150,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-01-12"
+    },
+    {
+      "id": "ebrd_az_auc",
+      "title": "Azerbaijan's first renewables auction concludes at COP29 with EBRD support",
+      "publisher": "European Bank for Reconstruction and Development",
+      "url": "https://www.ebrd.com/news/2024/azerbaijans-first-renewables-auction-concludes-at-cop29-with-ebrd-support.html",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-11"
     }
   ],
   "gaps": "Buyer credit, grid connection and dispute resolution were not covered in detail by the sources reviewed."

@@ -8,7 +8,7 @@ import {
   getTopInvestors,
 } from "@/lib/data";
 import { CountryStatsTable } from "@/components/charts/CountryStatsTable";
-import { countryPhotos } from "@/data/geo/country-photos";
+import { countryPhoto } from "@/data/geo/country-photo";
 import { HERO_PHOTOS } from "@/lib/hero-photos";
 import { GlobalCapacityChart } from "@/components/charts/GlobalCapacityChart";
 import { regionSlug } from "@/lib/filters";
@@ -28,7 +28,7 @@ export function AreaPage({ profile }: { profile: AreaProfile }) {
   const regionPhoto = HERO_PHOTOS.regions;
   const photo =
     s.kind === "country"
-      ? countryPhotos[s.key]
+      ? countryPhoto(s.key)
       : { url: regionPhoto.src, page: regionPhoto.sourceUrl, artist: regionPhoto.credit, license: regionPhoto.license };
   const official =
     s.kind === "country" ? countryStats.get(s.key) : regionInfo ? countryStats.aggregate(regionInfo) : undefined;

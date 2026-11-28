@@ -92,6 +92,19 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2023-08-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Masen opens prequalification for a private partner on Noor Midelt III",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_ma_midelt"
+      ]
+    },
+    {
       "date": "2022-07-01",
       "precision": "month",
       "kind": "auction",
@@ -141,6 +154,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2022-07-14"
+    },
+    {
+      "id": "sq_ma_midelt",
+      "title": "Masen launches tender for Noor Midelt III solar power project",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/08/17/masen-launches-tender-for-noor-midelt-iii-solar-power-project-in-morocco/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-08-17"
     }
   ],
   "gaps": "Contract terms, ONEE's payment record, grid access and corporate buying rules were not covered by the sources reviewed."

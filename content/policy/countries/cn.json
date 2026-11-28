@@ -118,6 +118,20 @@
       "sources": [
         "mi_cn_cons"
       ]
+    },
+    {
+      "date": "2025-02-09",
+      "precision": "day",
+      "kind": "circular",
+      "effect": "mixed",
+      "title": "All wind and solar output moves into the power market, with a provincial contract-for-difference price for new projects from June 2025",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "ndrc_cn_136"
+      ]
     }
   ],
   "log": [],
@@ -148,6 +162,17 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-06-26"
+    },
+    {
+      "id": "ndrc_cn_136",
+      "title": "关于深化新能源上网电价市场化改革 促进新能源高质量发展的通知 (Notice on deepening market-based reform of on-grid prices for new energy, Document 136)",
+      "publisher": "National Development and Reform Commission",
+      "url": "https://www.ndrc.gov.cn/xxgk/zcfb/tz/202502/t20250209_1396066.html",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2025-02-09",
+      "language": "Chinese",
+      "originalTitle": "关于深化新能源上网电价市场化改革 促进新能源高质量发展的通知"
     }
   ],
   "gaps": "Foreign ownership rules for generation, buyer credit, curtailment levels and corporate green power trading were not covered by the sources reviewed."

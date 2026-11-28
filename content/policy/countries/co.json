@@ -98,6 +98,19 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-07-29",
+      "precision": "day",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Clean energy auction awards 995 MW of solar and about 100 MW of batteries on 15-year contracts",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "mme_co_sub"
+      ]
+    },
+    {
       "date": "2024-05-01",
       "precision": "month",
       "kind": "plan",
@@ -139,6 +152,17 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-03-05"
+    },
+    {
+      "id": "mme_co_sub",
+      "title": "Gobierno cierra histórica subasta de energías limpias (Government closes historic clean energy auction)",
+      "publisher": "Ministry of Mines and Energy of Colombia",
+      "url": "https://minenergia.gov.co/es/sala-de-prensa/noticias-index/gobierno-cierra-historica-subasta-de-energias-limpias-y-deja-cerca-de-7-gigavatios-listos-para-garantizar-el-abastecimiento-electrico-de-la-proxima-decada/",
+      "accessed": "2026-11-28",
+      "kind": "primary",
+      "published": "2026-07-29",
+      "language": "Spanish",
+      "originalTitle": "Gobierno cierra histórica subasta de energías limpias y deja cerca de 7 gigavatios listos para garantizar el abastecimiento eléctrico de la próxima década"
     }
   ],
   "gaps": "Contract terms, buyer credit, connection times and corporate buying rules were not covered by the sources reviewed."

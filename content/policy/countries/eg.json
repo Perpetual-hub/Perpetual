@@ -125,6 +125,19 @@
       "sources": [
         "sq_eg_h2"
       ]
+    },
+    {
+      "date": "2023-11-01",
+      "precision": "month",
+      "kind": "tax",
+      "effect": "positive",
+      "title": "Tax exemptions of 33% to 55% announced for green hydrogen projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_eg_h2tax"
+      ]
     }
   ],
   "log": [],
@@ -163,6 +176,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2024-01-05"
+    },
+    {
+      "id": "sq_eg_h2tax",
+      "title": "Egypt unveils tax incentives to boost green hydrogen investments",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/11/10/egypt-unveils-tax-incentives-to-boost-green-hydrogen-investments/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-11-10"
     }
   ],
   "gaps": "EETC's payment record, currency conversion delays and grid connection times were not covered in detail by the sources reviewed."

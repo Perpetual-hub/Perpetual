@@ -118,6 +118,19 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "2026 investment grants for solar and storage set, with a Made in Europe bonus of up to 30%",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "wko_at_eag26"
+      ]
+    },
+    {
       "date": "2024-01-01",
       "precision": "year",
       "kind": "other",
@@ -150,6 +163,17 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-05-29"
+    },
+    {
+      "id": "wko_at_eag26",
+      "title": "EAG-Investitionszuschuss 2026 Photovoltaik und Stromspeicher (2026 investment grants for solar and storage)",
+      "publisher": "Austrian Economic Chambers (WKO)",
+      "url": "https://www.wko.at/foerderungen/eag-investitionszuschuss-2026-photovoltaik-stromspeicher",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026",
+      "language": "German",
+      "originalTitle": "EAG-Investitionszuschuss 2026 Photovoltaik und Stromspeicher"
     }
   ],
   "gaps": "Buyer credit and curtailment compensation were not covered by the sources reviewed."

@@ -90,7 +90,7 @@ export function PolicyTimeline({ events, currentYear }: { events: TimelineEvent[
     if (el) el.scrollLeft = el.scrollWidth;
   }, []);
   // Stretch the grid across the card once there are enough years to fill it.
-  const fill = years.length >= 8;
+  const fill = multi || years.length >= 8;
   const rows = useMemo(() => {
     const names = [...new Set(events.map((e) => e.country?.name ?? ""))].sort();
     return names.map((name) => ({ name, href: events.find((e) => e.country?.name === name)?.country?.href }));

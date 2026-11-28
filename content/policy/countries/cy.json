@@ -107,7 +107,47 @@
     }
   },
   "redFlags": [],
-  "events": [],
+  "events": [
+    {
+      "date": "2024-01-01",
+      "precision": "month",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Council of Ministers raises solar subsidies for vulnerable households",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_cy_vuln"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "General policy framework for energy storage published with a support plan consultation",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "sq_cy_stor"
+      ]
+    },
+    {
+      "date": "2022-12-01",
+      "precision": "month",
+      "kind": "tariff",
+      "effect": "positive",
+      "title": "Self-consumption plan amended to ease net metering and allow larger systems with storage",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "sq_cy_nm"
+      ]
+    }
+  ],
   "log": [],
   "sources": [
     {
@@ -135,6 +175,33 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2026-04-21"
+    },
+    {
+      "id": "sq_cy_nm",
+      "title": "Cyprus completes amendment of plan for production of electricity from renewable energy sources for self-consumers",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2022/12/09/cyprus-completes-amendment-of-plan-for-production-of-electricity-from-renewable-energy-sources-for-self-consumers/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2022-12-09"
+    },
+    {
+      "id": "sq_cy_stor",
+      "title": "Cyprus unveils support plan for renewable energy storage facilities",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2023/07/28/cyprus-unveils-support-plan-for-renewable-energy-storage-facilities-and-public-consultation/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2023-07-28"
+    },
+    {
+      "id": "sq_cy_vuln",
+      "title": "Cyprus enhances solar support for vulnerable homes",
+      "publisher": "SolarQuarter",
+      "url": "https://solarquarter.com/2024/01/10/cyprus-enhances-solar-support-for-vulnerable-homes-increased-subsidies-drive-renewable-energy-adoption/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-01-10"
     }
   ],
   "gaps": "Utility-scale support terms and buyer credit were not covered by the sources reviewed."

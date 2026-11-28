@@ -1,10 +1,20 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.7";
+export const DATA_VERSION = "2026.11.8";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
 export const DATA_AS_OF = "2026-11-28";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.8",
+    date: "2026-11-28",
+    changes: [
+      "Policy Review now covers 67 markets, with 18 added from news reporting, including Australia, Türkiye, the Netherlands, Belgium, Ireland, Kazakhstan and several African and Gulf markets.",
+      "About 120 dated policy changes added from news in English and other languages (Indonesian, Vietnamese, Portuguese, Spanish, German, Polish, Italian, Swedish, Greek, Hungarian, Turkish and Chinese), translated into English with the original title kept.",
+      "Policy changes now follow the same rolling five-year window as deals, and announced future changes are kept.",
+      "Country pages show a self-hosted landmark photograph of each country.",
+    ],
+  },
   {
     version: "2026.11.7",
     date: "2026-11-28",

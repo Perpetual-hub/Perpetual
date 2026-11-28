@@ -104,6 +104,20 @@
   "redFlags": [],
   "events": [
     {
+      "date": "2026-02-13",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "mixed",
+      "title": "Multiannual energy programme for 2026 to 2035 adopted by decree, setting support conditions for renewables",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "dla_fr_ppe3"
+      ]
+    },
+    {
       "date": "2025-08-01",
       "precision": "month",
       "kind": "other",
@@ -154,6 +168,15 @@
       "accessed": "2026-11-28",
       "kind": "secondary",
       "published": "2025-08-06"
+    },
+    {
+      "id": "dla_fr_ppe3",
+      "title": "France's 2026–2035 energy roadmap (PPE3)",
+      "publisher": "DLA Piper",
+      "url": "https://www.dlapiper.com/insights/publications/2026/03/france-s-2026-2035-energy-roadmap",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-03"
     }
   ],
   "gaps": "Grid connection times, buyer credit and corporate PPA practice were not covered. The CMS guide dates from March 2024, so later changes may be missing."
