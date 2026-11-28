@@ -1,0 +1,179 @@
+{
+  "country": "RO",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Romania introduced two-way Contracts for Difference with auctions for 2 GW in 2024 and 3 GW in 2025, and passed a law for Black Sea offshore wind. There are no foreign exchange restrictions, and EU recovery funds back new solar, wind and storage.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsro"
+          ],
+          "confidence": "medium",
+          "reason": "The Contract for Difference scheme opened with a 2 GW auction in 2024 and a planned 3 GW auction in 2025, split between onshore wind and solar."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmsro"
+          ],
+          "confidence": "low",
+          "reason": "Generators receive or pay the difference between a strike price and the market reference price under a two-way contract."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgrotr"
+          ],
+          "confidence": "low",
+          "reason": "Romania has no foreign exchange restrictions and a fully liberalised capital account."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmsro"
+          ],
+          "confidence": "low",
+          "reason": "The transmission operator has announced grid modernisation and a new interconnector to Hungary due in 2029, which shows current limits."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsro",
+            "tgroen"
+          ],
+          "confidence": "low",
+          "reason": "Targets are backed by a national strategy, EU funds and an offshore wind law, and no retroactive cut was found in the period reviewed."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The Contract for Difference auctions and offshore wind law open new routes to market.",
+        "sources": [
+          "cmsro"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgrotr"
+          ],
+          "confidence": "low",
+          "reason": "No foreign exchange restrictions."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsro"
+          ],
+          "confidence": "low",
+          "reason": "No retroactive change was found in the period reviewed."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "First Contract for Difference auction for 2 GW of onshore wind and solar",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsro"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Offshore wind law sets the framework for Black Sea projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsro"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Second Contract for Difference round planned for 3 GW",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsro"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsro",
+      "title": "Renewable energy in Romania",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/romania",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-04-18"
+    },
+    {
+      "id": "tgrotr",
+      "title": "Romania Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/romania-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgroen",
+      "title": "Romania Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/romania-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-02"
+    }
+  ],
+  "gaps": "Corporate buying routes, buyer credit and connection times were not covered by the sources reviewed, so C&I is not reviewed. Earlier changes to green certificate support were not covered either."
+}

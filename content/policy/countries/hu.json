@@ -1,0 +1,203 @@
+{
+  "country": "HU",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Hungary replaced feed-in tariffs with the METÁR premium system and relaunched its auctions in 2025, and ten to fifteen year corporate PPAs are now common. The grid is saturated for solar and new large connection capacity has stayed suspended, while rules restrict wind.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5hu"
+          ],
+          "confidence": "medium",
+          "reason": "METÁR auctions resumed in 2025 after a pause, but allocation of new large connection capacity has remained suspended."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5hu"
+          ],
+          "confidence": "low",
+          "reason": "Larger plants win auction-based premiums, and the smallest plants get fixed tariffs."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tghutr"
+          ],
+          "confidence": "low",
+          "reason": "There are no foreign exchange controls, and no foreign ownership cap on generation was found."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5hu",
+            "tghuen"
+          ],
+          "confidence": "medium",
+          "reason": "The network is saturated in many regions, especially for solar, and routine allocation of new connection capacity has remained suspended."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmshu",
+            "tghuen"
+          ],
+          "confidence": "medium",
+          "reason": "The green premium budget was cut by 45% for 2022 to 2026, and rules restrict wind development."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The competitive premium scheme was relaunched in 2025.",
+        "sources": [
+          "l5hu"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5hu"
+          ],
+          "confidence": "medium",
+          "reason": "Corporate PPAs of ten to fifteen years with industrial and automotive buyers are the leading trend, and on-site solar is widely used."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5hu"
+          ],
+          "confidence": "low",
+          "reason": "PPAs commonly run ten to fifteen years, often with co-located batteries."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tghutr"
+          ],
+          "confidence": "low",
+          "reason": "No foreign exchange controls."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5hu"
+          ],
+          "confidence": "low",
+          "reason": "On-site solar is straightforward, but grid saturation limits larger connections."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmshu"
+          ],
+          "confidence": "low",
+          "reason": "Support budgets have been cut before."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPAs have become markedly more feasible as the market matures.",
+        "sources": [
+          "l5hu"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2017-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "mixed",
+      "title": "Mandatory offtake scheme closes to new entrants as METÁR takes over",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmshu"
+      ]
+    },
+    {
+      "date": "2021-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "negative",
+      "title": "Annual green premium budget cut by 45% for 2022 to 2026",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmshu"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "METÁR premium auctions relaunched",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5hu"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5hu",
+      "title": "Renewable Energy, Hungary (comparative guide)",
+      "publisher": "Legal 500 (BSLAW Budapest)",
+      "url": "https://www.legal500.com/guides/chapter/hungary-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmshu",
+      "title": "Renewable energy in Hungary",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/hungary",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tghutr",
+      "title": "Hungary Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/hungary-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tghuen",
+      "title": "Hungary Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/hungary-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-02-12"
+    }
+  ],
+  "gaps": "Buyer credit and the timetable for reopening connection capacity were not established from the sources reviewed."
+}

@@ -1,0 +1,180 @@
+{
+  "country": "IT",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Italy supports renewables through two-way Contracts for Difference run by the state energy agency GSE, under the FER 2 and FER X decrees, and profits move freely. Permitting and tension between national and regional rules are the main risks.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5it"
+          ],
+          "confidence": "medium",
+          "reason": "Support is allocated through GSE schemes, FER 2 for innovative technologies from June 2024 and the transitional FER X from December 2024."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5it"
+          ],
+          "confidence": "low",
+          "reason": "Larger plants receive two-way Contracts for Difference, and plants below 300 kW receive an all-inclusive tariff."
+        },
+        "buyer": {
+          "rating": "supportive",
+          "sources": [
+            "l5it"
+          ],
+          "confidence": "low",
+          "reason": "Payments come from GSE, a state-controlled body."
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgittr"
+          ],
+          "confidence": "low",
+          "reason": "There are no restrictions on currency transfers, and profits can be freely repatriated."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5it",
+            "cmsit"
+          ],
+          "confidence": "medium",
+          "reason": "Permitting remains a significant issue despite simplification, and landscape and heritage constraints can block plants."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "l5it"
+          ],
+          "confidence": "low",
+          "reason": "Tension between national and regional rules creates legal uncertainty for developers."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "FER X and FER 2 opened new support rounds in 2024, and permitting has been simplified.",
+        "sources": [
+          "l5it",
+          "cmsit"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsit"
+          ],
+          "confidence": "low",
+          "reason": "Self-consumption rules were updated recently, alongside simplified authorisation for smaller plants."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgittr"
+          ],
+          "confidence": "low",
+          "reason": "No restrictions on currency transfers or repatriating profits."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5it"
+          ],
+          "confidence": "low",
+          "reason": "Permitting and regional rules remain the main barriers."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "l5it"
+          ],
+          "confidence": "low",
+          "reason": "Regional fragmentation creates legal uncertainty."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change to self-consumption rules was found after 2024.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-06-19",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "positive",
+      "title": "FER 2 decree supports offshore wind, floating solar, geothermal and marine energy",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5it"
+      ]
+    },
+    {
+      "date": "2024-12-30",
+      "precision": "day",
+      "kind": "decree",
+      "effect": "positive",
+      "title": "Transitional FER X decree opens Contracts for Difference for mature technologies",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5it"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5it",
+      "title": "Renewable Energy, Italy (comparative guide)",
+      "publisher": "Legal 500 (Norton Rose Fulbright)",
+      "url": "https://www.legal500.com/guides/chapter/italy-renewable-energy/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsit",
+      "title": "Renewable energy in Italy",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/italy",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgittr",
+      "title": "Italy Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/italy-trade-financing",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-04-14"
+    }
+  ],
+  "gaps": "Contract length, grid connection times and corporate PPA practice were not covered by the sources reviewed."
+}

@@ -1,0 +1,183 @@
+{
+  "country": "AT",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Austria supports renewables through market premiums awarded in tenders and on application under the Renewable Energy Expansion Act, and corporate PPAs are now established. Public opposition, slow permitting and grid bottlenecks that caused curtailment in 2024 and 2025 are the main risks.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "medium",
+          "reason": "The Renewable Energy Expansion Act offers market premiums through tenders or on application, and investment grants."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "low",
+          "reason": "A market premium tops up market revenue, replacing the earlier fixed feed-in tariffs under the Green Electricity Act 2012."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgattr"
+          ],
+          "confidence": "low",
+          "reason": "Austria has a fully liberalised foreign exchange regime, and no foreign ownership cap on generation was found."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "medium",
+          "reason": "Solar and wind output was curtailed in 2024 and several times in 2025 because of grid bottlenecks, and opposition can delay permits for years."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "low",
+          "reason": "Support has moved from feed-in tariffs to premiums without a retroactive cut being found."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Grid bottlenecks have moved to the top of the policy agenda after the 2024 curtailment.",
+        "sources": [
+          "l5at"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "medium",
+          "reason": "Corporate PPAs are an established part of the market, with large industrial and commercial buyers locking in long-term fixed prices."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "low",
+          "reason": "PPAs fix the price for several years, giving a secure basis for financial planning."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgattr"
+          ],
+          "confidence": "low",
+          "reason": "Fully liberalised foreign exchange regime."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "low",
+          "reason": "Grid bottlenecks affect transport of power from the northeast to storage in the west."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5at"
+          ],
+          "confidence": "low",
+          "reason": "No retroactive change to corporate buying was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change to corporate buying rules was found in the period reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2012-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Green Electricity Act 2012 sets feed-in tariffs for renewables",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5at"
+      ]
+    },
+    {
+      "date": "2021-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Renewable Energy Expansion Act replaces feed-in tariffs with market premiums and grants",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5at"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "negative",
+      "title": "Solar and wind output curtailed because of grid bottlenecks",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5at"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5at",
+      "title": "Renewable Energy, Austria (comparative guide)",
+      "publisher": "Legal 500 (Forvis Mazars Legal)",
+      "url": "https://www.legal500.com/guides/chapter/austria-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-17"
+    },
+    {
+      "id": "tgattr",
+      "title": "Austria Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/austria-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-29"
+    }
+  ],
+  "gaps": "Buyer credit and curtailment compensation were not covered by the sources reviewed."
+}

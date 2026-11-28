@@ -1,0 +1,161 @@
+{
+  "country": "PL",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Poland supports onshore renewables through 15-year Contracts for Difference paid by a state-owned settlement company, and offshore wind through 25-year support under the 2020 Offshore Wind Act. Renewables produced more electricity than lignite in 2024, and profits can be repatriated freely.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmspl"
+          ],
+          "confidence": "medium",
+          "reason": "Onshore projects win support in auctions, and offshore wind has its own auctions planned for 2025 and 2027."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmspl"
+          ],
+          "confidence": "medium",
+          "reason": "Auction winners get a 15-year contract for difference against a fixed price, and offshore wind gets up to 25 years of support."
+        },
+        "buyer": {
+          "rating": "supportive",
+          "sources": [
+            "cmspl"
+          ],
+          "confidence": "low",
+          "reason": "Support is paid by Zarządca Rozliczeń, a state-owned settlement company."
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgpltr"
+          ],
+          "confidence": "low",
+          "reason": "The zloty is fully convertible, and profits can be repatriated."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmspl"
+          ],
+          "confidence": "low",
+          "reason": "The Energy Policy until 2040 plans offshore wind growth, and green certificates are being phased out in favour of auctions."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Renewables overtook lignite in 2024, led by solar and wind growth.",
+        "sources": [
+          "tgplen"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgpltr"
+          ],
+          "confidence": "low",
+          "reason": "The zloty is fully convertible, and profits can be repatriated."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change for C&I buyers was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2020-12-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Offshore Wind Act sets 25-year support and grid connection rules",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmspl"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Renewables generate more electricity than lignite for the first time",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgplen"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmspl",
+      "title": "Renewable energy in Poland",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/poland",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgpltr",
+      "title": "Poland Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/poland-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgplen",
+      "title": "Poland Country Commercial Guide, energy sector",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/poland-energy-sector",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-02"
+    }
+  ],
+  "gaps": "Corporate PPA practice, grid connection and onshore wind siting rules were not covered by the sources reviewed, so C&I is not reviewed."
+}

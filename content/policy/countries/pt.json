@@ -1,0 +1,167 @@
+{
+  "country": "PT",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Portugal allocates grid capacity and support through auctions, plans 10 GW of offshore wind capacity, and funds self-consumption and storage. Congested grid capacity is the central constraint.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5pt",
+            "cmspt"
+          ],
+          "confidence": "medium",
+          "reason": "The government runs auctions to reserve grid injection capacity and allocate support, and plans 10 GW of offshore wind capacity through auctions."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgpttr"
+          ],
+          "confidence": "low",
+          "reason": "Portugal imposes no exchange controls, and no foreign ownership cap on generation was found."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5pt"
+          ],
+          "confidence": "medium",
+          "reason": "Limited and congested grid capacity is the central constraint, and securing new network capacity is slow and costly."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5pt",
+            "tgpten"
+          ],
+          "confidence": "low",
+          "reason": "The updated National Energy and Climate Plan 2030 sets targets, and no retroactive cut was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change to auction rules was found in the period reviewed.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5pt"
+          ],
+          "confidence": "low",
+          "reason": "EU recovery funds and the Environmental Fund support self-consumption, storage and efficiency projects."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgpttr"
+          ],
+          "confidence": "low",
+          "reason": "No exchange controls."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5pt"
+          ],
+          "confidence": "low",
+          "reason": "Grid congestion also affects connection of consumption sites in high-demand zones."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5pt"
+          ],
+          "confidence": "low",
+          "reason": "National plan targets support self-consumption, and no retroactive change was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found in the period reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Updated National Energy and Climate Plan 2030 raises renewable targets",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5pt"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5pt",
+      "title": "Renewable Energy, Portugal (comparative guide)",
+      "publisher": "Legal 500 (Abreu Advogados)",
+      "url": "https://www.legal500.com/guides/chapter/portugal-renewable-energy/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmspt",
+      "title": "Renewable energy in Portugal",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/portugal",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgpttr",
+      "title": "Portugal Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/portugal-trade-financing",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-04-20"
+    },
+    {
+      "id": "tgpten",
+      "title": "Portugal Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/portugal-energy",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-04-16"
+    }
+  ],
+  "gaps": "Contract terms, buyer credit and the timing of the first offshore wind auction were not established from the sources reviewed."
+}

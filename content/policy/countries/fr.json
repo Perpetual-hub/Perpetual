@@ -1,0 +1,151 @@
+{
+  "country": "FR",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "France supports renewables mainly through contracts for difference set by reference tariffs, with feed-in tariffs kept for small plants. Repatriation of capital is unrestricted. The next multiannual energy programme was still pending in the sources reviewed.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsfr"
+          ],
+          "confidence": "low",
+          "reason": "Large plants receive a premium on top of market sales under contracts for difference, which replaced the purchase obligation from 2015."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmsfr"
+          ],
+          "confidence": "low",
+          "reason": "The premium is calculated against a reference tariff set by ministerial order for each technology."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgfrtr"
+          ],
+          "confidence": "low",
+          "reason": "There is no restriction on repatriating capital when the investment is authorised and goes through an approved bank."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsfr"
+          ],
+          "confidence": "low",
+          "reason": "The next multiannual energy programme for 2024 to 2033 was still to be adopted when the sources were written."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change to the support scheme was found in the sources reviewed.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "cmsfr"
+          ],
+          "confidence": "low",
+          "reason": "Small plants keep feed-in tariffs under the purchase obligation."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgfrtr"
+          ],
+          "confidence": "low",
+          "reason": "No restriction on repatriating capital."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsfr"
+          ],
+          "confidence": "low",
+          "reason": "The energy programme update was pending."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change was found in the sources reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2015-08-17",
+      "precision": "day",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Energy transition law moves support from feed-in tariffs to contracts for difference",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsfr"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmsfr",
+      "title": "Renewable energy in France",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/france",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-03-07"
+    },
+    {
+      "id": "tgfrtr",
+      "title": "France Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/france-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-22"
+    },
+    {
+      "id": "tgfren",
+      "title": "France Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/france-energy-eng",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-21"
+    }
+  ],
+  "gaps": "Grid connection times, buyer credit and corporate PPA practice were not covered. The CMS guide dates from March 2024, so later changes may be missing."
+}

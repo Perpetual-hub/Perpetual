@@ -1,0 +1,136 @@
+{
+  "country": "MT",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Malta subsidises solar for homes and businesses and offers Contracts for Difference for larger projects, but lack of space is the main barrier, and the government is looking to offshore sites. A corporate PPA market has not developed.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5mt"
+          ],
+          "confidence": "low",
+          "reason": "Contracts for Difference or PPAs can be offered, but limited land restricts larger projects and the government is looking at offshore sites."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgmttr"
+          ],
+          "confidence": "low",
+          "reason": "There are no foreign exchange controls that affect trade."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5mt"
+          ],
+          "confidence": "low",
+          "reason": "Several permits are needed, including grid connection consent."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgmten"
+          ],
+          "confidence": "low",
+          "reason": "The support framework for renewables is to be extended to 2030."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5mt"
+          ],
+          "confidence": "low",
+          "reason": "Solar subsidies exist for non-residential buildings, but green tariffs and direct corporate PPAs have not developed."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgmttr"
+          ],
+          "confidence": "low",
+          "reason": "No foreign exchange controls that affect trade."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5mt"
+          ],
+          "confidence": "low",
+          "reason": "Support schemes continue."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5mt",
+      "title": "Renewable Energy, Malta (comparative guide)",
+      "publisher": "Legal 500 (Ganado Advocates)",
+      "url": "https://www.legal500.com/guides/chapter/malta-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "tgmttr",
+      "title": "Malta Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/malta-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgmten",
+      "title": "Malta Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/malta-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2021-11-30"
+    }
+  ],
+  "gaps": "Contract terms, buyer credit and grid connection times were not covered by the sources reviewed."
+}

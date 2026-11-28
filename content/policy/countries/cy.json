@@ -1,0 +1,141 @@
+{
+  "country": "CY",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Cyprus funds solar for self-consumption and corporate PPAs are becoming popular, but its isolated grid limits how much renewable power it can absorb. The island still runs mostly on heavy fuel oil.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5cy",
+            "tgcyen"
+          ],
+          "confidence": "low",
+          "reason": "Renewable deployment is planned with storage, but studies found significant technical limits on adding renewables to the isolated grid."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgcytr"
+          ],
+          "confidence": "low",
+          "reason": "There are no capital restrictions in the Republic of Cyprus."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5cy"
+          ],
+          "confidence": "low",
+          "reason": "The isolated grid was designed around large central plants, which limits further renewable penetration."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "tgcyen"
+          ],
+          "confidence": "low",
+          "reason": "The plan to add renewables and storage is driven by EU targets and carbon costs."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found in the period reviewed.",
+        "sources": []
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5cy"
+          ],
+          "confidence": "low",
+          "reason": "Subsidies support solar for self-consumption in commercial and industrial buildings, and PPAs are becoming more popular."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgcytr"
+          ],
+          "confidence": "low",
+          "reason": "No capital restrictions."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5cy"
+          ],
+          "confidence": "low",
+          "reason": "Grid limits apply to new connections."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5cy"
+          ],
+          "confidence": "low",
+          "reason": "Self-consumption support continues."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No major change was found.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5cy",
+      "title": "Renewable Energy, Cyprus (comparative guide)",
+      "publisher": "Legal 500 (Akis Papakyriacou)",
+      "url": "https://www.legal500.com/guides/chapter/cyprus-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "tgcytr",
+      "title": "Cyprus Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/cyprus-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgcyen",
+      "title": "Cyprus Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/cyprus-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-04-21"
+    }
+  ],
+  "gaps": "Utility-scale support terms and buyer credit were not covered by the sources reviewed."
+}

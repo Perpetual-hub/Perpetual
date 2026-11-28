@@ -1,0 +1,160 @@
+{
+  "country": "CH",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Switzerland pays a sliding market premium to hydro, solar, wind and biomass and has given investment contributions to large solar and wind projects since 2023. Approvals across federal, cantonal and municipal levels are slow, and the corporate PPA market is still small.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5ch"
+          ],
+          "confidence": "medium",
+          "reason": "A sliding market premium supports hydropower, solar, wind and biomass, and large solar and wind projects receive investment contributions since 2023."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5ch"
+          ],
+          "confidence": "low",
+          "reason": "The premium covers the gap between a fixed tariff and market revenue, protecting operators from market risk."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5ch"
+          ],
+          "confidence": "medium",
+          "reason": "Federal, cantonal and municipal rules overlap, and hydro and wind face complex approvals and strict environmental assessment, especially in the Alps."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsch"
+          ],
+          "confidence": "low",
+          "reason": "Voters approved the Climate and Innovation Act in June 2023, setting climate neutrality by 2050."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Support for large solar and wind projects was increased from 2023.",
+        "sources": [
+          "l5ch"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5ch"
+          ],
+          "confidence": "low",
+          "reason": "Large companies increasingly use long-term PPAs, but relatively few have been signed in Switzerland so far."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5ch"
+          ],
+          "confidence": "low",
+          "reason": "Overlapping federal, cantonal and municipal rules cause delays."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsch"
+          ],
+          "confidence": "low",
+          "reason": "Climate neutrality by 2050 is set in law."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "National initiatives promote wider use of corporate PPAs.",
+        "sources": [
+          "l5ch"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2023-06-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Voters approve the Climate and Innovation Act, climate neutrality by 2050",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsch"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Direct investment contributions begin for large solar and wind projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5ch"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5ch",
+      "title": "Renewable Energy, Switzerland (comparative guide)",
+      "publisher": "Legal 500 (MLL Legal)",
+      "url": "https://www.legal500.com/guides/chapter/switzerland-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsch",
+      "title": "Renewable energy in Switzerland",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/switzerland",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    }
+  ],
+  "gaps": "Foreign ownership rules and transfer of profits were not covered by the sources reviewed, so the ownership gate is not rated."
+}

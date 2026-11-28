@@ -1,10 +1,18 @@
 // Dataset metadata. Bump DATA_VERSION and add a changelog entry whenever /data changes.
-export const DATA_VERSION = "2026.11.6";
+export const DATA_VERSION = "2026.11.7";
 
 /** The date the dataset was last compiled. "Last 30 days" style stats are measured from here. */
-export const DATA_AS_OF = "2026-11-26";
+export const DATA_AS_OF = "2026-11-28";
 
 export const changelog: { version: string; date: string; changes: string[] }[] = [
+  {
+    version: "2026.11.7",
+    date: "2026-11-28",
+    changes: [
+      "6 new deals from 26 to 27 November 2026, including financial close for Statera's Exeter battery and Lyra Energy's Noko solar plant.",
+      "Policy Reviews for 20 more markets across Europe, North America, Japan, New Zealand and the UAE, from 2026 legal guides and US government country guides.",
+    ],
+  },
   {
     version: "2026.11.6",
     date: "2026-11-26",

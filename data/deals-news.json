@@ -1,5 +1,274 @@
 [
  {
+  "id": "news-bedf9f44af773c25",
+  "slug": "lyra-energy-reaches-financial-close-on-126-mw-noko-solar-plant-in-south-africa-bedf9f",
+  "isSample": false,
+  "date": "2026-11-27",
+  "type": "project finance",
+  "status": "completed",
+  "title": "Lyra Energy reaches financial close on 126 MW Noko solar plant in South Africa",
+  "technologies": [
+   "solar"
+  ],
+  "countries": [
+   "ZA"
+  ],
+  "region": "Africa",
+  "buyers": [
+   {
+    "name": "Standard Bank",
+    "role": "lender"
+   }
+  ],
+  "sellers": [
+   {
+    "name": "Lyra Energy",
+    "role": "borrower"
+   }
+  ],
+  "target": "Noko solar plant",
+  "capacityMW": 126,
+  "summary": "Lyra Energy, Scatec's joint venture with STANLIB Infrastructure Investments, reached financial close on Noko, a 126 MW solar plant, with non-recourse project debt from Standard Bank.",
+  "details": "Financial close came on 26 November 2026. Noko is under construction and due to start commercial operation in the first half of 2028. With Noko, Lyra has 381 MW under construction across two plants, alongside the 255 MW Thakadu plant that closed in March.",
+  "context": "Lyra sells power to companies rather than to the state utility. BloombergNEF expected corporate buyers to support most of the utility-scale solar and wind South Africa adds in 2026, the first year corporate contracts outpace public procurement.",
+  "sources": [
+   {
+    "publisher": "Energy News Network",
+    "title": "Lyra Energy Achieves Financial Close on Noko Plant",
+    "url": "https://energy-news-network.com/industry-news/lyra-energy-noko-solar-mercury-corporate-ppa",
+    "retrievedAt": "2026-11-28"
+   }
+  ]
+ },
+ {
+  "id": "news-f34d0968710bccd2",
+  "slug": "scatec-to-sell-288-mw-mercury-solar-project-to-lyra-energy-for-corporate-buyers-f34d09",
+  "isSample": false,
+  "date": "2026-11-27",
+  "type": "M&A",
+  "status": "announced",
+  "title": "Scatec to sell 288 MW Mercury solar project to Lyra Energy for corporate buyers",
+  "technologies": [
+   "solar"
+  ],
+  "countries": [
+   "ZA"
+  ],
+  "region": "Africa",
+  "buyers": [
+   {
+    "name": "Lyra Energy",
+    "role": "acquirer"
+   }
+  ],
+  "sellers": [
+   {
+    "name": "Scatec",
+    "role": "seller"
+   }
+  ],
+  "target": "Mercury solar project",
+  "capacityMW": 288,
+  "summary": "Scatec said it will withdraw its 288 MW Mercury solar project from South Africa's public procurement programme and sell it to Lyra Energy, its joint venture with STANLIB, to supply corporate customers.",
+  "details": "Mercury won a place in the Renewable Energy Independent Power Producer Procurement Programme in December 2024. Scatec announced the change on 26 November 2026. Construction is expected to begin in the first half of 2027, and Mercury joins Lyra's backlog after Thakadu and Noko.",
+  "context": "The move shifts a project from a state contract to private power purchase agreements with businesses, a market Scatec says it wants to lead in South Africa.",
+  "sources": [
+   {
+    "publisher": "Energy News Network",
+    "title": "Lyra Energy Achieves Financial Close on Noko Plant",
+    "url": "https://energy-news-network.com/industry-news/lyra-energy-noko-solar-mercury-corporate-ppa#mercury",
+    "retrievedAt": "2026-11-28"
+   }
+  ]
+ },
+ {
+  "id": "news-e75bf52d9d6e8b05",
+  "slug": "osaka-gas-to-invest-in-australian-biomethane-developer-optimal-renewable-gas-e75bf5",
+  "isSample": false,
+  "date": "2026-11-27",
+  "type": "equity raise",
+  "status": "announced",
+  "title": "Osaka Gas to invest in Australian biomethane developer Optimal Renewable Gas",
+  "technologies": [
+   "bioenergy"
+  ],
+  "countries": [
+   "AU"
+  ],
+  "region": "Oceania",
+  "buyers": [
+   {
+    "name": "Osaka Gas Australia",
+    "role": "investor"
+   }
+  ],
+  "sellers": [
+   {
+    "name": "Optimal Renewable Gas",
+    "role": "investee"
+   }
+  ],
+  "target": "Optimal Renewable Gas",
+  "summary": "Osaka Gas will invest in Optimal Renewable Gas, an Australian biomethane developer, through its subsidiary Osaka Gas Australia. The amount was not disclosed.",
+  "details": "The company says it is the first investment by a Japanese company in an Australian biomethane developer and Osaka Gas's first in any biomethane developer. The two have been studying the Griffith Bio Hub in New South Wales since 2024, which would turn farm and livestock waste into biomethane for the gas network.",
+  "context": "Biomethane is gas made from organic waste and cleaned so it can replace natural gas in existing pipes. Osaka Gas says it will bring its biogas experience to the developer's projects in eastern Australia.",
+  "sources": [
+   {
+    "publisher": "Energy Global",
+    "title": "Osaka Gas to invest in Optimal Renewable Gas",
+    "url": "https://www.energyglobal.com/bioenergy/27112026/osaka-gas-to-invest-in-optimal-renewable-gas",
+    "retrievedAt": "2026-11-28"
+   }
+  ]
+ },
+ {
+  "id": "news-0f4d7945464772cf",
+  "slug": "statera-energy-closes-112-million-debt-for-290-mw-exeter-battery-in-devon-0f4d79",
+  "isSample": false,
+  "date": "2026-11-26",
+  "type": "project finance",
+  "status": "completed",
+  "title": "Statera Energy closes £112 million debt for 290 MW Exeter battery in Devon",
+  "technologies": [
+   "storage"
+  ],
+  "countries": [
+   "GB"
+  ],
+  "region": "Europe",
+  "buyers": [
+   {
+    "name": "Lloyds",
+    "role": "lender"
+   },
+   {
+    "name": "Santander",
+    "role": "lender"
+   },
+   {
+    "name": "Siemens Bank",
+    "role": "lender"
+   },
+   {
+    "name": "SEB",
+    "role": "lender"
+   }
+  ],
+  "sellers": [
+   {
+    "name": "Statera Energy",
+    "role": "borrower"
+   }
+  ],
+  "target": "Exeter Storage",
+  "value": {
+   "amount": 112000000,
+   "currency": "GBP",
+   "disclosed": true
+  },
+  "capacityMW": 290,
+  "summary": "Statera Energy reached financial close on Exeter Storage, a 290 MW / 580 MWh battery near National Grid's Exeter substation, with £112 million of bank debt.",
+  "details": "Lloyds was sole structuring bank, and Santander, Siemens Bank and SEB were mandated lead arrangers of a term loan and VAT facility. Statkraft will provide market access under a five-year route to market agreement while Statera's own team sets the trading strategy. Commercial operation is targeted for 2028.",
+  "context": "The company says the project went from launch in August 2026 to financial close in four months. Statera reports 2.5 GW of assets operating or under construction in the UK and aims for over 5 GW of batteries by 2030.",
+  "sources": [
+   {
+    "publisher": "Energy Global",
+    "title": "Statera Energy reaches financial close on 290 MW Exeter Storage",
+    "url": "https://www.energyglobal.com/energy-storage/26112026/statera-energy-reaches-financial-close-on-290-mw-exeter-storage",
+    "retrievedAt": "2026-11-28"
+   }
+  ]
+ },
+ {
+  "id": "news-9151611f1f1fa67b",
+  "slug": "schneitec-jupiter-lists-us-99-million-green-bond-for-350-mw-pursat-solar-project-915161",
+  "isSample": false,
+  "date": "2026-11-26",
+  "type": "project finance",
+  "status": "completed",
+  "title": "SchneiTec Jupiter lists US$99 million green bond for 350 MW Pursat solar project",
+  "technologies": [
+   "solar"
+  ],
+  "countries": [
+   "KH"
+  ],
+  "region": "Asia",
+  "buyers": [
+   {
+    "name": "Yuanta Securities (Cambodia)",
+    "role": "advisor"
+   }
+  ],
+  "sellers": [
+   {
+    "name": "SchneiTec Jupiter",
+    "role": "issuer"
+   }
+  ],
+  "target": "350 MW solar project in Krakor district, Pursat",
+  "value": {
+   "amount": 99000000,
+   "currency": "USD",
+   "usd": 99000000,
+   "disclosed": true
+  },
+  "capacityMW": 350,
+  "summary": "SchneiTec Jupiter listed a US$99 million green bond on 16 November 2026 to finance a 350 MW solar project in Pursat province, the largest green bond listed in Cambodia.",
+  "details": "The bond is the main part of a US$150 million financing package supported by the Global Green Growth Institute, combining six bond tranches with a loan. Yuanta Securities (Cambodia) was sole financial adviser. The plant is part of the 930 MW Chheu Tom solar complex in Krakor district.",
+  "context": "It follows Cambodia's first project bond in April 2025, a 15-year green bond of about US$48 million by sister company SchneiTec Dynamic for a 60 MW plant. A framework approved in July 2025 lets companies raise long-term funds for infrastructure.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "Cambodia Lists Record $99 Million Green Bond To Finance 350 MW Solar Project",
+    "url": "https://solarquarter.com/2026/11/26/cambodia-lists-record-99-million-green-bond-to-finance-350-mw-solar-project",
+    "retrievedAt": "2026-11-28"
+   }
+  ]
+ },
+ {
+  "id": "news-ac623465fc4c1745",
+  "slug": "juniper-green-energy-agrees-25-year-hybrid-offtake-contract-with-ntpc-ac6234",
+  "isSample": false,
+  "date": "2026-11-26",
+  "type": "PPA",
+  "status": "completed",
+  "title": "Juniper Green Energy agrees 25-year hybrid offtake contract with NTPC",
+  "technologies": [
+   "solar",
+   "wind"
+  ],
+  "countries": [
+   "IN"
+  ],
+  "region": "Asia",
+  "buyers": [
+   {
+    "name": "NTPC",
+    "role": "offtaker"
+   }
+  ],
+  "sellers": [
+   {
+    "name": "Juniper Green Energy",
+    "role": "seller"
+   }
+  ],
+  "target": "150 MW hybrid renewable project",
+  "capacityMW": 150,
+  "summary": "Juniper Green Energy signed a 25-year power purchase agreement with NTPC for a 150 MW hybrid renewable project through its subsidiary Juniper Green Gem.",
+  "details": "The contract runs for 25 years from the scheduled start of supply, and the project is due to begin commercial operation by June 2028. The company says its contracted capacity is now about 6.4 GWp of renewables and 4.3 GWh of batteries, of which about 3 GWp and 700 MWh operate today.",
+  "context": "Hybrid projects combine wind and solar on one connection so output is steadier through the day. NTPC is India's largest state-owned power company and buys power from private developers under long-term contracts.",
+  "sources": [
+   {
+    "publisher": "SolarQuarter",
+    "title": "Juniper Green Energy Signs 150 MW Hybrid Renewable Energy PPA With NTPC, Expands Portfolio To 6.4 GWp",
+    "url": "https://solarquarter.com/2026/11/26/juniper-green-energy-signs-150-mw-hybrid-renewable-energy-ppa-with-ntpc-expands-portfolio-to-6-4-gwp",
+    "retrievedAt": "2026-11-28"
+   }
+  ]
+ },
+ {
   "id": "news-2330531e81bbe6e3",
   "slug": "united-solar-energy-zambia-reaches-financial-close-on-50-mw-chilanga-solar-plant-233053",
   "isSample": false,

@@ -1,0 +1,161 @@
+{
+  "country": "DK",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Denmark gets over 85% of its electricity from renewables and supports large and offshore projects through tenders with price support, while corporate PPAs are common. Grid capacity is now tight, and Energinet paused all new connections for three months in early 2026.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5dk"
+          ],
+          "confidence": "medium",
+          "reason": "Offshore wind and large projects are tendered with price support, but a recent offshore tender with state co-ownership drew no bids."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5dk"
+          ],
+          "confidence": "low",
+          "reason": "Tenders can include CfD-style or premium-style price support."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5dk"
+          ],
+          "confidence": "medium",
+          "reason": "Energinet paused all grid connections for three months in early 2026 for lack of capacity, and onshore projects face long approvals and local opposition."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgdken"
+          ],
+          "confidence": "medium",
+          "reason": "A 2020 Climate Act sets binding targets, and climate neutrality was brought forward to 2045."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "The 2026 connection pause and new prioritisation model slow less advanced projects.",
+        "sources": [
+          "l5dk"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5dk"
+          ],
+          "confidence": "medium",
+          "reason": "Large companies commonly use corporate PPAs, and PPA products for small and midsize businesses have appeared."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5dk"
+          ],
+          "confidence": "low",
+          "reason": "The 2026 connection pause also affects new direct lines and corporate projects."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgdken"
+          ],
+          "confidence": "low",
+          "reason": "Binding climate targets are set in law."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "Corporate buying keeps growing, but grid limits apply.",
+        "sources": [
+          "l5dk"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2020-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Climate Act sets a binding 70% emissions cut by 2030",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "tgdken"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "negative",
+      "title": "Energinet pauses all new grid connections for three months",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5dk"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5dk",
+      "title": "Renewable Energy, Denmark (comparative guide)",
+      "publisher": "Legal 500 (Accura)",
+      "url": "https://www.legal500.com/guides/chapter/denmark-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "tgdken",
+      "title": "Denmark Country Commercial Guide, energy technologies",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/denmark-energy-technologies",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-05-27"
+    }
+  ],
+  "gaps": "Foreign ownership rules and transfer of profits were not covered by the sources reviewed, so the ownership gate is not rated. Buyer credit and contract length are also not established."
+}

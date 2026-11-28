@@ -1,0 +1,210 @@
+{
+  "country": "GB",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Great Britain supports new renewables through annual Contract for Difference auctions with a government-owned counterparty, and capital moves freely. Grid connection delays and planning are the main constraints.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5gb",
+            "cmsgb"
+          ],
+          "confidence": "medium",
+          "reason": "Contracts for Difference are allocated in auctions that now run every year, and older projects keep Renewables Obligation support for 20 years."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5gb",
+            "cmsgb"
+          ],
+          "confidence": "medium",
+          "reason": "A Contract for Difference pays a fixed strike price whatever the market price, which lenders treat as bankable."
+        },
+        "buyer": {
+          "rating": "supportive",
+          "sources": [
+            "l5gb"
+          ],
+          "confidence": "medium",
+          "reason": "The contract counterparty, the Low Carbon Contracts Company, is owned by the government."
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tggbtr"
+          ],
+          "confidence": "low",
+          "reason": "There are no exchange controls on moving funds in or out, and no foreign ownership cap on generation was found in the sources reviewed."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5gb"
+          ],
+          "confidence": "medium",
+          "reason": "Planning and grid connection are the two biggest causes of delay, with upgrades needed at both transmission and distribution level."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsgb",
+            "l5gb"
+          ],
+          "confidence": "low",
+          "reason": "Net zero by 2050 is set in law and planning rules were eased in 2025, but existing generators pay the Electricity Generator Levy on exceptional revenues."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The Planning and Infrastructure Act 2025 streamlines consent and makes the Environment Agency a single lead regulator.",
+        "sources": [
+          "l5gb"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5gb"
+          ],
+          "confidence": "low",
+          "reason": "Corporate power purchase agreements are used alongside Contracts for Difference to give projects long-term revenue."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tggbtr"
+          ],
+          "confidence": "low",
+          "reason": "No exchange controls, and no foreign ownership cap on generation was found."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5gb"
+          ],
+          "confidence": "medium",
+          "reason": "Grid connection delays affect distribution as well as transmission connections."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "cmsgb"
+          ],
+          "confidence": "low",
+          "reason": "Net zero is set in law, but the Electricity Generator Levy shows existing revenues can be taxed."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change to corporate buying rules was found in the period reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2017-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "mixed",
+      "title": "Renewables Obligation closes to new projects, existing support continues for 20 years",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5gb"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Energy Act 2023 sets a new framework for energy production and system planning",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsgb"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "tax",
+      "effect": "negative",
+      "title": "Electricity Generator Levy applies to exceptional revenues of existing generators",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsgb"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Planning and Infrastructure Act 2025 streamlines consent for energy infrastructure",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5gb"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5gb",
+      "title": "Renewable Energy, United Kingdom (comparative guide)",
+      "publisher": "Legal 500 (White & Case)",
+      "url": "https://www.legal500.com/guides/chapter/united-kingdom-renewable-energy/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-08-07"
+    },
+    {
+      "id": "cmsgb",
+      "title": "Renewable energy in the United Kingdom",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/united-kingdom",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tggbtr",
+      "title": "United Kingdom Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/united-kingdom-trade-financing",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2023-11-03"
+    }
+  ],
+  "gaps": "Contract length, curtailment compensation and C&I contract terms were not covered by the sources reviewed. Connection queue times were not quantified."
+}

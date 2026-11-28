@@ -1,0 +1,192 @@
+{
+  "country": "NZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "New Zealand has no subsidies or contracts for difference, so independent developers need long-term PPAs, and the corporate PPA market is still young. Consenting has been made much easier since 2024, and overseas investors may need consent.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "medium",
+          "reason": "There are no government incentive schemes, and securing offtake to raise debt is a key barrier for independent developers."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "low",
+          "reason": "Spot prices are nodal and volatile, so developers seek long-term PPAs to hedge."
+        },
+        "buyer": {
+          "rating": "mixed",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "low",
+          "reason": "The creditworthiness of offtakers is an important factor for developers."
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "l5nz",
+            "tgnztr"
+          ],
+          "confidence": "medium",
+          "reason": "Overseas investors may need consent under the Overseas Investment Act 2005, and there are no foreign exchange controls."
+        },
+        "build": {
+          "rating": "supportive",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "medium",
+          "reason": "The Fast-track Approvals Act 2024 and 2025 resource management changes ease consents and give renewable projects a default 35-year consent."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "low",
+          "reason": "National direction for renewable generation and networks was strengthened in January 2026."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Consenting reforms in 2024, 2025 and 2026 make new projects easier to approve.",
+        "sources": [
+          "l5nz"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "medium",
+          "reason": "Physical and virtual corporate PPAs are available, but the market remains relatively nascent."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "low",
+          "reason": "PPAs are flexible and can include renewable energy certificates."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "l5nz",
+            "tgnztr"
+          ],
+          "confidence": "medium",
+          "reason": "Overseas Investment Act consent may be needed, and there are no foreign exchange controls."
+        },
+        "build": {
+          "rating": "supportive",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "low",
+          "reason": "Consenting has been eased."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5nz"
+          ],
+          "confidence": "low",
+          "reason": "National direction supports renewable generation."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPA activity is expected to increase.",
+        "sources": [
+          "l5nz"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2024-12-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Fast-track Approvals Act gives quicker consents to significant projects",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5nz"
+      ]
+    },
+    {
+      "date": "2025-08-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Resource management amendment sets a 35-year default consent for renewables",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5nz"
+      ]
+    },
+    {
+      "date": "2026-01-01",
+      "precision": "month",
+      "kind": "plan",
+      "effect": "positive",
+      "title": "Updated national policy statement for renewable generation and networks",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5nz"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5nz",
+      "title": "Renewable Energy, New Zealand (comparative guide)",
+      "publisher": "Legal 500 (Russell McVeagh)",
+      "url": "https://www.legal500.com/guides/chapter/new-zealand-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "tgnztr",
+      "title": "New Zealand Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/new-zealand-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Grid connection times and curtailment were not covered by the sources reviewed."
+}

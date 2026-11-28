@@ -1,0 +1,201 @@
+{
+  "country": "JP",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Japan supports renewables through feed-in tariffs moving to feed-in premiums, runs offshore wind auctions, and has an active corporate PPA market. A 2025 change puts FIT projects first in line for curtailment, raising risk for older projects.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5jp"
+          ],
+          "confidence": "medium",
+          "reason": "Projects are certified for feed-in tariffs or premiums, and offshore wind sites have been auctioned under the 2018 Marine Renewable Energy Act."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "l5jp",
+            "cmsjp"
+          ],
+          "confidence": "low",
+          "reason": "The premium scheme links revenue to market prices, and curtailment risk has risen for tariff projects."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgjptr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign exchange rules have little impact on normal business, and no foreign ownership cap on generation was found."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5jp"
+          ],
+          "confidence": "medium",
+          "reason": "Curtailment orders apply, and geothermal sites in national parks need several permits and local agreement."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "l5jp"
+          ],
+          "confidence": "low",
+          "reason": "The 2025 curtailment change shifts risk onto existing tariff projects to favour premium projects."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "The government keeps moving projects from tariffs to premiums.",
+        "sources": [
+          "l5jp"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5jp"
+          ],
+          "confidence": "medium",
+          "reason": "On-site and off-site corporate PPAs are widely used, physical PPAs through a registered retailer and virtual PPAs directly."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgjptr"
+          ],
+          "confidence": "low",
+          "reason": "Foreign exchange rules have little impact on normal business."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5jp"
+          ],
+          "confidence": "low",
+          "reason": "Premium projects get priority under the revised curtailment rules, which supports corporate PPAs."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPAs under the premium scheme have become increasingly popular.",
+        "sources": [
+          "l5jp",
+          "cmsjp"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2012-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Feed-in tariff scheme starts under the Renewable Energy Act",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5jp"
+      ]
+    },
+    {
+      "date": "2018-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Marine Renewable Energy Act sets up offshore wind site auctions",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5jp"
+      ]
+    },
+    {
+      "date": "2023-05-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "GX Decarbonisation Energy Resources Act amends energy laws for the transition",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsjp"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "grid",
+      "effect": "mixed",
+      "title": "Curtailment order revised so FIT projects are curtailed before FIP projects",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5jp"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5jp",
+      "title": "Renewable Energy, Japan (comparative guide)",
+      "publisher": "Legal 500 (Nishimura & Asahi)",
+      "url": "https://www.legal500.com/guides/chapter/japan-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsjp",
+      "title": "Renewable energy in Japan",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/japan",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgjptr",
+      "title": "Japan Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/japan-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Buyer credit and grid connection times were not covered by the sources reviewed."
+}

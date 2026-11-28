@@ -12,7 +12,7 @@ R = {"S": "supportive", "M": "mixed", "U": "unsupportive", "N": "not_rated"}
 CF = {"h": "high", "m": "medium", "l": "low", None: None}
 D = {"i": "improving", "s": "stable", "w": "worsening"}
 Q = ["access", "terms", "buyer", "ownership", "build", "stability"]
-TODAY = "2026-11-26"
+TODAY = "2026-11-28"
 
 def rating(t):
     code, conf, reason, src = (t + (None, None, []))[:4] if t[0] == "N" else t
@@ -53,8 +53,16 @@ def c(iso, summary, U, Ud, C, Cd, sources, flags=(), events=(), gaps=None, statu
     if gaps: out["gaps"] = gaps
     return out
 
+
+def L5(iso, name, firm, slug, mod="2026-06-11"):
+    return (f"l5{iso}", f"Renewable Energy, {name} (comparative guide)", f"Legal 500 ({firm})", f"https://www.legal500.com/guides/chapter/{slug}-renewable-energy/", mod, "s")
+def CMS(iso, name, slug, pub="2024-02-22"):
+    return (f"cms{iso}", f"Renewable energy in {name}", "CMS Expert Guides", f"https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/{slug}", pub, "s")
+def TG(iso, name, slug, page, title, pub):
+    return (f"tg{iso}{page[:2]}", f"{name} Country Commercial Guide, {title}", "US International Trade Administration", f"https://www.trade.gov/country-commercial-guides/{slug}-{page}", pub, "s")
+
 if __name__ == "__main__":
-    ns = runpy.run_path(sys.argv[1], init_globals={"c": c})
+    ns = runpy.run_path(sys.argv[1], init_globals={"c": c, "L5": L5, "CMS": CMS, "TG": TG})
     for x in ns["COUNTRIES"]:
         p = os.path.join(ROOT, "content", "policy", "countries", f"{x['country'].lower()}.json")
         json.dump(x, open(p, "w"), indent=2, ensure_ascii=False); open(p, "a").write("\n")

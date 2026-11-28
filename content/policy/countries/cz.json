@@ -1,0 +1,159 @@
+{
+  "country": "CZ",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "The Czech Republic eased renewable permitting in 2023 and has a legal framework for bankable long-term PPAs, though the corporate PPA market is still small. Auctions for wind support were legislated, and profits can be repatriated.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "cmscz"
+          ],
+          "confidence": "low",
+          "reason": "An auction framework for wind support has been adopted, but the sources did not confirm auctions running."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgcztr"
+          ],
+          "confidence": "low",
+          "reason": "The crown is fully convertible, and profits can be repatriated."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "cmscz"
+          ],
+          "confidence": "low",
+          "reason": "Permitting was eased in 2023, but grid operators face growing pressure from new connections."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "The 2023 Lex RES I amendments simplify permits and licences.",
+        "sources": [
+          "cmscz"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "cmscz"
+          ],
+          "confidence": "low",
+          "reason": "The legal framework allows bankable long-term PPAs, but the market is less developed than elsewhere, with the first large PPA in 2021."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "cmscz"
+          ],
+          "confidence": "low",
+          "reason": "Longer-term price fixing is legally available."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgcztr"
+          ],
+          "confidence": "low",
+          "reason": "Profits can be repatriated."
+        },
+        "build": {
+          "rating": "supportive",
+          "sources": [
+            "cmscz"
+          ],
+          "confidence": "low",
+          "reason": "Plants up to 50 kW no longer need a generation licence."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Permitting has been simplified and PPAs are expected to grow.",
+        "sources": [
+          "cmscz"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2021-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "First large corporate renewable PPA announced, for Škoda Auto",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmscz"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Lex RES I eases licensing and permits for renewable plants",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmscz"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "cmscz",
+      "title": "Renewable energy in the Czech Republic",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/czech-republic",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgcztr",
+      "title": "Czech Republic Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/czech-republic-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Rule stability, including the 2011 solar levy and later changes, and the status of wind auctions were not established from the sources reviewed."
+}

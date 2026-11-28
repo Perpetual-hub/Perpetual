@@ -1,0 +1,194 @@
+{
+  "country": "BG",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Bulgaria added about 2 GW of mostly merchant solar in 2023 and 2024 and is building battery storage quickly, with corporate PPAs increasingly used. Connection is first come first served with no tender, demand for connection far exceeds supply, and permitting is fragmented.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "cmsbg",
+            "l5bg"
+          ],
+          "confidence": "low",
+          "reason": "Grid connection is granted first come first served with no tender, and growth has come mainly from solar selling at market prices or through PPAs."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgbgtr"
+          ],
+          "confidence": "low",
+          "reason": "There are no restrictions on payments or currency exchange, and no foreign ownership cap on generation was found."
+        },
+        "build": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5bg"
+          ],
+          "confidence": "medium",
+          "reason": "Applications for connection still total about 35 GW against limited connection points, and permitting involves many authorities."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "l5bg"
+          ],
+          "confidence": "low",
+          "reason": "Policy is set through the Renewable Energy Act and national plan, and the recovery plan funds grid and storage, but market instability remains a concern."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Battery storage is being added quickly, with 7 to 7.5 GW expected within 18 months.",
+        "sources": [
+          "tgbgen"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5bg"
+          ],
+          "confidence": "medium",
+          "reason": "On-site solar for self-consumption is increasingly popular and long-term corporate PPAs are a growing trend."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgbgtr"
+          ],
+          "confidence": "low",
+          "reason": "No restrictions on payments or currency exchange."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5bg"
+          ],
+          "confidence": "low",
+          "reason": "Permitting and land-use rules remain slow and fragmented."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "l5bg"
+          ],
+          "confidence": "low",
+          "reason": "Market volatility is pushing buyers toward PPAs."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPAs and self-consumption are growing.",
+        "sources": [
+          "l5bg"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "Over 1.2 GW of solar added in a year",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgbgen"
+      ]
+    },
+    {
+      "date": "2024-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "938 MW of renewable capacity added, mostly solar",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgbgen"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "other",
+      "effect": "positive",
+      "title": "About 500 MW of battery storage installed by mid-year",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "tgbgen"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5bg",
+      "title": "Renewable Energy, Bulgaria (comparative guide)",
+      "publisher": "Legal 500 (Penkov, Markov & Partners)",
+      "url": "https://www.legal500.com/guides/chapter/bulgaria-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsbg",
+      "title": "Renewable energy in Bulgaria",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/bulgaria",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgbgtr",
+      "title": "Bulgaria Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/bulgaria-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    },
+    {
+      "id": "tgbgen",
+      "title": "Bulgaria Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/bulgaria-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-03-31"
+    }
+  ],
+  "gaps": "No state support scheme for new utility projects was described, and buyer credit and contract terms were not covered by the sources reviewed."
+}

@@ -1,0 +1,198 @@
+{
+  "country": "DE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-26",
+  "reviewer": "Perpetual",
+  "summary": "Germany tenders large volumes of wind and solar under the Renewable Energy Sources Act, with a sliding market premium that lenders accept, and corporate PPAs are growing. Slow permitting and grid bottlenecks are the main obstacles.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5de",
+            "cmsde"
+          ],
+          "confidence": "medium",
+          "reason": "The Federal Network Agency regularly tenders large wind and solar volumes under the Renewable Energy Sources Act, and offshore sites are tendered with grid access included."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5de"
+          ],
+          "confidence": "medium",
+          "reason": "Auction winners receive a sliding market premium that stabilises revenue and is accepted by banks and development lenders."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgdetr"
+          ],
+          "confidence": "low",
+          "reason": "There are no restrictions on moving capital, foreign exchange earnings or dividends."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5de"
+          ],
+          "confidence": "medium",
+          "reason": "Lengthy approvals and bottlenecks in grid expansion and connection remain major obstacles, despite acceleration measures."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgdeen",
+            "cmsde"
+          ],
+          "confidence": "low",
+          "reason": "Targets of 80% renewable electricity by 2030 and 70 GW offshore wind by 2045 are set in law, and no retroactive cut was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "Tendering continues under the existing framework, and no major change was found in the period reviewed.",
+        "sources": [
+          "l5de"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5de"
+          ],
+          "confidence": "low",
+          "reason": "Corporate power purchase agreements are gaining importance for projects outside the support scheme, mainly solar and onshore wind."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "tgdetr"
+          ],
+          "confidence": "low",
+          "reason": "No restrictions on moving capital or dividends."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5de"
+          ],
+          "confidence": "medium",
+          "reason": "Grid connection delays and limited storage hold back new installations."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "tgdeen"
+          ],
+          "confidence": "low",
+          "reason": "Renewable targets are set in law, and no retroactive change to corporate buying was found."
+        }
+      },
+      "direction": {
+        "value": "stable",
+        "reason": "No change to corporate buying rules was found in the period reviewed.",
+        "sources": []
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Coal Exit Act sets the phase-out of coal power by 2038",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsde"
+      ]
+    },
+    {
+      "date": "2023-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Revised Offshore Wind Act sets 30 GW by 2030, 40 GW by 2035 and 70 GW by 2045",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsde"
+      ]
+    },
+    {
+      "date": "2023-07-01",
+      "precision": "month",
+      "kind": "auction",
+      "effect": "positive",
+      "title": "Largest offshore wind tender to date opens, 7 GW across four sites",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "cmsde"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5de",
+      "title": "Renewable Energy, Germany (comparative guide)",
+      "publisher": "Legal 500 (ARQIS)",
+      "url": "https://www.legal500.com/guides/chapter/germany-renewable-energy/",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsde",
+      "title": "Renewable energy in Germany",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/germany",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tgdetr",
+      "title": "Germany Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/germany-trade-financing",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-08-01"
+    },
+    {
+      "id": "tgdeen",
+      "title": "Germany Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/germany-energy",
+      "accessed": "2026-11-26",
+      "kind": "secondary",
+      "published": "2025-08-01"
+    }
+  ],
+  "gaps": "Buyer credit, curtailment compensation and C&I contract terms were not covered by the sources reviewed."
+}

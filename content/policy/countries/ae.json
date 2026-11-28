@@ -1,0 +1,151 @@
+{
+  "country": "AE",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "The UAE procures large solar and storage projects through state-run competitive tenders with long fixed-price PPAs, a model in place for almost 30 years. Direct corporate PPAs and third-party access are limited, and foreign ownership is restricted in some cases.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "medium",
+          "reason": "EWEC in Abu Dhabi and DEWA in Dubai run competitive IPP tenders for large solar and storage projects."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "medium",
+          "reason": "PPAs have fixed prices with agreed escalation for their whole term, which lets developers raise limited recourse finance."
+        },
+        "buyer": {
+          "rating": "supportive",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "low",
+          "reason": "The offtakers EWEC and DEWA are state-owned."
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "low",
+          "reason": "There are restrictions on foreign ownership in some cases, and sovereign funds often co-invest in projects."
+        },
+        "build": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "low",
+          "reason": "The PPA model has been used for almost 30 years, and no retroactive change was found."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Record projects such as the 5.2 GW solar and 19 GWh battery plant are under way.",
+        "sources": [
+          "l5ae"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "mixed",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "medium",
+          "reason": "Direct corporate PPAs and third-party access are limited, but rooftop solar through Shams Dubai suits smaller businesses."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "mixed",
+          "sources": [
+            "l5ae"
+          ],
+          "confidence": "low",
+          "reason": "Foreign ownership is restricted in some cases."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5ae",
+            "cmsae"
+          ],
+          "confidence": "low",
+          "reason": "Grid connection is constrained for distributed generation, and a 2022 federal law regulates linking such units to the grid."
+        },
+        "stability": {
+          "rating": "not_rated",
+          "sources": []
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPAs and off-site purchasing are emerging.",
+        "sources": [
+          "l5ae"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-09-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Federal law regulates connecting distributed renewable units to the grid",
+      "segments": [
+        "ci"
+      ],
+      "sources": [
+        "cmsae"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5ae",
+      "title": "Renewable Energy, United Arab Emirates (comparative guide)",
+      "publisher": "Legal 500 (King & Spalding)",
+      "url": "https://www.legal500.com/guides/chapter/uae-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsae",
+      "title": "Renewable energy in the United Arab Emirates",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/united-arab-emirates",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    }
+  ],
+  "gaps": "Grid connection times and the exact foreign ownership rules for energy companies were not covered by the sources reviewed."
+}

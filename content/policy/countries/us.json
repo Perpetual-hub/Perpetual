@@ -1,0 +1,160 @@
+{
+  "country": "US",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "The United States has deep markets for utility PPAs and corporate virtual PPAs, but the 2025 One Big Beautiful Bill Act sunsets federal tax credits for new solar and wind, while storage and geothermal keep theirs. Interconnection queues and permitting are the main delays.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "medium",
+          "reason": "Projects sell power under their own contracts, utility tariffs or competitive bids, backed by federal and state programmes."
+        },
+        "terms": {
+          "rating": "mixed",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "medium",
+          "reason": "Tax credits made projects bankable, but the 2025 Act sunsets credits for new solar and wind, leaving storage and geothermal supported."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "low",
+          "reason": "Foreign investment is open, with CFIUS national security review for sensitive infrastructure and Chinese involvement."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "medium",
+          "reason": "Many projects wait years in interconnection queues, and permitting reviews and local opposition cause delays."
+        },
+        "stability": {
+          "rating": "unsupportive",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "medium",
+          "reason": "The 2025 Act reversed much of the 2022 Inflation Reduction Act support for solar and wind, and the policy environment has become less predictable."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "Credits for new solar and wind are being phased out, and foreign entity rules add compliance risk.",
+        "sources": [
+          "l5us"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "medium",
+          "reason": "Companies buy through green power programmes, direct and virtual PPAs and on-site solar, with strong frameworks for corporate purchasing."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "low",
+          "reason": "Foreign investment is open, subject to CFIUS review in sensitive cases."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "low",
+          "reason": "On-site projects depend on state rules for interconnection, net metering and local permits."
+        },
+        "stability": {
+          "rating": "mixed",
+          "sources": [
+            "l5us"
+          ],
+          "confidence": "medium",
+          "reason": "Federal tax credits for solar have been cut back by the 2025 Act."
+        }
+      },
+      "direction": {
+        "value": "worsening",
+        "reason": "Federal solar incentives are being phased out.",
+        "sources": [
+          "l5us"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2022-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Inflation Reduction Act expands federal tax credits for clean electricity",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5us"
+      ]
+    },
+    {
+      "date": "2025-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "negative",
+      "title": "One Big Beautiful Bill Act sunsets tax credits for new solar and wind",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "l5us"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5us",
+      "title": "Renewable Energy, United States (comparative guide)",
+      "publisher": "Legal 500 (Baker McKenzie)",
+      "url": "https://www.legal500.com/guides/chapter/united-states-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    }
+  ],
+  "gaps": "Buyer credit, state by state rules and the exact credit deadlines were not covered in detail by the sources reviewed."
+}

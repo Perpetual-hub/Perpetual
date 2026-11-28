@@ -1,0 +1,204 @@
+{
+  "country": "GR",
+  "status": "reviewed",
+  "basis": "desk",
+  "lastReviewed": "2026-11-28",
+  "reviewer": "Perpetual",
+  "summary": "Greece runs competitive auctions with market-linked premiums, now also for grid-scale batteries, and corporate PPAs are growing fast. The market is open to foreign investors, but connection terms and curtailment are the main concerns for lenders.",
+  "segments": {
+    "utility": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5gr",
+            "cmsgr"
+          ],
+          "confidence": "medium",
+          "reason": "Law 4414/2016 set up auctions with market-linked premiums, a form of Contract for Difference, and recent auctions added battery storage support."
+        },
+        "terms": {
+          "rating": "supportive",
+          "sources": [
+            "l5gr"
+          ],
+          "confidence": "low",
+          "reason": "Premiums are paid against a reference price set in competitive tenders."
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "l5gr",
+            "tggrtr"
+          ],
+          "confidence": "medium",
+          "reason": "There are no general restrictions on foreign investment in renewables, and funds can be converted and moved freely."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5gr",
+            "cmsgr"
+          ],
+          "confidence": "medium",
+          "reason": "Investors and lenders focus on connection terms and curtailment risk, though licensing was sped up in 2020."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsgr",
+            "tggren"
+          ],
+          "confidence": "low",
+          "reason": "A 2022 Climate Law sets emissions targets, and the target is 80% renewable electricity by 2030."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Storage auctions and fast-growing corporate PPAs widen the revenue options for projects.",
+        "sources": [
+          "l5gr"
+        ]
+      }
+    },
+    "ci": {
+      "ratings": {
+        "access": {
+          "rating": "supportive",
+          "sources": [
+            "l5gr"
+          ],
+          "confidence": "medium",
+          "reason": "Industrial and corporate PPAs with utility-scale projects are growing rapidly."
+        },
+        "terms": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "buyer": {
+          "rating": "not_rated",
+          "sources": []
+        },
+        "ownership": {
+          "rating": "supportive",
+          "sources": [
+            "l5gr",
+            "tggrtr"
+          ],
+          "confidence": "medium",
+          "reason": "No general restrictions on foreign investment in renewables."
+        },
+        "build": {
+          "rating": "mixed",
+          "sources": [
+            "l5gr"
+          ],
+          "confidence": "low",
+          "reason": "Curtailment and connection terms are key risks."
+        },
+        "stability": {
+          "rating": "supportive",
+          "sources": [
+            "cmsgr"
+          ],
+          "confidence": "low",
+          "reason": "Targets are set in law and no retroactive change was found."
+        }
+      },
+      "direction": {
+        "value": "improving",
+        "reason": "Corporate PPA activity is growing rapidly.",
+        "sources": [
+          "l5gr"
+        ]
+      }
+    }
+  },
+  "redFlags": [],
+  "events": [
+    {
+      "date": "2016-01-01",
+      "precision": "year",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Law 4414/2016 sets up auctions with market-linked premiums",
+      "segments": [
+        "utility"
+      ],
+      "sources": [
+        "l5gr"
+      ]
+    },
+    {
+      "date": "2020-05-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "Licensing and permitting for renewables are sped up",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsgr"
+      ]
+    },
+    {
+      "date": "2022-05-01",
+      "precision": "month",
+      "kind": "law",
+      "effect": "positive",
+      "title": "National Climate Law sets a 55% emissions cut by 2030",
+      "segments": [
+        "utility",
+        "ci"
+      ],
+      "sources": [
+        "cmsgr"
+      ]
+    }
+  ],
+  "log": [],
+  "sources": [
+    {
+      "id": "l5gr",
+      "title": "Renewable Energy, Greece (comparative guide)",
+      "publisher": "Legal 500 (Sardelas Petsa)",
+      "url": "https://www.legal500.com/guides/chapter/greece-renewable-energy/",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2026-06-11"
+    },
+    {
+      "id": "cmsgr",
+      "title": "Renewable energy in Greece",
+      "publisher": "CMS Expert Guides",
+      "url": "https://cms.law/en/int/expert-guides/cms-expert-guide-to-renewable-energy/greece",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2024-02-22"
+    },
+    {
+      "id": "tggren",
+      "title": "Greece Country Commercial Guide, energy",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/greece-energy",
+      "accessed": "2026-11-28",
+      "kind": "secondary",
+      "published": "2025-09-04"
+    },
+    {
+      "id": "tggrtr",
+      "title": "Greece Country Commercial Guide, trade financing",
+      "publisher": "US International Trade Administration",
+      "url": "https://www.trade.gov/country-commercial-guides/greece-trade-financing",
+      "accessed": "2026-11-28",
+      "kind": "secondary"
+    }
+  ],
+  "gaps": "Buyer credit, contract length and curtailment levels were not quantified in the sources reviewed."
+}
