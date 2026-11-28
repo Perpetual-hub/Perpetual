@@ -13,9 +13,8 @@ import {
   getSectorSummary,
 } from "@/lib/data";
 import { DEAL_TYPE_LABEL, daysBetween, formatDate } from "@/lib/format";
-import { HERO_PHOTOS } from "@/lib/hero-photos";
+import { SECTION_PHOTOS } from "@/lib/hero-photos";
 import { TECHNOLOGIES } from "@/lib/tech";
-import { TECH_PHOTOS } from "@/lib/tech-photos";
 import { plainText } from "@/lib/plain-text";
 import { getLatestEvents, getReviewRows, getVerdictCells } from "@/lib/policy-review/data";
 import { VERDICT_CODE, VERDICT_LABEL } from "@/lib/policy-review/cells";
@@ -102,16 +101,15 @@ export default function Home() {
           {
             n: "01",
             title: "Knowledge",
-            body: "Clear guides to how renewable energy works, from the technologies that generate clean power to the ideas behind the markets that finance it.",
             href: "/knowledge",
             cta: "Explore Knowledge",
-            photo: TECH_PHOTOS.solar!.src,
-            tone: "forest",
+            photo: SECTION_PHOTOS.knowledge.src,
+            tone: "paper",
             extra: (
-              <ul className="flex flex-wrap gap-2 border-t border-white/15 pt-5 text-[15px]">
+              <ul className="flex flex-wrap gap-2 border-t border-line pt-5 text-[15px]">
                 {TECHNOLOGIES.map((t) => (
                   <li key={t.id}>
-                    <Link href={`/sectors/${t.id}`} className="inline-block rounded-full border border-white/20 px-4 py-1.5 hover:bg-white/10">
+                    <Link href={`/sectors/${t.id}`} className="inline-block rounded-full border border-line bg-white px-4 py-1.5 hover:border-brand-blue hover:text-brand-blue">
                       {t.label}
                     </Link>
                   </li>
@@ -125,15 +123,15 @@ export default function Home() {
             body: "Renewable energy transactions worldwide, from acquisitions and project finance to power purchase agreements and fund closes, each traced to its original source.",
             href: "/deals",
             cta: "Open the Deal Tracker",
-            photo: HERO_PHOTOS.deals.src,
-            tone: "paper",
+            photo: SECTION_PHOTOS.deals.src,
+            tone: "sky",
             extra: (
-              <ul className="divide-y divide-line border-t border-line text-[15px]">
+              <ul className="divide-y divide-[#0b1f3a]/15 border-t border-[#0b1f3a]/15 text-[15px]">
                 {deals.slice(0, 3).map((d) => (
                   <li key={d.id}>
                     <Link href={`/deals/${d.slug}`} className="flex justify-between gap-6 py-3 hover:text-brand-blue">
                       <span className="line-clamp-1">{d.title}</span>
-                      <span className="tabular shrink-0 text-soft">{formatDate(d.date)}</span>
+                      <span className="tabular shrink-0 text-[#0b1f3a]/65">{formatDate(d.date)}</span>
                     </Link>
                   </li>
                 ))}
@@ -146,8 +144,8 @@ export default function Home() {
             body: "Country assessments of how ready each market is for utility-scale and C&I renewable investment, with the reasoning and sources behind every verdict.",
             href: "/policy",
             cta: "See the reviewed markets",
-            photo: HERO_PHOTOS.policy.src,
-            tone: "green",
+            photo: SECTION_PHOTOS.policy.src,
+            tone: "blue",
             extra: (
               <ol className="divide-y divide-white/20 border-t border-white/20 text-[15px]">
                 {topPolicy.map((p) => (
@@ -169,8 +167,8 @@ export default function Home() {
             body: "Official installed capacity for every region, country and sector from IRENA, with projections from the US Energy Information Administration.",
             href: "/statistics",
             cta: "Explore the statistics",
-            photo: HERO_PHOTOS.statistics.src,
-            tone: "forest",
+            photo: SECTION_PHOTOS.statistics.src,
+            tone: "navy",
             extra: (
               <ol className="space-y-3 border-t border-white/15 pt-4 text-[15px]">
                 {leaders.map((c) => (

@@ -200,16 +200,17 @@ export function KeyFigures({
 }
 
 /* 5. What Perpetual does: three cards that stack as the reader scrolls. */
-export function StackedCards({ cards }: { cards: { n: string; title: string; body: string; href: string; cta: string; photo: string; tone: "paper" | "green" | "forest"; extra: ReactNode }[] }) {
+export function StackedCards({ cards }: { cards: { n: string; title: string; body?: string; href: string; cta: string; photo: string; tone: "paper" | "sky" | "blue" | "navy"; extra: ReactNode }[] }) {
   const tones = {
     paper: { bg: "bg-[#fbfcfe]", ink: "text-[#0b1f3a]", soft: "text-soft", pill: "light" as const },
-    green: { bg: "bg-[#0b5cad]", ink: "text-white", soft: "text-white/80", pill: "dark" as const },
-    forest: { bg: "bg-[var(--home-forest)]", ink: "text-[var(--home-forest-ink)]", soft: "text-[var(--home-forest-muted)]", pill: "dark" as const },
+    sky: { bg: "bg-[#cfe4f7]", ink: "text-[#0b1f3a]", soft: "text-[#0b1f3a]/70", pill: "light" as const },
+    blue: { bg: "bg-[#0b5cad]", ink: "text-white", soft: "text-white/80", pill: "dark" as const },
+    navy: { bg: "bg-[var(--home-forest)]", ink: "text-[var(--home-forest-ink)]", soft: "text-[var(--home-forest-muted)]", pill: "dark" as const },
   };
   return (
     <section aria-labelledby="what-h" className="bg-[var(--home-paper)] pt-20 md:pt-28">
       <div className="container-page">
-        <h2 id="what-h" className="max-w-[20ch] font-display text-[clamp(2.2rem,5vw,4.4rem)] leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
+        <h2 id="what-h" className="font-display text-[clamp(2.2rem,4.2vw,4.4rem)] md:whitespace-nowrap leading-[1] font-light tracking-[-0.04em] text-[#0b1f3a]">
           Four Ways to Explore Renewable Energy
         </h2>
       </div>
@@ -219,14 +220,14 @@ export function StackedCards({ cards }: { cards: { n: string; title: string; bod
           return (
             <li
               key={c.title}
-              className={`sticky ${t.bg} ${c.tone !== "paper" ? "on-dark" : ""} rounded-t-[28px] border-t border-black/5`}
+              className={`sticky ${t.bg} ${t.pill === "dark" ? "on-dark" : ""} rounded-t-[28px] border-t border-black/5`}
               style={{ top: `${4 + i * 0.75}rem` }}
             >
               <div className="container-page grid min-h-[86svh] gap-10 py-12 md:py-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
                 <div className="flex flex-col">
                   <span className={`tabular text-sm ${t.soft}`}>{c.n}</span>
                   <h3 className={`mt-4 font-display text-[clamp(3rem,7vw,6.4rem)] leading-[0.9] font-light tracking-[-0.05em] ${t.ink}`}>{c.title}</h3>
-                  <p className={`mt-8 max-w-lg text-lg leading-relaxed ${t.soft}`}>{c.body}</p>
+                  {c.body && <p className={`mt-8 max-w-lg text-lg leading-relaxed ${t.soft}`}>{c.body}</p>}
                   <div className="mt-8">
                     <Pill href={c.href} tone={t.pill}>
                       {c.cta}
@@ -235,7 +236,7 @@ export function StackedCards({ cards }: { cards: { n: string; title: string; bod
                   <div className={`mt-auto pt-10 ${t.ink}`}>{c.extra}</div>
                 </div>
                 <div className="relative hidden overflow-hidden rounded-[14px] lg:block">
-                  <Image src={c.photo} alt="" fill sizes="45vw" className="object-cover" />
+                  <Image src={c.photo} alt="" fill sizes="45vw" quality={85} className="object-cover" />
                 </div>
               </div>
             </li>

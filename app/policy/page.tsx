@@ -4,7 +4,7 @@ import { Pill } from "@/components/home/Landing";
 import { ReviewTable } from "@/components/policy-review/PolicyOverview";
 import { HeroStats, PageHero } from "@/components/ui/PageHero";
 import { DATA_AS_OF, countryStats } from "@/lib/data";
-import { HERO_PHOTOS } from "@/lib/hero-photos";
+import { SECTION_PHOTOS } from "@/lib/hero-photos";
 import { getAllEvents, getReview, getReviewRows } from "@/lib/policy-review/data";
 import { PolicyTimeline } from "@/components/policy-review/PolicyTimeline";
 
@@ -23,7 +23,7 @@ export default function PolicyPage() {
   return (
     <>
       <PageHero
-        photo={HERO_PHOTOS.policy}
+        photo={SECTION_PHOTOS.policy}
         eyebrow="Policy"
         title="How Ready Each Market Is for Renewable Investment"
         lede="Country assessments of the policy and regulation behind renewable investment. Each reviewed market is rated Ready, Workable or Difficult for utility-scale and C&I deals, with the reasoning and sources behind every rating."

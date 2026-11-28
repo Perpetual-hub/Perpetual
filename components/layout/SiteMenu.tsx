@@ -6,17 +6,17 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { MarkOnDark } from "@/components/brand/Mark";
-import { HERO_PHOTOS } from "@/lib/hero-photos";
+import { SECTION_PHOTOS } from "@/lib/hero-photos";
 import { TECHNOLOGIES } from "@/lib/tech";
 import { TECH_PHOTOS } from "@/lib/tech-photos";
 
 // One kind of renewable per link, so the preview photos vary.
 const ITEMS = [
-  { href: "/knowledge", label: "Knowledge", photo: TECH_PHOTOS.solar!.src },
-  { href: "/deals", label: "Deals", photo: HERO_PHOTOS.deals.src },
-  { href: "/policy", label: "Policy", photo: TECH_PHOTOS.hydro!.src },
-  { href: "/statistics", label: "Statistics", photo: TECH_PHOTOS.storage!.src },
-  { href: "/disclosure", label: "Disclosure", photo: HERO_PHOTOS.statistics.src },
+  { href: "/knowledge", label: "Knowledge", photo: SECTION_PHOTOS.knowledge.src },
+  { href: "/deals", label: "Deals", photo: SECTION_PHOTOS.deals.src },
+  { href: "/policy", label: "Policy", photo: SECTION_PHOTOS.policy.src },
+  { href: "/statistics", label: "Statistics", photo: SECTION_PHOTOS.statistics.src },
+  { href: "/disclosure", label: "Disclosure", photo: SECTION_PHOTOS.disclosure.src },
 ];
 
 /** Full-screen menu: big numbered links on deep green, with a photo that follows the hovered link. */

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/ui/PageHero";
-import { HERO_PHOTOS } from "@/lib/hero-photos";
+import { SECTION_PHOTOS } from "@/lib/hero-photos";
 
 export const metadata: Metadata = {
   title: "Knowledge",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function KnowledgePage() {
   return (
     <PageHero
-      photo={HERO_PHOTOS.about}
+      photo={SECTION_PHOTOS.knowledge}
       eyebrow="Knowledge"
       title="How Renewable Energy Works"
       lede="Clear guides to the technologies, markets and terms behind renewable energy."

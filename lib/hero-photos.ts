@@ -73,3 +73,20 @@ export const HERO_PHOTOS = {
     position: "center 60%",
   },
 } satisfies Record<string, HeroPhoto>;
+
+import { TECH_PHOTOS } from "./tech-photos";
+import type { Technology } from "./types";
+
+function fromTech(id: Technology): HeroPhoto {
+  const p = TECH_PHOTOS[id]!;
+  return { src: p.src, credit: p.credit!, license: p.license!, licenseUrl: p.licenseUrl ?? p.sourceUrl!, sourceUrl: p.sourceUrl!, position: p.position };
+}
+
+/** One photo per main section, shared by its page header, its home page card and the menu. */
+export const SECTION_PHOTOS = {
+  knowledge: fromTech("geothermal"),
+  deals: fromTech("storage"),
+  policy: fromTech("hydro"),
+  statistics: HERO_PHOTOS.statistics,
+  disclosure: HERO_PHOTOS.disclosure,
+};

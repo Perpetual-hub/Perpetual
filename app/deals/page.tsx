@@ -1,4 +1,4 @@
-import { HERO_PHOTOS } from "@/lib/hero-photos";
+import { SECTION_PHOTOS } from "@/lib/hero-photos";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { DealTracker } from "@/components/deals/DealTracker";
@@ -15,7 +15,7 @@ export default function DealsPage() {
   return (
     <>
       <PageHeader
-        photo={HERO_PHOTOS.deals}
+        photo={SECTION_PHOTOS.deals}
         eyebrow="Deals"
         title="Renewable Energy Deals Worldwide"
         intro="A record of renewable energy transactions over the past five years, covering acquisitions, project finance, development finance, equity raises, power purchase agreements, IPOs and fund closes. Each entry is traced to its original announcement or report and the record is updated daily."
