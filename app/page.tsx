@@ -119,10 +119,10 @@ export default function Home() {
           },
           {
             n: "02",
-            title: "Deal Tracker",
+            title: "Deals",
             body: "Renewable energy transactions worldwide, from acquisitions and project finance to power purchase agreements and fund closes, each traced to its original source.",
             href: "/deals",
-            cta: "Open the Deal Tracker",
+            cta: "Explore Deals",
             photo: SECTION_PHOTOS.deals.src,
             tone: "sky",
             extra: (
